@@ -382,18 +382,20 @@ function renderBinaryQuestion(step) {
         <span>${section.title}</span>
         <span class="muted">${t('ui.questionLabel', { current: step.index + 1, total: items.length })}</span>
       </div>
-      <h2 class="question-text">${step.text}</h2>
-      <div class="choice-group" role="radiogroup" aria-label="${t('ui.answerAria')}">
-        <button type="button" class="choice-btn positive ${current === 'positive' ? 'selected' : ''}" data-value="positive">
-          <span class="choice-emoji" aria-hidden="true">👍</span>
-          <span class="choice-label">${section.scale.positive}</span>
-          <span class="choice-shortcut">${t('ui.shortcutLeft')}</span>
-        </button>
-        <button type="button" class="choice-btn negative ${current === 'negative' ? 'selected' : ''}" data-value="negative">
-          <span class="choice-emoji" aria-hidden="true">👎</span>
-          <span class="choice-label">${section.scale.negative}</span>
-          <span class="choice-shortcut">${t('ui.shortcutRight')}</span>
-        </button>
+      <div class="question-stage">
+        <h2 class="question-text">${step.text}</h2>
+        <div class="choice-group" role="radiogroup" aria-label="${t('ui.answerAria')}">
+          <button type="button" class="choice-btn positive ${current === 'positive' ? 'selected' : ''}" data-value="positive">
+            <span class="choice-emoji" aria-hidden="true">👍</span>
+            <span class="choice-label">${section.scale.positive}</span>
+            <span class="choice-shortcut">${t('ui.shortcutLeft')}</span>
+          </button>
+          <button type="button" class="choice-btn negative ${current === 'negative' ? 'selected' : ''}" data-value="negative">
+            <span class="choice-emoji" aria-hidden="true">👎</span>
+            <span class="choice-label">${section.scale.negative}</span>
+            <span class="choice-shortcut">${t('ui.shortcutRight')}</span>
+          </button>
+        </div>
       </div>
       <p class="keyboard-hint">${t('ui.keyboardBinary')}</p>
     </section>
@@ -415,23 +417,25 @@ function renderSelfQuestion(step) {
         <span>${t('ui.selfAssessment')}</span>
         <span class="muted">${t('ui.traitLabel', { current: step.index + 1, total: 12 })}</span>
       </div>
-      <h2 class="question-text">${step.text}</h2>
-      <p class="scale-hint">${t('ui.scaleHint')}</p>
-      <div class="likert-scale">
-        <div class="likert-labels">
-          <span>${t('ui.scaleLow')}</span>
-          <span>${t('ui.scaleMid')}</span>
-          <span>${t('ui.scaleHigh')}</span>
-        </div>
-        <div class="likert-buttons" role="radiogroup" aria-label="${t('ui.scaleAria')}">
-          ${[1, 2, 3, 4, 5, 6, 7]
-            .map(
-              (n) => `
-            <button type="button" class="likert-btn ${current === n ? 'selected' : ''}" data-value="${n}" aria-label="${t('ui.scaleValue', { n })}">
-              <span class="likert-num">${n}</span>
-            </button>`
-            )
-            .join('')}
+      <div class="question-stage">
+        <h2 class="question-text">${step.text}</h2>
+        <p class="scale-hint">${t('ui.scaleHint')}</p>
+        <div class="likert-scale">
+          <div class="likert-labels">
+            <span>${t('ui.scaleLow')}</span>
+            <span>${t('ui.scaleMid')}</span>
+            <span>${t('ui.scaleHigh')}</span>
+          </div>
+          <div class="likert-buttons" role="radiogroup" aria-label="${t('ui.scaleAria')}">
+            ${[1, 2, 3, 4, 5, 6, 7]
+              .map(
+                (n) => `
+              <button type="button" class="likert-btn ${current === n ? 'selected' : ''}" data-value="${n}" aria-label="${t('ui.scaleValue', { n })}">
+                <span class="likert-num">${n}</span>
+              </button>`
+              )
+              .join('')}
+          </div>
         </div>
       </div>
       <p class="keyboard-hint">${t('ui.keyboardSelf')}</p>
@@ -514,8 +518,9 @@ function renderResults() {
   const breakdownRows = TYPES.map((letter) => {
     const b = breakdown[letter];
     const info = typeInfo[letter];
+    const isTop = topThree.includes(letter);
     return `
-      <tr>
+      <tr class="${isTop ? 'is-top' : ''}" style="--type-color: ${info.color}">
         <td><span class="type-badge tiny" style="--type-color: ${info.color}">${letter}</span> ${info.nameLocal}</td>
         <td>${b.taetigkeiten}</td>
         <td>${b.faehigkeiten}</td>
@@ -547,10 +552,7 @@ function renderResults() {
         <div class="holland-code">${hollandCode.split('').map((l) => `<span style="color:${typeInfo[l].color}">${l}</span>`).join('')}</div>
         <p class="combination-note">${describeCombination(topThree)}</p>
         ${renderHexagonChart(totals)}
-        <div class="chart-legend">
-          <span>${t('ui.chartLegendIdeas')}</span>
-          <span>${t('ui.chartLegendPeople')}</span>
-        </div>
+        <p class="chart-caption">${t('ui.chartCaption')}</p>
       </div>`,
     scores: `
       <div class="card">
@@ -624,8 +626,10 @@ function renderResults() {
   document.getElementById('btn-back-results')?.addEventListener('click', goBack);
   document.getElementById('btn-reset')?.addEventListener('click', resetTest);
   document.getElementById('btn-pdf')?.addEventListener('click', () => {
+    const raw = window.prompt(t('ui.pdfNamePrompt'), '');
+    if (raw === null) return;
     const scores = calculateScores(state.answers, getSelfAssessment());
-    downloadRiasecPdf(scores);
+    downloadRiasecPdf(scores, raw.trim());
   });
 }
 

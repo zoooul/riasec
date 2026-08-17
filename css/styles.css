@@ -456,32 +456,53 @@ h2 {
 .question-meta {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  gap: 0.45rem;
   flex-wrap: wrap;
-  font-size: 0.8rem;
-  margin-bottom: 0;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin: 0;
+  padding: 0 0 0.65rem;
   color: var(--muted);
+  opacity: 0.72;
+  border-bottom: 1px solid var(--border);
   flex-shrink: 0;
+}
+
+.question-meta .muted {
+  color: var(--muted);
 }
 
 .question-card {
   display: grid;
-  grid-template-rows: auto auto auto auto;
-  align-content: start;
-  gap: 0.65rem;
+  grid-template-rows: auto 1fr auto;
+  align-content: stretch;
+  gap: 0;
+}
+
+.question-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  min-height: 0;
+  padding: 1.1rem 0.35rem;
 }
 
 .question-card .question-text {
   flex: unset;
-  align-items: flex-start;
-  align-self: start;
+  align-self: center;
+  width: 100%;
+  max-width: 36rem;
 }
 
 .question-card .choice-group {
   margin-top: 0;
   align-self: center;
   width: 100%;
-  max-width: 520px;
+  max-width: 480px;
   margin-inline: auto;
 }
 
@@ -494,11 +515,16 @@ h2 {
 }
 
 .question-text {
-  font-size: clamp(1.05rem, 2.6vh, 1.35rem);
-  line-height: 1.4;
+  font-size: clamp(1.18rem, 2.8vh, 1.6rem);
+  line-height: 1.35;
   margin: 0;
-  font-weight: 600;
-  min-height: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+  min-height: 3.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .choice-group {
@@ -592,10 +618,12 @@ h2 {
 }
 
 .keyboard-hint {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--muted);
   text-align: center;
-  margin: 0.55rem 0 0;
+  margin: 0;
+  padding-top: 0.55rem;
+  opacity: 0.55;
   flex-shrink: 0;
 }
 
@@ -648,9 +676,11 @@ h2 {
 
 .scale-hint {
   color: var(--muted);
-  margin: 0 0 0.65rem;
-  font-size: 0.88rem;
-  flex-shrink: 0;
+  margin: 0;
+  font-size: 0.82rem;
+  text-align: center;
+  max-width: 28rem;
+  opacity: 0.75;
 }
 
 .likert-scale {
@@ -831,15 +861,12 @@ h2 {
   fill: var(--muted);
 }
 
-.chart-legend {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  font-size: 0.75rem;
+.chart-caption {
+  font-size: 0.78rem;
   color: var(--muted);
-  margin-top: 0.25rem;
-  flex-shrink: 0;
+  margin: 0.35rem auto 0;
+  max-width: 28rem;
+  line-height: 1.4;
 }
 
 .table-wrap {
@@ -872,6 +899,19 @@ h2 {
   font-weight: 600;
 }
 
+.score-table tbody tr.is-top {
+  background: color-mix(in srgb, var(--type-color) 12%, #fff);
+}
+
+.score-table tbody tr.is-top td {
+  color: var(--text);
+}
+
+.score-table tbody tr.is-top td:first-child {
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--type-color);
+}
+
 .type-cards {
   display: grid;
   gap: 0.5rem;
@@ -881,13 +921,14 @@ h2 {
 }
 
 .result-type-card {
-  background: var(--bg);
+  background: #fff;
   border-radius: 12px;
   padding: 0.65rem 0.85rem;
   border: 1px solid var(--border);
   border-inline-start: 4px solid var(--type-color);
   min-height: 0;
   overflow: hidden;
+  color: var(--text);
 }
 
 .result-type-card .rank {
@@ -900,6 +941,7 @@ h2 {
 .result-type-card h3 {
   margin: 0.1rem 0;
   font-size: 0.95rem;
+  color: var(--text);
 }
 
 .score-total {
@@ -912,6 +954,7 @@ h2 {
 .result-type-card p {
   margin: 0;
   font-size: 0.8rem;
+  color: var(--text);
 }
 
 .examples {
@@ -1029,6 +1072,7 @@ h2 {
   .question-card .question-text {
     max-height: min(28vh, 200px);
     overflow: auto;
+    min-height: 0;
   }
 
   .type-preview {
@@ -1084,9 +1128,15 @@ h2 {
 }
 
 @media (max-width: 599px) {
-  .question-card {
-    align-content: start;
-    gap: 0.55rem;
+  .question-stage {
+    gap: 1.15rem;
+    padding: 0.85rem 0;
+    justify-content: center;
+  }
+
+  .question-text {
+    min-height: 2.8em;
+    font-size: clamp(1.08rem, 4.2vw, 1.28rem);
   }
 
   .question-card .choice-group {
@@ -1105,13 +1155,9 @@ h2 {
 }
 
 @media (min-width: 600px) and (max-width: 899px) {
-  .question-card {
-    align-content: center;
-    gap: 1rem;
-  }
-
-  .question-card .question-text {
-    max-width: 34rem;
+  .question-stage {
+    gap: 1.7rem;
+    padding: 1.2rem 0.5rem;
   }
 }
 
@@ -1127,15 +1173,16 @@ h2 {
   }
 
   .question-card {
-    align-content: center;
-    gap: 1.15rem;
-    padding-block: 1.5rem;
+    padding-block: 1.15rem 1.25rem;
   }
 
-  .question-card .question-text {
-    justify-self: center;
-    text-align: center;
-    max-width: 36rem;
+  .question-stage {
+    gap: 2rem;
+    padding: 1.5rem 0.75rem;
+  }
+
+  .question-text {
+    min-height: 3.8em;
   }
 
   .choice-btn {
@@ -1145,10 +1192,6 @@ h2 {
 
   .choice-emoji {
     font-size: 1.7rem;
-  }
-
-  .question-card .choice-group {
-    margin-top: 0.25rem;
   }
 }
 
