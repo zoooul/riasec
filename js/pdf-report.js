@@ -83,8 +83,24 @@ function buildHexagonChartDataUrl(totals, pixelSize) {
 function buildInterpretationParagraphs(topThree, totals) {
   const pdf = getLocaleData().pdf;
   const typeInfo = getTypeInfo();
+  const hollandCode = topThree.join('');
+  const top1 = topThree[0];
+  const top2 = topThree[1] ?? topThree[0];
+  const top3 = topThree[2] ?? topThree[1] ?? topThree[0];
+  const gap = totals[top1] - (totals[top3] ?? 0);
+
+  function applyPdfPlaceholders(text) {
+    if (typeof text !== 'string') return text;
+    return text
+      .replace('{hollandCode}', hollandCode)
+      .replace('{top1Letter}', top1)
+      .replace('{top2Letter}', top2)
+      .replace('{top3Letter}', top3)
+      .replace('{gap}', String(gap));
+  }
+
   const paragraphs = [describeCombination(topThree)];
-  paragraphs.push(pdf.theoryParagraph);
+  paragraphs.push(applyPdfPlaceholders(pdf.theoryParagraph));
 
   topThree.forEach((letter, i) => {
     const info = typeInfo[letter];
@@ -94,12 +110,11 @@ function buildInterpretationParagraphs(topThree, totals) {
     );
   });
 
-  const gap = totals[topThree[0]] - (totals[topThree[2]] ?? 0);
   if (gap <= 5) {
-    paragraphs.push(pdf.gapNote);
+    paragraphs.push(applyPdfPlaceholders(pdf.gapNote));
   }
 
-  paragraphs.push(pdf.discussNote);
+  paragraphs.push(applyPdfPlaceholders(pdf.discussNote));
   return paragraphs;
 }
 
@@ -260,19 +275,36 @@ function downloadRiasecPdf(scores) {
   TYPES.forEach((letter) => {
     const b = breakdown[letter];
     const info = typeInfo[letter];
-    doc.setFillColor(255, 255, 255);
+    const isTop = topThree.includes(letter);
+    const [r, g, blue] = isTop ? hexToRgb(info.color) : [226, 221, 212];
+    if (isTop) {
+      // Soft highlight for the top 3 rows (near-white tinted with the type color).
+      const tint = 0.9;
+      doc.setFillColor(
+        Math.round(r * tint + 255 * (1 - tint)),
+        Math.round(g * tint + 255 * (1 - tint)),
+        Math.round(blue * tint + 255 * (1 - tint))
+      );
+      doc.setDrawColor(r, g, blue);
+    } else {
+      doc.setFillColor(255, 255, 255);
+      doc.setDrawColor(226, 221, 212);
+    }
     doc.rect(margin, y, tableWidth, rowHeight, 'FD');
 
     colX = margin;
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8.5);
-    doc.setTextColor(26, 26, 46);
+    if (isTop) doc.setTextColor(r, g, blue);
+    else doc.setTextColor(26, 26, 46);
     doc.text(`${letter} — ${info.nameLocal}`, colX + 2, y + 5.5);
 
     const values = [b.taetigkeiten, b.faehigkeiten, b.berufe, b.selbst, totals[letter]];
     values.forEach((val, i) => {
       colX += colWidths[i];
       doc.setFont('helvetica', i === 4 ? 'bold' : 'normal');
+      if (isTop && i === 4) doc.setTextColor(r, g, blue);
+      else doc.setTextColor(26, 26, 46);
       doc.text(String(val), colX + colWidths[i + 1] / 2, y + 5.5, { align: 'center' });
     });
 

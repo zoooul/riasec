@@ -459,9 +459,40 @@ h2 {
   gap: 0.4rem;
   flex-wrap: wrap;
   font-size: 0.8rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
   color: var(--muted);
   flex-shrink: 0;
+}
+
+.question-card {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  align-content: start;
+  gap: 0.75rem;
+}
+
+.question-card .question-text {
+  flex: unset;
+  align-items: flex-start;
+  align-self: start;
+  max-height: min(42vh, 320px);
+  overflow: auto;
+}
+
+.question-card .choice-group {
+  margin-top: 0;
+  align-self: center;
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.question-card .likert-scale {
+  margin-top: 0;
+  align-self: center;
+  width: 100%;
+  max-width: 420px;
+  margin-inline: auto;
 }
 
 .question-text {
@@ -495,31 +526,56 @@ h2 {
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.choice-btn.positive {
+  background: #ecfdf5;
+  border-color: #16a34a;
+  color: #15803d;
+}
+
+.choice-btn.negative {
+  background: #fef2f2;
+  border-color: #dc2626;
+  color: #b91c1c;
 }
 
 .choice-btn .choice-shortcut {
   display: block;
   font-size: 0.68rem;
   font-weight: 500;
-  color: var(--muted);
+  color: inherit;
+  opacity: 0.75;
   margin-top: 0.25rem;
 }
 
-.choice-btn:hover {
-  border-color: var(--primary);
-  background: var(--primary-soft);
+.choice-btn.positive:hover {
+  background: #d1fae5;
+  border-color: #15803d;
+}
+
+.choice-btn.negative:hover {
+  background: #fee2e2;
+  border-color: #b91c1c;
 }
 
 .choice-btn.selected.positive {
-  background: rgba(13, 148, 136, 0.12);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: #16a34a;
+  border-color: #15803d;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
 }
 
 .choice-btn.selected.negative {
-  background: rgba(239, 68, 68, 0.08);
-  border-color: #ef4444;
-  color: #dc2626;
+  background: #dc2626;
+  border-color: #b91c1c;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.choice-btn.selected .choice-shortcut {
+  opacity: 0.9;
 }
 
 .choice-btn.advancing {
@@ -589,7 +645,7 @@ h2 {
 }
 
 .likert-scale {
-  margin-top: auto;
+  margin-top: 0;
   flex-shrink: 0;
 }
 
@@ -1021,8 +1077,12 @@ h2 {
   }
 
   .choice-btn {
-    min-height: 5rem;
-    font-size: 1.15rem;
+    min-height: 4.5rem;
+    font-size: 1.1rem;
+  }
+
+  .question-card .choice-group {
+    margin-top: 0.25rem;
   }
 }
 

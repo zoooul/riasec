@@ -152,6 +152,11 @@ function goBack() {
 }
 
 function startTest() {
+  if (countAnswered() > 0 && !confirm(t('ui.startConfirm'))) return;
+  if (countAnswered() > 0) {
+    localStorage.removeItem(STORAGE_KEY);
+    state.answers = createEmptyAnswers();
+  }
   state.infoOpen = false;
   state.screen = 'question';
   state.stepIndex = 0;
@@ -176,8 +181,6 @@ function selectBinaryAnswer(step, value) {
   els.main.querySelectorAll('.choice-btn').forEach((btn) => {
     const isSelected = btn.dataset.value === value;
     btn.classList.toggle('selected', isSelected);
-    btn.classList.toggle('positive', isSelected && value === 'positive');
-    btn.classList.toggle('negative', isSelected && value === 'negative');
     btn.classList.toggle('advancing', isSelected);
   });
 
@@ -381,11 +384,11 @@ function renderBinaryQuestion(step) {
       </div>
       <h2 class="question-text">${step.text}</h2>
       <div class="choice-group" role="radiogroup" aria-label="${t('ui.answerAria')}">
-        <button type="button" class="choice-btn ${current === 'positive' ? 'selected positive' : ''}" data-value="positive">
+        <button type="button" class="choice-btn positive ${current === 'positive' ? 'selected' : ''}" data-value="positive">
           ${section.scale.positive}
           <span class="choice-shortcut">${t('ui.shortcutLeft')}</span>
         </button>
-        <button type="button" class="choice-btn ${current === 'negative' ? 'selected negative' : ''}" data-value="negative">
+        <button type="button" class="choice-btn negative ${current === 'negative' ? 'selected' : ''}" data-value="negative">
           ${section.scale.negative}
           <span class="choice-shortcut">${t('ui.shortcutRight')}</span>
         </button>
