@@ -4,9 +4,9 @@
 
 **[English](#english)** · **[Deutsch](#deutsch)**
 
-Interactive Holland RIASEC questionnaire for coaching and career self-reflection — 228 questions, six languages, local progress, printable PDF. Based on the herbwood coaching questionnaire (© 2018). Vanilla HTML/CSS/JS, no build step.
+Interactive Holland RIASEC questionnaire for coaching and career self-reflection — 228 questions, eight languages, local progress, printable PDF. Based on the herbwood coaching questionnaire (© 2018). Vanilla HTML/CSS/JS, no build step.
 
-**Features:** Holland code · hexagon profile · score breakdown · coaching-ready PDF · Deutsch · English · فارسی · Español · Français · Türkçe · mobile-friendly · works offline
+**Features:** Holland code · hexagon profile · score breakdown · coaching-ready PDF · Deutsch · English · فارسی · Español · Français · Türkçe · Українська · Русский · mobile-friendly · works offline
 
 ---
 
@@ -14,7 +14,7 @@ Interactive Holland RIASEC questionnaire for coaching and career self-reflection
 
 ## Find career directions that actually fit — in minutes, in your language.
 
-An interactive Holland RIASEC test for coaching and self-reflection. Six languages, no installation, one question per screen. Open it in the browser or put the folder on any website.
+An interactive Holland RIASEC test for coaching and self-reflection. Eight languages, no installation, one question per screen. Open it in the browser or put the folder on any website.
 
 ### What this test is for
 
@@ -65,7 +65,7 @@ No account, no server, no tracking beyond your own browser storage. Starting a n
 
 - **Ready in a click** — open `index.html`, use the [live demo](https://zoooul.github.io/riasec/), or drop the folder on your site. No login, no backend.
 - **Built for phones and desktops** — one question per screen, clear green/red answer buttons, no page scrolling while answering.
-- **Truly multilingual** — Deutsch, English, فارسی, Español, Français, Türkçe, plus RTL. Add another language with a single file.
+- **Truly multilingual** — Deutsch, English, فارسی, Español, Français, Türkçe, Українська, Русский, plus RTL. Add another language with a single file.
 - **Coaching-ready** — transparent scoring, detailed PDF report with Holland-code interpretation, language you can share with clients.
 - **Yours to host** — static files only. GitHub Pages, any web space, or a USB stick.
 
@@ -79,6 +79,8 @@ No account, no server, no tracking beyond your own browser storage. Starting a n
 | `es` | Español | `js/locales/es.js` |
 | `fr` | Français | `js/locales/fr.js` |
 | `tr` | Türkçe | `js/locales/tr.js` |
+| `uk` | Українська (Ukrainian) | `js/locales/uk.js` |
+| `ru` | Русский (Russian) | `js/locales/ru.js` |
 
 The UI follows the browser language when possible and stores the last choice in `localStorage`. RTL layout is enabled automatically (e.g. Persian).
 
@@ -119,7 +121,7 @@ This is a static site. Copy the whole project folder onto your web space (Apache
 
 Paths are relative (`css/`, `js/`), so the app works in a subdirectory.
 
-**PDF export** uses a local copy of jsPDF (`js/lib/jspdf.umd.min.js`) and works offline. Non-Latin scripts (Persian and some others) may not render fully in the PDF because the built-in font is Helvetica. The on-screen questionnaire is complete in all languages.
+**PDF export** uses a local copy of jsPDF (`js/lib/jspdf.umd.min.js`) and works offline. Non-Latin scripts (Persian, Ukrainian, Russian and some others) may not render fully in the PDF because the built-in font is Helvetica. The on-screen questionnaire is complete in all languages.
 
 ### Project layout
 
@@ -136,7 +138,9 @@ riasec/
 │   │   ├── fa.js
 │   │   ├── es.js
 │   │   ├── fr.js
-│   │   └── tr.js
+│   │   ├── tr.js
+│   │   ├── uk.js
+│   │   └── ru.js
 │   ├── data.js
 │   ├── scoring.js
 │   ├── pdf-report.js
@@ -160,7 +164,7 @@ Vanilla HTML, CSS and JavaScript. No Node.js, no bundler.
 
 ## Berufliche Richtungen finden, die wirklich passen — in Minuten, in Ihrer Sprache.
 
-Ein interaktiver Holland-RIASEC-Test für Coaching und Selbstklärung. Sechs Sprachen, keine Installation, eine Frage pro Bildschirm. Im Browser öffnen oder als Ordner auf jede Website legen.
+Ein interaktiver Holland-RIASEC-Test für Coaching und Selbstklärung. Acht Sprachen, keine Installation, eine Frage pro Bildschirm. Im Browser öffnen oder als Ordner auf jede Website legen.
 
 ### Wozu dieser Test da ist
 
@@ -211,7 +215,7 @@ Kein Konto, kein Server, keine Tracking-Daten außerhalb Ihres Browsers. Beim Ne
 
 - **Sofort startklar** — `index.html` öffnen, [Live-Demo](https://zoooul.github.io/riasec/) nutzen oder den Ordner auf die Website legen. Kein Login, kein Backend.
 - **Für Handy und Desktop gebaut** — eine Frage pro Bildschirm, klare grün/rote Antwortbuttons, kein Seitenscrollen während des Tests.
-- **Wirklich mehrsprachig** — Deutsch, English, فارسی, Español, Français, Türkçe, plus RTL. Weitere Sprache mit einer Datei.
+- **Wirklich mehrsprachig** — Deutsch, English, فارسی, Español, Français, Türkçe, Українська, Русский, plus RTL. Weitere Sprache mit einer Datei.
 - **Coaching-tauglich** — nachvollziehbare Berechnung, ausführlicher PDF-Bericht mit Holland-Code-Interpretation, Sprache der Klientinnen und Klienten.
 - **Selbst hosten** — nur statische Dateien. GitHub Pages, jeder Webspace oder ein USB-Stick.
 
@@ -225,6 +229,8 @@ Kein Konto, kein Server, keine Tracking-Daten außerhalb Ihres Browsers. Beim Ne
 | `es` | Español | `js/locales/es.js` |
 | `fr` | Français | `js/locales/fr.js` |
 | `tr` | Türkçe | `js/locales/tr.js` |
+| `uk` | Українська (Ukrainisch) | `js/locales/uk.js` |
+| `ru` | Русский (Russisch) | `js/locales/ru.js` |
 
 Die Oberfläche folgt möglichst der Browsersprache und merkt sich die letzte Wahl in `localStorage`. RTL wird automatisch aktiv (z. B. Persisch).
 
@@ -265,7 +271,7 @@ Statische Seite. Den gesamten Projektordner auf den Webspace kopieren (Apache, n
 
 Pfade sind relativ (`css/`, `js/`), die App läuft also auch in einem Unterordner.
 
-**PDF-Export** nutzt eine lokale Kopie von jsPDF (`js/lib/jspdf.umd.min.js`) und funktioniert offline. Nicht-lateinische Schriften (Persisch u. a.) können im PDF durch Helvetica eingeschränkt sein. Am Bildschirm ist der Fragebogen in allen Sprachen vollständig.
+**PDF-Export** nutzt eine lokale Kopie von jsPDF (`js/lib/jspdf.umd.min.js`) und funktioniert offline. Nicht-lateinische Schriften (Persisch, Ukrainisch, Russisch u. a.) können im PDF durch Helvetica eingeschränkt sein. Am Bildschirm ist der Fragebogen in allen Sprachen vollständig.
 
 ### Projektstruktur
 
@@ -282,7 +288,9 @@ riasec/
 │   │   ├── fa.js
 │   │   ├── es.js
 │   │   ├── fr.js
-│   │   └── tr.js
+│   │   ├── tr.js
+│   │   ├── uk.js
+│   │   └── ru.js
 │   ├── data.js
 │   ├── scoring.js
 │   ├── pdf-report.js

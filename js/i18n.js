@@ -8,7 +8,7 @@
 const LOCALE_STORAGE_KEY = 'riasec-locale-v1';
 
 /** Preferred button/select order. Extra registered locales are appended. */
-const LOCALE_ORDER = ['de', 'en', 'fa', 'es', 'fr', 'tr'];
+const LOCALE_ORDER = ['de', 'en', 'fa', 'es', 'fr', 'tr', 'uk', 'ru'];
 
 const LOCALE_ALIASES = {
   ps: 'fa',
@@ -22,6 +22,8 @@ const LOCALE_ALIASES = {
   'es-mx': 'es',
   'fr-fr': 'fr',
   'tr-tr': 'tr',
+  'uk-ua': 'uk',
+  'ru-ru': 'ru',
 };
 
 const localeRegistry = {};

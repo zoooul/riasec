@@ -385,11 +385,13 @@ function renderBinaryQuestion(step) {
       <h2 class="question-text">${step.text}</h2>
       <div class="choice-group" role="radiogroup" aria-label="${t('ui.answerAria')}">
         <button type="button" class="choice-btn positive ${current === 'positive' ? 'selected' : ''}" data-value="positive">
-          ${section.scale.positive}
+          <span class="choice-emoji" aria-hidden="true">👍</span>
+          <span class="choice-label">${section.scale.positive}</span>
           <span class="choice-shortcut">${t('ui.shortcutLeft')}</span>
         </button>
         <button type="button" class="choice-btn negative ${current === 'negative' ? 'selected' : ''}" data-value="negative">
-          ${section.scale.negative}
+          <span class="choice-emoji" aria-hidden="true">👎</span>
+          <span class="choice-label">${section.scale.negative}</span>
           <span class="choice-shortcut">${t('ui.shortcutRight')}</span>
         </button>
       </div>
