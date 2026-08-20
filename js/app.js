@@ -539,6 +539,9 @@ function renderResults() {
           <h3>${info.letter} — ${info.nameLocal}</h3>
           <p class="score-total">${totals[letter]} ${t('ui.points')}</p>
           <p>${info.description}</p>
+          ${Array.isArray(info.industries) && info.industries.length
+            ? `<p class="examples"><strong>${t('ui.industriesLabel')}</strong> ${info.industries.join(', ')}</p>`
+            : ''}
           <p class="examples"><strong>${t('ui.exampleJobs')}</strong> ${info.examples.join(', ')}</p>
         </div>`;
     })

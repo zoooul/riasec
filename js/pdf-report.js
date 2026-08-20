@@ -1,6 +1,6 @@
 /**
  * Client-side PDF export for RIASEC results (A4, print-ready).
- * Requires jsPDF loaded from js/lib/jspdf.umd.min.js.
+ * Requires jsPDF + embedded Unicode fonts (DejaVu / Vazirmatn) and optional Persian reshaper.
  */
 
 function hexToRgb(hex) {
@@ -16,6 +16,42 @@ function applyPdfPlaceholders(text, values) {
     .replaceAll('{top2Letter}', values.top2)
     .replaceAll('{top3Letter}', values.top3)
     .replaceAll('{gap}', String(values.gap));
+}
+
+function getPdfFontFamily(locale) {
+  return locale === 'fa' ? 'Vazirmatn' : 'DejaVuSans';
+}
+
+function registerPdfFonts(doc, locale) {
+  const family = getPdfFontFamily(locale);
+  if (family === 'Vazirmatn') {
+    if (!window.RIASEC_FONT_VAZIR_NORMAL || !window.RIASEC_FONT_VAZIR_BOLD) {
+      throw new Error('Vazirmatn font data missing');
+    }
+    doc.addFileToVFS('Vazirmatn-Regular.ttf', window.RIASEC_FONT_VAZIR_NORMAL);
+    doc.addFont('Vazirmatn-Regular.ttf', 'Vazirmatn', 'normal');
+    doc.addFileToVFS('Vazirmatn-Bold.ttf', window.RIASEC_FONT_VAZIR_BOLD);
+    doc.addFont('Vazirmatn-Bold.ttf', 'Vazirmatn', 'bold');
+  } else {
+    if (!window.RIASEC_FONT_DEJAVU_NORMAL || !window.RIASEC_FONT_DEJAVU_BOLD) {
+      throw new Error('DejaVu font data missing');
+    }
+    doc.addFileToVFS('DejaVuSans.ttf', window.RIASEC_FONT_DEJAVU_NORMAL);
+    doc.addFont('DejaVuSans.ttf', 'DejaVuSans', 'normal');
+    doc.addFileToVFS('DejaVuSans-Bold.ttf', window.RIASEC_FONT_DEJAVU_BOLD);
+    doc.addFont('DejaVuSans-Bold.ttf', 'DejaVuSans', 'bold');
+  }
+  return family;
+}
+
+/** Shape + reverse for jsPDF visual RTL (Persian/Arabic). */
+function prepareRtlLine(text) {
+  if (!text) return '';
+  let shaped = text;
+  if (window.PersianShaper && typeof window.PersianShaper.convertArabic === 'function') {
+    shaped = window.PersianShaper.convertArabic(text);
+  }
+  return shaped.split('').reverse().join('');
 }
 
 function buildHexagonChartDataUrl(totals, pixelSize) {
@@ -90,20 +126,17 @@ function buildHexagonChartDataUrl(totals, pixelSize) {
   return canvas.toDataURL('image/png');
 }
 
-function addPdfFooters(doc, pageWidth, pageHeight, margin) {
+function addPdfFooters(doc, pageWidth, pageHeight, margin, fontFamily, isRtl) {
   const pdf = getLocaleData().pdf;
   const pageCount = doc.internal.getNumberOfPages();
   for (let i = 1; i <= pageCount; i++) {
     doc.setPage(i);
-    doc.setFont('helvetica', 'normal');
+    doc.setFont(fontFamily, 'normal');
     doc.setFontSize(8);
     doc.setTextColor(120, 120, 120);
-    doc.text(
-      pdf.pageOf.replace('{current}', String(i)).replace('{total}', String(pageCount)),
-      pageWidth / 2,
-      pageHeight - margin / 2,
-      { align: 'center' }
-    );
+    const label = pdf.pageOf.replace('{current}', String(i)).replace('{total}', String(pageCount));
+    const draw = isRtl ? prepareRtlLine(label) : label;
+    doc.text(draw, pageWidth / 2, pageHeight - margin / 2, { align: 'center' });
   }
 }
 
@@ -113,8 +146,11 @@ function downloadRiasecPdf(scores, personName) {
     return;
   }
 
-  const pdf = getLocaleData().pdf;
+  const locale = typeof getLocale === 'function' ? getLocale() : 'en';
+  const localeData = getLocaleData();
+  const pdf = localeData.pdf;
   const typeInfo = getTypeInfo();
+  const isRtl = localeData.meta?.dir === 'rtl' || locale === 'fa';
   const { breakdown, totals, hollandCode, topThree } = scores;
   const maxScores = getMaxPossibleScores();
   const { jsPDF } = window.jspdf;
@@ -127,12 +163,43 @@ function downloadRiasecPdf(scores, personName) {
   const placeholders = { hollandCode, top1, top2, top3, gap };
 
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  let fontFamily;
+  try {
+    fontFamily = registerPdfFonts(doc, locale);
+  } catch (err) {
+    console.error(err);
+    alert(t('ui.pdfNotLoaded'));
+    return;
+  }
+
   const margin = 18;
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
   const contentWidth = pageWidth - 2 * margin;
   const footerReserve = 14;
+  const leftX = margin;
+  const rightX = pageWidth - margin;
   let y = margin;
+
+  function setFace(style, size, color) {
+    doc.setFont(fontFamily, style);
+    doc.setFontSize(size);
+    if (color) doc.setTextColor(...color);
+  }
+
+  function drawText(text, x, yy, options) {
+    const opts = options || {};
+    const draw = isRtl ? prepareRtlLine(text) : text;
+    if (isRtl && !opts.align) {
+      doc.text(draw, rightX, yy, { ...opts, align: 'right' });
+    } else if (isRtl && opts.align === 'center') {
+      doc.text(draw, x, yy, opts);
+    } else if (isRtl && opts.align === 'left') {
+      doc.text(draw, x, yy, { ...opts, align: 'left' });
+    } else {
+      doc.text(draw, x, yy, opts);
+    }
+  }
 
   function ensureSpace(needed) {
     if (y + needed > pageHeight - footerReserve) {
@@ -144,10 +211,8 @@ function downloadRiasecPdf(scores, personName) {
   function heading(text, size, extraNeeded) {
     const headingH = size * 0.45 + 6;
     ensureSpace(headingH + (extraNeeded || 0));
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(size);
-    doc.setTextColor(15, 23, 42);
-    doc.text(text, margin, y);
+    setFace('bold', size, [15, 23, 42]);
+    drawText(text, leftX, y);
     y += headingH;
   }
 
@@ -157,55 +222,129 @@ function downloadRiasecPdf(scores, personName) {
 
   function bodyText(text, size) {
     if (!text) return;
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(size);
-    doc.setTextColor(51, 65, 85);
+    setFace('normal', size, [51, 65, 85]);
     const lines = doc.splitTextToSize(text, contentWidth);
     lines.forEach((line) => {
       ensureSpace(6);
-      doc.text(line, margin, y);
+      drawText(line, leftX, y);
       y += 5;
     });
     y += 3.5;
+  }
+
+  function labeledList(label, items, size) {
+    if (!items || !items.length) return;
+    setFace('bold', size, [30, 41, 59]);
+    ensureSpace(8);
+    drawText(label, leftX, y);
+    y += 5;
+    setFace('normal', size, [51, 65, 85]);
+    const bullet = isRtl ? ' •' : '• ';
+    items.forEach((item) => {
+      const line = isRtl ? `${item}${bullet}` : `${bullet}${item}`;
+      const wrapped = doc.splitTextToSize(line, contentWidth - 2);
+      wrapped.forEach((w) => {
+        ensureSpace(6);
+        drawText(w, leftX + (isRtl ? 0 : 2), y);
+        y += 4.8;
+      });
+    });
+    y += 3;
+  }
+
+  function typeBlock(letter, rank) {
+    const info = typeInfo[letter];
+    const [r, g, blue] = hexToRgb(info.color);
+    const typeHeading = (pdf.typeHeading || '{rank}. {letter} — {name} ({score})')
+      .replaceAll('{rank}', String(rank))
+      .replaceAll('{letter}', info.letter)
+      .replaceAll('{name}', info.nameLocal)
+      .replaceAll('{score}', `${totals[letter]} ${t('ui.points')}`);
+
+    const industries = Array.isArray(info.industries) ? info.industries : [];
+    const examples = Array.isArray(info.examples) ? info.examples : [];
+    const estHeight = 28 + Math.ceil((info.description || '').length / 90) * 5
+      + industries.length * 5 + examples.length * 5;
+    ensureSpace(Math.min(estHeight, 55));
+
+    const blockTop = y - 2;
+    const pad = 4;
+    // Soft background + accent bar; height filled after measuring content start
+    const contentStartY = y;
+
+    setFace('bold', 12, [15, 23, 42]);
+    drawText(typeHeading, leftX + 3, y + 4);
+    y += 10;
+
+    doc.setFillColor(r, g, blue);
+    doc.rect(leftX, contentStartY, 1.8, 8, 'F');
+
+    bodyText(info.description, 10);
+
+    const industriesLabel = pdf.industriesLabel || t('ui.industriesLabel') || 'Industries:';
+    const jobsLabel = pdf.jobsLabel || pdf.exampleJobs || t('ui.exampleJobs') || 'Example occupations:';
+    labeledList(industriesLabel, industries, 9.5);
+    labeledList(jobsLabel, examples, 9.5);
+
+    const blockBottom = y + 1;
+    doc.setDrawColor(226, 232, 240);
+    doc.setFillColor(248, 250, 252);
+    // Draw background behind by re-drawing a light rect is awkward after text;
+    // use a bottom rule and spacing instead for clear separation.
+    doc.setDrawColor(226, 232, 240);
+    doc.setLineWidth(0.3);
+    doc.line(leftX, blockBottom, rightX, blockBottom);
+    y = blockBottom + 8;
+
+    void blockTop;
+    void pad;
   }
 
   const headerH = name ? 44 : 38;
   doc.setFillColor(13, 148, 136);
   doc.rect(0, 0, pageWidth, headerH, 'F');
   doc.setTextColor(255, 255, 255);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(20);
-  doc.text(pdf.title, margin, 16);
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(10);
-  doc.text(pdf.subtitle, margin, 24);
+  setFace('bold', 20);
+  drawText(pdf.title, leftX, 16);
+  setFace('normal', 10);
+  drawText(pdf.subtitle, leftX, 24);
   if (name) {
     const prepared = (pdf.preparedFor || '{name}').replaceAll('{name}', name);
-    doc.setFont('helvetica', 'bold');
-    doc.setFontSize(11);
-    doc.text(prepared, margin, 34);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(9);
-    doc.text(pdf.createdOn.replace('{date}', formatDate(new Date())), pageWidth - margin, 34, { align: 'right' });
+    setFace('bold', 11);
+    drawText(prepared, leftX, 34);
+    setFace('normal', 9);
+    const created = pdf.createdOn.replace('{date}', formatDate(new Date()));
+    const createdDraw = isRtl ? prepareRtlLine(created) : created;
+    doc.text(createdDraw, isRtl ? leftX : rightX, 34, { align: isRtl ? 'left' : 'right' });
   } else {
-    doc.text(pdf.createdOn.replace('{date}', formatDate(new Date())), pageWidth - margin, 24, { align: 'right' });
+    const created = pdf.createdOn.replace('{date}', formatDate(new Date()));
+    const createdDraw = isRtl ? prepareRtlLine(created) : created;
+    doc.text(createdDraw, isRtl ? leftX : rightX, 24, { align: isRtl ? 'left' : 'right' });
   }
 
   y = headerH + 12;
 
   heading(pdf.hollandCode, 15, 28);
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(26);
-  let codeX = margin;
-  hollandCode.split('').forEach((letter) => {
-    doc.setTextColor(...hexToRgb(typeInfo[letter].color));
-    doc.text(letter, codeX, y);
-    codeX += 13;
-  });
+  setFace('bold', 26);
+  if (isRtl) {
+    let codeX = rightX;
+    hollandCode.split('').reverse().forEach((letter) => {
+      doc.setTextColor(...hexToRgb(typeInfo[letter].color));
+      doc.text(letter, codeX, y, { align: 'right' });
+      codeX -= 13;
+    });
+  } else {
+    let codeX = leftX;
+    hollandCode.split('').forEach((letter) => {
+      doc.setTextColor(...hexToRgb(typeInfo[letter].color));
+      doc.text(letter, codeX, y);
+      codeX += 13;
+    });
+  }
   y += 10;
   const codeNames = topThree
     .map((letter) => `${letter} (${typeInfo[letter].nameLocal}, ${totals[letter]} ${t('ui.points')})`)
-    .join('  ·  ');
+    .join(isRtl ? '  ·  ' : '  ·  ');
   bodyText(codeNames, 10);
   bodyText(describeCombination(topThree), 10);
 
@@ -214,16 +353,14 @@ function downloadRiasecPdf(scores, personName) {
   const chartDataUrl = buildHexagonChartDataUrl(totals, 400);
   doc.addImage(chartDataUrl, 'PNG', (pageWidth - chartSize) / 2, y, chartSize, chartSize);
   y += chartSize + 6;
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(8);
-  doc.setTextColor(100, 116, 139);
+  setFace('normal', 8, [100, 116, 139]);
   const captionLines = doc.splitTextToSize(t('ui.chartCaption'), contentWidth);
   captionLines.forEach((line) => {
     ensureSpace(5);
-    doc.text(line, pageWidth / 2, y, { align: 'center' });
+    drawText(line, pageWidth / 2, y, { align: 'center' });
     y += 4.2;
   });
-  y += 8;
+  y += 10;
 
   const colWidths = [48, 22, 22, 22, 22, 22];
   const tableWidth = colWidths.reduce((sum, w) => sum + w, 0);
@@ -238,9 +375,7 @@ function downloadRiasecPdf(scores, personName) {
   doc.setDrawColor(226, 232, 240);
   doc.rect(margin, tableTop, tableWidth, headerHeight, 'FD');
 
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(7);
-  doc.setTextColor(71, 85, 105);
+  setFace('bold', 7, [71, 85, 105]);
 
   let colX = margin;
   const headerLabels = [
@@ -261,12 +396,14 @@ function downloadRiasecPdf(scores, personName) {
   ];
 
   headerLabels.forEach((label, i) => {
+    const draw = isRtl ? prepareRtlLine(label) : label;
     if (i === 0) {
-      doc.text(label, colX + 2, tableTop + 6);
+      doc.text(draw, colX + 2, tableTop + 6);
     } else {
-      doc.text(label, colX + colWidths[i] / 2, tableTop + 4, { align: 'center' });
+      doc.text(draw, colX + colWidths[i] / 2, tableTop + 4, { align: 'center' });
       doc.setFontSize(6);
-      doc.text(maxLabels[i], colX + colWidths[i] / 2, tableTop + 8, { align: 'center' });
+      const maxDraw = isRtl ? prepareRtlLine(maxLabels[i]) : maxLabels[i];
+      doc.text(maxDraw, colX + colWidths[i] / 2, tableTop + 8, { align: 'center' });
       doc.setFontSize(7);
     }
     colX += colWidths[i];
@@ -299,23 +436,21 @@ function downloadRiasecPdf(scores, personName) {
     }
 
     colX = margin;
-    doc.setFont('helvetica', isTop ? 'bold' : 'normal');
-    doc.setFontSize(8.5);
-    doc.setTextColor(15, 23, 42);
-    doc.text(`${letter} — ${info.nameLocal}`, colX + 3.2, y + 5.5);
+    setFace(isTop ? 'bold' : 'normal', 8.5, [15, 23, 42]);
+    const catLabel = `${letter} — ${info.nameLocal}`;
+    drawText(catLabel, colX + 3.2, y + 5.5);
 
     const values = [b.taetigkeiten, b.faehigkeiten, b.berufe, b.selbst, totals[letter]];
     values.forEach((val, i) => {
       colX += colWidths[i];
-      doc.setFont('helvetica', i === 4 ? 'bold' : 'normal');
-      doc.setTextColor(15, 23, 42);
+      setFace(i === 4 ? 'bold' : 'normal', 8.5, [15, 23, 42]);
       doc.text(String(val), colX + colWidths[i + 1] / 2, y + 5.5, { align: 'center' });
     });
 
     y += rowHeight;
   });
 
-  y += 10;
+  y += 12;
 
   const howToRead = applyPdfPlaceholders(pdf.howToRead || pdf.theoryParagraph, placeholders);
   heading(pdf.interpretation, 14, 48);
@@ -325,22 +460,16 @@ function downloadRiasecPdf(scores, personName) {
     bodyText(applyPdfPlaceholders(pdf.gapNote, placeholders), 10);
   }
 
+  y += 2;
   topThree.forEach((letter, i) => {
-    const info = typeInfo[letter];
-    const typeHeading = (pdf.typeHeading || '{rank}. {letter} — {name} ({score})')
-      .replaceAll('{rank}', String(i + 1))
-      .replaceAll('{letter}', info.letter)
-      .replaceAll('{name}', info.nameLocal)
-      .replaceAll('{score}', `${totals[letter]} ${t('ui.points')}`);
-    const typeBody = `${info.description} ${pdf.exampleJobs} ${info.examples.slice(0, 4).join(', ')}.`;
-    heading(typeHeading, 12, 20);
-    bodyText(typeBody, 10);
+    typeBlock(letter, i + 1);
   });
 
+  y += 2;
   heading(pdf.nextStepsTitle || pdf.interpretation, 13, 18);
   bodyText(applyPdfPlaceholders(pdf.discussNote, placeholders), 10);
 
-  addPdfFooters(doc, pageWidth, pageHeight, margin);
+  addPdfFooters(doc, pageWidth, pageHeight, margin, fontFamily, isRtl);
 
   const dateStr = new Date().toISOString().slice(0, 10);
   const safeName = name ? `-${name.replace(/[\\/:*?"<>|]+/g, '').slice(0, 40)}` : '';
