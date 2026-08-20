@@ -121,7 +121,7 @@ This is a static site. Copy the whole project folder onto your web space (Apache
 
 Paths are relative (`css/`, `js/`), so the app works in a subdirectory.
 
-**PDF export** uses a local copy of jsPDF (`js/lib/jspdf.umd.min.js`) and works offline. Non-Latin scripts (Persian, Ukrainian, Russian and some others) may not render fully in the PDF because the built-in font is Helvetica. The on-screen questionnaire is complete in all languages.
+**PDF export** uses a local copy of jsPDF (`js/lib/jspdf.umd.min.js`) with embedded Unicode fonts (**DejaVu Sans** for Latin/Cyrillic, **Vazirmatn** for Persian) so Deutsch, English, Español, Français, Türkçe, Українська, Русский and فارسی render correctly offline. Persian uses logical Unicode with RTL alignment so PDF viewers can apply OpenType shaping. The report includes industries, example occupations, and a structured interpretation for your top types.
 
 ### Project layout
 
@@ -144,7 +144,9 @@ riasec/
 │   ├── data.js
 │   ├── scoring.js
 │   ├── pdf-report.js
-│   ├── lib/jspdf.umd.min.js
+│   ├── lib/
+│   │   ├── jspdf.umd.min.js
+│   │   └── fonts/           # DejaVu + Vazirmatn (base64) + licenses
 │   └── app.js
 ├── .gitignore
 └── README.md
@@ -271,7 +273,7 @@ Statische Seite. Den gesamten Projektordner auf den Webspace kopieren (Apache, n
 
 Pfade sind relativ (`css/`, `js/`), die App läuft also auch in einem Unterordner.
 
-**PDF-Export** nutzt eine lokale Kopie von jsPDF (`js/lib/jspdf.umd.min.js`) und funktioniert offline. Nicht-lateinische Schriften (Persisch, Ukrainisch, Russisch u. a.) können im PDF durch Helvetica eingeschränkt sein. Am Bildschirm ist der Fragebogen in allen Sprachen vollständig.
+**PDF-Export** nutzt eine lokale Kopie von jsPDF (`js/lib/jspdf.umd.min.js`) mit eingebetteten Unicode-Schriften (**DejaVu Sans** für Latein/Kyrillisch, **Vazirmatn** für Persisch), sodass Deutsch, English, Español, Français, Türkçe, Українська, Русский und فارسی offline korrekt dargestellt werden. Persisch nutzt logisches Unicode mit RTL-Ausrichtung, damit PDF-Viewer OpenType-Shaping anwenden können. Der Bericht enthält Branchen, Beispielberufe und eine strukturierte Interpretation der Top-Typen.
 
 ### Projektstruktur
 
@@ -294,7 +296,9 @@ riasec/
 │   ├── data.js
 │   ├── scoring.js
 │   ├── pdf-report.js
-│   ├── lib/jspdf.umd.min.js
+│   ├── lib/
+│   │   ├── jspdf.umd.min.js
+│   │   └── fonts/           # DejaVu + Vazirmatn (Base64) + Lizenzen
 │   └── app.js
 ├── .gitignore
 └── README.md
