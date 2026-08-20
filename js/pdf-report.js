@@ -44,14 +44,14 @@ function registerPdfFonts(doc, locale) {
   return family;
 }
 
-/** Shape + reverse for jsPDF visual RTL (Persian/Arabic). */
+/**
+ * Prepare Persian/Arabic for jsPDF.
+ * Modern Unicode TTF embedding (Vazirmatn) lets PDF viewers apply OpenType shaping
+ * and bidi on logical text. Manual presentation-form reshape + reverse breaks joining.
+ */
 function prepareRtlLine(text) {
   if (!text) return '';
-  let shaped = text;
-  if (window.PersianShaper && typeof window.PersianShaper.convertArabic === 'function') {
-    shaped = window.PersianShaper.convertArabic(text);
-  }
-  return shaped.split('').reverse().join('');
+  return text;
 }
 
 function buildHexagonChartDataUrl(totals, pixelSize) {
@@ -188,17 +188,25 @@ function downloadRiasecPdf(scores, personName) {
   }
 
   function drawText(text, x, yy, options) {
-    const opts = options || {};
+    const opts = { ...(options || {}) };
     const draw = isRtl ? prepareRtlLine(text) : text;
-    if (isRtl && !opts.align) {
-      doc.text(draw, rightX, yy, { ...opts, align: 'right' });
-    } else if (isRtl && opts.align === 'center') {
+    if (!isRtl) {
       doc.text(draw, x, yy, opts);
-    } else if (isRtl && opts.align === 'left') {
-      doc.text(draw, x, yy, { ...opts, align: 'left' });
-    } else {
-      doc.text(draw, x, yy, opts);
+      return;
     }
+    // RTL: by default right-align to the content edge; cell/local uses provided x as left edge.
+    if (opts.align === 'center') {
+      doc.text(draw, x, yy, opts);
+      return;
+    }
+    if (opts.cell) {
+      delete opts.cell;
+      doc.text(draw, x, yy, { ...opts, align: 'left' });
+      return;
+    }
+    const edge = opts.rtlEdge != null ? opts.rtlEdge : rightX;
+    delete opts.rtlEdge;
+    doc.text(draw, edge, yy, { ...opts, align: 'right' });
   }
 
   function ensureSpace(needed) {
@@ -239,13 +247,17 @@ function downloadRiasecPdf(scores, personName) {
     drawText(label, leftX, y);
     y += 5;
     setFace('normal', size, [51, 65, 85]);
-    const bullet = isRtl ? ' •' : '• ';
+    const bullet = '• ';
     items.forEach((item) => {
-      const line = isRtl ? `${item}${bullet}` : `${bullet}${item}`;
+      const line = `${bullet}${item}`;
       const wrapped = doc.splitTextToSize(line, contentWidth - 2);
       wrapped.forEach((w) => {
         ensureSpace(6);
-        drawText(w, leftX + (isRtl ? 0 : 2), y);
+        if (isRtl) {
+          drawText(w, leftX, y);
+        } else {
+          drawText(w, leftX + 2, y);
+        }
         y += 4.8;
       });
     });
@@ -277,7 +289,7 @@ function downloadRiasecPdf(scores, personName) {
     y += 10;
 
     doc.setFillColor(r, g, blue);
-    doc.rect(leftX, contentStartY, 1.8, 8, 'F');
+    doc.rect(isRtl ? rightX - 1.8 : leftX, contentStartY, 1.8, 8, 'F');
 
     bodyText(info.description, 10);
 
@@ -314,12 +326,18 @@ function downloadRiasecPdf(scores, personName) {
     drawText(prepared, leftX, 34);
     setFace('normal', 9);
     const created = pdf.createdOn.replace('{date}', formatDate(new Date()));
-    const createdDraw = isRtl ? prepareRtlLine(created) : created;
-    doc.text(createdDraw, isRtl ? leftX : rightX, 34, { align: isRtl ? 'left' : 'right' });
+    if (isRtl) {
+      drawText(created, leftX, 34, { cell: true });
+    } else {
+      doc.text(created, rightX, 34, { align: 'right' });
+    }
   } else {
     const created = pdf.createdOn.replace('{date}', formatDate(new Date()));
-    const createdDraw = isRtl ? prepareRtlLine(created) : created;
-    doc.text(createdDraw, isRtl ? leftX : rightX, 24, { align: isRtl ? 'left' : 'right' });
+    if (isRtl) {
+      drawText(created, leftX, 24, { cell: true });
+    } else {
+      doc.text(created, rightX, 24, { align: 'right' });
+    }
   }
 
   y = headerH + 12;
@@ -328,7 +346,7 @@ function downloadRiasecPdf(scores, personName) {
   setFace('bold', 26);
   if (isRtl) {
     let codeX = rightX;
-    hollandCode.split('').reverse().forEach((letter) => {
+    hollandCode.split('').forEach((letter) => {
       doc.setTextColor(...hexToRgb(typeInfo[letter].color));
       doc.text(letter, codeX, y, { align: 'right' });
       codeX -= 13;
@@ -432,13 +450,14 @@ function downloadRiasecPdf(scores, personName) {
     doc.rect(margin, y, tableWidth, rowHeight, 'FD');
     if (isTop) {
       doc.setFillColor(r, g, blue);
-      doc.rect(margin, y, 1.6, rowHeight, 'F');
+      const accentX = isRtl ? margin + colWidths[0] - 1.6 : margin;
+      doc.rect(accentX, y, 1.6, rowHeight, 'F');
     }
 
     colX = margin;
     setFace(isTop ? 'bold' : 'normal', 8.5, [15, 23, 42]);
     const catLabel = `${letter} — ${info.nameLocal}`;
-    drawText(catLabel, colX + 3.2, y + 5.5);
+    drawText(catLabel, colX + 3.2, y + 5.5, { cell: true });
 
     const values = [b.taetigkeiten, b.faehigkeiten, b.berufe, b.selbst, totals[letter]];
     values.forEach((val, i) => {
