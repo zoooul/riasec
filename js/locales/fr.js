@@ -39,8 +39,8 @@ registerLocale('fr', {
     scaleAria: 'Auto-évaluation de 1 à 7',
     scaleValue: 'Valeur {n}',
     answerAria: 'Réponse',
-    keyboardBinary: 'Répondez spontanément — la question suivante s\'affiche automatiquement.',
-    keyboardSelf: 'Touches numériques 1–7 — passage automatique à la caractéristique suivante.',
+    keyboardBinary: 'Répondez spontanément — la question suivante s\'affiche toute seule.',
+    keyboardSelf: 'Touches 1–7 — passage automatique à la caractéristique suivante.',
     shortcutLeft: '← ou 1',
     shortcutRight: '→ ou 2',
     back: 'Retour',
@@ -52,7 +52,7 @@ registerLocale('fr', {
     chartLegendIdeas: 'Idées ↔ Faits',
     chartLegendPeople: 'Personnes ↔ Objets',
     chartAria: 'Diagramme de profil RIASEC',
-    chartCaption: 'Les lettres voisines sur l’hexagone sont des orientations proches ; les lettres opposées sont plus distinctes.',
+    chartCaption: 'Les lettres voisines sur l’hexagone indiquent des orientations proches ; les lettres opposées, des orientations plus éloignées.',
     pdfNamePrompt: 'Nom facultatif pour le PDF (non enregistré). Laissez vide ou annulez pour continuer sans nom.',
     detailTitle: 'Résultats détaillés par catégorie',
     tableCategory: 'Catégorie',
@@ -64,6 +64,7 @@ registerLocale('fr', {
     tableMax: 'max. {n}',
     points: 'Points',
     exampleJobs: 'Exemples de professions :',
+    industriesLabel: 'Secteurs typiques :',
     howCalculated: 'Mode de calcul',
     theoryTitle: 'Fondements de la typologie RIASEC',
     theoryIntro: 'Le RIASEC repose sur la théorie de la congruence de John L. Holland : la satisfaction et la réussite professionnelles sont les plus élevées lorsque l\'orientation de la personnalité d\'un individu correspond à celle de son environnement professionnel.',
@@ -80,36 +81,36 @@ registerLocale('fr', {
     tabTypes: 'Types',
     tabAbout: 'Info',
   },
-  introText: `RIASEC désigne le modèle d'intérêts développé par John L. Holland (1919–2008, psychologue américain) depuis 1977. Il s'agit d'une méthode reconnue en psychologie du travail et des organisations pour déterminer les intérêts et aptitudes professionnels.
+  introText: `RIASEC désigne le modèle d'intérêts développé par John L. Holland (1919–2008, psychologue américain) depuis 1977. C'est une méthode reconnue en psychologie du travail et des organisations pour identifier les intérêts et aptitudes professionnels.
 
-Holland considère les intérêts comme des orientations fondamentales de la personnalité. En conséquence, le choix de carrière est façonné par ces caractéristiques générales d'une personne. La correspondance entre la personne et la profession est maximale lorsque l'orientation individuelle est congruente avec celle de la profession (alignement ou proximité des orientations). Avec une bonne adéquation, on observe une plus grande satisfaction au travail, une meilleure réussite professionnelle et une plus grande stabilité dans le développement de carrière (« théorie de la congruence »).
+Holland considère les intérêts comme des orientations fondamentales de la personnalité. Le choix de carrière en découle. La correspondance entre la personne et la profession est maximale lorsque l'orientation individuelle rejoint celle de l'environnement professionnel (alignement ou proximité des orientations). Avec une bonne adéquation, on observe une plus grande satisfaction au travail, une meilleure réussite professionnelle et plus de stabilité dans le parcours (« théorie de la congruence »).
 
-Dans ce questionnaire, il vous est demandé d'évaluer vos connaissances et aptitudes ainsi que votre intérêt particulier pour des activités professionnelles en vous référant à vous-même. Comme il n'est pas possible de recenser ici toutes les appellations et caractéristiques professionnelles, veuillez également évaluer les termes qui se rapprochent le plus de votre orientation individuelle.
+Dans ce questionnaire, vous évaluez vos connaissances, vos aptitudes et votre intérêt pour différentes activités professionnelles, en vous référant à vous-même. Comme il est impossible de recenser ici toutes les appellations et caractéristiques professionnelles, évaluez aussi les termes qui se rapprochent le plus de votre orientation personnelle.
 
-Après avoir complété le questionnaire, vous recevrez une évaluation que vous pourrez ensuite discuter avec votre coach ou avec des personnes de votre entourage et intégrer dans votre planification de carrière.`,
+À l'issue du questionnaire, vous recevrez une évaluation à discuter avec votre coach ou des personnes de confiance et à intégrer dans votre planification de carrière.`,
   sections: [
     {
       id: 'taetigkeiten',
       title: 'Activités',
-      instruction: 'Les listes suivantes contiennent des activités qui se rencontrent dans la vie professionnelle ou les loisirs. Sélectionnez « J\'aime » pour les activités que vous aimeriez faire — indépendamment de votre niveau de compétence. Sélectionnez « Je n\'aime pas » pour les activités que vous n\'aimeriez pas faire ou qui vous intéressent peu.',
+      instruction: 'Les listes suivantes présentent des activités rencontrées au travail ou dans les loisirs. Cochez « J\'aime » pour celles que vous aimeriez faire, quel que soit votre niveau. Cochez « Je n\'aime pas » pour celles qui ne vous tentent pas ou vous intéressent peu.',
       scale: { positive: 'J\'aime', negative: 'Je n\'aime pas' },
     },
     {
       id: 'faehigkeiten',
       title: 'Aptitudes',
-      instruction: 'Cochez « Oui » pour les activités que vous savez réaliser correctement ou avec compétence. Cochez « Non » pour les activités que vous n\'avez jamais pratiquées ou que vous ne savez pas bien faire.',
+      instruction: 'Cochez « Oui » pour les activités que vous savez bien faire. Cochez « Non » pour celles que vous n\'avez jamais pratiquées ou que vous ne maîtrisez pas.',
       scale: { positive: 'Oui', negative: 'Non' },
     },
     {
       id: 'berufe',
       title: 'Préférences professionnelles',
-      instruction: 'Marquez « Oui » pour les professions qui vous intéressent ou vous attirent. Pour les professions que vous préféreriez refuser ou que vous trouvez peu intéressantes, sélectionnez « Non ».',
+      instruction: 'Cochez « Oui » pour les professions qui vous intéressent ou vous attirent. Cochez « Non » pour celles que vous refuseriez ou qui vous laissent indifférent.',
       scale: { positive: 'Oui', negative: 'Non' },
     },
     {
       id: 'selbsteinschaetzung',
       title: 'Auto-évaluation',
-      instruction: 'Évaluez-vous pour chacune des caractéristiques suivantes telles que vous vous percevez par rapport à d\'autres personnes de votre âge. Évaluez-vous le plus précisément possible. Essayez d\'éviter de vous attribuer la même note pour toutes les aptitudes.',
+      instruction: 'Évaluez-vous pour chaque caractéristique telle que vous vous percevez par rapport à d\'autres personnes de votre âge. Soyez le plus précis possible et évitez de vous noter pareil partout.',
       scale: { min: 1, max: 7, labels: ['faible', 'moyen', 'élevé'] },
     },
   ],
@@ -119,14 +120,14 @@ Après avoir complété le questionnaire, vous recevrez une évaluation que vous
       title: 'Activités terminées',
       message: 'Bravo ! Prenez un court instant pour respirer.',
       nextTitle: 'Aptitudes',
-      nextHint: 'Dans la partie suivante, vous évaluerez ce que vous savez bien faire — répondez spontanément par Oui ou Non.',
+      nextHint: 'Dans la partie suivante, vous évaluez ce que vous savez bien faire — répondez sur le moment par Oui ou Non.',
     },
     faehigkeiten: {
       icon: '✓',
       title: 'Aptitudes terminées',
       message: 'Continuez ainsi ! Prenez une courte pause.',
       nextTitle: 'Préférences professionnelles',
-      nextHint: 'Quelles professions vous attirent ? Encore Oui ou Non — suivez votre intuition.',
+      nextHint: 'Quelles professions vous attirent ? Encore Oui ou Non — suivez votre première impression.',
     },
     berufe: {
       icon: '✓',
@@ -149,63 +150,159 @@ Après avoir complété le questionnaire, vous recevrez une évaluation que vous
       name: 'Realistic',
       nameLocal: 'Réaliste',
       color: '#2d6a4f',
-      examples: ['Technicien en mécatronique', 'Technicien aéronautique', 'Agriculteur', 'Dessinateur technique', 'Technicien en topographie'],
-      description: 'Pratique, manuel, orienté technique. Préfère le travail avec des objets et des tâches concrètes.',
+      industries: [
+      'Artisanat et métiers techniques',
+      'Construction et bâtiment',
+      'Agriculture et sylviculture',
+      'Logistique et transport',
+      'Production et maintenance'
+    ],
+      examples: [
+      'Technicien en mécatronique',
+      'Technicien aéronautique',
+      'Électricien',
+      'Menuisier',
+      'Agriculteur',
+      'Technicien topographe',
+      'Chauffagiste',
+      'Routier'
+    ],
+      description: 'Pratique et concret : vous aimez les outils, les machines, les matériaux et des résultats tangibles. Vous vous sentez plus à l\'aise en faisant et en réparant qu\'en théorisant longuement.',
     },
     I: {
       letter: 'I',
       name: 'Investigative',
       nameLocal: 'Investigatif',
       color: '#1d3557',
-      examples: ['Géologue', 'Chimiste', 'Physicien', 'Technicien de laboratoire médical', 'Médecine'],
-      description: 'Analytique, scientifique, théorique. Préfère la recherche, l\'analyse et la résolution de problèmes.',
+      industries: [
+      'Recherche et sciences',
+      'Informatique et logiciels',
+      'Laboratoire et analyse',
+      'Diagnostic médical',
+      'Enseignement supérieur et conseil spécialisé'
+    ],
+      examples: [
+      'Géologue',
+      'Chimiste',
+      'Physicien',
+      'Développeur logiciel',
+      'Technicien de laboratoire médical',
+      'Analyste de données',
+      'Pharmacien',
+      'Assistant de recherche'
+    ],
+      description: 'Curieux et analytique : vous aimez comprendre le fonctionnement des choses, tester des idées et résoudre des problèmes complexes avec des données, de la théorie ou une observation rigoureuse.',
     },
     A: {
       letter: 'A',
       name: 'Artistic',
       nameLocal: 'Artistique',
       color: '#7b2cbf',
-      examples: ['Acteur', 'Compositeur', 'Musicien', 'Décorateur d\'intérieur', 'Danseur'],
-      description: 'Créatif, expressif, indépendant. Préfère les activités artistiques et de design.',
+      industries: [
+      'Arts et culture',
+      'Design et médias',
+      'Musique et arts du spectacle',
+      'Architecture et aménagement intérieur',
+      'Contenus et narration'
+    ],
+      examples: [
+      'Acteur',
+      'Compositeur',
+      'Musicien',
+      'Graphiste',
+      'Architecte d\'intérieur',
+      'Photographe',
+      'Écrivain',
+      'Styliste'
+    ],
+      description: 'Créatif et expressif : vous valorisez l\'originalité, l\'esthétique et votre propre voix — et préférez le travail ouvert aux routines rigides.',
     },
     S: {
       letter: 'S',
       name: 'Social',
       nameLocal: 'Social',
       color: '#e07a5f',
-      examples: ['Enseignant', 'Conseiller', 'Orthophoniste', 'Psychologue'],
-      description: 'Serviable, coopératif, empathique. Préfère le travail avec et pour les personnes.',
+      industries: [
+      'Éducation et formation',
+      'Conseil et coaching',
+      'Santé et soins',
+      'Services sociaux',
+      'RH et développement des personnes'
+    ],
+      examples: [
+      'Enseignant',
+      'Conseiller',
+      'Orthophoniste',
+      'Psychologue',
+      'Infirmier',
+      'Travailleur social',
+      'Éducateur de jeunes enfants',
+      'Conseiller d\'orientation'
+    ],
+      description: 'Centré sur les personnes : vous vous épanouissez en aidant, enseignant, écoutant ou coopérant — les relations et le progrès partagé comptent plus que le travail solitaire.',
     },
     E: {
       letter: 'E',
       name: 'Enterprising',
       nameLocal: 'Entreprenant',
       color: '#bc6c25',
-      examples: ['Manager', 'Vente', 'Tourisme', 'Achats', 'Marketing'],
-      description: 'Persuasif, ambitieux, orienté leadership. Préfère la vente, la gestion et l\'entrepreneuriat.',
+      industries: [
+      'Vente et développement commercial',
+      'Management et direction',
+      'Marketing et communication',
+      'Entrepreneuriat',
+      'Tourisme et hôtellerie'
+    ],
+      examples: [
+      'Manager',
+      'Responsable commercial',
+      'Spécialiste marketing',
+      'Consultant en management',
+      'Entrepreneur',
+      'Responsable des achats',
+      'Chargé de communication',
+      'Professionnel du tourisme'
+    ],
+      description: 'Extraverti et orienté objectifs : vous aimez influencer, organiser et faire avancer des projets — la persuasion et l\'initiative vous stimulent plus que l\'administration détaillée.',
     },
     C: {
       letter: 'C',
       name: 'Conventional',
       nameLocal: 'Conventionnel',
       color: '#457b9d',
-      examples: ['Employé de banque', 'Comptable', 'Secrétaire', 'Programmeur', 'Finance', 'Conseiller fiscal'],
-      description: 'Ordonné, orienté détail, structuré. Préfère le travail de bureau, l\'organisation et des règles claires.',
+      industries: [
+      'Finance et comptabilité',
+      'Administration et bureau',
+      'Conformité et contrôle de gestion',
+      'Gestion des données et des archives',
+      'Banque et assurance'
+    ],
+      examples: [
+      'Comptable',
+      'Employé de banque',
+      'Assistant administratif',
+      'Contrôleur de gestion',
+      'Archiviste',
+      'Spécialiste en assurance',
+      'Gestionnaire de paie',
+      'Conseiller fiscal'
+    ],
+      description: 'Structuré et précis : vous appréciez les processus clairs, les données fiables et les systèmes ordonnés. La régularité vous aide à donner le meilleur de vous-même.',
     },
   },
   selfAssessment: [
     { type: 'R', label: 'Compétences manuelles' },
     { type: 'R', label: 'Compréhension technique' },
-    { type: 'I', label: 'Compétences en recherche' },
+    { type: 'I', label: 'Esprit de recherche' },
     { type: 'I', label: 'Culture générale' },
     { type: 'A', label: 'Aptitudes artistiques' },
     { type: 'A', label: 'Aptitudes musicales' },
-    { type: 'S', label: 'Compétences pédagogiques' },
+    { type: 'S', label: 'Aptitudes pédagogiques' },
     { type: 'S', label: 'Empathie' },
-    { type: 'E', label: 'Capacité de vente' },
+    { type: 'E', label: 'Talent commercial' },
     { type: 'E', label: 'Talent organisationnel' },
     { type: 'C', label: 'Aptitude au travail de bureau' },
-    { type: 'C', label: 'Ordre / sens du devoir' },
+    { type: 'C', label: 'Ordre et sens du devoir' },
   ],
   scoringSteps: [
     'Chaque page du questionnaire est attribuée à une catégorie RIASEC (R, I, A, S, E, C).',
@@ -216,11 +313,11 @@ Après avoir complété le questionnaire, vous recevrez une évaluation que vous
     'Les quatre sous-scores sont additionnés par catégorie → <strong>score total</strong>.',
     'Les trois catégories les plus élevées forment votre <strong>code Holland</strong> (p. ex. S-E-I).',
   ],
-  scoringNote: 'Si vos résultats ne diffèrent que marginalement, une combinaison de différentes aptitudes peut être intéressante — p. ex. représentant commercial en technologie médicale (combinaison S / E).',
+  scoringNote: 'Si vos résultats se ressemblent beaucoup, une combinaison de plusieurs aptitudes peut être pertinente — par exemple représentant commercial en technologie médicale (combinaison S / E).',
   describeCombination(topThree, typeInfo) {
     if (topThree.length < 2) return '';
     const labels = topThree.map((t) => `${typeInfo[t].letter} (${typeInfo[t].nameLocal})`);
-    return `Vos orientations les plus marquées : ${labels.join(', ')}. Les professions à l'intersection de ces types peuvent être particulièrement adaptées.`;
+    return `Vos orientations les plus marquées : ${labels.join(', ')}. Les professions qui combinent ces types peuvent particulièrement vous convenir.`;
   },
   pdf: {
     title: 'Résultats du test RIASEC',
@@ -239,8 +336,10 @@ Après avoir complété le questionnaire, vous recevrez une évaluation que vous
     filename: 'RIASEC-Resultats',
     howToRead: 'Votre code {hollandCode} résume vos trois orientations les plus fortes. {top1Letter} décrit l’environnement et les tâches où vous vous sentez généralement le plus à l’aise. {top2Letter} complète votre façon d’aborder le travail. {top3Letter} est une direction supplémentaire qui peut aussi bien fonctionner dans de bonnes conditions. L’écart entre {top1Letter} et {top3Letter} est de {gap} points : un écart plus large indique un profil plus net, un écart plus faible plusieurs chemins possibles.',
     theoryParagraph: 'Votre code {hollandCode} résume vos trois orientations les plus fortes. {top1Letter} décrit l’environnement et les tâches où vous vous sentez généralement le plus à l’aise. {top2Letter} complète votre façon d’aborder le travail. {top3Letter} est une direction supplémentaire qui peut aussi bien fonctionner dans de bonnes conditions. L’écart entre {top1Letter} et {top3Letter} est de {gap} points : un écart plus large indique un profil plus net, un écart plus faible plusieurs chemins possibles.',
-    gapNote: 'Vos scores les plus élevés sont proches (écart : {gap} points). Les rôles à l’intersection de {top1Letter} et {top3Letter} méritent d’être explorés — un travail qui combine les deux plutôt qu’une seule voie.',
-    discussNote: 'Choisissez deux ou trois professions d’exemple parmi vos types principaux. Pour chacune, écrivez une courte checklist du quotidien : quoi, avec qui, dans quelle structure. Transformez cela en un ou deux petits essais — entretien informatif, job shadowing ou petit projet — et discutez-en avec une personne de confiance.',
+    gapNote: 'Vos scores les plus élevés sont très proches (écart : {gap} points). Explorez les rôles qui mêlent {top1Letter} et {top3Letter} — un travail qui unit les deux plutôt qu’une seule voie.',
+    discussNote: 'Choisissez deux ou trois professions d’exemple parmi vos types principaux. Pour chacune, notez une courte liste du quotidien : quoi faire, avec qui, dans quel cadre. Transformez cela en une ou deux petites expériences — entretien informatif, journée d’observation sur le terrain ou mini-projet — et échangez-en avec une personne de confiance.',
+    industriesLabel: 'Secteurs typiques',
+    jobsLabel: 'Exemples de professions',
     exampleJobs: 'Exemples de professions :',
     tableHeaders: {
       category: 'Catégorie',

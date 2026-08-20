@@ -39,7 +39,7 @@ registerLocale('tr', {
     scaleAria: 'Öz değerlendirme 1 ile 7 arası',
     scaleValue: 'Değer {n}',
     answerAria: 'Yanıt',
-    keyboardBinary: 'Spontane yanıt verin — bir sonraki soru otomatik olarak gelir.',
+    keyboardBinary: 'Doğal bir şekilde yanıtlayın — sonraki soru kendiliğinden gelir.',
     keyboardSelf: '1–7 tuşları — otomatik olarak bir sonraki özelliğe geçilir.',
     shortcutLeft: '← veya 1',
     shortcutRight: '→ veya 2',
@@ -64,6 +64,7 @@ registerLocale('tr', {
     tableMax: 'maks. {n}',
     points: 'Puan',
     exampleJobs: 'Örnek meslekler:',
+    industriesLabel: 'Tipik alanlar:',
     howCalculated: 'Nasıl hesaplanır',
     theoryTitle: 'RIASEC tipolojisinin temelleri',
     theoryIntro: 'RIASEC, John L. Holland\'ın uyum kuramına dayanır: kariyer memnuniyeti ve başarısı, kişinin kişilik yönelimi ile mesleki çevrenin yönelimi örtüştüğünde en yüksektir.',
@@ -80,18 +81,18 @@ registerLocale('tr', {
     tabTypes: 'Tipler',
     tabAbout: 'Bilgi',
   },
-  introText: `RIASEC, John L. Holland (1919–2008, Amerikalı psikolog) tarafından 1977'den bu yana geliştirilen ilgi modelini ifade eder ve iş ve örgüt psikolojisinde kariyer ilgileri ile yeteneklerini belirlemek için başarılı bir yöntemdir.
+  introText: `RIASEC, John L. Holland'ın (1919–2008, Amerikalı psikolog) 1977'den bu yana geliştirdiği ilgi modelini ifade eder ve iş ile örgüt psikolojisinde kariyer ilgileri ve yeteneklerini belirlemek için yaygın olarak kullanılan bir yöntemdir.
 
-Holland, ilgileri temel kişilik yönelimleri olarak görür. Buna göre kariyer seçimi, kişinin genel özellikleriyle şekillenir. Kişi ile meslek arasındaki uyum, bireysel yönelim ile mesleğin yönelimi örtüştüğünde en yüksektir (yönelimlerin uyumu veya yakınlığı). İyi bir uyumda iş memnuniyeti, kariyer başarısı ve kariyer gelişiminde daha fazla istikrar söz konusudur («uyum kuramı»).
+Holland, ilgileri temel kişilik yönelimleri olarak görür. Buna göre kariyer seçimi kişinin genel özellikleriyle şekillenir. Kişi ile meslek arasındaki uyum, bireysel yönelim ile mesleki çevrenin yönelimi örtüştüğünde en yüksektir (yönelimlerin uyumu veya yakınlığı). İyi bir uyumda iş memnuniyeti, kariyer başarısı ve kariyer gelişiminde istikrar artar («uyum kuramı»).
 
-Bu ankette, mesleki etkinliklere yönelik bilgi ve yeteneklerinizin yanı sıra kişisel ilginizi de kendinize referans vererek değerlendirmeniz istenmektedir. Tüm meslek unvanları ve özellikleri burada listelenemediğinden, lütfen bireysel yöneliminize en yakın gelen ifadeleri de değerlendirin.
+Bu ankette mesleki etkinliklere yönelik bilgi ve yeteneklerinizi ve kişisel ilginizi kendinize referans vererek değerlendirmeniz istenir. Tüm meslek unvanları ve özellikleri burada listelenemediğinden, bireysel yöneliminize en yakın ifadeleri de değerlendirin.
 
-Anketi tamamladıktan sonra, koçunuzla veya kişisel çevrenizdeki kişilerle görüşebileceğiniz ve kariyer planlamanıza dahil edebileceğiniz bir değerlendirme alacaksınız.`,
+Anketi tamamladıktan sonra koçunuzla veya güvendiğiniz kişilerle görüşebileceğiniz ve kariyer planlamanıza dahil edebileceğiniz bir değerlendirme alırsınız.`,
   sections: [
     {
       id: 'taetigkeiten',
       title: 'Etkinlikler',
-      instruction: 'Aşağıdaki listeler mesleklerde veya boş zaman etkinliklerinde yer alan faaliyetleri içermektedir. Yapmaktan hoşlanacağınız etkinlikler için «Hoşlanırım»ı seçin — ne kadar iyi yapabildiğinize bakılmaksızın. Yapmaktan hoşlanmayacağınız veya sizi az ilgilendiren etkinlikler için «Hoşlanmam»ı seçin.',
+      instruction: 'Aşağıdaki listeler iş hayatında veya boş zaman etkinliklerinde karşılaşılan faaliyetleri içerir. Yapmaktan hoşlanacağınız etkinlikler için «Hoşlanırım»ı seçin — ne kadar iyi yaptığınız önemli değil. Hoşlanmayacağınız veya sizi az ilgilendiren etkinlikler için «Hoşlanmam»ı seçin.',
       scale: { positive: 'Hoşlanırım', negative: 'Hoşlanmam' },
     },
     {
@@ -103,13 +104,13 @@ Anketi tamamladıktan sonra, koçunuzla veya kişisel çevrenizdeki kişilerle g
     {
       id: 'berufe',
       title: 'Meslek tercihleri',
-      instruction: 'Sizi ilgilendiren veya çeken meslekleri «Evet» ile işaretleyin. Reddetmeyi tercih ettiğiniz veya ilginizi çekmeyen meslekler için «Hayır»ı seçin.',
+      instruction: 'İlginizi çeken veya size cazip gelen meslekleri «Evet» ile işaretleyin. Reddetmek isteyeceğiniz veya ilginizi çekmeyen meslekler için «Hayır»ı seçin.',
       scale: { positive: 'Evet', negative: 'Hayır' },
     },
     {
       id: 'selbsteinschaetzung',
       title: 'Öz değerlendirme',
-      instruction: 'Aşağıdaki her özellik için kendinizi yaşıtınızdaki diğer kişilere kıyasla gördüğünüz gibi değerlendirin. Mümkün olduğunca doğru bir değerlendirme yapın. Tüm yetenekler için aynı puanı vermekten kaçınmaya çalışın.',
+      instruction: 'Aşağıdaki her özellik için kendinizi yaşıtınızdaki diğer kişilere kıyasla gördüğünüz gibi değerlendirin. Mümkün olduğunca doğru olun ve tüm yeteneklere aynı puanı vermekten kaçının.',
       scale: { min: 1, max: 7, labels: ['düşük', 'orta', 'yüksek'] },
     },
   ],
@@ -119,14 +120,14 @@ Anketi tamamladıktan sonra, koçunuzla veya kişisel çevrenizdeki kişilerle g
       title: 'Etkinlikler tamamlandı',
       message: 'Tebrikler! Kısa bir nefes molası verin.',
       nextTitle: 'Yetenekler',
-      nextHint: 'Bir sonraki bölümde neleri iyi yapabildiğinizi değerlendireceksiniz — Evet veya Hayır ile spontane yanıt verin.',
+      nextHint: 'Bir sonraki bölümde neleri iyi yaptığınızı değerlendireceksiniz — Evet veya Hayır ile anında yanıt verin.',
     },
     faehigkeiten: {
       icon: '✓',
       title: 'Yetenekler tamamlandı',
       message: 'Devam edin! Kısa bir nefes alın.',
       nextTitle: 'Meslek tercihleri',
-      nextHint: 'Hangi meslekler sizi çekiyor? Yine Evet veya Hayır — içgüdülerinize güvenin.',
+      nextHint: 'Hangi meslekler sizi çekiyor? Yine Evet veya Hayır — ilk içgüdünüze güvenin.',
     },
     berufe: {
       icon: '✓',
@@ -149,63 +150,159 @@ Anketi tamamladıktan sonra, koçunuzla veya kişisel çevrenizdeki kişilerle g
       name: 'Realistic',
       nameLocal: 'Gerçekçi',
       color: '#2d6a4f',
-      examples: ['Mekatronik teknisyeni', 'Uçak teknisyeni', 'Çiftçi', 'Teknik ressam', 'Harita ve kadastro teknisyeni'],
-      description: 'Pratik, el becerisi gerektiren, teknik odaklı. Nesnelerle ve somut görevlerle çalışmayı tercih eder.',
+      industries: [
+      'Zanaat ve teknik meslekler',
+      'İnşaat ve bina hizmetleri',
+      'Tarım ve ormancılık',
+      'Lojistik ve ulaşım',
+      'Üretim ve bakım'
+    ],
+      examples: [
+      'Mekatronik teknisyeni',
+      'Uçak teknisyeni',
+      'Elektrikçi',
+      'Marangoz',
+      'Çiftçi',
+      'Harita ve kadastro teknisyeni',
+      'Isıtma tesisatçısı',
+      'Kamyon şoförü'
+    ],
+      description: 'Pratik ve somut: aletleri, makineleri, malzemeleri ve elle tutulur sonuçları seversiniz. Uzun uzun teorik tartışmak yerine işi yapmak ve tamir etmek size daha yakın gelir.',
     },
     I: {
       letter: 'I',
       name: 'Investigative',
       nameLocal: 'Araştırmacı',
       color: '#1d3557',
-      examples: ['Jeolog', 'Kimyager', 'Fizikçi', 'Tıbbi laboratuvar teknisyeni', 'Tıp'],
-      description: 'Analitik, bilimsel, teorik. Araştırma, analiz ve problem çözmeyi tercih eder.',
+      industries: [
+      'Araştırma ve bilim',
+      'BT ve yazılım',
+      'Laboratuvar ve analiz',
+      'Sağlık tanı hizmetleri',
+      'Yükseköğretim ve uzman danışmanlık'
+    ],
+      examples: [
+      'Jeolog',
+      'Kimyager',
+      'Fizikçi',
+      'Yazılım geliştirici',
+      'Tıbbi laboratuvar teknisyeni',
+      'Veri analisti',
+      'Eczacı',
+      'Araştırma asistanı'
+    ],
+      description: 'Meraklı ve analitik: işlerin nasıl yürüdüğünü anlamayı, fikirleri test etmeyi ve karmaşık sorunları veri, teori veya dikkatli gözlemle çözmeyi seversiniz.',
     },
     A: {
       letter: 'A',
       name: 'Artistic',
       nameLocal: 'Sanatsal',
       color: '#7b2cbf',
-      examples: ['Oyuncu', 'Besteci', 'Müzisyen', 'İç dekoratör', 'Dansçı'],
-      description: 'Yaratıcı, ifade gücü yüksek, bağımsız. Sanatsal ve tasarıma yönelik etkinlikleri tercih eder.',
+      industries: [
+      'Sanat ve kültür',
+      'Tasarım ve medya',
+      'Müzik ve sahne sanatları',
+      'Mimari ve iç mekân',
+      'İçerik ve hikâye anlatımı'
+    ],
+      examples: [
+      'Oyuncu',
+      'Besteci',
+      'Müzisyen',
+      'Grafik tasarımcı',
+      'İç mimar',
+      'Fotoğrafçı',
+      'Yazar',
+      'Moda tasarımcısı'
+    ],
+      description: 'Yaratıcı ve ifade gücü yüksek: özgünlüğe, estetiğe ve kendi sesinize değer verirsiniz; katı rutinler yerine açık uçlu işleri tercih edersiniz.',
     },
     S: {
       letter: 'S',
       name: 'Social',
       nameLocal: 'Sosyal',
       color: '#e07a5f',
-      examples: ['Öğretmen', 'Danışman', 'Dil ve konuşma terapisti', 'Psikolog'],
-      description: 'Yardımsever, iş birliğine yatkın, empatik. İnsanlarla ve insanlar için çalışmayı tercih eder.',
+      industries: [
+      'Eğitim ve öğretim',
+      'Danışmanlık ve koçluk',
+      'Sağlık ve bakım',
+      'Sosyal hizmetler',
+      'İK ve insan gelişimi'
+    ],
+      examples: [
+      'Öğretmen',
+      'Danışman',
+      'Dil ve konuşma terapisti',
+      'Psikolog',
+      'Hemşire',
+      'Sosyal hizmet uzmanı',
+      'Okul öncesi öğretmeni',
+      'Kariyer danışmanı'
+    ],
+      description: 'İnsan odaklı ve destekleyici: yardım ettiğinizde, öğrettiğinizde, dinlediğinizde veya iş birliği yaptığınızda parlırsınız; ilişkiler ve ortak ilerleme yalnız çalışmaktan daha önemlidir.',
     },
     E: {
       letter: 'E',
       name: 'Enterprising',
       nameLocal: 'Girişimci',
       color: '#bc6c25',
-      examples: ['Yönetici', 'Satış', 'Turizm', 'Satın alma', 'Pazarlama'],
-      description: 'İkna edici, hırslı, liderlik odaklı. Satış, yönetim ve girişimciliği tercih eder.',
+      industries: [
+      'Satış ve iş geliştirme',
+      'Yönetim ve liderlik',
+      'Pazarlama ve iletişim',
+      'Girişimcilik',
+      'Turizm ve konaklama'
+    ],
+      examples: [
+      'Yönetici',
+      'Satış sorumlusu',
+      'Pazarlama uzmanı',
+      'Yönetim danışmanı',
+      'Girişimci',
+      'Satın alma müdürü',
+      'Halkla ilişkiler uzmanı',
+      'Turizm uzmanı'
+    ],
+      description: 'Dışa dönük ve hedef odaklı: insanları etkilemeyi, organize etmeyi ve girişimleri büyütmeyi seversiniz; ikna ve inisiyatif, ayrıntılı idari işlerden daha çok enerji verir.',
     },
     C: {
       letter: 'C',
       name: 'Conventional',
       nameLocal: 'Geleneksel',
       color: '#457b9d',
-      examples: ['Banka memuru', 'Muhasebeci', 'Sekreter', 'Programcı', 'Finans', 'Vergi danışmanı'],
-      description: 'Düzenli, ayrıntılara dikkat eden, yapılandırılmış. Ofis işleri, organizasyon ve net kuralları tercih eder.',
+      industries: [
+      'Finans ve muhasebe',
+      'İdari işler ve ofis',
+      'Uyum ve kontrol',
+      'Veri ve kayıt yönetimi',
+      'Bankacılık ve sigorta'
+    ],
+      examples: [
+      'Muhasebeci',
+      'Banka memuru',
+      'İdari asistan',
+      'Kontrolör',
+      'Arşivci',
+      'Sigorta uzmanı',
+      'Bordro uzmanı',
+      'Vergi danışmanı'
+    ],
+      description: 'Yapılandırılmış ve titiz: net süreçleri, doğru verileri ve güvenilir sistemleri seversiniz. Düzen ve tutarlılık en iyi performansınızı ortaya çıkarır.',
     },
   },
   selfAssessment: [
     { type: 'R', label: 'El becerisi' },
     { type: 'R', label: 'Teknik anlayış' },
-    { type: 'I', label: 'Araştırma becerisi' },
-    { type: 'I', label: 'Genel bilgi' },
+    { type: 'I', label: 'Araştırma yeteneği' },
+    { type: 'I', label: 'Genel kültür' },
     { type: 'A', label: 'Sanatsal yetenekler' },
     { type: 'A', label: 'Müzikal yetenekler' },
-    { type: 'S', label: 'Eğitim becerisi' },
+    { type: 'S', label: 'Öğretme becerisi' },
     { type: 'S', label: 'Empati' },
-    { type: 'E', label: 'Satış becerisi' },
+    { type: 'E', label: 'Satış yeteneği' },
     { type: 'E', label: 'Organizasyon yeteneği' },
     { type: 'C', label: 'Ofis işleri becerisi' },
-    { type: 'C', label: 'Düzenlilik / görev bilinci' },
+    { type: 'C', label: 'Düzenlilik ve görev bilinci' },
   ],
   scoringSteps: [
     'Anketin her sayfası bir RIASEC kategorisine (R, I, A, S, E, C) atanmıştır.',
@@ -216,11 +313,11 @@ Anketi tamamladıktan sonra, koçunuzla veya kişisel çevrenizdeki kişilerle g
     'Dört alt puan kategori başına toplanır → <strong>toplam puan</strong>.',
     'En yüksek üç kategori <strong>Holland Kodunuzu</strong> oluşturur (ör. S-E-I).',
   ],
-  scoringNote: 'Sonuçlarınız birbirine çok yakınsa, farklı yatkınlıkların birleşimi değerli olabilir — örneğin medikal teknoloji satış temsilcisi (S / E kombinasyonu).',
+  scoringNote: 'Sonuçlarınız birbirine çok yakınsa, farklı yatkınlıkları birleştiren roller de değerli olabilir — örneğin medikal teknoloji satış temsilcisi (S / E kombinasyonu).',
   describeCombination(topThree, typeInfo) {
     if (topThree.length < 2) return '';
     const labels = topThree.map((t) => `${typeInfo[t].letter} (${typeInfo[t].nameLocal})`);
-    return `En güçlü yönelimleriniz: ${labels.join(', ')}. Bu tiplerin kesişiminde yer alan meslekler özellikle uygun olabilir.`;
+    return `En belirgin yönelimleriniz: ${labels.join(', ')}. Bu tipleri bir araya getiren meslekler size özellikle uygun olabilir.`;
   },
   pdf: {
     title: 'RIASEC Test Sonuçları',
@@ -239,8 +336,10 @@ Anketi tamamladıktan sonra, koçunuzla veya kişisel çevrenizdeki kişilerle g
     filename: 'RIASEC-Sonuclar',
     howToRead: 'Kodunuz {hollandCode} en güçlü üç yöneliminizi özetler. {top1Letter} genellikle en rahat hissettiğiniz ortamı ve görevleri tanımlar. {top2Letter} işe nasıl yaklaştığınızı tamamlar. {top3Letter} uygun koşullarda da işe yarayabilecek ek bir yöndür. {top1Letter} ile {top3Letter} arasındaki fark {gap} puandır: büyük fark daha net bir ana yol, küçük fark birkaç mümkün yol anlamına gelir.',
     theoryParagraph: 'Kodunuz {hollandCode} en güçlü üç yöneliminizi özetler. {top1Letter} genellikle en rahat hissettiğiniz ortamı ve görevleri tanımlar. {top2Letter} işe nasıl yaklaştığınızı tamamlar. {top3Letter} uygun koşullarda da işe yarayabilecek ek bir yöndür. {top1Letter} ile {top3Letter} arasındaki fark {gap} puandır: büyük fark daha net bir ana yol, küçük fark birkaç mümkün yol anlamına gelir.',
-    gapNote: 'En yüksek puanlarınız birbirine yakın (fark: {gap} puan). {top1Letter} ve {top3Letter} kesişimindeki roller özellikle incelenmeye değer — tek bir yol yerine her ikisini birleştiren işler.',
-    discussNote: 'Üst tiplerinizden iki veya üç örnek meslek seçin. Her biri için kısa bir günlük kontrol listesi yazın: ne yapardınız, kiminle, hangi yapıda. Bunu bir veya iki küçük deneye dönüştürün — bilgilendirici görüşme, job shadowing veya kısa proje — ve güvendiğiniz biriyle konuşun.',
+    gapNote: 'En yüksek puanlarınız birbirine çok yakın (fark: {gap} puan). {top1Letter} ile {top3Letter} yönelimlerini birleştiren rolleri keşfetmeye değer — tek bir yol yerine ikisini bir arada sunan işler.',
+    discussNote: 'Üst tiplerinizden iki veya üç örnek meslek seçin. Her biri için kısa bir günlük kontrol listesi yazın: ne yapardınız, kiminle, hangi yapıda. Bunu bir veya iki küçük deneye dönüştürün — bilgilendirici görüşme, iş yerinde gözlem günü veya kısa proje — ve güvendiğiniz biriyle konuşun.',
+    industriesLabel: 'Tipik alanlar',
+    jobsLabel: 'Örnek meslekler',
     exampleJobs: 'Örnek meslekler:',
     tableHeaders: {
       category: 'Kategori',

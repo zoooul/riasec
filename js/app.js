@@ -449,10 +449,10 @@ function renderSelfQuestion(step) {
 
 function renderHexagonChart(totals) {
   const typeInfo = getTypeInfo();
-  const maxVal = Math.max(...Object.values(totals), 1);
+  const scaleMax = 50;
   const cx = 200;
   const cy = 200;
-  const radius = 140;
+  const radius = 132;
 
   const hexOrder = ['E', 'C', 'R', 'I', 'A', 'S'];
   const angles = hexOrder.map((_, i) => Math.PI / 2 + i * (Math.PI / 3));
@@ -463,27 +463,40 @@ function renderHexagonChart(totals) {
 
   const gridLevels = [0.25, 0.5, 0.75, 1];
   const grids = gridLevels
-    .map((level) => {
+    .map((level, idx) => {
       const pts = angles.map((a) => point(a, radius * level).join(',')).join(' ');
-      return `<polygon points="${pts}" class="chart-grid"/>`;
+      return `<polygon points="${pts}" class="chart-grid${idx === 3 ? ' chart-grid-outer' : ''}"/>`;
     })
     .join('');
 
   const dataPts = angles
     .map((a, i) => {
       const letter = hexOrder[i];
-      const r = (totals[letter] / maxVal) * radius;
+      const score = Number(totals[letter]) || 0;
+      const r = Math.min(1, Math.max(0, score / scaleMax)) * radius;
       return point(a, r).join(',');
     })
     .join(' ');
 
+  const vertices = hexOrder
+    .map((letter, i) => {
+      const score = Number(totals[letter]) || 0;
+      const r = Math.min(1, Math.max(0, score / scaleMax)) * radius;
+      const [x, y] = point(angles[i], r);
+      const color = typeInfo[letter]?.color || 'var(--primary)';
+      return `<circle class="chart-vertex" cx="${x}" cy="${y}" r="5.5" style="stroke:${color}"/>
+        <circle class="chart-vertex-core" cx="${x}" cy="${y}" r="2.6" style="fill:${color}"/>`;
+    })
+    .join('');
+
   const labels = hexOrder
     .map((letter, i) => {
-      const [x, y] = point(angles[i], radius + 28);
+      const [x, y] = point(angles[i], radius + 30);
+      const color = typeInfo[letter]?.color || 'var(--text)';
       return `
         <g class="chart-label" transform="translate(${x}, ${y})">
-          <text text-anchor="middle" dominant-baseline="middle" class="chart-letter">${letter}</text>
-          <text text-anchor="middle" dy="14" class="chart-score">${totals[letter]}</text>
+          <text text-anchor="middle" dominant-baseline="middle" class="chart-letter" fill="${color}">${letter}</text>
+          <text text-anchor="middle" dy="15" class="chart-score">${totals[letter]}</text>
         </g>`;
     })
     .join('');
@@ -495,14 +508,22 @@ function renderHexagonChart(totals) {
     })
     .join('');
 
+  const outerPlate = angles.map((a) => point(a, radius * 1.02).join(',')).join(' ');
+
   return `
     <div class="hex-wrap">
-      <svg viewBox="0 0 400 400" class="hex-chart" aria-label="${t('ui.chartAria')}">
-        ${grids}
-        ${axes}
-        <polygon points="${dataPts}" class="chart-data"/>
-        ${labels}
-      </svg>
+      <p class="chart-axis-legend chart-axis-legend-h" aria-hidden="true">${t('ui.chartLegendIdeas')}</p>
+      <div class="hex-chart-frame">
+        <p class="chart-axis-legend chart-axis-legend-v" aria-hidden="true">${t('ui.chartLegendPeople')}</p>
+        <svg viewBox="0 0 400 400" class="hex-chart" aria-label="${t('ui.chartAria')}">
+          <polygon points="${outerPlate}" class="chart-plate"/>
+          ${grids}
+          ${axes}
+          <polygon points="${dataPts}" class="chart-data"/>
+          ${vertices}
+          ${labels}
+        </svg>
+      </div>
     </div>
   `;
 }
@@ -539,6 +560,9 @@ function renderResults() {
           <h3>${info.letter} — ${info.nameLocal}</h3>
           <p class="score-total">${totals[letter]} ${t('ui.points')}</p>
           <p>${info.description}</p>
+          ${Array.isArray(info.industries) && info.industries.length
+            ? `<p class="examples"><strong>${t('ui.industriesLabel')}</strong> ${info.industries.join(', ')}</p>`
+            : ''}
           <p class="examples"><strong>${t('ui.exampleJobs')}</strong> ${info.examples.join(', ')}</p>
         </div>`;
     })
