@@ -1,7 +1,10 @@
 /**
  * Client-side PDF export for RIASEC results (A4, print-ready).
- * Requires jsPDF + embedded Unicode fonts (DejaVu / Vazirmatn) and optional Persian reshaper.
+ * Requires jsPDF + embedded Unicode fonts (DejaVu / Vazirmatn).
  */
+
+const HEX_CHART_SCALE_MAX = 50;
+const HEX_ORDER = ['E', 'C', 'R', 'I', 'A', 'S'];
 
 function hexToRgb(hex) {
   const n = parseInt(hex.replace('#', ''), 16);
@@ -54,18 +57,24 @@ function prepareRtlLine(text) {
   return text;
 }
 
-function buildHexagonChartDataUrl(totals, pixelSize) {
+/**
+ * High-contrast RIASEC hexagon for PDF (fixed 0–50 scale).
+ * @param {Record<string, number>} totals
+ * @param {number} pixelSize
+ * @param {{ typeInfo?: object, legendIdeas?: string, legendPeople?: string }} [opts]
+ */
+function buildHexagonChartDataUrl(totals, pixelSize, opts) {
+  const options = opts || {};
+  const typeInfo = options.typeInfo || (typeof getTypeInfo === 'function' ? getTypeInfo() : null);
   const canvas = document.createElement('canvas');
   canvas.width = pixelSize;
   canvas.height = pixelSize;
   const ctx = canvas.getContext('2d');
   const cx = pixelSize / 2;
   const cy = pixelSize / 2;
-  const radius = pixelSize * 0.35;
-
-  const hexOrder = ['E', 'C', 'R', 'I', 'A', 'S'];
-  const maxVal = Math.max(...Object.values(totals), 1);
-  const angles = hexOrder.map((_, i) => Math.PI / 2 + (i * Math.PI) / 3);
+  const radius = pixelSize * 0.32;
+  const scaleMax = HEX_CHART_SCALE_MAX;
+  const angles = HEX_ORDER.map((_, i) => Math.PI / 2 + (i * Math.PI) / 3);
 
   function point(angle, r) {
     return [cx + r * Math.cos(angle), cy - r * Math.sin(angle)];
@@ -74,7 +83,21 @@ function buildHexagonChartDataUrl(totals, pixelSize) {
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, pixelSize, pixelSize);
 
-  [0.25, 0.5, 0.75, 1].forEach((level) => {
+  // Soft outer plate
+  ctx.beginPath();
+  angles.forEach((a, i) => {
+    const [x, y] = point(a, radius * 1.02);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.closePath();
+  ctx.fillStyle = '#f8fafc';
+  ctx.fill();
+  ctx.strokeStyle = '#cbd5e1';
+  ctx.lineWidth = Math.max(2, pixelSize * 0.004);
+  ctx.stroke();
+
+  [0.25, 0.5, 0.75, 1].forEach((level, idx) => {
     ctx.beginPath();
     angles.forEach((a, i) => {
       const [x, y] = point(a, radius * level);
@@ -82,8 +105,8 @@ function buildHexagonChartDataUrl(totals, pixelSize) {
       else ctx.lineTo(x, y);
     });
     ctx.closePath();
-    ctx.strokeStyle = '#e2ddd4';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = idx === 3 ? '#94a3b8' : '#cbd5e1';
+    ctx.lineWidth = idx === 3 ? Math.max(2, pixelSize * 0.0035) : Math.max(1.25, pixelSize * 0.0025);
     ctx.stroke();
   });
 
@@ -92,36 +115,81 @@ function buildHexagonChartDataUrl(totals, pixelSize) {
     ctx.beginPath();
     ctx.moveTo(cx, cy);
     ctx.lineTo(x, y);
-    ctx.strokeStyle = '#e2ddd4';
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.lineWidth = Math.max(1.25, pixelSize * 0.0025);
     ctx.stroke();
   });
 
+  const dataPoints = HEX_ORDER.map((letter, i) => {
+    const score = Number(totals[letter]) || 0;
+    const r = Math.min(1, Math.max(0, score / scaleMax)) * radius;
+    return point(angles[i], r);
+  });
+
   ctx.beginPath();
-  angles.forEach((a, i) => {
-    const letter = hexOrder[i];
-    const r = (totals[letter] / maxVal) * radius;
-    const [x, y] = point(a, r);
+  dataPoints.forEach(([x, y], i) => {
     if (i === 0) ctx.moveTo(x, y);
     else ctx.lineTo(x, y);
   });
   ctx.closePath();
-  ctx.fillStyle = 'rgba(13, 148, 136, 0.22)';
+  ctx.fillStyle = 'rgba(13, 148, 136, 0.32)';
   ctx.fill();
-  ctx.strokeStyle = '#0d9488';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = '#0f766e';
+  ctx.lineWidth = Math.max(3, pixelSize * 0.0055);
   ctx.stroke();
+
+  // Vertices
+  dataPoints.forEach(([x, y], i) => {
+    const letter = HEX_ORDER[i];
+    const color = typeInfo?.[letter]?.color || '#0d9488';
+    ctx.beginPath();
+    ctx.arc(x, y, Math.max(4.5, pixelSize * 0.012), 0, Math.PI * 2);
+    ctx.fillStyle = '#ffffff';
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = Math.max(2.5, pixelSize * 0.004);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(x, y, Math.max(2.2, pixelSize * 0.006), 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  });
 
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  hexOrder.forEach((letter, i) => {
-    const [x, y] = point(angles[i], radius + pixelSize * 0.07);
-    ctx.font = `bold ${Math.round(pixelSize * 0.035)}px Segoe UI, sans-serif`;
-    ctx.fillStyle = '#0f172a';
-    ctx.fillText(letter, x, y - 6);
-    ctx.font = `${Math.round(pixelSize * 0.028)}px Segoe UI, sans-serif`;
-    ctx.fillStyle = '#64748b';
-    ctx.fillText(String(totals[letter]), x, y + 10);
+  HEX_ORDER.forEach((letter, i) => {
+    const [x, y] = point(angles[i], radius + pixelSize * 0.085);
+    const color = typeInfo?.[letter]?.color || '#0f172a';
+    const letterSize = Math.round(pixelSize * 0.048);
+    const scoreSize = Math.round(pixelSize * 0.034);
+    ctx.font = `700 ${letterSize}px "Segoe UI", "Helvetica Neue", sans-serif`;
+    ctx.fillStyle = color;
+    ctx.fillText(letter, x, y - scoreSize * 0.55);
+    ctx.font = `600 ${scoreSize}px "Segoe UI", "Helvetica Neue", sans-serif`;
+    ctx.fillStyle = '#334155';
+    ctx.fillText(String(totals[letter] ?? 0), x, y + letterSize * 0.55);
   });
+
+  // Axis legends (compact)
+  const legendIdeas = options.legendIdeas || '';
+  const legendPeople = options.legendPeople || '';
+  if (legendIdeas || legendPeople) {
+    const legendSize = Math.max(11, Math.round(pixelSize * 0.022));
+    ctx.font = `500 ${legendSize}px "Segoe UI", "Helvetica Neue", sans-serif`;
+    ctx.fillStyle = '#64748b';
+    if (legendIdeas) {
+      ctx.textAlign = 'center';
+      ctx.fillText(legendIdeas, cx, pixelSize * 0.045);
+    }
+    if (legendPeople) {
+      ctx.save();
+      ctx.translate(pixelSize * 0.04, cy);
+      ctx.rotate(-Math.PI / 2);
+      ctx.textAlign = 'center';
+      ctx.fillText(legendPeople, 0, 0);
+      ctx.restore();
+    }
+  }
 
   return canvas.toDataURL('image/png');
 }
@@ -194,7 +262,6 @@ function downloadRiasecPdf(scores, personName) {
       doc.text(draw, x, yy, opts);
       return;
     }
-    // RTL: by default right-align to the content edge; cell/local uses provided x as left edge.
     if (opts.align === 'center') {
       doc.text(draw, x, yy, opts);
       return;
@@ -214,6 +281,10 @@ function downloadRiasecPdf(scores, personName) {
       doc.addPage();
       y = margin;
     }
+  }
+
+  function sectionGap(extra) {
+    y += extra == null ? 6 : extra;
   }
 
   function heading(text, size, extraNeeded) {
@@ -240,28 +311,30 @@ function downloadRiasecPdf(scores, personName) {
     y += 3.5;
   }
 
-  function labeledList(label, items, size) {
+  function labeledList(label, items, size, contentLeft, contentRight, opts) {
     if (!items || !items.length) return;
+    const options = opts || {};
+    const cLeft = contentLeft == null ? leftX : contentLeft;
+    const cRight = contentRight == null ? rightX : contentRight;
+    const width = cRight - cLeft;
     setFace('bold', size, [30, 41, 59]);
-    ensureSpace(8);
-    drawText(label, leftX, y);
+    if (!options.noEnsure) ensureSpace(8);
+    if (isRtl) drawText(label, cLeft, y, { rtlEdge: cRight });
+    else drawText(label, cLeft, y);
     y += 5;
     setFace('normal', size, [51, 65, 85]);
     const bullet = '• ';
     items.forEach((item) => {
       const line = `${bullet}${item}`;
-      const wrapped = doc.splitTextToSize(line, contentWidth - 2);
+      const wrapped = doc.splitTextToSize(line, Math.max(20, width - 2));
       wrapped.forEach((w) => {
-        ensureSpace(6);
-        if (isRtl) {
-          drawText(w, leftX, y);
-        } else {
-          drawText(w, leftX + 2, y);
-        }
+        if (!options.noEnsure) ensureSpace(6);
+        if (isRtl) drawText(w, cLeft, y, { rtlEdge: cRight });
+        else drawText(w, cLeft + 2, y);
         y += 4.8;
       });
     });
-    y += 3;
+    y += 2.5;
   }
 
   function typeBlock(letter, rank) {
@@ -275,41 +348,52 @@ function downloadRiasecPdf(scores, personName) {
 
     const industries = Array.isArray(info.industries) ? info.industries : [];
     const examples = Array.isArray(info.examples) ? info.examples : [];
-    const estHeight = 28 + Math.ceil((info.description || '').length / 90) * 5
-      + industries.length * 5 + examples.length * 5;
-    ensureSpace(Math.min(estHeight, 55));
-
-    const blockTop = y - 2;
-    const pad = 4;
-    // Soft background + accent bar; height filled after measuring content start
-    const contentStartY = y;
-
-    setFace('bold', 12, [15, 23, 42]);
-    drawText(typeHeading, leftX + 3, y + 4);
-    y += 10;
-
-    doc.setFillColor(r, g, blue);
-    doc.rect(isRtl ? rightX - 1.8 : leftX, contentStartY, 1.8, 8, 'F');
-
-    bodyText(info.description, 10);
-
+    const descLines = doc.splitTextToSize(info.description || '', contentWidth - 12);
+    const listLines = (items) => items.reduce((n, item) => {
+      return n + doc.splitTextToSize(`• ${item}`, contentWidth - 14).length;
+    }, 0);
     const industriesLabel = pdf.industriesLabel || t('ui.industriesLabel') || 'Industries:';
     const jobsLabel = pdf.jobsLabel || pdf.exampleJobs || t('ui.exampleJobs') || 'Example occupations:';
-    labeledList(industriesLabel, industries, 9.5);
-    labeledList(jobsLabel, examples, 9.5);
+    const blockH = 14
+      + descLines.length * 5 + 3
+      + (industries.length ? 5 + listLines(industries) * 4.8 + 2.5 : 0)
+      + (examples.length ? 5 + listLines(examples) * 4.8 + 2.5 : 0)
+      + 6;
 
-    const blockBottom = y + 1;
-    doc.setDrawColor(226, 232, 240);
+    ensureSpace(Math.min(blockH + 4, 70));
+    const blockTop = y;
+    const pad = 4;
+    const innerLeft = leftX + pad + 2;
+    const innerRight = rightX - pad;
+
+    // Background first so text paints on top
     doc.setFillColor(248, 250, 252);
-    // Draw background behind by re-drawing a light rect is awkward after text;
-    // use a bottom rule and spacing instead for clear separation.
     doc.setDrawColor(226, 232, 240);
-    doc.setLineWidth(0.3);
-    doc.line(leftX, blockBottom, rightX, blockBottom);
-    y = blockBottom + 8;
+    doc.setLineWidth(0.35);
+    doc.roundedRect(leftX, blockTop, contentWidth, blockH, 1.5, 1.5, 'FD');
+    doc.setFillColor(241, 245, 249);
+    doc.rect(leftX + 0.35, blockTop + 0.35, contentWidth - 0.7, 11, 'F');
+    doc.setFillColor(r, g, blue);
+    doc.rect(isRtl ? rightX - 2.2 : leftX, blockTop + 1.2, 2.2, 9, 'F');
 
-    void blockTop;
-    void pad;
+    y = blockTop + 8;
+    setFace('bold', 12, [15, 23, 42]);
+    if (isRtl) drawText(typeHeading, innerLeft, y, { rtlEdge: innerRight });
+    else drawText(typeHeading, innerLeft, y);
+    y += 8;
+
+    setFace('normal', 10, [51, 65, 85]);
+    descLines.forEach((line) => {
+      if (isRtl) drawText(line, innerLeft, y, { rtlEdge: innerRight });
+      else drawText(line, innerLeft, y);
+      y += 5;
+    });
+    y += 2.5;
+
+    labeledList(industriesLabel, industries, 9.5, innerLeft, innerRight, { noEnsure: true });
+    labeledList(jobsLabel, examples, 9.5, innerLeft, innerRight, { noEnsure: true });
+
+    y = Math.max(y, blockTop + blockH) + 7;
   }
 
   const headerH = name ? 44 : 38;
@@ -340,37 +424,44 @@ function downloadRiasecPdf(scores, personName) {
     }
   }
 
-  y = headerH + 12;
+  y = headerH + 14;
 
-  heading(pdf.hollandCode, 15, 28);
-  setFace('bold', 26);
+  // --- Section 1: Holland code ---
+  heading(pdf.hollandCode, 15, 30);
+  setFace('bold', 28);
   if (isRtl) {
     let codeX = rightX;
     hollandCode.split('').forEach((letter) => {
       doc.setTextColor(...hexToRgb(typeInfo[letter].color));
       doc.text(letter, codeX, y, { align: 'right' });
-      codeX -= 13;
+      codeX -= 14;
     });
   } else {
     let codeX = leftX;
     hollandCode.split('').forEach((letter) => {
       doc.setTextColor(...hexToRgb(typeInfo[letter].color));
       doc.text(letter, codeX, y);
-      codeX += 13;
+      codeX += 14;
     });
   }
-  y += 10;
+  y += 11;
   const codeNames = topThree
     .map((letter) => `${letter} (${typeInfo[letter].nameLocal}, ${totals[letter]} ${t('ui.points')})`)
-    .join(isRtl ? '  ·  ' : '  ·  ');
+    .join('  ·  ');
   bodyText(codeNames, 10);
   bodyText(describeCombination(topThree), 10);
+  sectionGap(4);
 
-  const chartSize = 82;
-  heading(pdf.preferenceProfile, 14, chartSize + 16);
-  const chartDataUrl = buildHexagonChartDataUrl(totals, 400);
+  // --- Section 2: Preference profile chart ---
+  const chartSize = 105;
+  heading(pdf.preferenceProfile, 14, chartSize + 22);
+  const chartDataUrl = buildHexagonChartDataUrl(totals, 640, {
+    typeInfo,
+    legendIdeas: t('ui.chartLegendIdeas'),
+    legendPeople: t('ui.chartLegendPeople'),
+  });
   doc.addImage(chartDataUrl, 'PNG', (pageWidth - chartSize) / 2, y, chartSize, chartSize);
-  y += chartSize + 6;
+  y += chartSize + 5;
   setFace('normal', 8, [100, 116, 139]);
   const captionLines = doc.splitTextToSize(t('ui.chartCaption'), contentWidth);
   captionLines.forEach((line) => {
@@ -378,8 +469,9 @@ function downloadRiasecPdf(scores, personName) {
     drawText(line, pageWidth / 2, y, { align: 'center' });
     y += 4.2;
   });
-  y += 10;
+  sectionGap(10);
 
+  // --- Section 3: Detail table ---
   const colWidths = [48, 22, 22, 22, 22, 22];
   const tableWidth = colWidths.reduce((sum, w) => sum + w, 0);
   const headerHeight = 11;
@@ -469,8 +561,9 @@ function downloadRiasecPdf(scores, personName) {
     y += rowHeight;
   });
 
-  y += 12;
+  sectionGap(12);
 
+  // --- Section 4: Interpretation ---
   const howToRead = applyPdfPlaceholders(pdf.howToRead || pdf.theoryParagraph, placeholders);
   heading(pdf.interpretation, 14, 48);
   subheading(pdf.howToReadTitle);
@@ -479,12 +572,12 @@ function downloadRiasecPdf(scores, personName) {
     bodyText(applyPdfPlaceholders(pdf.gapNote, placeholders), 10);
   }
 
-  y += 2;
+  sectionGap(4);
   topThree.forEach((letter, i) => {
     typeBlock(letter, i + 1);
   });
 
-  y += 2;
+  sectionGap(2);
   heading(pdf.nextStepsTitle || pdf.interpretation, 13, 18);
   bodyText(applyPdfPlaceholders(pdf.discussNote, placeholders), 10);
 
