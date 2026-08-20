@@ -253,8 +253,8 @@ registerLocale('fa', {
     exampleJobs: 'نمونه مشاغل:',
     tableHeaders: {
       category: 'دسته',
-      activities: 'فعال.',
-      abilities: 'توان.',
+      activities: 'فعالیت',
+      abilities: 'توانایی',
       occupations: 'مشاغل',
       self: 'خود',
       total: 'مجموع',
