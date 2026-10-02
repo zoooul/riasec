@@ -123,13 +123,13 @@ export function AssessmentFlow({ items }: Props) {
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 overflow-x-hidden px-4 py-6 pb-[max(1.5rem,var(--safe-bottom))] md:gap-8 md:py-10">
-      <div className="glass-panel sticky top-[calc(4.25rem+var(--safe-top))] z-10 space-y-3 p-4 md:p-5">
-        <div className="flex items-center justify-between gap-3 text-sm text-[var(--muted)]">
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 overflow-x-hidden px-4 py-5 pb-[max(1.5rem,var(--safe-bottom))] md:gap-7 md:py-10">
+      <div className="glass-panel sticky top-[calc(4.25rem+var(--safe-top))] z-10 space-y-2.5 p-3.5 md:p-4">
+        <div className="flex items-center justify-between gap-3">
           <span className="glass-chip" aria-live="polite">
             {MODULE_LABELS[item.module]}
           </span>
-          <span>
+          <span className="meta-label normal-case tracking-[0.04em]">
             {index + 1}/{items.length}
             {answeredN > 0 ? ` · ${progress}%` : ""}
           </span>
@@ -141,7 +141,7 @@ export function AssessmentFlow({ items }: Props) {
           aria-label="Fortschritt"
         >
           <Progress.Indicator
-            className="block h-full rounded-[inherit] bg-gradient-to-r from-[var(--neon-cyan)] via-[var(--neon-mint)] to-[var(--neon-coral)] shadow-[0_0_16px_rgba(57,243,255,0.55)] transition-[width] duration-450 ease-out"
+            className="block h-full rounded-[inherit] bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-mint)] transition-[width] duration-450 ease-out"
             style={{ width: `${progressVisual}%` }}
           />
         </Progress.Root>
@@ -215,11 +215,11 @@ export function AssessmentFlow({ items }: Props) {
           transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-2 text-center"
         >
-          <h1 className="font-[family-name:var(--font-display)] text-2xl leading-tight tracking-tight text-[var(--ink)] sm:text-3xl md:text-4xl">
+          <h1 className="display-title text-2xl text-[var(--ink)] sm:text-3xl md:text-[2.15rem]">
             {item.prompt}
           </h1>
           {item.helpText ? (
-            <p className="text-sm text-[var(--muted)] md:text-base">
+            <p className="mx-auto max-w-xl text-sm leading-relaxed text-[var(--muted)] md:text-base">
               {item.helpText}
             </p>
           ) : null}
@@ -244,8 +244,8 @@ export function AssessmentFlow({ items }: Props) {
               }}
               whileTap={reduceMotion ? undefined : { scale: 0.985 }}
               className={cn(
-                "glass-panel glass-choice glass-sheen p-3 sm:p-4",
-                isSelected && "glass-choice-pop ring-2 ring-[var(--neon-cyan)]/70",
+                "glass-panel glass-choice p-2.5 sm:p-3",
+                isSelected && "glass-choice-picked glass-choice-pop",
               )}
             >
               <VisualCard
@@ -253,8 +253,8 @@ export function AssessmentFlow({ items }: Props) {
                 motif={choice.visual.motif}
                 imageUrl={choice.visual.imageUrl}
               />
-              <div className="relative z-[1] mt-3 space-y-1 sm:mt-4">
-                <div className="text-base font-semibold tracking-tight text-[var(--ink)] sm:text-lg">
+              <div className="relative z-[1] mt-2.5 space-y-1 px-0.5 sm:mt-3">
+                <div className="text-[0.98rem] font-semibold tracking-tight text-[var(--ink)] sm:text-lg">
                   {choice.label}
                 </div>
                 <p className="text-sm leading-relaxed text-[var(--muted)]">

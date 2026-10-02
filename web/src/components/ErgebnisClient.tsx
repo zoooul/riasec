@@ -307,7 +307,7 @@ export function ErgebnisClient({
       />
 
       <motion.div
-        className="print-root mx-auto w-full max-w-3xl space-y-5 px-4 py-6 md:space-y-6 md:py-10"
+        className="print-root mx-auto w-full max-w-3xl space-y-4 px-4 py-6 md:space-y-5 md:py-10"
         initial={reduceMotion ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -317,20 +317,20 @@ export function ErgebnisClient({
           className="glass-panel glass-panel-strong glass-sheen space-y-4 p-6 md:p-8"
         >
           <span className={cn("glass-chip", chip.className)}>{chip.text}</span>
-          <h1 className="font-[family-name:var(--font-display)] text-3xl tracking-tight text-[var(--ink)] md:text-5xl">
+          <h1 className="display-title text-3xl text-[var(--ink)] md:text-[2.75rem]">
             {plain.roleLabel}
           </h1>
-          <p className="text-base leading-relaxed text-[var(--muted)] md:text-lg">
+          <p className="max-w-2xl text-base leading-relaxed text-[var(--muted-strong)] md:text-lg">
             {plain.oneLine}
           </p>
-          <p className="text-sm font-medium text-[var(--neon-mint)]">
+          <p className="meta-label normal-case tracking-[0.03em] text-[var(--muted)]">
             {coverageChip}
           </p>
           {confidenceNote ? (
             <p className="text-sm text-[var(--muted)]">{confidenceNote}</p>
           ) : null}
 
-          <div className="flex flex-wrap gap-2 no-print">
+          <div className="flex flex-wrap gap-2 pt-1 no-print">
             <button
               type="button"
               onClick={onSavePdf}
@@ -362,39 +362,39 @@ export function ErgebnisClient({
           ) : null}
         </section>
 
-        <section id="so-arbeitest-du" className="glass-panel space-y-3 p-5 md:p-6">
-          <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--ink)] md:text-2xl">
+        <section id="so-arbeitest-du" className="space-y-3 px-1 py-2 md:px-2">
+          <h2 className="display-title text-xl text-[var(--ink)] md:text-2xl">
             1. So arbeitest du
           </h2>
-          <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+          <ul className="space-y-2.5 text-sm leading-relaxed text-[var(--muted-strong)] md:text-base">
             {plain.howYouWork.map((line) => (
-              <li key={line} className="rounded-xl bg-white/5 px-3 py-2">
+              <li key={line} className="border-l border-white/15 pl-3">
                 {line}
               </li>
             ))}
           </ul>
         </section>
 
-        <section id="was-dich-anzieht" className="glass-panel space-y-3 p-5 md:p-6">
-          <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--ink)] md:text-2xl">
+        <section id="was-dich-anzieht" className="space-y-3 px-1 py-2 md:px-2">
+          <h2 className="display-title text-xl text-[var(--ink)] md:text-2xl">
             2. Was dich anzieht
           </h2>
-          <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+          <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted-strong)] md:text-base">
             {plain.attractiveFields.map((field) => (
               <li key={field}>{field}</li>
             ))}
           </ul>
           {jobFields.length ? (
             <div className="space-y-2 pt-2">
-              <p className="text-sm text-[var(--muted)]">
+              <p className="meta-label normal-case tracking-[0.03em]">
                 {result.qualityLabel === "orientierung"
-                  ? "Erste Berufsideen (nur Orientierung):"
+                  ? "Erste Berufsideen (nur Orientierung)"
                   : result.qualityLabel === "unsicher"
-                    ? "Berufsideen — eher vorsichtig lesen:"
-                    : "Beispiele:"}
+                    ? "Berufsideen — eher vorsichtig lesen"
+                    : "Beispiele"}
               </p>
               {jobFields.map((job) => (
-                <div key={job.id} className="rounded-xl bg-white/5 px-3 py-2">
+                <div key={job.id} className="space-y-0.5 py-1">
                   <div className="font-semibold text-[var(--ink)]">
                     {job.titleDe}
                   </div>
@@ -405,13 +405,15 @@ export function ErgebnisClient({
           ) : null}
         </section>
 
-        <section id="tipps" className="glass-panel space-y-3 p-5 md:p-6">
-          <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--ink)] md:text-2xl">
+        <section id="tipps" className="space-y-3 px-1 py-2 md:px-2">
+          <h2 className="display-title text-xl text-[var(--ink)] md:text-2xl">
             3. Worauf du achten kannst
           </h2>
-          <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+          <ul className="space-y-2.5 text-sm leading-relaxed text-[var(--muted-strong)] md:text-base">
             {plain.tips.map((tip) => (
-              <li key={tip}>{tip}</li>
+              <li key={tip} className="border-l border-white/15 pl-3">
+                {tip}
+              </li>
             ))}
           </ul>
           <p className="text-xs text-[var(--muted)]">

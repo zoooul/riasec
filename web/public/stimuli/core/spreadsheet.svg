@@ -1,15 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="spreadsheet">
-  <rect width="160" height="120" fill="#0b1a24"/>
-  <rect width="160" height="120" fill="url(#fade)" opacity="0.4"/>
   <defs>
-    <radialGradient id="fade" cx="30%" cy="20%" r="60%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+    <radialGradient id="gspreadsheet" cx="32%" cy="22%" r="68%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
+    <filter id="nspreadsheet" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.7  0 0 0 0 0.8  0 0 0 0 0.9  0 0 0 0.045 0"/>
+    </filter>
   </defs>
+  <rect width="160" height="120" fill="#0a1524"/>
+  <rect width="160" height="120" fill="url(#gspreadsheet)"/>
+  <rect width="160" height="120" filter="url(#nspreadsheet)" opacity="0.85"/>
 
-  <rect x="28" y="28" width="70" height="55" rx="10" fill="rgba(255,255,255,0.12)" stroke="#39f3ff" stroke-width="2"/>
-  <circle cx="118" cy="55" r="20" fill="#7dffb2" opacity="0.9"/>
-  <path d="M40 70 L55 45 L70 60 L85 40" fill="none" stroke="#39f3ff" stroke-width="3" stroke-linecap="round"/>
-
+  <rect x="34" y="28" width="92" height="66" rx="8" fill="rgba(255,255,255,0.08)" stroke="#8aa4bc" stroke-width="1.75"/>
+  <path d="M34 46 h92 M34 64 h92 M34 82 h92 M64 28 v66 M94 28 v66" stroke="rgba(184,201,218,0.35)" stroke-width="1.35"/>
+  <rect x="64" y="46" width="30" height="18" fill="#5ec8d6" opacity="0.35"/>
 </svg>

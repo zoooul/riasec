@@ -1,20 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="gestalt-wave">
-  <rect width="160" height="120" fill="#0b1a24"/>
-  <rect width="160" height="120" fill="url(#fade)" opacity="0.4"/>
   <defs>
-    <radialGradient id="fade" cx="30%" cy="20%" r="60%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+    <radialGradient id="ggestaltwave" cx="32%" cy="22%" r="68%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
+    <filter id="ngestaltwave" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.7  0 0 0 0 0.8  0 0 0 0 0.9  0 0 0 0.045 0"/>
+    </filter>
   </defs>
+  <rect width="160" height="120" fill="#0a1524"/>
+  <rect width="160" height="120" fill="url(#ggestaltwave)"/>
+  <rect width="160" height="120" filter="url(#ngestaltwave)" opacity="0.85"/>
 
-  <defs>
-    <pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M20 0 L0 0 0 20" fill="none" stroke="#5eb8ff" stroke-opacity="0.25" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="160" height="120" fill="url(#g)"/>
-  <circle cx="110" cy="42" r="14" fill="#a78bfa" opacity="0.85"/>
-  <path d="M20 80 C50 40 90 100 140 55" fill="none" stroke="#5eb8ff" stroke-width="5" stroke-linecap="round"/>
-
+  <path d="M16 72 C40 28 56 96 80 52 S120 20 148 64" fill="none" stroke="#5ec8d6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M16 84 C44 50 60 100 84 66 S124 40 148 78" fill="none" stroke="#6fbe9a" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
 </svg>
