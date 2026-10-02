@@ -6,6 +6,9 @@ export interface OccupationSeed {
   titleDe: string;
   riasec: string;
   vector: Record<RiasecId, number>;
+  titleEn?: string;
+  onetSoc?: string;
+  source?: string;
 }
 
 function cosine(
@@ -49,7 +52,7 @@ function whyMatch(
 export function matchOccupations(
   riasec: Record<RiasecId, number>,
   seeds: OccupationSeed[],
-  limit = 4,
+  limit = 6,
 ): OccupationMatch[] {
   return seeds
     .map((seed) => ({
