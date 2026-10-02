@@ -118,24 +118,21 @@ Kein Paid-Theme. DaisyUI selbst: [MIT](https://github.com/saadeghi/daisyui/blob/
 
 ### Docs-MCP: Context7 (primär)
 
-Projekt-MCP [`.cursor/mcp.json`](.cursor/mcp.json) enthält **`context7`** als primären Docs-Server mit Bearer `Authorization: Bearer ${env:CONTEXT7_API_KEY}` (Key nur in `.env.local` / Shell-Env — siehe `.env.example`). Alternative ohne Key: OAuth-URL `https://mcp.context7.com/mcp/oauth`.
+Projekt-MCP [`.cursor/mcp.json`](.cursor/mcp.json) enthält **`context7`** als primären Docs-Server mit **API-Key Bearer** (`Authorization: Bearer ${env:CONTEXT7_API_KEY}`). Key nur in `.env.local` / Shell-Env — siehe `.env.example`. Nie den Klartext-Key in `mcp.json` committen; Setup-CLI mit `--api-key` kann den Key plain schreiben — danach wieder auf `${env:CONTEXT7_API_KEY}` zurücksetzen. OAuth (`/mcp/oauth`) ist nur Fallback ohne Key, nicht die Projekt-Defaults.
 
 ```bash
 # Key lokal (nicht committen):
-cp .env.example .env.local   # CONTEXT7_API_KEY=ctx7sk-…
+cp .env.example .env.local   # CONTEXT7_API_KEY=<your-key>
 export CONTEXT7_API_KEY="$(grep ^CONTEXT7_API_KEY= .env.local | cut -d= -f2-)"
 
-# Optional Setup-CLI:
-# npx ctx7 setup --cursor --mcp --project -y --api-key "$CONTEXT7_API_KEY"
-
-# Docs ohne Key (CLI):
+# Docs CLI (braucht exportierten Key):
 npx ctx7 library daisyui
 npx ctx7 docs /websites/daisyui "navbar progress steps modal"
 npx ctx7 docs /vercel/next.js "App Router layout"
 npx ctx7 docs /websites/tailwindcss "@plugin @theme v4"
 ```
 
-Nach Setup: Cursor neu laden und Context7 MCP einmal authentifizieren. Regel/Skill liegen unter `.cursor/rules/context7.mdc` und `.cursor/skills/context7-mcp/`.
+Nach Setup: Cursor neu laden, damit MCP die Env-Header übernimmt. Regel/Skill liegen unter `.cursor/rules/context7.mdc` und `.cursor/skills/context7-mcp/`.
 
 ### Design-MCP: Figma (optional, behalten)
 
