@@ -230,40 +230,37 @@ export function AssessmentFlow({ items }: Props) {
           Dein gespeicherter Fortschritt wird gelöscht.
         </ConfirmDialog>
 
-        <div className="relative min-h-0 shrink-0 lg:flex-1 lg:overflow-hidden">
-          <AnimatePresence>
-            {showResumeHint ? (
-              <motion.div
-                key="resume-hint"
-                initial={reduceMotion ? false : { opacity: 0, y: -6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                className="pointer-events-none absolute inset-x-0 -top-1 z-10 mx-auto w-fit"
-                aria-live="polite"
-              >
-                <Chip className="shadow-md">
-                  Weiter bei Aufgabe {progress.questionNumber}
-                </Chip>
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
-
-          <AnimatePresence>
-            {stageFlash ? (
-              <motion.div
-                key={stageFlash}
-                initial={reduceMotion ? false : { opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                className="pointer-events-none absolute inset-x-0 -top-1 z-10 mx-auto w-fit"
-                aria-live="polite"
-              >
-                <Chip className="badge-secondary shadow-md">
-                  Nächste Station: {MODULE_LABELS[stageFlash]}
-                </Chip>
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
+        <div className="assessment-prompt relative min-h-0 min-w-0 shrink-0 lg:flex-1 lg:overflow-hidden">
+          <div className="assessment-status-strip mb-[clamp(0.15rem,0.5vh,0.35rem)] flex flex-wrap items-center justify-center gap-2 lg:justify-start" aria-live="polite">
+            <AnimatePresence>
+              {showResumeHint ? (
+                <motion.div
+                  key="resume-hint"
+                  initial={reduceMotion ? false : { opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <div className="alert alert-info py-1.5 text-sm shadow-sm">
+                    Weiter bei Aufgabe {progress.questionNumber}
+                  </div>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+            <AnimatePresence>
+              {stageFlash ? (
+                <motion.div
+                  key={stageFlash}
+                  initial={reduceMotion ? false : { opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <div className="alert alert-success py-1.5 text-sm shadow-sm">
+                    Nächste Station: {MODULE_LABELS[stageFlash]}
+                  </div>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+          </div>
 
           <AnimatePresence mode="wait">
             <motion.div

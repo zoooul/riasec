@@ -265,11 +265,6 @@ body {
   padding-right: 0;
 }
 
-/* Assessment is one full viewport — hide site footer chrome */
-.app-stage:has(.assessment-viewport) .app-footer {
-  display: none;
-}
-
 @supports (height: 100dvh) {
   .assessment-viewport {
     height: 100dvh;
@@ -289,6 +284,31 @@ body {
   min-width: 0;
   min-height: 0;
   flex-shrink: 0;
+}
+
+.assessment-prompt {
+  position: relative;
+  z-index: var(--z-content);
+  min-width: 0;
+}
+
+.assessment-status-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 0;
+}
+
+.assessment-status-strip:empty {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .assessment-status-strip {
+    justify-content: flex-start;
+  }
 }
 
 .assessment-task-title {
