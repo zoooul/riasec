@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "validationStatus": "unvalidated",
   "notes": "Expanded pictorial MVP (~30 items). Nested weights { axes, bigFive, riasec } avoid Big-Five E vs RIASEC E collision. Own constructions inspired by VIST dimensions + Holland RIASEC. Marked unvalidated until norming.",
   "items": [
@@ -13,15 +13,35 @@
           "id": "ei_01_a",
           "label": "Mit anderen",
           "hint": "Austausch, Reize von außen.",
-          "visual": { "kind": "scene", "motif": "group-energy" },
-          "weights": { "axes": { "E_I": 35 }, "bigFive": { "E": 25 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "group-energy"
+          },
+          "weights": {
+            "axes": {
+              "E_I": 35
+            },
+            "bigFive": {
+              "E": 25
+            }
+          }
         },
         {
           "id": "ei_01_b",
           "label": "Für mich",
           "hint": "Ruhe, Fokus, innere Verarbeitung.",
-          "visual": { "kind": "scene", "motif": "quiet-desk" },
-          "weights": { "axes": { "E_I": -35 }, "bigFive": { "E": -25 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "quiet-desk"
+          },
+          "weights": {
+            "axes": {
+              "E_I": -35
+            },
+            "bigFive": {
+              "E": -25
+            }
+          }
         }
       ],
       "source": {
@@ -41,15 +61,35 @@
           "id": "ei_02_a",
           "label": "Schneller Austausch",
           "hint": "Kurz mit jemandem sprechen, Energie teilen.",
-          "visual": { "kind": "scene", "motif": "coffee-chat" },
-          "weights": { "axes": { "E_I": 30 }, "bigFive": { "E": 20 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "coffee-chat"
+          },
+          "weights": {
+            "axes": {
+              "E_I": 30
+            },
+            "bigFive": {
+              "E": 20
+            }
+          }
         },
         {
           "id": "ei_02_b",
           "label": "Stiller Einstieg",
           "hint": "Allein ankommen, erstmal sortieren.",
-          "visual": { "kind": "scene", "motif": "solo-morning" },
-          "weights": { "axes": { "E_I": -30 }, "bigFive": { "E": -20 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "solo-morning"
+          },
+          "weights": {
+            "axes": {
+              "E_I": -30
+            },
+            "bigFive": {
+              "E": -20
+            }
+          }
         }
       ],
       "source": {
@@ -69,15 +109,35 @@
           "id": "ei_03_a",
           "label": "Noch mehr Leute",
           "hint": "Nachplaudern, Ideen weiterdrehen.",
-          "visual": { "kind": "scene", "motif": "after-huddle" },
-          "weights": { "axes": { "E_I": 32 }, "bigFive": { "E": 22 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "after-huddle"
+          },
+          "weights": {
+            "axes": {
+              "E_I": 32
+            },
+            "bigFive": {
+              "E": 22
+            }
+          }
         },
         {
           "id": "ei_03_b",
           "label": "Eine Pause allein",
           "hint": "Kopf leeren, wieder zu dir kommen.",
-          "visual": { "kind": "scene", "motif": "quiet-walk" },
-          "weights": { "axes": { "E_I": -32 }, "bigFive": { "E": -22 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "quiet-walk"
+          },
+          "weights": {
+            "axes": {
+              "E_I": -32
+            },
+            "bigFive": {
+              "E": -22
+            }
+          }
         }
       ],
       "source": {
@@ -98,15 +158,35 @@
           "id": "sn_01_a",
           "label": "Kleine Unterschiede",
           "hint": "Ich checke Details und Abweichungen.",
-          "visual": { "kind": "pattern", "motif": "grid-error" },
-          "weights": { "axes": { "S_N": -35 }, "bigFive": { "C": 10 } }
+          "visual": {
+            "kind": "pattern",
+            "motif": "grid-error"
+          },
+          "weights": {
+            "axes": {
+              "S_N": -35
+            },
+            "bigFive": {
+              "C": 10
+            }
+          }
         },
         {
           "id": "sn_01_b",
           "label": "Das große Muster",
           "hint": "Ich sehe zuerst die Gesamtform.",
-          "visual": { "kind": "pattern", "motif": "gestalt-wave" },
-          "weights": { "axes": { "S_N": 35 }, "bigFive": { "O": 10 } }
+          "visual": {
+            "kind": "pattern",
+            "motif": "gestalt-wave"
+          },
+          "weights": {
+            "axes": {
+              "S_N": 35
+            },
+            "bigFive": {
+              "O": 10
+            }
+          }
         }
       ],
       "source": {
@@ -126,15 +206,35 @@
           "id": "sn_02_a",
           "label": "Fehler finden",
           "hint": "Liste prüfen, Unstimmigkeiten markieren.",
-          "visual": { "kind": "scene", "motif": "checklist" },
-          "weights": { "axes": { "S_N": -30 }, "bigFive": { "C": 15 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "checklist"
+          },
+          "weights": {
+            "axes": {
+              "S_N": -30
+            },
+            "bigFive": {
+              "C": 15
+            }
+          }
         },
         {
           "id": "sn_02_b",
           "label": "Idee spinnen",
           "hint": "Neue Wege und Zusammenhänge entdecken.",
-          "visual": { "kind": "scene", "motif": "idea-map" },
-          "weights": { "axes": { "S_N": 30 }, "bigFive": { "O": 15 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "idea-map"
+          },
+          "weights": {
+            "axes": {
+              "S_N": 30
+            },
+            "bigFive": {
+              "O": 15
+            }
+          }
         }
       ],
       "source": {
@@ -154,15 +254,35 @@
           "id": "sn_03_a",
           "label": "Konkrete Beispiele",
           "hint": "Was schon funktioniert hat, Schritt für Schritt.",
-          "visual": { "kind": "scene", "motif": "howto-steps" },
-          "weights": { "axes": { "S_N": -32 }, "bigFive": { "C": 10 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "howto-steps"
+          },
+          "weights": {
+            "axes": {
+              "S_N": -32
+            },
+            "bigFive": {
+              "C": 10
+            }
+          }
         },
         {
           "id": "sn_03_b",
           "label": "Große Theorien",
           "hint": "Warum etwas so ist — Zusammenhänge.",
-          "visual": { "kind": "pattern", "motif": "theory-web" },
-          "weights": { "axes": { "S_N": 32 }, "bigFive": { "O": 15 } }
+          "visual": {
+            "kind": "pattern",
+            "motif": "theory-web"
+          },
+          "weights": {
+            "axes": {
+              "S_N": 32
+            },
+            "bigFive": {
+              "O": 15
+            }
+          }
         }
       ],
       "source": {
@@ -182,15 +302,35 @@
           "id": "sn_04_a",
           "label": "Zahlen & Fakten",
           "hint": "Was steht konkret drin?",
-          "visual": { "kind": "scene", "motif": "data-table" },
-          "weights": { "axes": { "S_N": -28 }, "bigFive": { "C": 8 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "data-table"
+          },
+          "weights": {
+            "axes": {
+              "S_N": -28
+            },
+            "bigFive": {
+              "C": 8
+            }
+          }
         },
         {
           "id": "sn_04_b",
           "label": "Die Story dahinter",
           "hint": "Wohin könnte das führen?",
-          "visual": { "kind": "scene", "motif": "story-arc" },
-          "weights": { "axes": { "S_N": 28 }, "bigFive": { "O": 12 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "story-arc"
+          },
+          "weights": {
+            "axes": {
+              "S_N": 28
+            },
+            "bigFive": {
+              "O": 12
+            }
+          }
         }
       ],
       "source": {
@@ -210,15 +350,35 @@
           "id": "tf_01_a",
           "label": "Zahlen & Fakten",
           "hint": "Was lässt sich belegen?",
-          "visual": { "kind": "scene", "motif": "charts" },
-          "weights": { "axes": { "T_F": -35 }, "bigFive": { "C": 5 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "charts"
+          },
+          "weights": {
+            "axes": {
+              "T_F": -35
+            },
+            "bigFive": {
+              "C": 5
+            }
+          }
         },
         {
           "id": "tf_01_b",
           "label": "Menschen & Werte",
           "hint": "Was fühlt sich stimmig und fair an?",
-          "visual": { "kind": "scene", "motif": "circle-talk" },
-          "weights": { "axes": { "T_F": 35 }, "bigFive": { "A": 15 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "circle-talk"
+          },
+          "weights": {
+            "axes": {
+              "T_F": 35
+            },
+            "bigFive": {
+              "A": 15
+            }
+          }
         }
       ],
       "source": {
@@ -238,15 +398,32 @@
           "id": "tf_02_a",
           "label": "Klare Logik",
           "hint": "Saubere Begründung, sachlich bleiben.",
-          "visual": { "kind": "pattern", "motif": "logic-blocks" },
-          "weights": { "axes": { "T_F": -30 } }
+          "visual": {
+            "kind": "pattern",
+            "motif": "logic-blocks"
+          },
+          "weights": {
+            "axes": {
+              "T_F": -30
+            }
+          }
         },
         {
           "id": "tf_02_b",
           "label": "Gute Atmosphäre",
           "hint": "Beziehungen und Stimmung mitdenken.",
-          "visual": { "kind": "scene", "motif": "warm-team" },
-          "weights": { "axes": { "T_F": 30 }, "bigFive": { "A": 10 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "warm-team"
+          },
+          "weights": {
+            "axes": {
+              "T_F": 30
+            },
+            "bigFive": {
+              "A": 10
+            }
+          }
         }
       ],
       "source": {
@@ -266,15 +443,35 @@
           "id": "tf_03_a",
           "label": "Direkt und klar",
           "hint": "Sachlich sagen, was nicht passt.",
-          "visual": { "kind": "scene", "motif": "direct-arrow" },
-          "weights": { "axes": { "T_F": -32 }, "bigFive": { "A": -5 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "direct-arrow"
+          },
+          "weights": {
+            "axes": {
+              "T_F": -32
+            },
+            "bigFive": {
+              "A": -5
+            }
+          }
         },
         {
           "id": "tf_03_b",
           "label": "Sanft und achtsam",
           "hint": "Beziehung und Gefühl mitdenken.",
-          "visual": { "kind": "scene", "motif": "soft-feedback" },
-          "weights": { "axes": { "T_F": 32 }, "bigFive": { "A": 18 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "soft-feedback"
+          },
+          "weights": {
+            "axes": {
+              "T_F": 32
+            },
+            "bigFive": {
+              "A": 18
+            }
+          }
         }
       ],
       "source": {
@@ -294,15 +491,35 @@
           "id": "jp_01_a",
           "label": "Plan & Struktur",
           "hint": "Termine, Schritte, klare Abschlüsse.",
-          "visual": { "kind": "scene", "motif": "calendar" },
-          "weights": { "axes": { "J_P": -35 }, "bigFive": { "C": 20 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "calendar"
+          },
+          "weights": {
+            "axes": {
+              "J_P": -35
+            },
+            "bigFive": {
+              "C": 20
+            }
+          }
         },
         {
           "id": "jp_01_b",
           "label": "Offen & flexibel",
           "hint": "Optionen offen lassen, spontan reagieren.",
-          "visual": { "kind": "scene", "motif": "open-road" },
-          "weights": { "axes": { "J_P": 35 }, "bigFive": { "O": 10 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "open-road"
+          },
+          "weights": {
+            "axes": {
+              "J_P": 35
+            },
+            "bigFive": {
+              "O": 10
+            }
+          }
         }
       ],
       "source": {
@@ -322,15 +539,35 @@
           "id": "jp_02_a",
           "label": "Meilensteine setzen",
           "hint": "Rahmen klären, Deadlines fixieren.",
-          "visual": { "kind": "scene", "motif": "milestone" },
-          "weights": { "axes": { "J_P": -32 }, "bigFive": { "C": 18 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "milestone"
+          },
+          "weights": {
+            "axes": {
+              "J_P": -32
+            },
+            "bigFive": {
+              "C": 18
+            }
+          }
         },
         {
           "id": "jp_02_b",
           "label": "Erstmal ausprobieren",
           "hint": "Ins Tun kommen, später sortieren.",
-          "visual": { "kind": "scene", "motif": "prototype" },
-          "weights": { "axes": { "J_P": 32 }, "bigFive": { "O": 12 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "prototype"
+          },
+          "weights": {
+            "axes": {
+              "J_P": 32
+            },
+            "bigFive": {
+              "O": 12
+            }
+          }
         }
       ],
       "source": {
@@ -350,15 +587,35 @@
           "id": "jp_03_a",
           "label": "Ordnung",
           "hint": "Alles hat seinen Platz.",
-          "visual": { "kind": "scene", "motif": "tidy-desk" },
-          "weights": { "axes": { "J_P": -28 }, "bigFive": { "C": 22 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "tidy-desk"
+          },
+          "weights": {
+            "axes": {
+              "J_P": -28
+            },
+            "bigFive": {
+              "C": 22
+            }
+          }
         },
         {
           "id": "jp_03_b",
           "label": "Lebendiges Chaos",
           "hint": "Ideen liegen sichtbar herum.",
-          "visual": { "kind": "scene", "motif": "messy-desk" },
-          "weights": { "axes": { "J_P": 28 }, "bigFive": { "O": 8 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "messy-desk"
+          },
+          "weights": {
+            "axes": {
+              "J_P": 28
+            },
+            "bigFive": {
+              "O": 8
+            }
+          }
         }
       ],
       "source": {
@@ -378,15 +635,29 @@
           "id": "r_01_a",
           "label": "Mit den Händen arbeiten",
           "hint": "Werkstatt, Geräte, praktisches Tun.",
-          "visual": { "kind": "scene", "motif": "workshop" },
-          "weights": { "riasec": { "R": 40 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "workshop"
+          },
+          "weights": {
+            "riasec": {
+              "R": 40
+            }
+          }
         },
         {
           "id": "r_01_b",
           "label": "Menschen begleiten",
           "hint": "Beraten, helfen, erklären.",
-          "visual": { "kind": "scene", "motif": "coaching" },
-          "weights": { "riasec": { "S": 40 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "coaching"
+          },
+          "weights": {
+            "riasec": {
+              "S": 40
+            }
+          }
         }
       ],
       "source": {
@@ -406,15 +677,29 @@
           "id": "r_02_a",
           "label": "Draußen / Technik",
           "hint": "Bauen, reparieren, anfassen.",
-          "visual": { "kind": "scene", "motif": "field-tools" },
-          "weights": { "riasec": { "R": 38 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "field-tools"
+          },
+          "weights": {
+            "riasec": {
+              "R": 38
+            }
+          }
         },
         {
           "id": "r_02_b",
           "label": "Am Schreibtisch",
           "hint": "Systeme, Listen, Abläufe.",
-          "visual": { "kind": "scene", "motif": "office-order" },
-          "weights": { "riasec": { "C": 38 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "office-order"
+          },
+          "weights": {
+            "riasec": {
+              "C": 38
+            }
+          }
         }
       ],
       "source": {
@@ -434,15 +719,32 @@
           "id": "i_01_a",
           "label": "Untersuchen & verstehen",
           "hint": "Forschen, analysieren, knifflige Fragen.",
-          "visual": { "kind": "scene", "motif": "lab-search" },
-          "weights": { "riasec": { "I": 40 }, "bigFive": { "O": 10 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "lab-search"
+          },
+          "weights": {
+            "riasec": {
+              "I": 40
+            },
+            "bigFive": {
+              "O": 10
+            }
+          }
         },
         {
           "id": "i_01_b",
           "label": "Organisieren & ordnen",
           "hint": "Abläufe, Tabellen, Systeme pflegen.",
-          "visual": { "kind": "scene", "motif": "office-order" },
-          "weights": { "riasec": { "C": 40 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "office-order"
+          },
+          "weights": {
+            "riasec": {
+              "C": 40
+            }
+          }
         }
       ],
       "source": {
@@ -462,15 +764,32 @@
           "id": "i_02_a",
           "label": "Forschen & testen",
           "hint": "Hypothesen, Daten, Ursachen finden.",
-          "visual": { "kind": "scene", "motif": "microscope" },
-          "weights": { "riasec": { "I": 42 }, "bigFive": { "O": 12 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "microscope"
+          },
+          "weights": {
+            "riasec": {
+              "I": 42
+            },
+            "bigFive": {
+              "O": 12
+            }
+          }
         },
         {
           "id": "i_02_b",
           "label": "Sofort anpacken",
           "hint": "Praktisch lösen, ausprobieren.",
-          "visual": { "kind": "scene", "motif": "hands-on" },
-          "weights": { "riasec": { "R": 38 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "hands-on"
+          },
+          "weights": {
+            "riasec": {
+              "R": 38
+            }
+          }
         }
       ],
       "source": {
@@ -490,15 +809,32 @@
           "id": "a_01_a",
           "label": "Gestalten & ausdrücken",
           "hint": "Ideen sichtbar machen, kreativ werden.",
-          "visual": { "kind": "scene", "motif": "studio" },
-          "weights": { "riasec": { "A": 40 }, "bigFive": { "O": 15 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "studio"
+          },
+          "weights": {
+            "riasec": {
+              "A": 40
+            },
+            "bigFive": {
+              "O": 15
+            }
+          }
         },
         {
           "id": "a_01_b",
           "label": "Überzeugen & bewegen",
           "hint": "Projekte vorantreiben, Menschen gewinnen.",
-          "visual": { "kind": "scene", "motif": "pitch" },
-          "weights": { "riasec": { "E": 40 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "pitch"
+          },
+          "weights": {
+            "riasec": {
+              "E": 40
+            }
+          }
         }
       ],
       "source": {
@@ -518,15 +854,35 @@
           "id": "a_02_a",
           "label": "Etwas erschaffen",
           "hint": "Musik, Design, Text, Handwerkskunst.",
-          "visual": { "kind": "scene", "motif": "create-canvas" },
-          "weights": { "riasec": { "A": 42 }, "bigFive": { "O": 18 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "create-canvas"
+          },
+          "weights": {
+            "riasec": {
+              "A": 42
+            },
+            "bigFive": {
+              "O": 18
+            }
+          }
         },
         {
           "id": "a_02_b",
           "label": "Andere unterstützen",
           "hint": "Zuhören, helfen, Gemeinschaft.",
-          "visual": { "kind": "scene", "motif": "helping-hand" },
-          "weights": { "riasec": { "S": 40 }, "bigFive": { "A": 12 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "helping-hand"
+          },
+          "weights": {
+            "riasec": {
+              "S": 40
+            },
+            "bigFive": {
+              "A": 12
+            }
+          }
         }
       ],
       "source": {
@@ -546,15 +902,35 @@
           "id": "s_01_a",
           "label": "Mentor / Begleiter",
           "hint": "Menschen wachsen lassen.",
-          "visual": { "kind": "scene", "motif": "mentor" },
-          "weights": { "riasec": { "S": 42 }, "bigFive": { "A": 15 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "mentor"
+          },
+          "weights": {
+            "riasec": {
+              "S": 42
+            },
+            "bigFive": {
+              "A": 15
+            }
+          }
         },
         {
           "id": "s_01_b",
           "label": "Analyst / Denker",
           "hint": "Systeme verstehen, Modelle bauen.",
-          "visual": { "kind": "scene", "motif": "think-board" },
-          "weights": { "riasec": { "I": 40 }, "bigFive": { "O": 10 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "think-board"
+          },
+          "weights": {
+            "riasec": {
+              "I": 40
+            },
+            "bigFive": {
+              "O": 10
+            }
+          }
         }
       ],
       "source": {
@@ -574,15 +950,35 @@
           "id": "e_01_a",
           "label": "Ideen verkaufen",
           "hint": "Überzeugen, Netzwerk, Wirkung.",
-          "visual": { "kind": "scene", "motif": "network-pitch" },
-          "weights": { "riasec": { "E": 42 }, "bigFive": { "E": 15 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "network-pitch"
+          },
+          "weights": {
+            "riasec": {
+              "E": 42
+            },
+            "bigFive": {
+              "E": 15
+            }
+          }
         },
         {
           "id": "e_01_b",
           "label": "Prozesse schärfen",
           "hint": "Qualität, Regeln, Zuverlässigkeit.",
-          "visual": { "kind": "scene", "motif": "process-flow" },
-          "weights": { "riasec": { "C": 42 }, "bigFive": { "C": 15 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "process-flow"
+          },
+          "weights": {
+            "riasec": {
+              "C": 42
+            },
+            "bigFive": {
+              "C": 15
+            }
+          }
         }
       ],
       "source": {
@@ -602,15 +998,35 @@
           "id": "e_02_a",
           "label": "Führung & Tempo",
           "hint": "Richtung geben, Entscheidungen treffen.",
-          "visual": { "kind": "scene", "motif": "lead-flag" },
-          "weights": { "riasec": { "E": 40 }, "bigFive": { "E": 12 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "lead-flag"
+          },
+          "weights": {
+            "riasec": {
+              "E": 40
+            },
+            "bigFive": {
+              "E": 12
+            }
+          }
         },
         {
           "id": "e_02_b",
           "label": "Gestaltung & Story",
           "hint": "Botschaft, Look, Ausdruck.",
-          "visual": { "kind": "scene", "motif": "brand-story" },
-          "weights": { "riasec": { "A": 40 }, "bigFive": { "O": 12 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "brand-story"
+          },
+          "weights": {
+            "riasec": {
+              "A": 40
+            },
+            "bigFive": {
+              "O": 12
+            }
+          }
         }
       ],
       "source": {
@@ -630,15 +1046,35 @@
           "id": "c_01_a",
           "label": "Daten pflegen",
           "hint": "Genauigkeit, Ordnung, Nachvollziehbarkeit.",
-          "visual": { "kind": "scene", "motif": "spreadsheet" },
-          "weights": { "riasec": { "C": 42 }, "bigFive": { "C": 18 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "spreadsheet"
+          },
+          "weights": {
+            "riasec": {
+              "C": 42
+            },
+            "bigFive": {
+              "C": 18
+            }
+          }
         },
         {
           "id": "c_01_b",
           "label": "Kunden gewinnen",
           "hint": "Gespräche, Deals, Überzeugungskraft.",
-          "visual": { "kind": "scene", "motif": "handshake" },
-          "weights": { "riasec": { "E": 40 }, "bigFive": { "E": 10 } }
+          "visual": {
+            "kind": "scene",
+            "motif": "handshake"
+          },
+          "weights": {
+            "riasec": {
+              "E": 40
+            },
+            "bigFive": {
+              "E": 10
+            }
+          }
         }
       ],
       "source": {
@@ -659,20 +1095,36 @@
           "id": "stress_01_a",
           "label": "Plan machen",
           "hint": "Klarheit schaffen, Schritte festlegen.",
-          "visual": { "kind": "affect", "motif": "calm-plan" },
+          "visual": {
+            "kind": "affect",
+            "motif": "calm-plan"
+          },
           "weights": {
-            "axes": { "J_P": -20 },
-            "bigFive": { "N": -10, "C": 15 }
+            "axes": {
+              "J_P": -20
+            },
+            "bigFive": {
+              "N": -10,
+              "C": 15
+            }
           }
         },
         {
           "id": "stress_01_b",
           "label": "Luft holen",
           "hint": "Abstand, Entspannung, neu sortieren.",
-          "visual": { "kind": "affect", "motif": "soft-pause" },
+          "visual": {
+            "kind": "affect",
+            "motif": "soft-pause"
+          },
           "weights": {
-            "axes": { "J_P": 15 },
-            "bigFive": { "N": -15, "A": 5 }
+            "axes": {
+              "J_P": 15
+            },
+            "bigFive": {
+              "N": -15,
+              "A": 5
+            }
           }
         }
       ],
@@ -693,20 +1145,37 @@
           "id": "stress_02_a",
           "label": "Prioritäten streichen",
           "hint": "Fokus aufs Wichtigste, Rest später.",
-          "visual": { "kind": "affect", "motif": "focus-beam" },
+          "visual": {
+            "kind": "affect",
+            "motif": "focus-beam"
+          },
           "weights": {
-            "axes": { "J_P": -18 },
-            "bigFive": { "N": -8, "C": 12 }
+            "axes": {
+              "J_P": -18
+            },
+            "bigFive": {
+              "N": -8,
+              "C": 12
+            }
           }
         },
         {
           "id": "stress_02_b",
           "label": "Mit jemandem sprechen",
           "hint": "Entlastung durch Austausch.",
-          "visual": { "kind": "affect", "motif": "talk-it-out" },
+          "visual": {
+            "kind": "affect",
+            "motif": "talk-it-out"
+          },
           "weights": {
-            "axes": { "E_I": 15 },
-            "bigFive": { "N": -12, "E": 10, "A": 8 }
+            "axes": {
+              "E_I": 15
+            },
+            "bigFive": {
+              "N": -12,
+              "E": 10,
+              "A": 8
+            }
           }
         }
       ],
@@ -727,19 +1196,32 @@
           "id": "stress_03_a",
           "label": "Struktur zurückholen",
           "hint": "Listen, Rituale, kleine Siege.",
-          "visual": { "kind": "affect", "motif": "reset-list" },
+          "visual": {
+            "kind": "affect",
+            "motif": "reset-list"
+          },
           "weights": {
-            "axes": { "J_P": -22 },
-            "bigFive": { "N": -10, "C": 16 }
+            "axes": {
+              "J_P": -22
+            },
+            "bigFive": {
+              "N": -10,
+              "C": 16
+            }
           }
         },
         {
           "id": "stress_03_b",
           "label": "Körper & Atem",
           "hint": "Bewegen, atmen, Spannung lösen.",
-          "visual": { "kind": "affect", "motif": "breathe" },
+          "visual": {
+            "kind": "affect",
+            "motif": "breathe"
+          },
           "weights": {
-            "bigFive": { "N": -18 }
+            "bigFive": {
+              "N": -18
+            }
           }
         }
       ],
@@ -761,20 +1243,35 @@
           "id": "motive_01_a",
           "label": "Wirkung erzielen",
           "hint": "Ziele erreichen, sichtbar vorankommen.",
-          "visual": { "kind": "scene", "motif": "achieve-peak" },
+          "visual": {
+            "kind": "scene",
+            "motif": "achieve-peak"
+          },
           "weights": {
-            "riasec": { "E": 20 },
-            "bigFive": { "C": 10, "E": 8 }
+            "riasec": {
+              "E": 20
+            },
+            "bigFive": {
+              "C": 10,
+              "E": 8
+            }
           }
         },
         {
           "id": "motive_01_b",
           "label": "Verbundenheit",
           "hint": "Zugehörigkeit, gemeinsames Gelingen.",
-          "visual": { "kind": "scene", "motif": "belong-circle" },
+          "visual": {
+            "kind": "scene",
+            "motif": "belong-circle"
+          },
           "weights": {
-            "riasec": { "S": 20 },
-            "bigFive": { "A": 15 }
+            "riasec": {
+              "S": 20
+            },
+            "bigFive": {
+              "A": 15
+            }
           }
         }
       ],
@@ -795,20 +1292,146 @@
           "id": "motive_02_a",
           "label": "Meisterschaft",
           "hint": "Etwas richtig gut können.",
-          "visual": { "kind": "scene", "motif": "craft-master" },
+          "visual": {
+            "kind": "scene",
+            "motif": "craft-master"
+          },
           "weights": {
-            "riasec": { "I": 15, "R": 10 },
-            "bigFive": { "C": 12, "O": 8 }
+            "riasec": {
+              "I": 15,
+              "R": 10
+            },
+            "bigFive": {
+              "C": 12,
+              "O": 8
+            }
           }
         },
         {
           "id": "motive_02_b",
           "label": "Einfluss",
           "hint": "Mitgestalten, Richtung setzen.",
-          "visual": { "kind": "scene", "motif": "influence" },
+          "visual": {
+            "kind": "scene",
+            "motif": "influence"
+          },
           "weights": {
-            "riasec": { "E": 22 },
-            "bigFive": { "E": 12 }
+            "riasec": {
+              "E": 22
+            },
+            "bigFive": {
+              "E": 12
+            }
+          }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "stress_04",
+      "module": "self_regulation",
+      "prompt": "Nach einem Rückschlag brauchst du eher…",
+      "helpText": "OASIS-Affektbilder können hier später als extra layer eingehängt werden.",
+      "choices": [
+        {
+          "id": "stress_04_a",
+          "label": "Analyse & Lernen",
+          "hint": "Was ist schiefgelaufen — klar und sachlich.",
+          "visual": {
+            "kind": "affect",
+            "motif": "lesson-board"
+          },
+          "weights": {
+            "axes": {
+              "T_F": -12,
+              "J_P": -10
+            },
+            "bigFive": {
+              "N": -8,
+              "C": 10,
+              "O": 8
+            }
+          }
+        },
+        {
+          "id": "stress_04_b",
+          "label": "Wärme & Zuspruch",
+          "hint": "Jemanden, der dich hält und zuhört.",
+          "visual": {
+            "kind": "affect",
+            "motif": "warm-support"
+          },
+          "weights": {
+            "axes": {
+              "T_F": 15,
+              "E_I": 10
+            },
+            "bigFive": {
+              "N": -12,
+              "A": 12,
+              "E": 5
+            }
+          }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "motive_03",
+      "module": "motives",
+      "prompt": "Was gibt dir mehr Energie auf Dauer?",
+      "helpText": "PSE-Motive als extra layer unter data/stimuli/.",
+      "choices": [
+        {
+          "id": "motive_03_a",
+          "label": "Freiraum gestalten",
+          "hint": "Eigene Wege, wenig Bevormundung.",
+          "visual": {
+            "kind": "scene",
+            "motif": "open-horizon"
+          },
+          "weights": {
+            "riasec": {
+              "A": 12,
+              "E": 10
+            },
+            "bigFive": {
+              "O": 12,
+              "E": 5
+            }
+          }
+        },
+        {
+          "id": "motive_03_b",
+          "label": "Sicherheit & Ordnung",
+          "hint": "Verlässliche Strukturen, klare Regeln.",
+          "visual": {
+            "kind": "scene",
+            "motif": "safe-frame"
+          },
+          "weights": {
+            "riasec": {
+              "C": 18
+            },
+            "axes": {
+              "J_P": -12
+            },
+            "bigFive": {
+              "C": 14,
+              "N": -5
+            }
           }
         }
       ],

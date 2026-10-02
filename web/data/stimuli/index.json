@@ -656,6 +656,50 @@
       "layer": "extra",
       "attribution": "OASIS affective images — private enrichment only; swap before commercial ship.",
       "validationStatus": "enrichment"
+    },
+    {
+      "id": "core-lesson-board",
+      "motif": "lesson-board",
+      "kind": "affect",
+      "sourceId": "own-generated-patterns",
+      "license": "CC0 / own_construction",
+      "layer": "core",
+      "attribution": "Skillster generated geometric motif.",
+      "validationStatus": "unvalidated",
+      "assetPath": "/stimuli/core/lesson-board.svg"
+    },
+    {
+      "id": "core-warm-support",
+      "motif": "warm-support",
+      "kind": "affect",
+      "sourceId": "own-generated-patterns",
+      "license": "CC0 / own_construction",
+      "layer": "core",
+      "attribution": "Skillster generated geometric motif.",
+      "validationStatus": "unvalidated",
+      "assetPath": "/stimuli/core/warm-support.svg"
+    },
+    {
+      "id": "core-open-horizon",
+      "motif": "open-horizon",
+      "kind": "scene",
+      "sourceId": "own-generated-patterns",
+      "license": "CC0 / own_construction",
+      "layer": "core",
+      "attribution": "Skillster generated geometric motif.",
+      "validationStatus": "unvalidated",
+      "assetPath": "/stimuli/core/open-horizon.svg"
+    },
+    {
+      "id": "core-safe-frame",
+      "motif": "safe-frame",
+      "kind": "scene",
+      "sourceId": "own-generated-patterns",
+      "license": "CC0 / own_construction",
+      "layer": "core",
+      "attribution": "Skillster generated geometric motif.",
+      "validationStatus": "unvalidated",
+      "assetPath": "/stimuli/core/safe-frame.svg"
     }
   ]
 }
