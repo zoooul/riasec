@@ -5,105 +5,139 @@ type MotifProps = {
   imageUrl?: string | null;
 };
 
-/** Glossy motif tiles — neon strokes on frosted glass, optional catalog image. */
-export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
-  const glow =
-    kind === "pattern"
-      ? "from-cyan-400/25 via-transparent to-mint-400/10"
-      : kind === "affect"
-        ? "from-pink-400/25 via-transparent to-amber-300/15"
-        : "from-sky-400/25 via-transparent to-fuchsia-400/15";
+const KIND_TINT: Record<MotifProps["kind"], string> = {
+  pattern: "from-[rgba(94,200,214,0.16)] via-transparent to-[rgba(111,190,154,0.08)]",
+  affect: "from-[rgba(216,137,154,0.16)] via-transparent to-[rgba(201,168,106,0.1)]",
+  scene: "from-[rgba(94,200,214,0.12)] via-transparent to-[rgba(216,137,154,0.08)]",
+};
 
-  const stroke = "#e8f7ff";
-  const neon = kind === "affect" ? "#ff6b9d" : "#39f3ff";
+/** Refined motif tiles — soft geometry, limited palette, catalog image preferred. */
+export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
+  const stroke = "#8aa4bc";
+  const accent = kind === "affect" ? "#d8899a" : "#5ec8d6";
+  const mint = "#6fbe9a";
+  const amber = "#c9a86a";
 
   return (
     <div
-      className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/25 bg-gradient-to-br ${glow} shadow-[inset_0_1px_0_rgba(255,255,255,0.45)]`}
-      style={{
-        backgroundColor: "rgba(255,255,255,0.06)",
-        backdropFilter: "blur(10px)",
-      }}
+      className={`visual-card relative aspect-[5/3] w-full overflow-hidden rounded-[1.15rem] border border-white/18 bg-gradient-to-br ${KIND_TINT[kind]}`}
       aria-hidden
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.28),transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.16),transparent_48%)]" />
+      <div className="visual-card-grain pointer-events-none absolute inset-0 opacity-60" />
       {imageUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={imageUrl}
           alt=""
-          className="relative h-full w-full object-cover opacity-90"
+          className="relative h-full w-full object-cover object-center"
         />
       ) : (
         <svg viewBox="0 0 160 120" className="relative h-full w-full">
           {motif.includes("grid") && (
             <>
-              {[20, 40, 60, 80, 100, 120, 140].map((x) => (
+              {[32, 52, 72, 92, 112, 132].map((x) => (
                 <line
                   key={`v${x}`}
                   x1={x}
-                  y1={10}
+                  y1={18}
                   x2={x}
-                  y2={110}
+                  y2={102}
                   stroke={stroke}
-                  strokeOpacity="0.25"
+                  strokeOpacity="0.35"
                 />
               ))}
-              {[20, 40, 60, 80, 100].map((y) => (
+              {[30, 50, 70, 90].map((y) => (
                 <line
                   key={`h${y}`}
-                  x1={10}
+                  x1={22}
                   y1={y}
-                  x2={150}
+                  x2={138}
                   y2={y}
                   stroke={stroke}
-                  strokeOpacity="0.25"
+                  strokeOpacity="0.35"
                 />
               ))}
-              <circle cx="92" cy="48" r="7" fill={neon} />
+              <circle cx="96" cy="50" r="7" fill={accent} opacity="0.9" />
             </>
           )}
           {(motif.includes("wave") || motif.includes("gestalt")) && (
             <path
-              d="M10 70 C40 20, 70 120, 100 50 S140 20, 155 65"
+              d="M14 72 C40 30, 58 96, 82 52 S122 24, 148 66"
               fill="none"
-              stroke={neon}
-              strokeWidth="6"
+              stroke={accent}
+              strokeWidth="3"
               strokeLinecap="round"
             />
           )}
           {motif.includes("checklist") && (
             <>
               <rect
-                x="35"
-                y="25"
-                width="90"
+                x="40"
+                y="26"
+                width="80"
                 height="70"
-                rx="10"
-                fill="rgba(255,255,255,0.12)"
+                rx="12"
+                fill="rgba(255,255,255,0.08)"
                 stroke={stroke}
+                strokeWidth="1.75"
               />
-              <path d="M50 45 h50 M50 60 h40 M50 75 h55" stroke={stroke} strokeWidth="4" />
-              <path d="M42 44 l5 5 10-12" fill="none" stroke="#7dffb2" strokeWidth="3" />
-            </>
-          )}
-          {(motif.includes("idea") || motif.includes("theory")) && (
-            <>
-              <circle cx="80" cy="48" r="18" fill="#ffd166" opacity="0.9" />
               <path
-                d="M80 68 v18 M70 55 h-18 M90 55 h18 M68 38 l-14-14 M92 38 l14-14"
+                d="M58 48 h42 M58 62 h34 M58 76 h46"
                 stroke={stroke}
-                strokeWidth="4"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M48 47 l4 4 8-9"
+                fill="none"
+                stroke={mint}
+                strokeWidth="2"
                 strokeLinecap="round"
               />
             </>
           )}
-          {(motif.includes("chart") || motif.includes("data-table") || motif.includes("spreadsheet")) && (
+          {(motif.includes("idea") || motif.includes("theory")) && (
             <>
-              <rect x="30" y="55" width="18" height="40" fill="#39f3ff" opacity="0.85" />
-              <rect x="58" y="35" width="18" height="60" fill="#7dffb2" opacity="0.85" />
-              <rect x="86" y="45" width="18" height="50" fill="#39f3ff" opacity="0.7" />
-              <rect x="114" y="28" width="18" height="67" fill="#ff6b9d" opacity="0.85" />
+              <circle cx="80" cy="40" r="14" fill={amber} opacity="0.85" />
+              <circle
+                cx="48"
+                cy="78"
+                r="11"
+                fill="rgba(255,255,255,0.08)"
+                stroke={accent}
+                strokeWidth="1.75"
+              />
+              <circle
+                cx="112"
+                cy="78"
+                r="11"
+                fill="rgba(255,255,255,0.08)"
+                stroke={mint}
+                strokeWidth="1.75"
+              />
+              <path
+                d="M80 54 V64 M68 70 L52 72 M92 70 L108 72"
+                stroke={stroke}
+                strokeWidth="1.75"
+                strokeLinecap="round"
+              />
+            </>
+          )}
+          {(motif.includes("chart") ||
+            motif.includes("data-table") ||
+            motif.includes("spreadsheet")) && (
+            <>
+              <path
+                d="M34 88 V42 M34 88 H128"
+                stroke={stroke}
+                strokeWidth="1.75"
+                strokeLinecap="round"
+              />
+              <rect x="48" y="58" width="14" height="30" rx="3" fill={accent} opacity="0.8" />
+              <rect x="70" y="44" width="14" height="44" rx="3" fill={mint} opacity="0.8" />
+              <rect x="92" y="52" width="14" height="36" rx="3" fill={accent} opacity="0.65" />
+              <rect x="114" y="36" width="14" height="52" rx="3" fill={amber} opacity="0.8" />
             </>
           )}
           {(motif.includes("circle") ||
@@ -118,26 +152,29 @@ export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
             motif.includes("talk-it") ||
             motif.includes("handshake")) && (
             <>
-              <circle cx="55" cy="55" r="14" fill="#ff6b9d" opacity="0.85" />
-              <circle cx="85" cy="48" r="14" fill="#39f3ff" opacity="0.85" />
-              <circle cx="115" cy="58" r="14" fill="#7dffb2" opacity="0.85" />
+              <circle cx="52" cy="58" r="14" fill="#d8899a" opacity="0.8" />
+              <circle cx="80" cy="48" r="14" fill={accent} opacity="0.8" />
+              <circle cx="108" cy="60" r="14" fill={mint} opacity="0.8" />
             </>
           )}
-          {(motif.includes("calendar") || motif.includes("milestone") || motif.includes("reset-list")) && (
+          {(motif.includes("calendar") ||
+            motif.includes("milestone") ||
+            motif.includes("reset-list")) && (
             <>
               <rect
-                x="40"
-                y="28"
-                width="80"
-                height="70"
+                x="42"
+                y="30"
+                width="76"
+                height="64"
                 rx="10"
-                fill="rgba(255,255,255,0.1)"
+                fill="rgba(255,255,255,0.08)"
                 stroke={stroke}
+                strokeWidth="1.75"
               />
-              <rect x="40" y="28" width="80" height="18" fill="#39f3ff" opacity="0.8" />
-              <circle cx="60" cy="68" r="5" fill="#7dffb2" />
-              <circle cx="80" cy="68" r="5" fill="#7dffb2" />
-              <circle cx="100" cy="68" r="5" fill="#ff6b9d" />
+              <rect x="42" y="30" width="76" height="16" rx="10" fill={accent} opacity="0.55" />
+              <circle cx="60" cy="66" r="4.5" fill={mint} />
+              <circle cx="80" cy="66" r="4.5" fill={mint} />
+              <circle cx="100" cy="66" r="4.5" fill="#d8899a" />
             </>
           )}
           {(motif.includes("quiet") ||
@@ -145,23 +182,34 @@ export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
             motif.includes("tidy-desk") ||
             motif.includes("messy-desk")) && (
             <>
-              <rect x="45" y="50" width="70" height="8" rx="2" fill={stroke} opacity="0.5" />
               <rect
-                x="55"
-                y="35"
-                width="50"
+                x="30"
+                y="70"
+                width="100"
+                height="10"
+                rx="3"
+                fill="rgba(255,255,255,0.08)"
+                stroke={stroke}
+                strokeWidth="1.5"
+              />
+              <rect
+                x="54"
+                y="40"
+                width="52"
                 height="30"
                 rx="6"
-                fill="rgba(255,255,255,0.12)"
+                fill="rgba(255,255,255,0.08)"
                 stroke={stroke}
+                strokeWidth="1.75"
               />
-              <circle cx="120" cy="30" r="10" fill="#ffd166" opacity="0.85" />
+              <circle cx="120" cy="34" r="9" fill={amber} opacity="0.7" />
               {motif.includes("messy") && (
                 <path
-                  d="M40 90 C55 70, 75 95, 95 75 S130 85, 145 70"
+                  d="M36 92 C52 70, 74 98, 96 74 S130 88, 144 68"
                   fill="none"
-                  stroke="#ff6b9d"
-                  strokeWidth="3"
+                  stroke="#d8899a"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 />
               )}
             </>
@@ -171,35 +219,64 @@ export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
             motif.includes("hands-on") ||
             motif.includes("craft")) && (
             <>
-              <rect x="30" y="70" width="100" height="12" fill="rgba(255,255,255,0.2)" />
-              <rect x="70" y="40" width="10" height="35" fill="#39f3ff" />
-              <circle cx="75" cy="38" r="10" fill="#7dffb2" />
+              <rect
+                x="30"
+                y="70"
+                width="100"
+                height="12"
+                rx="3"
+                fill="rgba(255,255,255,0.08)"
+                stroke={stroke}
+                strokeWidth="1.5"
+              />
+              <path
+                d="M70 70 V38"
+                stroke={accent}
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              <circle cx="112" cy="48" r="12" fill="none" stroke={amber} strokeWidth="2" />
             </>
           )}
-          {(motif.includes("lab") || motif.includes("microscope") || motif.includes("think-board")) && (
+          {(motif.includes("lab") ||
+            motif.includes("microscope") ||
+            motif.includes("think-board")) && (
             <>
               <path
-                d="M60 30 h20 l15 55 h-50 z"
-                fill="rgba(57,243,255,0.35)"
-                stroke={neon}
-                strokeWidth="3"
+                d="M58 28 h20 l16 52 h-52 z"
+                fill="rgba(94,200,214,0.2)"
+                stroke={accent}
+                strokeWidth="1.75"
+                strokeLinejoin="round"
               />
-              <circle cx="110" cy="40" r="12" fill="none" stroke="#ff6b9d" strokeWidth="4" />
+              <circle cx="118" cy="40" r="14" fill="none" stroke="#d8899a" strokeWidth="2.25" />
             </>
           )}
-          {(motif.includes("office") || motif.includes("process") || motif.includes("howto")) && (
+          {(motif.includes("office") ||
+            motif.includes("process") ||
+            motif.includes("howto")) && (
             <>
               <rect
-                x="35"
+                x="36"
                 y="30"
-                width="90"
-                height="60"
-                rx="8"
-                fill="rgba(255,255,255,0.1)"
+                width="88"
+                height="62"
+                rx="10"
+                fill="rgba(255,255,255,0.08)"
                 stroke={stroke}
+                strokeWidth="1.75"
               />
-              {[42, 54, 66, 78].map((y) => (
-                <line key={y} x1="48" y1={y} x2="112" y2={y} stroke={neon} strokeWidth="3" />
+              {[48, 62, 76].map((y) => (
+                <line
+                  key={y}
+                  x1="50"
+                  y1={y}
+                  x2="110"
+                  y2={y}
+                  stroke={accent}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
               ))}
             </>
           )}
@@ -209,15 +286,24 @@ export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
             motif.includes("story-arc")) && (
             <>
               <rect
-                x="40"
-                y="35"
-                width="55"
-                height="45"
-                fill="rgba(255,255,255,0.1)"
+                x="34"
+                y="28"
+                width="70"
+                height="64"
+                rx="8"
+                fill="rgba(255,255,255,0.08)"
                 stroke={stroke}
+                strokeWidth="1.75"
               />
-              <circle cx="110" cy="55" r="18" fill="#ff6b9d" opacity="0.85" />
-              <path d="M55 70 l20-25 15 15 10-10" stroke={neon} strokeWidth="3" fill="none" />
+              <circle cx="118" cy="48" r="14" fill="#d8899a" opacity="0.75" />
+              <path
+                d="M48 72 L62 48 L76 64 L90 40"
+                fill="none"
+                stroke={mint}
+                strokeWidth="2.25"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </>
           )}
           {(motif.includes("pitch") ||
@@ -226,26 +312,36 @@ export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
             motif.includes("achieve") ||
             motif.includes("influence")) && (
             <>
-              <polygon
-                points="40,85 80,30 120,85"
-                fill="rgba(57,243,255,0.35)"
-                stroke={neon}
+              <path
+                d="M40 86 L80 32 L120 86 Z"
+                fill="rgba(94,200,214,0.18)"
+                stroke={accent}
+                strokeWidth="1.75"
+                strokeLinejoin="round"
               />
-              <circle cx="80" cy="55" r="8" fill="#ffd166" />
+              <circle cx="80" cy="62" r="8" fill={amber} />
             </>
           )}
-          {(motif.includes("plan") || motif.includes("focus-beam") || motif.includes("direct-arrow")) && (
+          {(motif.includes("plan") ||
+            motif.includes("focus-beam") ||
+            motif.includes("direct-arrow")) && (
             <>
               <rect
                 x="38"
-                y="28"
+                y="30"
                 width="84"
-                height="64"
-                rx="10"
-                fill="rgba(255,255,255,0.1)"
+                height="60"
+                rx="12"
+                fill="rgba(255,255,255,0.08)"
                 stroke={stroke}
+                strokeWidth="1.75"
               />
-              <path d="M55 50 h50 M55 65 h35" stroke={neon} strokeWidth="4" />
+              <path
+                d="M54 52 h52 M54 68 h36"
+                stroke={accent}
+                strokeWidth="2.25"
+                strokeLinecap="round"
+              />
             </>
           )}
           {(motif.includes("pause") ||
@@ -253,28 +349,37 @@ export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
             motif.includes("breathe") ||
             motif.includes("quiet-walk")) && (
             <>
-              <circle cx="80" cy="55" r="28" fill="rgba(125,255,178,0.35)" />
+              <circle
+                cx="80"
+                cy="58"
+                r="28"
+                fill="rgba(111,190,154,0.2)"
+                stroke={mint}
+                strokeWidth="1.75"
+              />
               <path
-                d="M60 70 C70 40, 90 40, 100 70"
+                d="M58 68 C68 42, 92 42, 102 68"
                 fill="none"
                 stroke={stroke}
-                strokeWidth="4"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
             </>
           )}
           {motif.includes("logic") && (
             <>
-              <rect x="30" y="40" width="28" height="28" rx="6" fill="#39f3ff" opacity="0.85" />
-              <rect x="66" y="40" width="28" height="28" rx="6" fill="#7dffb2" opacity="0.85" />
-              <rect x="102" y="40" width="28" height="28" rx="6" fill="#ff6b9d" opacity="0.85" />
+              <rect x="30" y="42" width="30" height="30" rx="7" fill={accent} opacity="0.8" />
+              <rect x="65" y="42" width="30" height="30" rx="7" fill={mint} opacity="0.8" />
+              <rect x="100" y="42" width="30" height="30" rx="7" fill="#d8899a" opacity="0.8" />
             </>
           )}
           {(motif.includes("open") || motif.includes("prototype")) && (
             <path
-              d="M20 80 C50 60, 70 95, 100 55 S140 40, 155 50"
+              d="M16 78 Q50 50, 80 70 T144 58"
               fill="none"
-              stroke="#ff6b9d"
-              strokeWidth="6"
+              stroke="#d8899a"
+              strokeWidth="2.5"
+              strokeLinecap="round"
             />
           )}
         </svg>

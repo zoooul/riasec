@@ -2,11 +2,17 @@
 
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
+import * as Dialog from "@radix-ui/react-dialog";
+import * as Progress from "@radix-ui/react-progress";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { RotateCcw } from "lucide-react";
 import { MODULE_LABELS } from "@/lib/constants";
+import { cn } from "@/lib/cn";
 import {
   clearAnswers,
+  getAnswersSnapshot,
+  getServerAnswersSnapshot,
   hasPartialProgress,
-  loadAnswers,
   resumeIndex,
   saveAnswers,
 } from "@/lib/session";
@@ -28,16 +34,13 @@ function subscribeNoop() {
   return () => {};
 }
 
-function getServerAnswers(): Record<string, string> | null {
-  return null;
-}
-
 export function AssessmentFlow({ items }: Props) {
   const router = useRouter();
+  const reduceMotion = useReducedMotion();
   const stored = useSyncExternalStore(
     subscribeNoop,
-    loadAnswers,
-    getServerAnswers,
+    getAnswersSnapshot,
+    getServerAnswersSnapshot,
   );
   const [flow, setFlow] = useState<FlowState | null>(null);
   const [confirmRestart, setConfirmRestart] = useState(false);
@@ -64,6 +67,11 @@ export function AssessmentFlow({ items }: Props) {
     if (!items.length) return 0;
     return Math.round((answeredN / items.length) * 100);
   }, [answeredN, items.length]);
+
+  const progressVisual = Math.max(
+    progress,
+    ((index + 1) / Math.max(items.length, 1)) * 100 * 0.15,
+  );
 
   useEffect(() => {
     if (!item) return;
@@ -126,91 +134,119 @@ export function AssessmentFlow({ items }: Props) {
             {answeredN > 0 ? ` · ${progress}%` : ""}
           </span>
         </div>
-        <div
+        <Progress.Root
           className="glass-progress"
-          role="progressbar"
-          aria-valuenow={progress}
-          aria-valuemin={0}
-          aria-valuemax={100}
+          value={progress}
+          max={100}
           aria-label="Fortschritt"
         >
-          <span
-            style={{
-              width: `${Math.max(
-                progress,
-                ((index + 1) / items.length) * 100 * 0.15,
-              )}%`,
-            }}
+          <Progress.Indicator
+            className="block h-full rounded-[inherit] bg-gradient-to-r from-[var(--neon-cyan)] via-[var(--neon-mint)] to-[var(--neon-coral)] shadow-[0_0_16px_rgba(57,243,255,0.55)] transition-[width] duration-450 ease-out"
+            style={{ width: `${progressVisual}%` }}
           />
-        </div>
+        </Progress.Root>
         {partial ? (
           <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
             <span>Fortschritt gespeichert</span>
-            {!confirmRestart ? (
-              <button
-                type="button"
-                onClick={() => setConfirmRestart(true)}
-                className="text-[var(--neon-coral)] underline-offset-2 hover:underline"
-              >
-                Neu starten
-              </button>
-            ) : (
-              <span className="flex flex-wrap items-center gap-2">
-                Wirklich neu?
+            <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
+              <Dialog.Trigger asChild>
                 <button
                   type="button"
-                  onClick={restart}
-                  className="text-[var(--neon-coral)] underline-offset-2 hover:underline"
+                  className="inline-flex min-h-11 items-center gap-1.5 text-[var(--neon-coral)] underline-offset-2 hover:underline"
                 >
-                  Ja
+                  <RotateCcw className="size-3.5" aria-hidden />
+                  Neu starten
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setConfirmRestart(false)}
-                  className="underline-offset-2 hover:underline"
-                >
-                  Abbrechen
-                </button>
-              </span>
-            )}
+              </Dialog.Trigger>
+              <Dialog.Portal>
+                <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm" />
+                <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 outline-none">
+                  <Dialog.Title className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">
+                    Test neu starten?
+                  </Dialog.Title>
+                  <Dialog.Description className="text-sm text-[var(--muted)]">
+                    Dein gespeicherter Fortschritt wird gelöscht.
+                  </Dialog.Description>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={restart}
+                      className="glass-btn glass-btn-primary min-h-11 px-5 text-sm"
+                    >
+                      Ja, neu starten
+                    </button>
+                    <Dialog.Close asChild>
+                      <button
+                        type="button"
+                        className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
+                      >
+                        Abbrechen
+                      </button>
+                    </Dialog.Close>
+                  </div>
+                </Dialog.Content>
+              </Dialog.Portal>
+            </Dialog.Root>
           </div>
         ) : null}
       </div>
 
-      {moduleFlash ? (
-        <div
-          className="animate-rise glass-chip mx-auto text-[var(--neon-mint)]"
-          aria-live="polite"
-        >
-          Neuer Teil: {MODULE_LABELS[moduleFlash]}
-        </div>
-      ) : null}
-
-      <div className="animate-rise space-y-2 text-center">
-        <h1 className="font-[family-name:var(--font-display)] text-2xl leading-tight text-[var(--ink)] sm:text-3xl md:text-4xl">
-          {item.prompt}
-        </h1>
-        {item.helpText ? (
-          <p className="text-sm text-[var(--muted)] md:text-base">
-            {item.helpText}
-          </p>
+      <AnimatePresence>
+        {moduleFlash ? (
+          <motion.div
+            key={moduleFlash}
+            initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="glass-chip mx-auto text-[var(--neon-mint)]"
+            aria-live="polite"
+          >
+            Neuer Teil: {MODULE_LABELS[moduleFlash]}
+          </motion.div>
         ) : null}
-      </div>
+      </AnimatePresence>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={item.id}
+          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={reduceMotion ? undefined : { opacity: 0, y: -10 }}
+          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          className="space-y-2 text-center"
+        >
+          <h1 className="font-[family-name:var(--font-display)] text-2xl leading-tight tracking-tight text-[var(--ink)] sm:text-3xl md:text-4xl">
+            {item.prompt}
+          </h1>
+          {item.helpText ? (
+            <p className="text-sm text-[var(--muted)] md:text-base">
+              {item.helpText}
+            </p>
+          ) : null}
+        </motion.div>
+      </AnimatePresence>
 
       <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
         {item.choices.map((choice, i) => {
           const isSelected =
             selectedId === choice.id || answers[item.id] === choice.id;
           return (
-            <button
-              key={choice.id}
+            <motion.button
+              key={`${item.id}-${choice.id}`}
               type="button"
               onClick={() => choose(choice.id)}
               disabled={locked && !isSelected}
-              className={`glass-panel glass-choice glass-sheen p-3 sm:p-4 ${
-                isSelected ? "ring-2 ring-[var(--neon-cyan)]/70" : ""
-              }`}
-              style={{ animationDelay: `${i * 60}ms` }}
+              initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: reduceMotion ? 0 : 0.04 + i * 0.05,
+                duration: 0.28,
+              }}
+              whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+              className={cn(
+                "glass-panel glass-choice glass-sheen p-3 sm:p-4",
+                isSelected && "glass-choice-pop ring-2 ring-[var(--neon-cyan)]/70",
+              )}
             >
               <VisualCard
                 kind={choice.visual.kind}
@@ -218,14 +254,14 @@ export function AssessmentFlow({ items }: Props) {
                 imageUrl={choice.visual.imageUrl}
               />
               <div className="relative z-[1] mt-3 space-y-1 sm:mt-4">
-                <div className="text-base font-semibold text-[var(--ink)] sm:text-lg">
+                <div className="text-base font-semibold tracking-tight text-[var(--ink)] sm:text-lg">
                   {choice.label}
                 </div>
                 <p className="text-sm leading-relaxed text-[var(--muted)]">
                   {choice.hint}
                 </p>
               </div>
-            </button>
+            </motion.button>
           );
         })}
       </div>

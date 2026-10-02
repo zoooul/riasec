@@ -10,6 +10,8 @@ export {
   countValidAnswers,
   resumeIndex,
   hasPartialProgress,
+  getAnswersSnapshot,
+  getServerAnswersSnapshot,
   SESSION_ANSWERS_KEY,
 } from "../session";
 export { matchOccupations, type OccupationSeed } from "../occupations";

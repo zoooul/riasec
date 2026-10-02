@@ -8,6 +8,7 @@ import {
   countValidAnswers,
   hasPartialProgress,
   loadAnswers,
+  resetAnswersCache,
   resumeIndex,
   saveAnswers,
 } from "@/lib/session";
@@ -15,6 +16,7 @@ import type { AssessmentItem } from "@/lib/types";
 
 afterEach(() => {
   window.sessionStorage.clear();
+  resetAnswersCache();
 });
 
 function miniItems(): AssessmentItem[] {
@@ -106,6 +108,17 @@ describe("session save/load", () => {
     expect(loadAnswers()).toEqual({});
     window.sessionStorage.setItem(SESSION_ANSWERS_KEY, "{not-json");
     expect(loadAnswers()).toEqual({});
+  });
+
+  it("caches getSnapshot identity when storage is unchanged", () => {
+    expect(loadAnswers()).toBe(loadAnswers());
+    saveAnswers({ sn_01: "sn_01_a" });
+    const a = loadAnswers();
+    const b = loadAnswers();
+    expect(a).toBe(b);
+    expect(a).toEqual({ sn_01: "sn_01_a" });
+    clearAnswers();
+    expect(loadAnswers()).toBe(loadAnswers());
   });
 
   it("clearAnswers removes the key", () => {

@@ -69,6 +69,23 @@ Details: `web/data/occupations/README.md`, `web/data/stimuli/README.md`.
 5. **WHAT:** RIASEC + Top-3 Berufsvorschläge; Details mit Codes/Diagrammen
 6. Footer: Lizenz-Attribution (core + owned)
 
+## API (thin Route Handlers)
+
+| Route | Zweck |
+|---|---|
+| `GET /api/health` | Liveness |
+| `GET /api/items` | Katalog-Meta (ohne Weight-Dump) |
+| `POST /api/score` | Body `{ "answers": { "<itemId>": "<choiceId>", ... } }` → `AssessmentResult` |
+
+**Scoring:** `/ergebnis` scored **client-seitig** (`scoreAssessment`, offline). `POST /api/score` ist der Server-Spiegel derselben Pure Function (Testbarkeit / FE-BE-Trennung). Details: `web/src/lib/README.md`.
+
+## Frontend stack (glass UI)
+
+- Motion (`motion`) — restrained page/section/choice transitions
+- Radix Dialog / Progress / Collapsible — restart confirm, progress, disclosures
+- `clsx` + `tailwind-merge` (`cn`), Lucide icons sparingly
+- Liquid-glass tokens in `globals.css` (no default purple UI kit theme)
+
 ## Extra-Layer (privat)
 
 - **PSE** (`stimuli/extra/pse/`): Motive — nur CC0/CC-BY für Produktpfad; Katalog-Slots ohne Login-Download

@@ -2,12 +2,22 @@
 
 import Link from "next/link";
 import { useMemo, useState, useSyncExternalStore } from "react";
+import * as Collapsible from "@radix-ui/react-collapsible";
+import * as Dialog from "@radix-ui/react-dialog";
+import * as Progress from "@radix-ui/react-progress";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { ChevronDown, Copy, FileDown, Printer, RotateCcw } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RIASEC_IDS, RIASEC_LABELS } from "@/lib/constants";
+import { cn } from "@/lib/cn";
 import type { OccupationSeed } from "@/lib/occupations";
 import { downloadProfilePdf } from "@/lib/profilePdf";
 import { scoreAssessment } from "@/lib/scoring";
-import { clearAnswers, loadAnswers } from "@/lib/session";
+import {
+  clearAnswers,
+  getAnswersSnapshot,
+  getServerAnswersSnapshot,
+} from "@/lib/session";
 import type { AssessmentItem, QualityLabel, VistProfile } from "@/lib/types";
 
 type Attribution = { id: string; name: string; license: string; url: string };
@@ -46,20 +56,21 @@ function subscribeNoop() {
   return () => {};
 }
 
-function getServerAnswers(): Record<string, string> | null {
-  return null;
-}
-
+/**
+ * Ergebnis scores client-side via `scoreAssessment` (offline, no round-trip).
+ * Server mirror: POST /api/score — same pure function for API/tests.
+ */
 export function ErgebnisClient({
   items,
   profiles,
   occupations,
   attribution = [],
 }: Props) {
+  const reduceMotion = useReducedMotion();
   const answers = useSyncExternalStore(
     subscribeNoop,
-    loadAnswers,
-    getServerAnswers,
+    getAnswersSnapshot,
+    getServerAnswersSnapshot,
   );
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [howOpen, setHowOpen] = useState(false);
@@ -95,7 +106,7 @@ export function ErgebnisClient({
       <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
         <SiteHeader />
         <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 text-center">
-          <h1 className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
+          <h1 className="font-[family-name:var(--font-display)] text-2xl tracking-tight text-[var(--ink)]">
             Noch kein Ergebnis
           </h1>
           <p className="text-[var(--muted)]">
@@ -120,7 +131,7 @@ export function ErgebnisClient({
           <span className="glass-chip text-[var(--neon-coral)]">
             Nur Orientierung
           </span>
-          <h1 className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
+          <h1 className="font-[family-name:var(--font-display)] text-2xl tracking-tight text-[var(--ink)]">
             Noch nicht fertig
           </h1>
           <p className="text-[var(--muted)]">
@@ -133,40 +144,49 @@ export function ErgebnisClient({
           >
             Weiter im Test
           </Link>
-          <button
-            type="button"
-            onClick={() => setConfirmRestart(true)}
-            className="min-h-11 text-sm text-[var(--neon-coral)] underline-offset-2 hover:underline"
-          >
-            Neu starten
-          </button>
-          {confirmRestart ? (
-            <div className="glass-panel w-full space-y-3 p-4 text-left">
-              <p className="text-sm text-[var(--muted)]">
-                Antworten wirklich löschen?
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  className="glass-btn glass-btn-primary min-h-11 px-4 text-sm"
-                  onClick={() => {
-                    clearAnswers();
-                    setLocalAnswers({});
-                    setConfirmRestart(false);
-                  }}
-                >
-                  Ja, löschen
-                </button>
-                <button
-                  type="button"
-                  className="glass-btn glass-btn-secondary min-h-11 px-4 text-sm"
-                  onClick={() => setConfirmRestart(false)}
-                >
-                  Abbrechen
-                </button>
-              </div>
-            </div>
-          ) : null}
+          <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
+            <Dialog.Trigger asChild>
+              <button
+                type="button"
+                className="inline-flex min-h-11 items-center gap-1.5 text-sm text-[var(--neon-coral)] underline-offset-2 hover:underline"
+              >
+                <RotateCcw className="size-3.5" aria-hidden />
+                Neu starten
+              </button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm" />
+              <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 text-left outline-none">
+                <Dialog.Title className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">
+                  Antworten wirklich löschen?
+                </Dialog.Title>
+                <Dialog.Description className="text-sm text-[var(--muted)]">
+                  Dein Zwischenspeicher wird geleert.
+                </Dialog.Description>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    className="glass-btn glass-btn-primary min-h-11 px-4 text-sm"
+                    onClick={() => {
+                      clearAnswers();
+                      setLocalAnswers({});
+                      setConfirmRestart(false);
+                    }}
+                  >
+                    Ja, löschen
+                  </button>
+                  <Dialog.Close asChild>
+                    <button
+                      type="button"
+                      className="glass-btn glass-btn-secondary min-h-11 px-4 text-sm"
+                    >
+                      Abbrechen
+                    </button>
+                  </Dialog.Close>
+                </div>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
           {(result.exclusions?.length ?? 0) > 0 ? (
             <div className="glass-panel w-full space-y-2 p-4 text-left">
               <h2 className="font-[family-name:var(--font-display)] text-base text-[var(--ink)]">
@@ -244,57 +264,60 @@ export function ErgebnisClient({
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <button
-            type="button"
-            onClick={() => setConfirmRestart(true)}
-            className="glass-chip min-h-11 text-[var(--neon-cyan)] no-print"
-          >
-            Nochmal
-          </button>
+          <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
+            <Dialog.Trigger asChild>
+              <button
+                type="button"
+                className="glass-chip min-h-11 gap-1.5 text-[var(--neon-cyan)] no-print"
+              >
+                <RotateCcw className="size-3.5" aria-hidden />
+                Nochmal
+              </button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm no-print" />
+              <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 outline-none no-print">
+                <Dialog.Title className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">
+                  Test neu starten?
+                </Dialog.Title>
+                <Dialog.Description className="text-sm text-[var(--muted)]">
+                  Dein aktuelles Ergebnis wird aus dem Zwischenspeicher gelöscht.
+                </Dialog.Description>
+                <div className="flex flex-wrap gap-2">
+                  <Link
+                    href="/assessment"
+                    className="glass-btn glass-btn-primary min-h-11 px-5 text-sm"
+                    onClick={() => clearAnswers()}
+                  >
+                    Ja, neu starten
+                  </Link>
+                  <Dialog.Close asChild>
+                    <button
+                      type="button"
+                      className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
+                    >
+                      Behalten
+                    </button>
+                  </Dialog.Close>
+                </div>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
         }
       />
 
-      <div className="print-root mx-auto w-full max-w-3xl space-y-5 px-4 py-6 md:space-y-6 md:py-10">
-        {confirmRestart ? (
-          <div
-            className="glass-panel glass-panel-strong space-y-3 p-4 no-print"
-            role="alertdialog"
-            aria-labelledby="ergebnis-restart-title"
-          >
-            <h2
-              id="ergebnis-restart-title"
-              className="font-[family-name:var(--font-display)] text-lg text-[var(--ink)]"
-            >
-              Test neu starten?
-            </h2>
-            <p className="text-sm text-[var(--muted)]">
-              Dein aktuelles Ergebnis wird aus dem Zwischenspeicher gelöscht.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <Link
-                href="/assessment"
-                className="glass-btn glass-btn-primary min-h-11 px-5 text-sm"
-                onClick={() => clearAnswers()}
-              >
-                Ja, neu starten
-              </Link>
-              <button
-                type="button"
-                className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
-                onClick={() => setConfirmRestart(false)}
-              >
-                Behalten
-              </button>
-            </div>
-          </div>
-        ) : null}
-
+      <motion.div
+        className="print-root mx-auto w-full max-w-3xl space-y-5 px-4 py-6 md:space-y-6 md:py-10"
+        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      >
         <section
           id="zusammenfassung"
-          className="glass-panel glass-panel-strong glass-sheen animate-rise space-y-4 p-6 md:p-8"
+          className="glass-panel glass-panel-strong glass-sheen space-y-4 p-6 md:p-8"
         >
-          <span className={`glass-chip ${chip.className}`}>{chip.text}</span>
-          <h1 className="font-[family-name:var(--font-display)] text-3xl text-[var(--ink)] md:text-5xl">
+          <span className={cn("glass-chip", chip.className)}>{chip.text}</span>
+          <h1 className="font-[family-name:var(--font-display)] text-3xl tracking-tight text-[var(--ink)] md:text-5xl">
             {plain.roleLabel}
           </h1>
           <p className="text-base leading-relaxed text-[var(--muted)] md:text-lg">
@@ -312,22 +335,25 @@ export function ErgebnisClient({
               type="button"
               onClick={onSavePdf}
               disabled={pdfBusy}
-              className="glass-btn glass-btn-primary min-h-11 px-5 text-sm"
+              className="glass-btn glass-btn-primary inline-flex min-h-11 items-center gap-2 px-5 text-sm"
             >
+              <FileDown className="size-4" aria-hidden />
               {pdfBusy ? "PDF wird gebaut…" : "PDF speichern"}
             </button>
             <button
               type="button"
               onClick={() => window.print()}
-              className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
+              className="glass-btn glass-btn-secondary inline-flex min-h-11 items-center gap-2 px-5 text-sm"
             >
+              <Printer className="size-4" aria-hidden />
               Drucken
             </button>
             <button
               type="button"
               onClick={onCopy}
-              className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
+              className="glass-btn glass-btn-secondary inline-flex min-h-11 items-center gap-2 px-5 text-sm"
             >
+              <Copy className="size-4" aria-hidden />
               {copied ? "Kopiert" : "Kurzfassung kopieren"}
             </button>
           </div>
@@ -337,7 +363,7 @@ export function ErgebnisClient({
         </section>
 
         <section id="so-arbeitest-du" className="glass-panel space-y-3 p-5 md:p-6">
-          <h2 className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)] md:text-2xl">
+          <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--ink)] md:text-2xl">
             1. So arbeitest du
           </h2>
           <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
@@ -350,7 +376,7 @@ export function ErgebnisClient({
         </section>
 
         <section id="was-dich-anzieht" className="glass-panel space-y-3 p-5 md:p-6">
-          <h2 className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)] md:text-2xl">
+          <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--ink)] md:text-2xl">
             2. Was dich anzieht
           </h2>
           <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
@@ -380,7 +406,7 @@ export function ErgebnisClient({
         </section>
 
         <section id="tipps" className="glass-panel space-y-3 p-5 md:p-6">
-          <h2 className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)] md:text-2xl">
+          <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--ink)] md:text-2xl">
             3. Worauf du achten kannst
           </h2>
           <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
@@ -394,62 +420,73 @@ export function ErgebnisClient({
         </section>
 
         {result.howBullets.length > 0 ? (
-          <section className="space-y-3 no-print">
+          <Collapsible.Root
+            open={howOpen}
+            onOpenChange={setHowOpen}
+            className="space-y-3 no-print"
+          >
             <div className="flex flex-wrap items-end justify-between gap-2">
               <div>
-                <h2 className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">
+                <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--ink)]">
                   Mehr aus dem Profil
                 </h2>
                 <p className="mt-1 text-sm text-[var(--muted)]">
                   Zusätzliche Stichpunkte — optional.
                 </p>
               </div>
-              <button
-                type="button"
-                className="glass-chip min-h-11 text-[var(--neon-cyan)]"
-                aria-expanded={howOpen}
-                onClick={() => setHowOpen((v) => !v)}
-              >
-                {howOpen ? "Weniger" : "Mehr lesen"}
-              </button>
+              <Collapsible.Trigger asChild>
+                <button
+                  type="button"
+                  className="glass-chip inline-flex min-h-11 items-center gap-1.5 text-[var(--neon-cyan)]"
+                >
+                  {howOpen ? "Weniger" : "Mehr lesen"}
+                  <ChevronDown
+                    className={cn(
+                      "size-4 transition-transform duration-200",
+                      howOpen && "rotate-180",
+                    )}
+                    aria-hidden
+                  />
+                </button>
+              </Collapsible.Trigger>
             </div>
-            {howOpen
-              ? result.howBullets.map((block) => (
-                  <div
-                    key={block.title}
-                    className="glass-panel space-y-2 p-4 md:p-5"
-                  >
-                    <h3 className="font-semibold text-[var(--ink)]">
-                      {block.title}
-                    </h3>
-                    <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
-                      {block.bullets.map((b) => (
-                        <li key={b} className="rounded-xl bg-white/5 px-3 py-2">
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))
-              : null}
-            {howOpen && result.blendBullets.length ? (
-              <div className="glass-panel space-y-2 border border-[var(--neon-coral)]/25 p-4 md:p-5">
-                <h3 className="font-semibold text-[var(--neon-coral)]">
-                  Auch aus benachbarten Mustern
-                </h3>
-                <ul className="space-y-2 text-sm text-[var(--muted)] md:text-base">
-                  {result.blendBullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </section>
+            <Collapsible.Content className="space-y-3 data-[state=open]:animate-rise">
+              {result.howBullets.map((block) => (
+                <div
+                  key={block.title}
+                  className="glass-panel space-y-2 p-4 md:p-5"
+                >
+                  <h3 className="font-semibold text-[var(--ink)]">
+                    {block.title}
+                  </h3>
+                  <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+                    {block.bullets.map((b) => (
+                      <li key={b} className="rounded-xl bg-white/5 px-3 py-2">
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              {result.blendBullets.length ? (
+                <div className="glass-panel space-y-2 border border-[var(--neon-coral)]/25 p-4 md:p-5">
+                  <h3 className="font-semibold text-[var(--neon-coral)]">
+                    Auch aus benachbarten Mustern
+                  </h3>
+                  <ul className="space-y-2 text-sm text-[var(--muted)] md:text-base">
+                    {result.blendBullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </Collapsible.Content>
+          </Collapsible.Root>
         ) : null}
 
         {(result.exclusions?.length ?? 0) > 0 ? (
           <section className="glass-panel space-y-2 p-4 md:p-5">
-            <h2 className="font-[family-name:var(--font-display)] text-lg text-[var(--ink)]">
+            <h2 className="font-[family-name:var(--font-display)] text-lg tracking-tight text-[var(--ink)]">
               Was wir nicht messen
             </h2>
             <ul className="grid gap-1 text-sm text-[var(--muted)] sm:grid-cols-2">
@@ -460,109 +497,156 @@ export function ErgebnisClient({
           </section>
         ) : null}
 
-        <details
+        <Collapsible.Root
           id="details"
-          className="glass-panel p-4 md:p-5 no-print"
           open={detailsOpen}
-          onToggle={(e) =>
-            setDetailsOpen((e.target as HTMLDetailsElement).open)
-          }
+          onOpenChange={setDetailsOpen}
+          className="glass-panel p-4 md:p-5 no-print"
         >
-          <summary className="cursor-pointer font-[family-name:var(--font-display)] text-lg text-[var(--ink)]">
-            Details (Codes & Diagramme)
-          </summary>
-          <div className="mt-4 space-y-5">
-            <p className="text-sm text-[var(--muted)]">
-              Mustercode {result.primaryCode}
-              {result.riasecCode ? ` · Interessenkürzel ${result.riasecCode}` : ""}
-              {" · "}
-              Beantwortet {result.answeredCount}/{result.itemCount}
-            </p>
-
-            <div className="space-y-3">
-              <h3 className="font-semibold text-[var(--ink)]">Richtungen</h3>
-              {result.axes.map((axis) => {
-                const pct = (axis.value + 100) / 2;
-                return (
-                  <div key={axis.id} className="space-y-1.5">
-                    <div className="flex justify-between gap-2 text-xs text-[var(--muted)] md:text-sm">
-                      <span>{axis.poleLow}</span>
-                      <span>{axis.poleHigh}</span>
-                    </div>
-                    <div className="glass-progress">
-                      <span
-                        style={{
-                          width: `${Math.max(8, Math.min(100, pct))}%`,
-                          background:
-                            "linear-gradient(90deg, #39f3ff, #7dffb2, #ff6b9d)",
-                        }}
-                      />
-                    </div>
-                    <p className="text-sm text-[var(--ink)]">{axis.plain}</p>
-                  </div>
-                );
-              })}
-            </div>
-
-            {result.zwischenLabels.length > 0 ? (
-              <p className="text-sm text-[var(--muted)]">
-                Gemischt: {result.zwischenLabels.join(" · ")}
-              </p>
-            ) : null}
-
-            <div className="space-y-2">
-              <h3 className="font-semibold text-[var(--ink)]">Ähnliche Muster</h3>
-              {result.clusters.map((cluster) => (
-                <div
-                  key={cluster.code}
-                  className="flex items-center justify-between gap-3 rounded-xl bg-white/5 px-3 py-2"
+          <Collapsible.Trigger asChild>
+            <button
+              type="button"
+              className="flex w-full min-h-11 items-center justify-between gap-3 text-left font-[family-name:var(--font-display)] text-lg tracking-tight text-[var(--ink)]"
+            >
+              Details (Codes & Diagramme)
+              <ChevronDown
+                className={cn(
+                  "size-5 shrink-0 text-[var(--muted)] transition-transform duration-200",
+                  detailsOpen && "rotate-180",
+                )}
+                aria-hidden
+              />
+            </button>
+          </Collapsible.Trigger>
+          <AnimatePresence initial={false}>
+            {detailsOpen ? (
+              <Collapsible.Content forceMount asChild>
+                <motion.div
+                  initial={reduceMotion ? false : { opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="overflow-hidden"
                 >
-                  <div>
-                    <div className="font-semibold text-[var(--ink)]">
-                      {cluster.role}{" "}
-                      <span className="text-[var(--muted)]">({cluster.code})</span>
-                    </div>
-                    {cluster.isZwischen ? (
-                      <div className="text-xs text-[var(--neon-mint)]">
-                        Zwischenprofil
-                      </div>
-                    ) : null}
-                  </div>
-                  <div className="text-sm font-semibold text-[var(--neon-cyan)]">
-                    {Math.round(cluster.weight * 100)}%
-                  </div>
-                </div>
-              ))}
-            </div>
+                  <div className="mt-4 space-y-5">
+                    <p className="text-sm text-[var(--muted)]">
+                      Mustercode {result.primaryCode}
+                      {result.riasecCode
+                        ? ` · Interessenkürzel ${result.riasecCode}`
+                        : ""}
+                      {" · "}
+                      Beantwortet {result.answeredCount}/{result.itemCount}
+                    </p>
 
-            <div className="space-y-2">
-              <h3 className="font-semibold text-[var(--ink)]">Interessen-Balken</h3>
-              {riasecSorted.map((id) => {
-                const value = Math.max(result.riasec[id], 0);
-                const width = Math.round((value / maxRiasec) * 100);
-                return (
-                  <div key={id} className="space-y-1">
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium text-[var(--ink)]">
-                        {RIASEC_LABELS[id]}
-                      </span>
-                      <span className="text-[var(--muted)]">{id}</span>
+                    <div className="space-y-3">
+                      <h3 className="font-semibold text-[var(--ink)]">
+                        Richtungen
+                      </h3>
+                      {result.axes.map((axis) => {
+                        const pct = (axis.value + 100) / 2;
+                        return (
+                          <div key={axis.id} className="space-y-1.5">
+                            <div className="flex justify-between gap-2 text-xs text-[var(--muted)] md:text-sm">
+                              <span>{axis.poleLow}</span>
+                              <span>{axis.poleHigh}</span>
+                            </div>
+                            <Progress.Root
+                              className="glass-progress"
+                              value={pct}
+                              max={100}
+                            >
+                              <Progress.Indicator
+                                className="block h-full rounded-[inherit]"
+                                style={{
+                                  width: `${Math.max(8, Math.min(100, pct))}%`,
+                                  background:
+                                    "linear-gradient(90deg, #39f3ff, #7dffb2, #ff6b9d)",
+                                }}
+                              />
+                            </Progress.Root>
+                            <p className="text-sm text-[var(--ink)]">
+                              {axis.plain}
+                            </p>
+                          </div>
+                        );
+                      })}
                     </div>
-                    <div className="glass-progress">
-                      <span
-                        style={{
-                          width: `${Math.max(value > 0 ? 8 : 0, width)}%`,
-                          background: "linear-gradient(90deg, #39f3ff, #7dffb2)",
-                        }}
-                      />
+
+                    {result.zwischenLabels.length > 0 ? (
+                      <p className="text-sm text-[var(--muted)]">
+                        Gemischt: {result.zwischenLabels.join(" · ")}
+                      </p>
+                    ) : null}
+
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-[var(--ink)]">
+                        Ähnliche Muster
+                      </h3>
+                      {result.clusters.map((cluster) => (
+                        <div
+                          key={cluster.code}
+                          className="flex items-center justify-between gap-3 rounded-xl bg-white/5 px-3 py-2"
+                        >
+                          <div>
+                            <div className="font-semibold text-[var(--ink)]">
+                              {cluster.role}{" "}
+                              <span className="text-[var(--muted)]">
+                                ({cluster.code})
+                              </span>
+                            </div>
+                            {cluster.isZwischen ? (
+                              <div className="text-xs text-[var(--neon-mint)]">
+                                Zwischenprofil
+                              </div>
+                            ) : null}
+                          </div>
+                          <div className="text-sm font-semibold text-[var(--neon-cyan)]">
+                            {Math.round(cluster.weight * 100)}%
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="font-semibold text-[var(--ink)]">
+                        Interessen-Balken
+                      </h3>
+                      {riasecSorted.map((id) => {
+                        const value = Math.max(result.riasec[id], 0);
+                        const width = Math.round((value / maxRiasec) * 100);
+                        return (
+                          <div key={id} className="space-y-1">
+                            <div className="flex justify-between text-sm">
+                              <span className="font-medium text-[var(--ink)]">
+                                {RIASEC_LABELS[id]}
+                              </span>
+                              <span className="text-[var(--muted)]">{id}</span>
+                            </div>
+                            <Progress.Root
+                              className="glass-progress"
+                              value={width}
+                              max={100}
+                            >
+                              <Progress.Indicator
+                                className="block h-full rounded-[inherit]"
+                                style={{
+                                  width: `${Math.max(value > 0 ? 8 : 0, width)}%`,
+                                  background:
+                                    "linear-gradient(90deg, #39f3ff, #7dffb2)",
+                                }}
+                              />
+                            </Progress.Root>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        </details>
-      </div>
+                </motion.div>
+              </Collapsible.Content>
+            ) : null}
+          </AnimatePresence>
+        </Collapsible.Root>
+      </motion.div>
     </main>
   );
 }
