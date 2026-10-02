@@ -14,8 +14,8 @@ export function AppShell({ children, className = "" }: Props) {
   return (
     <div className={`app-stage ${className}`}>
       <div className="content-layer flex min-h-dvh flex-col">{children}</div>
-      <footer className="app-footer footer footer-horizontal footer-center border-t border-base-300 bg-base-100 text-base-content/65 no-print">
-        <aside className="page-shell page-shell-wide flex w-full flex-col items-center gap-4 py-8 sm:flex-row sm:justify-between">
+      <footer className="app-footer footer sm:footer-horizontal border-t border-base-300 bg-base-100 p-6 text-base-content/65 no-print md:p-8">
+        <aside className="page-shell page-shell-wide flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <p className="brand-mark text-sm text-base-content">
             Skill<span className="brand-accent">ster</span>
             <span className="ml-2 font-sans text-xs font-normal text-base-content/50">

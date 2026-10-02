@@ -20,7 +20,8 @@ describe("Button", () => {
         Abbrechen
       </Button>,
     );
-    expect(html).toContain("btn-outline");
+    expect(html).toContain("btn-soft");
+    expect(html).toContain("btn-primary");
     expect(html).toContain("w-full");
   });
 });

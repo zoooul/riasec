@@ -10,26 +10,29 @@ type Props = {
   className?: string;
 };
 
+/** Classical DaisyUI navbar — `bg-base-100 shadow-sm`, navbar-start/end. */
 export function SiteHeader({ right, sticky = true, className }: Props) {
   return (
     <header
       className={cn(
-        "site-header z-20 shrink-0 border-b border-base-300 bg-base-100/90 backdrop-blur-md",
+        "site-header z-20 shrink-0",
         sticky ? "sticky top-0" : "relative",
         className,
       )}
     >
-      <div className="site-header-inner navbar mx-auto w-full max-w-5xl px-3 sm:px-4">
-        <div className="navbar-start">
+      <div className="site-header-inner navbar mx-auto w-full max-w-5xl bg-base-100 px-3 shadow-sm sm:px-4">
+        <div className="navbar-start min-h-0">
           <Link
             href="/"
-            className="brand-mark text-base text-base-content focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-lg md:text-xl"
+            className="btn btn-ghost brand-mark px-2 text-base text-base-content sm:text-lg md:text-xl"
           >
             Skill<span className="brand-accent">ster</span>
           </Link>
         </div>
-        <div className="navbar-end gap-2">
-          {right ?? <Chip>privat · lokal</Chip>}
+        <div className="navbar-end min-h-0 gap-2">
+          {right ?? (
+            <Chip className="badge-ghost badge-sm">privat · lokal</Chip>
+          )}
         </div>
       </div>
     </header>

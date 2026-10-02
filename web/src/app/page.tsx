@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 
 /**
- * Landing — classical DaisyUI hero.
+ * Landing — classical DaisyUI hero (Context7 / daisyui.com hero + card patterns).
  * First viewport: brand, one headline, one sentence, one CTA (+ optional media plane).
  * Feature cards sit clearly below the fold.
  */
@@ -18,8 +18,8 @@ export default function HomePage() {
         }
       />
 
-      <section className="hero min-h-0 flex-1">
-        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-8 py-10 pb-8 lg:grid lg:min-h-[calc(100dvh-var(--header-h)-7rem)] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-12 lg:py-14">
+      <section className="hero min-h-0 flex-1 bg-transparent">
+        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-8 py-10 pb-8 lg:grid lg:min-h-[calc(100dvh-var(--header-h)-7rem)] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center lg:gap-14 lg:py-14">
           <div className="stack max-w-xl min-w-0 text-center lg:text-left">
             <Chip className="mx-auto w-fit lg:mx-0">Coaching · Orientierung</Chip>
             <p
@@ -52,8 +52,12 @@ export default function HomePage() {
               >
                 Zu den Aufgaben
               </Button>
-              <p className="meta-label text-center normal-case tracking-[0.04em] text-base-content/45 lg:text-left">
-                Privat · mobil · Zwischenspeicher · Taste 1 · 2
+              <p className="meta-label flex flex-wrap items-center justify-center gap-1.5 normal-case tracking-[0.04em] text-base-content/45 lg:justify-start">
+                <span>Privat · mobil · Zwischenspeicher</span>
+                <span className="inline-flex items-center gap-0.5" aria-hidden>
+                  <kbd className="kbd kbd-xs">1</kbd>
+                  <kbd className="kbd kbd-xs">2</kbd>
+                </span>
               </p>
             </div>
           </div>
@@ -66,12 +70,25 @@ export default function HomePage() {
             <div className="card overflow-hidden border border-base-300 bg-base-100 shadow-md">
               <figure className="landing-hero-figure aspect-[5/4] bg-gradient-to-br from-primary/12 via-base-100 to-secondary/10">
                 <div className="grid h-full w-full place-items-center p-8">
-                  <div className="grid w-full max-w-[14rem] grid-cols-2 gap-3">
-                    <div className="aspect-[5/3] rounded-box border border-base-300 bg-base-200/80" />
-                    <div className="aspect-[5/3] rounded-box border border-primary/25 bg-primary/10" />
-                    <div className="col-span-2 h-2 rounded-full bg-base-300">
-                      <div className="h-full w-2/5 rounded-full bg-primary/70" />
+                  <div className="stack w-full max-w-[15rem] gap-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="badge badge-soft badge-primary badge-sm">
+                        Station 1
+                      </span>
+                      <span className="inline-flex gap-0.5">
+                        <kbd className="kbd kbd-xs">1</kbd>
+                        <kbd className="kbd kbd-xs">2</kbd>
+                      </span>
                     </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="aspect-[5/3] rounded-box border border-base-300 bg-base-200/80" />
+                      <div className="aspect-[5/3] rounded-box border border-primary/25 bg-primary/10" />
+                    </div>
+                    <progress
+                      className="progress progress-primary w-full"
+                      value={40}
+                      max={100}
+                    />
                   </div>
                 </div>
               </figure>
@@ -93,14 +110,17 @@ export default function HomePage() {
           <div className="grid gap-5 sm:grid-cols-3">
             {[
               {
+                n: "01",
                 title: "Bildaufgaben",
                 body: "Zwei Wege tippen oder Taste 1 · 2 — ohne Jargon.",
               },
               {
+                n: "02",
                 title: "Lokaler Speicher",
                 body: "Antworten bleiben im Browser — kein Cloud-Zwang.",
               },
               {
+                n: "03",
                 title: "Orientierung",
                 body: "HOW & WHAT fürs Coaching — keine Diagnose.",
               },
@@ -110,6 +130,9 @@ export default function HomePage() {
                 className="card border border-base-300 bg-base-100 shadow-sm"
               >
                 <div className="card-body gap-2 p-6">
+                  <span className="badge badge-ghost badge-sm w-fit font-mono">
+                    {card.n}
+                  </span>
                   <h3 className="display-title text-lg text-base-content">
                     {card.title}
                   </h3>

@@ -175,13 +175,24 @@ export function AssessmentFlow({ items }: Props) {
 
   return (
     <div className="assessment-flow page-shell page-shell-wide mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.35rem,var(--safe-bottom))] pt-1 sm:px-4 lg:flex lg:flex-row lg:gap-8 lg:px-6 lg:pt-2">
+      <ConfirmDialog
+        open={confirmRestart}
+        onClose={() => setConfirmRestart(false)}
+        title="Test neu starten?"
+        confirmLabel="Ja, neu starten"
+        cancelLabel="Abbrechen"
+        onConfirm={restart}
+      >
+        Dein gespeicherter Fortschritt wird gelöscht.
+      </ConfirmDialog>
+
       <div className="assessment-rail min-w-0 lg:flex lg:flex-col lg:gap-3">
-        <div className="assessment-meta-card card bg-base-100 border border-base-300 shadow-sm shrink-0">
+        <div className="assessment-meta-card card shrink-0 border border-base-300 bg-base-100 shadow-sm">
           <div className="card-body">
             <div className="flex min-w-0 items-center justify-between gap-2">
               <div className="flex min-w-0 items-center gap-2">
                 <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
-                <span className="meta-label hidden normal-case tracking-[0.04em] text-base-content/55 sm:inline">
+                <span className="badge badge-ghost badge-sm hidden font-normal normal-case tracking-normal text-base-content/55 sm:inline-flex">
                   Teil {progress.stageIndex + 1}/{progress.stageCount}
                 </span>
               </div>
@@ -258,17 +269,6 @@ export function AssessmentFlow({ items }: Props) {
             </ul>
           </div>
         </div>
-
-        <ConfirmDialog
-          open={confirmRestart}
-          onClose={() => setConfirmRestart(false)}
-          title="Test neu starten?"
-          confirmLabel="Ja, neu starten"
-          cancelLabel="Abbrechen"
-          onConfirm={restart}
-        >
-          Dein gespeicherter Fortschritt wird gelöscht.
-        </ConfirmDialog>
 
         <div className="assessment-prompt min-h-0 min-w-0 shrink stack-sm">
           <div
@@ -389,7 +389,9 @@ export function AssessmentFlow({ items }: Props) {
               </figure>
               <div className="card-body min-w-0 flex-none gap-1 p-2.5 pt-2 sm:gap-1.5 sm:p-3.5 sm:pt-2.5">
                 <div className="flex items-center justify-between gap-1.5">
-                  <span className="solution-path-tag">{pathLabel}</span>
+                  <span className="badge badge-ghost badge-sm solution-path-tag">
+                    {pathLabel}
+                  </span>
                   <span
                     className="assessment-choice-keys inline-flex gap-0.5 opacity-80 sm:opacity-50"
                     aria-hidden

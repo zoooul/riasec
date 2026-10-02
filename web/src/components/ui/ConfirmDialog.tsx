@@ -15,7 +15,7 @@ type Props = {
   className?: string;
 };
 
-/** DaisyUI modal dialog — controlled open state. */
+/** DaisyUI modal dialog — controlled open state + corner close (docs pattern). */
 export function ConfirmDialog({
   open,
   title,
@@ -37,8 +37,18 @@ export function ConfirmDialog({
         onClose();
       }}
     >
-      <div className="modal-box">
-        <h3 id="confirm-dialog-title" className="display-title text-xl">
+      <div className="modal-box relative">
+        <form method="dialog">
+          <button
+            type="button"
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            aria-label="Schließen"
+            onClick={onClose}
+          >
+            ✕
+          </button>
+        </form>
+        <h3 id="confirm-dialog-title" className="display-title pr-8 text-xl">
           {title}
         </h3>
         <div className="py-3 text-sm text-base-content/70">{children}</div>

@@ -33,7 +33,7 @@ export type ButtonProps = SharedProps &
 
 const variantClass: Record<ButtonVariant, string> = {
   primary: "btn-primary",
-  secondary: "btn-outline",
+  secondary: "btn-soft btn-primary",
   ghost: "btn-ghost",
 };
 

@@ -1,8 +1,17 @@
 {
   "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:CONTEXT7_API_KEY}"
+      }
+    },
     "figma-mcp-go": {
       "command": "npx",
-      "args": ["-y", "@vkhanhqui/figma-mcp-go@latest"]
+      "args": [
+        "-y",
+        "@vkhanhqui/figma-mcp-go@latest"
+      ]
     }
   }
 }

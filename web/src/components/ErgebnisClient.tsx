@@ -272,8 +272,8 @@ export function ErgebnisClient({
           className="card bg-base-100 border border-base-300 shadow-sm"
         >
           <div className="card-body gap-4 p-5 md:gap-5 md:p-7">
-          <Chip className={chip.className}>{chip.text}</Chip>
-          <h1 className="display-title text-3xl text-base-content md:text-[2.75rem]">
+          <Chip className={cn("badge-soft", chip.className)}>{chip.text}</Chip>
+          <h1 className="card-title display-title text-3xl text-base-content md:text-[2.75rem]">
             {plain.roleLabel}
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-base-content/80 md:text-lg">
@@ -326,8 +326,9 @@ export function ErgebnisClient({
         </section>
 
         <section id="so-arbeitest-du" className="stack-sm px-1 py-1 md:px-2">
-          <h2 className="display-title text-xl text-base-content md:text-2xl">
-            1. So arbeitest du
+          <h2 className="display-title flex items-center gap-2 text-xl text-base-content md:text-2xl">
+            <span className="badge badge-primary badge-sm">1</span>
+            So arbeitest du
           </h2>
           <ul className="space-y-2.5 text-sm leading-relaxed text-base-content/80 md:text-base">
             {plain.howYouWork.map((line) => (
@@ -339,8 +340,9 @@ export function ErgebnisClient({
         </section>
 
         <section id="was-dich-anzieht" className="stack-sm px-1 py-1 md:px-2">
-          <h2 className="display-title text-xl text-base-content md:text-2xl">
-            2. Was dich anzieht
+          <h2 className="display-title flex items-center gap-2 text-xl text-base-content md:text-2xl">
+            <span className="badge badge-primary badge-sm">2</span>
+            Was dich anzieht
           </h2>
           <ul className="space-y-2 text-sm leading-relaxed text-base-content/80 md:text-base">
             {plain.attractiveFields.map((field) => (
@@ -376,8 +378,9 @@ export function ErgebnisClient({
         </section>
 
         <section id="tipps" className="stack-sm px-1 py-1 md:px-2">
-          <h2 className="display-title text-xl text-base-content md:text-2xl">
-            3. Worauf du achten kannst
+          <h2 className="display-title flex items-center gap-2 text-xl text-base-content md:text-2xl">
+            <span className="badge badge-primary badge-sm">3</span>
+            Worauf du achten kannst
           </h2>
           <ul className="space-y-2.5 text-sm leading-relaxed text-base-content/80 md:text-base">
             {plain.tips.map((tip) => (
