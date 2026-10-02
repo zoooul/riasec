@@ -57,39 +57,35 @@ Details: `web/data/occupations/README.md`, `web/data/stimuli/README.md`.
 
 ## Flow
 
-1. Assessment speichert Antworten in `sessionStorage`
-2. Ergebnis scored clientseitig mit serverübergebenen Profilen/Occupations
-3. **HOW:** VIST-Abschnitte + Blend aus Nebenclustern
-4. **WHAT:** RIASEC + Matches aus `occupations.json`
-5. Footer: Lizenz-Attribution (core + owned)
+1. Assessment speichert Antworten in `sessionStorage` (keine URL-Payload)
+2. Mid-session: Fortschritt bleibt; Sticky-Progress; Doppel-Tap-Schutz; „Neu starten“ mit Bestätigung
+3. Ergebnisseite: Alltagssprache-Hero + Coverage; PDF/Druck; unvollständig → „Weiter im Test“
+4. **HOW:** Plain-Language-Abschnitte primär; VIST-Stichpunkte optional einklappbar + Blend
+5. **WHAT:** RIASEC + Top-3 Berufsvorschläge; Details mit Codes/Diagrammen
+6. Footer: Lizenz-Attribution (core + owned)
 
 ## Extra-Layer (privat)
 
 - **PSE** (`stimuli/extra/pse/`): Motive — nur CC0/CC-BY für Produktpfad; Katalog-Slots ohne Login-Download
 - **OASIS** (`stimuli/extra/oasis/`): Affekt/Stress — NC/Research, vor Verkauf austauschen
 
-1. Assessment speichert Antworten in `sessionStorage` (keine URL-Payload)
-2. Mid-session: Fortschritt bleibt; Sticky-Progress; Doppel-Tap-Schutz; „Neu starten“ mit Bestätigung
-3. Ergebnisseite liest Session, scored clientseitig mit serverübergebenen Profilen/Seeds
-4. Unvollständige Antworten → Hinweis + CTA „Weiter im Test“ (Coverage: „Basierend auf X von Y“)
-5. **HOW:** VIST-Abschnitte (einklappbar) + Blend aus Nebenclustern
-6. **WHAT:** RIASEC-Balken + Top-3 Berufsvorschläge in Alltagssprache
-7. Footer: Lizenz-Attribution (core + owned)
-
 ## Manual smoke / Re-test
 
 ```bash
 cd web
-npm test          # Vitest unit + integration (session restore, coverage, catalog, all-A vs all-B)
+npm test          # incl. ux-smoke (session resume, plain profile, PDF build)
 npm run build
+npm run lint
 npm run dev
 ```
 
-1. Startseite: Marke **Skillster**, CTA „Jetzt starten“ im unteren Thumb-Bereich
-2. Assessment: Modul-Wechsel sichtbar, Fortschritt sticky, Wahl mit kurzem Pop; Reload mid-session setzt fort
-3. „Neu starten“ → Bestätigungsdialog; Abbruch behält Antworten
-4. Alle Items → `/ergebnis`: Hero-Muster, Coverage-Hinweis, Achsen, Top-3 Berufe, HOW einklappbar, „Kurzfassung kopieren“
-5. `/ergebnis` mit Teilantworten → „Noch nicht fertig“; ohne Session → „Noch kein Ergebnis“
+Curl route check (SSR): `/` CTA + Marke, `/assessment`, `/ergebnis`, `/profile`, `/profile/enfj` all HTTP 200.
+
+1. Startseite: Marke **Skillster**, CTA „Jetzt starten“, mobil tauglich
+2. Assessment: Antworten speichern Fortschritt; Zurück; Reload setzt fort; optional „Neu starten“
+3. `/ergebnis`: Plain-Language-Zusammenfassung, Occupations, PDF speichern, Details aufklappbar, kein Crash
+4. `/profile` Liste + `/profile/<code>` Detail (glass layout)
+5. Ohne Session auf `/ergebnis` → leerer State mit „Test starten“ (nach Hydration)
 
 ## Next milestones
 

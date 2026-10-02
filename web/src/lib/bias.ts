@@ -255,12 +255,10 @@ export function applyBiasGuards(
     confidence: mergedConfidence,
     qualityLabel,
     exclusions: [...TRAIT_EXCLUSIONS],
-    coverageRatio: analysis.coverageRatio,
+    coverageRatio: result.coverageRatio ?? analysis.coverageRatio,
     coverageHint:
-      result.coverageHint ??
-      (qualityLabel === "orientierung"
-        ? `Nur ${analysis.answeredCount} von ${analysis.itemCount} Fragen beantwortet`
-        : `Basierend auf ${analysis.answeredCount} von ${analysis.itemCount} Fragen`),
+      result.coverageHint ||
+      `Basierend auf ${analysis.answeredCount} von ${analysis.itemCount} Fragen`,
     isIncomplete: Boolean(result.isIncomplete) || flags.lowCoverage,
   };
 }

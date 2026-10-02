@@ -94,6 +94,10 @@ function baseResult(
   return {
     answeredCount: 8,
     itemCount: 8,
+    coverageRatio: 1,
+    coverageHint: "Basierend auf 8 von 8 Fragen",
+    confidence: "high",
+    isIncomplete: false,
     axes: [],
     bigFive: { O: 0, C: 0, E: 0, A: 0, N: 0 },
     riasec: { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 },

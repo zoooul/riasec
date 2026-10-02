@@ -4,6 +4,7 @@ import {
   validateItemCatalog,
 } from "@/lib/assessment/catalog";
 import { analyzeCatalogBalance, TRAIT_EXCLUSIONS } from "@/lib/bias";
+import { AXIS_IDS, RIASEC_IDS } from "@/lib/constants";
 import { scoreAssessment } from "@/lib/scoring";
 import {
   firstChoiceAnswers,
@@ -39,6 +40,34 @@ describe("assessment item catalog integrity", () => {
       }
     }
   });
+
+  it("covers every axis and RIASEC letter at least twice", () => {
+    const items = loadMvpItems();
+    const axisHits: Record<string, number> = Object.fromEntries(
+      AXIS_IDS.map((id) => [id, 0]),
+    );
+    const riasecHits: Record<string, number> = Object.fromEntries(
+      RIASEC_IDS.map((id) => [id, 0]),
+    );
+
+    for (const item of items) {
+      const seenA = new Set<string>();
+      const seenR = new Set<string>();
+      for (const choice of item.choices) {
+        for (const k of Object.keys(choice.weights.axes ?? {})) seenA.add(k);
+        for (const k of Object.keys(choice.weights.riasec ?? {})) seenR.add(k);
+      }
+      for (const k of seenA) axisHits[k] = (axisHits[k] ?? 0) + 1;
+      for (const k of seenR) riasecHits[k] = (riasecHits[k] ?? 0) + 1;
+    }
+
+    for (const id of AXIS_IDS) {
+      expect(axisHits[id], `axis ${id}`).toBeGreaterThanOrEqual(2);
+    }
+    for (const id of RIASEC_IDS) {
+      expect(riasecHits[id], `riasec ${id}`).toBeGreaterThanOrEqual(2);
+    }
+  });
 });
 
 describe("full assessment integration", () => {
@@ -52,6 +81,8 @@ describe("full assessment integration", () => {
 
     expect(result.answeredCount).toBe(items.length);
     expect(result.itemCount).toBe(items.length);
+    expect(result.isIncomplete).toBe(false);
+    expect(result.coverageHint).toContain(`${items.length} von ${items.length}`);
     expect(result.primaryCode).toMatch(/^[EI][SN][TF][JP]$/);
     expect(result.clusters.length).toBeGreaterThan(0);
     expect(result.clusters[0]?.isPrimary).toBe(true);
@@ -59,6 +90,7 @@ describe("full assessment integration", () => {
     expect(result.howBullets.length).toBeGreaterThan(0);
     expect(result.howBullets.every((b) => b.bullets.length > 0)).toBe(true);
     expect(result.occupations.length).toBeGreaterThan(0);
+    expect(result.occupations.length).toBeLessThanOrEqual(3);
     expect(result.occupations[0]?.titleDe).toBeTruthy();
     expect(result.riasecCode.length).toBe(3);
     expect(result.plainSummary.length).toBeGreaterThan(0);
@@ -80,9 +112,21 @@ describe("full assessment integration", () => {
   it("all-A vs all-B answers do not share the same primary cluster", () => {
     const items = loadMvpItems();
     const profiles = loadAllProfiles();
-    const allA = scoreAssessment(items, firstChoiceAnswers(items), profiles);
-    const allB = scoreAssessment(items, lastChoiceAnswers(items), profiles);
+    const occupations = loadOccupationSeeds();
+    const allA = scoreAssessment(
+      items,
+      firstChoiceAnswers(items),
+      profiles,
+      occupations,
+    );
+    const allB = scoreAssessment(
+      items,
+      lastChoiceAnswers(items),
+      profiles,
+      occupations,
+    );
     expect(allA.primaryCode).not.toBe(allB.primaryCode);
+    expect(allA.clusters[0]?.code).not.toBe(allB.clusters[0]?.code);
   });
 
   it("marks sparse answers as Orientierung", () => {
@@ -100,7 +144,24 @@ describe("full assessment integration", () => {
     expect(result.qualityLabel).toBe("orientierung");
     expect(result.confidence).toBe("low");
     expect(result.biasFlags?.lowCoverage).toBe(true);
+    expect(result.isIncomplete).toBe(true);
     expect(result.occupations.length).toBeLessThanOrEqual(2);
     expect(result.plainSummary.some((l) => /Orientierung/i.test(l))).toBe(true);
+  });
+
+  it("incomplete answers mark isIncomplete and keep coverage hint", () => {
+    const items = loadMvpItems();
+    const profiles = loadAllProfiles();
+    const partial = Object.fromEntries(
+      items.slice(0, 3).map((item) => [item.id, item.choices[0]!.id]),
+    );
+    const result = scoreAssessment(items, partial, profiles, []);
+
+    expect(result.answeredCount).toBe(3);
+    expect(result.isIncomplete).toBe(true);
+    expect(result.coverageHint).toBe(
+      `Basierend auf 3 von ${items.length} Fragen`,
+    );
+    expect(result.confidence).not.toBe("high");
   });
 });

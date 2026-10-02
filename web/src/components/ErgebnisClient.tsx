@@ -7,7 +7,7 @@ import { RIASEC_IDS, RIASEC_LABELS } from "@/lib/constants";
 import type { OccupationSeed } from "@/lib/occupations";
 import { downloadProfilePdf } from "@/lib/profilePdf";
 import { scoreAssessment } from "@/lib/scoring";
-import { loadAnswers } from "@/lib/session";
+import { clearAnswers, loadAnswers } from "@/lib/session";
 import type { AssessmentItem, QualityLabel, VistProfile } from "@/lib/types";
 
 type Attribution = { id: string; name: string; license: string; url: string };
@@ -35,6 +35,13 @@ function qualityChip(label: QualityLabel | undefined): {
   return { text: "Dein Ergebnis", className: "text-[var(--neon-cyan)]" };
 }
 
+function copySummary(text: string): Promise<void> {
+  if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+    return navigator.clipboard.writeText(text);
+  }
+  return Promise.reject(new Error("clipboard unavailable"));
+}
+
 function subscribeNoop() {
   return () => {};
 }
@@ -55,15 +62,24 @@ export function ErgebnisClient({
     getServerAnswers,
   );
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [howOpen, setHowOpen] = useState(false);
   const [pdfBusy, setPdfBusy] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+  const [confirmRestart, setConfirmRestart] = useState(false);
+  const [localAnswers, setLocalAnswers] = useState<Record<
+    string,
+    string
+  > | null>(null);
+
+  const effectiveAnswers = localAnswers ?? answers;
 
   const result = useMemo(() => {
-    if (!answers) return null;
-    return scoreAssessment(items, answers, profiles, occupations);
-  }, [answers, items, profiles, occupations]);
+    if (!effectiveAnswers) return null;
+    return scoreAssessment(items, effectiveAnswers, profiles, occupations);
+  }, [effectiveAnswers, items, profiles, occupations]);
 
-  if (answers === null) {
+  if (answers === null && localAnswers === null) {
     return (
       <main className="flex flex-1 flex-col">
         <SiteHeader />
@@ -76,11 +92,19 @@ export function ErgebnisClient({
 
   if (!result || !result.answeredCount) {
     return (
-      <main className="flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
         <SiteHeader />
         <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 text-center">
-          <p className="text-[var(--muted)]">Noch kein Durchlauf gespeichert.</p>
-          <Link href="/assessment" className="glass-btn glass-btn-primary">
+          <h1 className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
+            Noch kein Ergebnis
+          </h1>
+          <p className="text-[var(--muted)]">
+            Starte den Bild-Test — danach erscheint hier dein Muster.
+          </p>
+          <Link
+            href="/assessment"
+            className="glass-btn glass-btn-primary min-h-11 w-full max-w-xs"
+          >
             Test starten
           </Link>
         </div>
@@ -88,8 +112,72 @@ export function ErgebnisClient({
     );
   }
 
+  if (result.isIncomplete) {
+    return (
+      <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
+        <SiteHeader />
+        <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 text-center">
+          <h1 className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
+            Noch nicht fertig
+          </h1>
+          <p className="text-[var(--muted)]">
+            {result.coverageHint}. Mach weiter, damit das Ergebnis stabiler
+            wird.
+          </p>
+          <Link
+            href="/assessment"
+            className="glass-btn glass-btn-primary min-h-11 w-full max-w-xs"
+          >
+            Weiter im Test
+          </Link>
+          <button
+            type="button"
+            onClick={() => setConfirmRestart(true)}
+            className="min-h-11 text-sm text-[var(--neon-coral)] underline-offset-2 hover:underline"
+          >
+            Neu starten
+          </button>
+          {confirmRestart ? (
+            <div className="glass-panel w-full space-y-3 p-4 text-left">
+              <p className="text-sm text-[var(--muted)]">
+                Antworten wirklich löschen?
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  className="glass-btn glass-btn-primary min-h-11 px-4 text-sm"
+                  onClick={() => {
+                    clearAnswers();
+                    setLocalAnswers({});
+                    setConfirmRestart(false);
+                  }}
+                >
+                  Ja, löschen
+                </button>
+                <button
+                  type="button"
+                  className="glass-btn glass-btn-secondary min-h-11 px-4 text-sm"
+                  onClick={() => setConfirmRestart(false)}
+                >
+                  Abbrechen
+                </button>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </main>
+    );
+  }
+
   const plain = result.plainProfile;
   const chip = qualityChip(result.qualityLabel);
+  const coverageChip = [
+    result.coverageHint,
+    result.confidence === "medium" ? "noch unsicher" : null,
+    result.confidence === "low" ? "grobe Richtung" : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
   const confidenceNote =
     result.confidence === "low"
       ? "Sicherheit eher niedrig — nur eine grobe Richtung."
@@ -101,6 +189,19 @@ export function ErgebnisClient({
     (a, b) => result.riasec[b] - result.riasec[a],
   );
   const maxRiasec = Math.max(...RIASEC_IDS.map((id) => result.riasec[id]), 1);
+  const summaryText = [
+    `Skillster — ${plain.roleLabel} (${result.primaryCode})`,
+    plain.oneLine,
+    ...result.plainSummary,
+    result.zwischenLabels.length
+      ? `Gemischt: ${result.zwischenLabels.join("; ")}`
+      : "",
+    jobFields.length
+      ? `Berufe: ${jobFields.map((j) => j.titleDe).join(", ")}`
+      : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   function onSavePdf() {
     setPdfBusy(true);
@@ -114,20 +215,65 @@ export function ErgebnisClient({
     }
   }
 
+  async function onCopy() {
+    try {
+      await copySummary(summaryText);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  }
+
   return (
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <Link
-            href="/assessment"
-            className="glass-chip text-[var(--neon-cyan)] no-print"
+          <button
+            type="button"
+            onClick={() => setConfirmRestart(true)}
+            className="glass-chip min-h-11 text-[var(--neon-cyan)] no-print"
           >
             Nochmal
-          </Link>
+          </button>
         }
       />
 
       <div className="print-root mx-auto w-full max-w-3xl space-y-5 px-4 py-6 md:space-y-6 md:py-10">
+        {confirmRestart ? (
+          <div
+            className="glass-panel glass-panel-strong space-y-3 p-4 no-print"
+            role="alertdialog"
+            aria-labelledby="ergebnis-restart-title"
+          >
+            <h2
+              id="ergebnis-restart-title"
+              className="font-[family-name:var(--font-display)] text-lg text-[var(--ink)]"
+            >
+              Test neu starten?
+            </h2>
+            <p className="text-sm text-[var(--muted)]">
+              Dein aktuelles Ergebnis wird aus dem Zwischenspeicher gelöscht.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                href="/assessment"
+                className="glass-btn glass-btn-primary min-h-11 px-5 text-sm"
+                onClick={() => clearAnswers()}
+              >
+                Ja, neu starten
+              </Link>
+              <button
+                type="button"
+                className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
+                onClick={() => setConfirmRestart(false)}
+              >
+                Behalten
+              </button>
+            </div>
+          </div>
+        ) : null}
+
         <section
           id="zusammenfassung"
           className="glass-panel glass-panel-strong glass-sheen animate-rise space-y-4 p-6 md:p-8"
@@ -139,11 +285,11 @@ export function ErgebnisClient({
           <p className="text-base leading-relaxed text-[var(--muted)] md:text-lg">
             {plain.oneLine}
           </p>
+          <p className="text-sm font-medium text-[var(--neon-mint)]">
+            {coverageChip}
+          </p>
           {confidenceNote ? (
-            <p className="text-sm text-[var(--neon-mint)]">{confidenceNote}</p>
-          ) : null}
-          {result.coverageHint ? (
-            <p className="text-xs text-[var(--muted)]">{result.coverageHint}</p>
+            <p className="text-sm text-[var(--muted)]">{confidenceNote}</p>
           ) : null}
 
           <div className="flex flex-wrap gap-2 no-print">
@@ -161,6 +307,13 @@ export function ErgebnisClient({
               className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
             >
               Drucken
+            </button>
+            <button
+              type="button"
+              onClick={onCopy}
+              className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
+            >
+              {copied ? "Kopiert" : "Kurzfassung kopieren"}
             </button>
           </div>
           {pdfError ? (
@@ -218,6 +371,60 @@ export function ErgebnisClient({
             Das ist eine Orientierung — keine Diagnose und kein Eignungstest.
           </p>
         </section>
+
+        {result.howBullets.length > 0 ? (
+          <section className="space-y-3 no-print">
+            <div className="flex flex-wrap items-end justify-between gap-2">
+              <div>
+                <h2 className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">
+                  Mehr aus dem Profil
+                </h2>
+                <p className="mt-1 text-sm text-[var(--muted)]">
+                  Zusätzliche Stichpunkte — optional.
+                </p>
+              </div>
+              <button
+                type="button"
+                className="glass-chip min-h-11 text-[var(--neon-cyan)]"
+                aria-expanded={howOpen}
+                onClick={() => setHowOpen((v) => !v)}
+              >
+                {howOpen ? "Weniger" : "Mehr lesen"}
+              </button>
+            </div>
+            {howOpen
+              ? result.howBullets.map((block) => (
+                  <div
+                    key={block.title}
+                    className="glass-panel space-y-2 p-4 md:p-5"
+                  >
+                    <h3 className="font-semibold text-[var(--ink)]">
+                      {block.title}
+                    </h3>
+                    <ul className="space-y-2 text-sm leading-relaxed text-[var(--muted)] md:text-base">
+                      {block.bullets.map((b) => (
+                        <li key={b} className="rounded-xl bg-white/5 px-3 py-2">
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              : null}
+            {howOpen && result.blendBullets.length ? (
+              <div className="glass-panel space-y-2 border border-[var(--neon-coral)]/25 p-4 md:p-5">
+                <h3 className="font-semibold text-[var(--neon-coral)]">
+                  Auch aus benachbarten Mustern
+                </h3>
+                <ul className="space-y-2 text-sm text-[var(--muted)] md:text-base">
+                  {result.blendBullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </section>
+        ) : null}
 
         {(result.exclusions?.length ?? 0) > 0 ? (
           <section className="glass-panel space-y-2 p-4 md:p-5">
