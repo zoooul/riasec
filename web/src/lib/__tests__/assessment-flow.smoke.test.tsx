@@ -117,7 +117,7 @@ describe("soft · AssessmentFlow smoke", () => {
 
     expect(html).toContain("assessment-key-hint");
     expect(html).toContain("Taste 1 oder 2");
-    expect(html).toContain("Tipp: 1 · 2");
+    expect(html).toContain("assessment-progress-row");
     expect(html).toContain("assessment-choice-keys");
     expect(html).toContain("kbd kbd-xs");
     expect(html).toContain('aria-keyshortcuts="1 a ArrowLeft"');

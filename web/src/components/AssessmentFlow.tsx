@@ -174,67 +174,28 @@ export function AssessmentFlow({ items }: Props) {
   const currentModuleIdx = MODULE_ORDER.indexOf(item.module);
 
   return (
-    <div className="assessment-flow page-shell page-shell-wide mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.35rem,var(--safe-bottom))] pt-1.5 sm:px-4 sm:pt-2 lg:flex lg:flex-row lg:gap-6 lg:px-6">
-      <div className="assessment-rail min-w-0 lg:flex lg:flex-col lg:gap-4">
+    <div className="assessment-flow page-shell page-shell-wide mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.35rem,var(--safe-bottom))] pt-1 sm:px-4 lg:flex lg:flex-row lg:gap-8 lg:px-6 lg:pt-2">
+      <div className="assessment-rail min-w-0 lg:flex lg:flex-col lg:gap-3">
         <div className="assessment-meta-card card bg-base-100 border border-base-300 shadow-sm shrink-0">
           <div className="card-body">
-            <div className="flex min-w-0 items-start justify-between gap-2">
-              <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+            <div className="flex min-w-0 items-center justify-between gap-2">
+              <div className="flex min-w-0 items-center gap-2">
                 <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
-                <span className="meta-label normal-case tracking-[0.04em] text-base-content/60">
+                <span className="meta-label hidden normal-case tracking-[0.04em] text-base-content/55 sm:inline">
                   Teil {progress.stageIndex + 1}/{progress.stageCount}
                 </span>
               </div>
-              <span
-                className="meta-label shrink-0 pt-0.5 normal-case tracking-[0.04em]"
-                aria-live="polite"
-              >
-                {progress.questionNumber}/{progress.itemCount}
-                {progress.answeredCount > 0
-                  ? ` · ${progress.overallPercent}%`
-                  : ""}
-              </span>
-            </div>
-
-            <ul className="assessment-steps steps steps-horizontal w-full overflow-hidden text-[0.55rem] sm:text-[0.65rem]">
-              {MODULE_ORDER.map((mod, i) => (
-                <li
-                  key={mod}
-                  className={cn(
-                    "step",
-                    i <= currentModuleIdx && "step-primary",
-                  )}
-                  data-content={i < currentModuleIdx ? "✓" : undefined}
+              <div className="flex shrink-0 items-center gap-1.5">
+                <span
+                  className="meta-label normal-case tracking-[0.04em]"
+                  aria-live="polite"
                 >
-                  <span className="hidden sm:inline">{MODULE_LABELS[mod]}</span>
-                </li>
-              ))}
-            </ul>
-
-            <progress
-              className="progress progress-primary assessment-progress w-full"
-              value={progressVisual}
-              max={100}
-              aria-label={`Reise: Aufgabe ${progress.questionNumber} von ${progress.itemCount}, ${progress.overallPercent} Prozent`}
-            />
-
-            <p
-              className="assessment-key-hint text-center text-[0.65rem] text-base-content/55 sm:text-left sm:text-[0.7rem] sm:text-base-content/45"
-              data-testid="assessment-key-hint"
-            >
-              <span className="sm:hidden">Taste 1 oder 2</span>
-              <span className="hidden sm:inline">Tipp: 1 · 2</span>
-            </p>
-
-            <div className="assessment-stage-meta flex flex-wrap items-center justify-between gap-2 text-[0.65rem] text-base-content/60 sm:text-[0.7rem]">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="assessment-stage-count">
-                  Station: {progress.stageAnswered}/{progress.stage.count}
+                  {progress.questionNumber}/{progress.itemCount}
                 </span>
                 {index > 0 ? (
                   <button
                     type="button"
-                    className="btn btn-ghost btn-xs h-9 min-h-9 px-2"
+                    className="btn btn-ghost btn-xs h-8 min-h-8 px-2"
                     disabled={locked}
                     onClick={() => {
                       if (locked) return;
@@ -244,18 +205,57 @@ export function AssessmentFlow({ items }: Props) {
                     Zurück
                   </button>
                 ) : null}
+                {partial ? (
+                  <button
+                    type="button"
+                    className="btn btn-ghost btn-xs h-8 min-h-8 gap-1 px-2 text-accent"
+                    onClick={() => setConfirmRestart(true)}
+                    aria-label="Neu starten"
+                  >
+                    <IconRefresh size={14} aria-hidden />
+                    <span className="hidden sm:inline">Neu</span>
+                  </button>
+                ) : null}
               </div>
-              {partial ? (
-                <button
-                  type="button"
-                  className="btn btn-ghost btn-xs h-9 min-h-9 gap-1.5 px-2 text-accent"
-                  onClick={() => setConfirmRestart(true)}
-                >
-                  <IconRefresh size={14} aria-hidden />
-                  Neu starten
-                </button>
-              ) : null}
             </div>
+
+            <div className="assessment-progress-row flex items-center gap-2">
+              <progress
+                className="progress progress-primary assessment-progress min-w-0 flex-1"
+                value={progressVisual}
+                max={100}
+                aria-label={`Reise: Aufgabe ${progress.questionNumber} von ${progress.itemCount}, ${progress.overallPercent} Prozent`}
+              />
+              <p
+                className="assessment-key-hint shrink-0 text-[0.65rem] text-base-content/50"
+                data-testid="assessment-key-hint"
+              >
+                <span className="inline-flex items-center gap-0.5">
+                  <kbd className="kbd kbd-xs">1</kbd>
+                  <kbd className="kbd kbd-xs">2</kbd>
+                </span>
+                <span className="sr-only">Taste 1 oder 2</span>
+                <span className="hidden sm:inline"> · Tipp</span>
+              </p>
+            </div>
+
+            <ul
+              className="assessment-steps steps steps-horizontal w-full overflow-hidden text-[0.6rem]"
+              aria-label="Stationen"
+            >
+              {MODULE_ORDER.map((mod, i) => (
+                <li
+                  key={mod}
+                  className={cn(
+                    "step",
+                    i <= currentModuleIdx && "step-primary",
+                  )}
+                  data-content={i < currentModuleIdx ? "✓" : String(i + 1)}
+                >
+                  <span className="sr-only">{MODULE_LABELS[mod]}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -273,8 +273,8 @@ export function AssessmentFlow({ items }: Props) {
         <div className="assessment-prompt min-h-0 min-w-0 shrink stack-sm">
           <div
             className={cn(
-              "assessment-status-strip flex flex-wrap items-center justify-center gap-2 lg:justify-start",
-              showStatusStrip && "mb-1",
+              "assessment-status-strip",
+              showStatusStrip && "mb-0.5",
             )}
             aria-live="polite"
           >
@@ -289,7 +289,7 @@ export function AssessmentFlow({ items }: Props) {
                 >
                   <div
                     role="status"
-                    className="alert alert-info alert-soft py-1.5 text-sm"
+                    className="alert alert-info alert-soft py-1 text-xs sm:text-sm"
                   >
                     Weiter bei Aufgabe {progress.questionNumber}
                   </div>
@@ -307,7 +307,7 @@ export function AssessmentFlow({ items }: Props) {
                 >
                   <div
                     role="status"
-                    className="alert alert-success alert-soft py-1.5 text-sm"
+                    className="alert alert-success alert-soft py-1 text-xs sm:text-sm"
                   >
                     Nächste Station: {MODULE_LABELS[stageFlash]}
                   </div>
@@ -319,27 +319,27 @@ export function AssessmentFlow({ items }: Props) {
           <AnimatePresence mode="wait">
             <motion.div
               key={item.id}
-              initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
-              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              exit={reduceMotion ? undefined : { opacity: 0, y: -6 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
               className="stack-sm text-center lg:text-left"
             >
               {stageIntro ? (
-                <p className="assessment-stage-intro mx-auto max-w-md text-sm leading-snug text-base-content/60 lg:mx-0">
+                <p className="assessment-stage-intro mx-auto max-w-md text-[0.8rem] leading-snug text-base-content/55 lg:mx-0 lg:text-sm">
                   {stageIntro}
                 </p>
               ) : null}
               {item.task?.title ? (
-                <p className="assessment-task-title meta-label mx-auto w-fit normal-case tracking-[0.06em] lg:mx-0">
+                <p className="assessment-task-title meta-label mx-auto w-fit normal-case tracking-[0.05em] lg:mx-0">
                   {item.task.title}
                 </p>
               ) : null}
-              <h1 className="display-title text-[clamp(1.15rem,2.6vh,1.85rem)] text-base-content lg:text-[clamp(1.35rem,2.4vh,2rem)]">
+              <h1 className="display-title text-[clamp(1.05rem,2.4vh,1.7rem)] text-base-content lg:text-[clamp(1.25rem,2.2vh,1.9rem)]">
                 {item.prompt}
               </h1>
               {item.helpText ? (
-                <p className="assessment-help mx-auto max-w-xl text-sm leading-snug text-base-content/60 lg:mx-0">
+                <p className="assessment-help mx-auto max-w-xl text-[0.8rem] leading-snug text-base-content/55 lg:mx-0 lg:text-sm">
                   {item.helpText}
                 </p>
               ) : null}
@@ -349,7 +349,7 @@ export function AssessmentFlow({ items }: Props) {
       </div>
 
       <div
-        className="assessment-choice-grid grid min-h-0 min-w-0 grid-cols-2 items-stretch gap-2 overflow-hidden sm:gap-3 lg:min-h-0 lg:flex-1 lg:gap-4"
+        className="assessment-choice-grid grid min-h-0 min-w-0 grid-cols-2 items-stretch gap-2.5 overflow-hidden sm:gap-3 lg:min-h-0 lg:flex-1 lg:gap-5"
         role="group"
         aria-label="Zwei Lösungspfade"
       >
@@ -370,8 +370,8 @@ export function AssessmentFlow({ items }: Props) {
               initial={reduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
-                delay: reduceMotion ? 0 : 0.04 + i * 0.05,
-                duration: 0.28,
+                delay: reduceMotion ? 0 : 0.03 + i * 0.04,
+                duration: 0.24,
               }}
               whileTap={reduceMotion ? undefined : { scale: 0.99 }}
               className={cn(
@@ -379,7 +379,7 @@ export function AssessmentFlow({ items }: Props) {
                 isSelected && "solution-card-picked",
               )}
             >
-              <figure className="assessment-choice-figure shrink-0 px-1.5 pt-1.5 sm:px-2.5 sm:pt-2.5">
+              <figure className="assessment-choice-figure shrink-0 px-2 pt-2 sm:px-3 sm:pt-3">
                 <VisualCard
                   kind={choice.visual.kind}
                   motif={choice.visual.motif}
@@ -387,21 +387,21 @@ export function AssessmentFlow({ items }: Props) {
                   compact
                 />
               </figure>
-              <div className="card-body min-w-0 flex-1 gap-1 p-2 pt-1.5 sm:gap-1.5 sm:p-3 sm:pt-2">
+              <div className="card-body min-w-0 flex-none gap-1 p-2.5 pt-2 sm:gap-1.5 sm:p-3.5 sm:pt-2.5">
                 <div className="flex items-center justify-between gap-1.5">
                   <span className="solution-path-tag">{pathLabel}</span>
                   <span
-                    className="assessment-choice-keys inline-flex gap-0.5 opacity-90 sm:opacity-55"
+                    className="assessment-choice-keys inline-flex gap-0.5 opacity-80 sm:opacity-50"
                     aria-hidden
                   >
                     <kbd className="kbd kbd-xs">{keyHint.number}</kbd>
                     <kbd className="kbd kbd-xs">{keyHint.letter}</kbd>
                   </span>
                 </div>
-                <div className="text-[clamp(0.85rem,1.7vh,1.05rem)] font-medium leading-snug tracking-tight text-base-content">
+                <div className="text-[clamp(0.88rem,1.65vh,1.05rem)] font-semibold leading-snug tracking-tight text-base-content">
                   {choice.label}
                 </div>
-                <p className="assessment-choice-hint text-[clamp(0.7rem,1.3vh,0.875rem)] leading-snug text-base-content/60">
+                <p className="assessment-choice-hint text-[clamp(0.72rem,1.25vh,0.875rem)] leading-snug text-base-content/58">
                   {choice.hint}
                 </p>
               </div>
