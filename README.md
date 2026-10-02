@@ -96,17 +96,27 @@ flowchart TB
 ## Flow
 
 1. Assessment speichert Antworten in `sessionStorage` (keine URL-Payload)
-2. Ergebnisseite liest Session, scored clientseitig mit serverübergebenen Profilen/Seeds
-3. **HOW:** VIST-Abschnitte (Stärken, Motivation, Team, Stress) + Blend aus Nebenclustern
-4. **WHAT:** RIASEC-Balken + Berufsfeld-Matches aus dem Seed
-5. Footer: Lizenz-Attribution (core + owned)
+2. Mid-session: Fortschritt bleibt; Sticky-Progress; Doppel-Tap-Schutz; „Neu starten“ mit Bestätigung
+3. Ergebnisseite liest Session, scored clientseitig mit serverübergebenen Profilen/Seeds
+4. Unvollständige Antworten → Hinweis + CTA „Weiter im Test“ (Coverage: „Basierend auf X von Y“)
+5. **HOW:** VIST-Abschnitte (einklappbar) + Blend aus Nebenclustern
+6. **WHAT:** RIASEC-Balken + Top-3 Berufsvorschläge in Alltagssprache
+7. Footer: Lizenz-Attribution (core + owned)
 
-## Manual smoke (ohne Playwright)
+## Manual smoke / Re-test
 
-1. `npm run dev` → Startseite zeigt Marke **Skillster**
-2. Assessment: alle Items durchklicken → Redirect `/ergebnis`
-3. Ergebnis: Primary-Cluster, HOW-Bullets, RIASEC-Balken, Occupation-Karten, Lizenz-Footer
-4. Reload `/ergebnis` behält Session; neuer Tab ohne Session → „Noch kein Durchlauf“
+```bash
+cd web
+npm test          # Vitest unit + integration (session restore, coverage, catalog, all-A vs all-B)
+npm run build
+npm run dev
+```
+
+1. Startseite: Marke **Skillster**, CTA „Jetzt starten“ im unteren Thumb-Bereich
+2. Assessment: Modul-Wechsel sichtbar, Fortschritt sticky, Wahl mit kurzem Pop; Reload mid-session setzt fort
+3. „Neu starten“ → Bestätigungsdialog; Abbruch behält Antworten
+4. Alle Items → `/ergebnis`: Hero-Muster, Coverage-Hinweis, Achsen, Top-3 Berufe, HOW einklappbar, „Kurzfassung kopieren“
+5. `/ergebnis` mit Teilantworten → „Noch nicht fertig“; ohne Session → „Noch kein Ergebnis“
 
 ## Next milestones
 

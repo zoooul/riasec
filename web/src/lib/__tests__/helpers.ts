@@ -50,3 +50,10 @@ export function firstChoiceAnswers(items: AssessmentItem[]): Record<string, stri
     items.map((item) => [item.id, item.choices[0]!.id]),
   );
 }
+
+/** Pick last choice for every item (contrasting full answer set). */
+export function lastChoiceAnswers(items: AssessmentItem[]): Record<string, string> {
+  return Object.fromEntries(
+    items.map((item) => [item.id, item.choices[item.choices.length - 1]!.id]),
+  );
+}

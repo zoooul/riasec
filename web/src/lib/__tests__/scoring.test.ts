@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { ZWISCHEN_THRESHOLD } from "@/lib/constants";
-import { scoreAssessment } from "@/lib/scoring";
+import {
+  confidenceFromCoverage,
+  coverageHintText,
+  coverageSoftFactor,
+  scoreAssessment,
+} from "@/lib/scoring";
 import type { AssessmentItem, VistProfile } from "@/lib/types";
 
 const miniProfiles: VistProfile[] = [
@@ -83,7 +88,6 @@ describe("nested weight scoring", () => {
 
     expect(result.bigFive.E).toBe(40);
     expect(result.riasec.E).toBe(-30);
-    // Flat single-letter map would have overwritten one of these.
     expect(result.bigFive.E).not.toBe(result.riasec.E);
   });
 
@@ -121,7 +125,7 @@ describe("nested weight scoring", () => {
 });
 
 describe("Zwischenprofile thresholds", () => {
-  it(`flags mixed axes when |value| < ${ZWISCHEN_THRESHOLD}`, () => {
+  it(`flags mixed axes in plain German when |value| < ${ZWISCHEN_THRESHOLD}`, () => {
     const items = [
       item("z1", [
         {
@@ -139,11 +143,15 @@ describe("Zwischenprofile thresholds", () => {
     const result = scoreAssessment(items, { z1: "z1_a" }, miniProfiles);
 
     expect(result.zwischenLabels).toEqual(
-      expect.arrayContaining(["zwischen E und I", "zwischen F und T"]),
+      expect.arrayContaining([
+        "Energie: gemischt (eher für dich / eher mit anderen)",
+        "Entscheidung: gemischt (Fakten & Logik / Menschen & Werte)",
+      ]),
     );
-    expect(result.zwischenLabels).not.toEqual(
-      expect.arrayContaining(["zwischen N und S", "zwischen P und J"]),
-    );
+    expect(result.zwischenLabels.join(" ")).not.toMatch(/\bzwischen E und I\b/);
+    expect(
+      result.zwischenLabels.some((l) => l.startsWith("Blick:")),
+    ).toBe(false);
   });
 });
 
@@ -165,5 +173,78 @@ describe("RIASEC code", () => {
 
     const result = scoreAssessment(items, { r1: "r1_a" }, miniProfiles);
     expect(result.riasecCode).toBe("IAS");
+  });
+});
+
+describe("coverage / confidence", () => {
+  it("exposes coverage hint and incomplete flag", () => {
+    const items = [
+      item("c1", [
+        {
+          id: "c1_a",
+          label: "a",
+          hint: "",
+          visual: { kind: "pattern", motif: "c" },
+          weights: { axes: { E_I: 40 } },
+        },
+      ]),
+      item("c2", [
+        {
+          id: "c2_a",
+          label: "a",
+          hint: "",
+          visual: { kind: "pattern", motif: "c" },
+          weights: { axes: { E_I: 40 } },
+        },
+      ]),
+      item("c3", [
+        {
+          id: "c3_a",
+          label: "a",
+          hint: "",
+          visual: { kind: "pattern", motif: "c" },
+          weights: { axes: { E_I: 40 } },
+        },
+      ]),
+    ];
+
+    const partial = scoreAssessment(items, { c1: "c1_a" }, miniProfiles);
+    expect(partial.coverageHint).toBe("Basierend auf 1 von 3 Fragen");
+    expect(partial.isIncomplete).toBe(true);
+    expect(partial.confidence).toBe("low");
+    expect(partial.coverageRatio).toBeCloseTo(1 / 3);
+
+    const full = scoreAssessment(
+      items,
+      { c1: "c1_a", c2: "c2_a", c3: "c3_a" },
+      miniProfiles,
+    );
+    expect(full.isIncomplete).toBe(false);
+    expect(full.confidence).toBe("high");
+    expect(full.coverageHint).toBe(coverageHintText(3, 3));
+  });
+
+  it("softens axis magnitude when coverage is thin", () => {
+    expect(coverageSoftFactor(1, 10)).toBe(0.5);
+    expect(coverageSoftFactor(5, 10)).toBe(0.75);
+    expect(coverageSoftFactor(8, 10)).toBe(1);
+    expect(confidenceFromCoverage(2, 10)).toBe("low");
+
+    const items = Array.from({ length: 10 }, (_, i) =>
+      item(`s${i}`, [
+        {
+          id: `s${i}_a`,
+          label: "a",
+          hint: "",
+          visual: { kind: "pattern", motif: "s" },
+          weights: { axes: { E_I: 40 } },
+        },
+      ]),
+    );
+
+    const thin = scoreAssessment(items, { s0: "s0_a" }, miniProfiles);
+    const ei = thin.axes.find((a) => a.id === "E_I")?.value ?? 0;
+    // 40 * soft 0.5 = 20
+    expect(ei).toBe(20);
   });
 });

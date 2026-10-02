@@ -89,9 +89,18 @@ export interface OccupationMatch {
   why: string;
 }
 
+export type ConfidenceLevel = "low" | "medium" | "high";
+
 export interface AssessmentResult {
   answeredCount: number;
   itemCount: number;
+  /** answeredCount / itemCount, 0–1 */
+  coverageRatio: number;
+  /** Plain German: "Basierend auf X von Y Fragen" */
+  coverageHint: string;
+  confidence: ConfidenceLevel;
+  /** True when some answers exist but the run is incomplete. */
+  isIncomplete: boolean;
   axes: AxisScore[];
   bigFive: Record<BigFiveId, number>;
   riasec: Record<RiasecId, number>;
