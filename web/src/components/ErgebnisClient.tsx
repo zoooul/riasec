@@ -280,7 +280,9 @@ export function ErgebnisClient({
             {coverageChip}
           </p>
           {confidenceNote ? (
-            <p className="text-sm text-base-content/60">{confidenceNote}</p>
+            <div role="status" className="alert alert-warning alert-soft text-sm">
+              {confidenceNote}
+            </div>
           ) : null}
 
           <div className="actions-row pt-1 no-print">
@@ -313,7 +315,9 @@ export function ErgebnisClient({
             </Button>
           </div>
           {pdfError ? (
-            <p className="text-sm text-error no-print">{pdfError}</p>
+            <div role="alert" className="alert alert-error alert-soft text-sm no-print">
+              {pdfError}
+            </div>
           ) : null}
         </section>
 

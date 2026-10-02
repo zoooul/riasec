@@ -124,7 +124,7 @@ Prioritized from gaps found during this guidelines / hard-test pass:
 6. **Incomplete Ergebnis preview** — optional “vorläufige Orientierung ansehen” for sparse runs instead of only resume CTA (exclusions already shown on incomplete screen).
 7. **Open Peeps / Humaaans core pack** — replace geometric SVG placeholders with accessible illustration tiles.
 8. **RIASEC interest items expansion** — more balanced pictorial interest tiles if soft balance drifts.
-9. **Accessibility pass** — focus order, contrast on glass chips, reduced-motion for liquid-glass.
+9. **Accessibility pass** — focus order, contrast on DaisyUI badges/alerts, reduced-motion for transitions.
 10. **Left/right valence alternation** — hard-tested polarity mix exists; keep expanding within-stage flips as the catalog grows.
 11. **Richer inductive micro-tasks** — optional timed notice / dual-image morph without mid-test score reveal (still forced-choice scoring).
 

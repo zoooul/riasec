@@ -110,7 +110,7 @@ Mehr zur Web-App: [`web/README.md`](web/README.md).
 | **Template** | DaisyUI Next.js Landing Page Template (TypeScript) |
 | **URL** | https://github.com/robbins23/landing-nextjs-ts-template |
 | **Lizenz** | MIT ([LICENSE](https://github.com/robbins23/landing-nextjs-ts-template/blob/main/LICENSE)) |
-| **Komponenten** | Offizielle DaisyUI-Klassen (MIT) — navbar, hero, card, footer, steps, progress, modal, collapse |
+| **Komponenten** | Offizielle DaisyUI-Klassen (MIT) — navbar, hero, card, badge, btn, footer, steps, progress, modal, collapse, alert |
 
 **Seiten-Mapping:** Landing `/` → hero + feature cards · Assessment `/assessment` → steps-Wizard + choice cards · Ergebnis `/ergebnis` → summary/detail cards + collapse · Profile `/profile` → card grid · Shell → navbar (`SiteHeader`) + footer (`AppShell`).
 

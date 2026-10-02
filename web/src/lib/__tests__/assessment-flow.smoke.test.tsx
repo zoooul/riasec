@@ -100,11 +100,13 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).toContain(first.choices[0]!.label);
     expect(html).toContain(first.choices[1]!.label);
     expect(html).toContain("solution-card");
+    expect(html).toContain("card bg-base-100");
     expect(html).toContain("Zwei Lösungspfade");
     expect(html).toContain("Weg A");
     expect(html).toContain("Weg B");
     expect(html).toContain("steps");
-    expect(html).toContain("progress");
+    expect(html).toContain("progress progress-primary");
+    expect(html).toContain("badge");
   });
 
   it("uses viewport-fit shell classes so the step can compress without page scroll", () => {
@@ -124,5 +126,7 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).not.toContain("min-h-[12.5rem]");
     expect(html).not.toContain("sm:min-h-[14rem]");
     expect(html).not.toContain("absolute inset-x-0 -top-1");
+    expect(html).not.toContain("glass-panel");
+    expect(html).not.toContain("GlassShell");
   });
 });

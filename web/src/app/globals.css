@@ -311,6 +311,11 @@ body {
   }
 }
 
+.assessment-stage-meta {
+  min-width: 0;
+  row-gap: 0.25rem;
+}
+
 .assessment-task-title {
   color: var(--color-secondary);
 }
