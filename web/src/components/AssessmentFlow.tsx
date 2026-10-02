@@ -6,7 +6,11 @@ import * as Dialog from "@radix-ui/react-dialog";
 import * as Progress from "@radix-ui/react-progress";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { RotateCcw } from "lucide-react";
-import { MODULE_LABELS } from "@/lib/constants";
+import {
+  MODULE_INTROS,
+  MODULE_LABELS,
+  computeProgress,
+} from "@/lib/assessmentStructure";
 import { cn } from "@/lib/cn";
 import {
   clearAnswers,
@@ -48,8 +52,10 @@ export function AssessmentFlow({ items }: Props) {
   const [confirmRestart, setConfirmRestart] = useState(false);
   const [locked, setLocked] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [moduleFlash, setModuleFlash] = useState<ModuleId | null>(null);
+  const [stageFlash, setStageFlash] = useState<ModuleId | null>(null);
+  const [showResumeHint, setShowResumeHint] = useState(false);
   const prevModuleRef = useRef<ModuleId | null>(null);
+  const resumeHintShown = useRef(false);
 
   const active: FlowState =
     flow ??
@@ -61,25 +67,31 @@ export function AssessmentFlow({ items }: Props) {
   const { answers, index } = active;
   const item = items[index];
 
-  const answeredN = useMemo(
-    () => items.filter((it) => Boolean(answers[it.id])).length,
-    [answers, items],
+  const progress = useMemo(
+    () => computeProgress(items, answers, index),
+    [answers, index, items],
   );
-  const progress = useMemo(() => {
-    if (!items.length) return 0;
-    return Math.round((answeredN / items.length) * 100);
-  }, [answeredN, items.length]);
 
   const progressVisual = Math.max(
-    progress,
-    ((index + 1) / Math.max(items.length, 1)) * 100 * 0.15,
+    progress.overallPercent,
+    (progress.questionNumber / Math.max(progress.itemCount, 1)) * 100 * 0.15,
   );
+
+  useEffect(() => {
+    if (!ready || resumeHintShown.current) return;
+    if (hasPartialProgress(items, answers) && index > 0) {
+      setShowResumeHint(true);
+      resumeHintShown.current = true;
+      const t = window.setTimeout(() => setShowResumeHint(false), 3200);
+      return () => window.clearTimeout(t);
+    }
+  }, [ready, items, answers, index]);
 
   useEffect(() => {
     if (!item) return;
     if (prevModuleRef.current && prevModuleRef.current !== item.module) {
-      setModuleFlash(item.module);
-      const t = window.setTimeout(() => setModuleFlash(null), 1400);
+      setStageFlash(item.module);
+      const t = window.setTimeout(() => setStageFlash(null), 1600);
       return () => window.clearTimeout(t);
     }
     prevModuleRef.current = item.module;
@@ -94,11 +106,16 @@ export function AssessmentFlow({ items }: Props) {
   }
 
   const partial = hasPartialProgress(items, answers);
+  const stageIntro =
+    stageFlash || index === progress.stage.startIndex
+      ? MODULE_INTROS[item.module]
+      : null;
 
   function choose(choiceId: string) {
     if (locked || !item) return;
     setLocked(true);
     setSelectedId(choiceId);
+    setShowResumeHint(false);
 
     const nextAnswers = { ...answers, [item.id]: choiceId };
     saveAnswers(nextAnswers);
@@ -121,33 +138,50 @@ export function AssessmentFlow({ items }: Props) {
     setConfirmRestart(false);
     setSelectedId(null);
     setLocked(false);
+    setShowResumeHint(false);
+    resumeHintShown.current = false;
     prevModuleRef.current = null;
   }
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 overflow-x-hidden px-4 py-5 pb-[max(1.5rem,var(--safe-bottom))] md:gap-7 md:py-10">
-      <div className="glass-panel sticky top-[calc(4.25rem+var(--safe-top))] z-10 space-y-2.5 p-3.5 md:p-4">
+      <div className="glass-panel sticky top-[calc(4.25rem+var(--safe-top))] z-10 space-y-3 p-3.5 md:p-4">
         <div className="flex items-center justify-between gap-3">
-          <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
-          <span className="meta-label normal-case tracking-[0.04em]">
-            {index + 1}/{items.length}
-            {answeredN > 0 ? ` · ${progress}%` : ""}
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
+            <span className="meta-label normal-case tracking-[0.04em] text-[var(--muted)]">
+              Teil {progress.stageIndex + 1}/{progress.stageCount}
+            </span>
+          </div>
+          <span
+            className="meta-label shrink-0 normal-case tracking-[0.04em]"
+            aria-live="polite"
+          >
+            {progress.questionNumber}/{progress.itemCount}
+            {progress.answeredCount > 0
+              ? ` · ${progress.overallPercent}%`
+              : ""}
           </span>
         </div>
         <Progress.Root
           className="glass-progress"
-          value={progress}
+          value={progress.overallPercent}
           max={100}
-          aria-label="Fortschritt"
+          aria-label={`Fortschritt: Frage ${progress.questionNumber} von ${progress.itemCount}, ${progress.overallPercent} Prozent`}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={progress.overallPercent}
         >
           <Progress.Indicator
             className="block h-full rounded-[inherit] bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-mint)] transition-[width] duration-450 ease-out"
             style={{ width: `${progressVisual}%` }}
           />
         </Progress.Root>
-        {partial ? (
-          <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
-            <span>Fortschritt gespeichert</span>
+        <div className="flex items-center justify-between gap-2 text-[0.7rem] text-[var(--muted)]">
+          <span>
+            In diesem Teil: {progress.stageAnswered}/{progress.stage.count}
+          </span>
+          {partial ? (
             <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
               <Dialog.Trigger asChild>
                 <button
@@ -180,14 +214,31 @@ export function AssessmentFlow({ items }: Props) {
                 </Dialog.Content>
               </Dialog.Portal>
             </Dialog.Root>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </div>
 
       <AnimatePresence>
-        {moduleFlash ? (
+        {showResumeHint ? (
           <motion.div
-            key={moduleFlash}
+            key="resume-hint"
+            initial={reduceMotion ? false : { opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="mx-auto w-fit"
+            aria-live="polite"
+          >
+            <Chip className="text-[var(--neon-cyan)]">
+              Weiter von Frage {progress.questionNumber}
+            </Chip>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {stageFlash ? (
+          <motion.div
+            key={stageFlash}
             initial={reduceMotion ? false : { opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
@@ -195,7 +246,7 @@ export function AssessmentFlow({ items }: Props) {
             aria-live="polite"
           >
             <Chip className="text-[var(--neon-mint)]">
-              Neuer Teil: {MODULE_LABELS[moduleFlash]}
+              Neuer Teil: {MODULE_LABELS[stageFlash]}
             </Chip>
           </motion.div>
         ) : null}
@@ -208,8 +259,13 @@ export function AssessmentFlow({ items }: Props) {
           animate={{ opacity: 1, y: 0 }}
           exit={reduceMotion ? undefined : { opacity: 0, y: -10 }}
           transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-2 text-center"
+          className="space-y-3 text-center"
         >
+          {stageIntro ? (
+            <p className="mx-auto max-w-md text-sm leading-relaxed text-[var(--muted)]">
+              {stageIntro}
+            </p>
+          ) : null}
           <h1 className="display-title text-2xl text-[var(--ink)] sm:text-3xl md:text-[2.15rem]">
             {item.prompt}
           </h1>
@@ -221,7 +277,16 @@ export function AssessmentFlow({ items }: Props) {
         </motion.div>
       </AnimatePresence>
 
-      <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
+      <div
+        className={cn(
+          "grid gap-3 sm:gap-4",
+          item.choices.length <= 2
+            ? "md:grid-cols-2"
+            : "sm:grid-cols-2 md:grid-cols-2",
+        )}
+        role="group"
+        aria-label="Antwortmöglichkeiten"
+      >
         {item.choices.map((choice, i) => {
           const isSelected =
             selectedId === choice.id || answers[item.id] === choice.id;
@@ -231,6 +296,7 @@ export function AssessmentFlow({ items }: Props) {
               type="button"
               onClick={() => choose(choice.id)}
               disabled={locked && !isSelected}
+              aria-pressed={isSelected}
               initial={reduceMotion ? false : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -239,22 +305,24 @@ export function AssessmentFlow({ items }: Props) {
               }}
               whileTap={reduceMotion ? undefined : { scale: 0.985 }}
               className={cn(
-                "glass-panel glass-choice p-2.5 sm:p-3",
+                "glass-panel glass-choice h-full min-h-[12.5rem] p-2.5 sm:min-h-[14rem] sm:p-3",
                 isSelected && "glass-choice-picked glass-choice-pop",
               )}
             >
-              <VisualCard
-                kind={choice.visual.kind}
-                motif={choice.visual.motif}
-                imageUrl={choice.visual.imageUrl}
-              />
-              <div className="relative z-[1] mt-2.5 space-y-1 px-0.5 sm:mt-3">
-                <div className="text-[0.98rem] font-semibold leading-snug tracking-tight text-[var(--ink)] sm:text-lg">
-                  {choice.label}
+              <div className="relative z-[1] flex min-h-0 flex-1 flex-col">
+                <VisualCard
+                  kind={choice.visual.kind}
+                  motif={choice.visual.motif}
+                  imageUrl={choice.visual.imageUrl}
+                />
+                <div className="mt-auto space-y-1 px-0.5 pt-2.5 sm:pt-3">
+                  <div className="text-[0.98rem] font-semibold leading-snug tracking-tight text-[var(--ink)] sm:text-lg">
+                    {choice.label}
+                  </div>
+                  <p className="text-sm leading-relaxed text-[var(--muted)]">
+                    {choice.hint}
+                  </p>
                 </div>
-                <p className="text-sm leading-relaxed text-[var(--muted)]">
-                  {choice.hint}
-                </p>
               </div>
             </motion.button>
           );
@@ -267,6 +335,7 @@ export function AssessmentFlow({ items }: Props) {
           variant="secondary"
           size="sm"
           className="self-start"
+          disabled={locked}
           onClick={() => {
             if (locked) return;
             setFlow({ answers, index: Math.max(0, index - 1) });

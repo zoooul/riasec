@@ -23,7 +23,7 @@ function miniItems(): AssessmentItem[] {
   return [
     {
       id: "i1",
-      module: "personality",
+      module: "warmup",
       prompt: "1",
       choices: [
         {
@@ -51,7 +51,7 @@ function miniItems(): AssessmentItem[] {
     },
     {
       id: "i2",
-      module: "personality",
+      module: "energie",
       prompt: "2",
       choices: [
         {
@@ -72,7 +72,7 @@ function miniItems(): AssessmentItem[] {
     },
     {
       id: "i3",
-      module: "interests",
+      module: "interessen",
       prompt: "3",
       choices: [
         {

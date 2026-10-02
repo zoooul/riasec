@@ -3,11 +3,14 @@ export type LicenseLayer = "core" | "extra" | "owned";
 export type AxisId = "E_I" | "S_N" | "T_F" | "J_P";
 export type BigFiveId = "O" | "C" | "E" | "A" | "N";
 export type RiasecId = "R" | "I" | "A" | "S" | "E" | "C";
+/** Deep assessment stages (Warmup → HOW → RIASEC → Abschluss). */
 export type ModuleId =
-  | "personality"
-  | "interests"
-  | "motives"
-  | "self_regulation";
+  | "warmup"
+  | "wahrnehmen"
+  | "entscheiden"
+  | "energie"
+  | "interessen"
+  | "abschluss";
 
 export type ValidationStatus = "validated" | "unvalidated" | "enrichment";
 

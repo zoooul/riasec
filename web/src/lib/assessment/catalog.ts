@@ -1,4 +1,4 @@
-import { MODULE_ORDER } from "../constants";
+import { orderAssessmentItems } from "../assessmentStructure";
 import { indexStimuliByMotif, type StimulusIndex } from "../stimuli";
 import type { AssessmentItem, ChoiceWeights } from "../types";
 
@@ -11,15 +11,9 @@ export type ResolvedAssessmentItem = Omit<AssessmentItem, "choices"> & {
   choices: ResolvedChoice[];
 };
 
-/** Sort items by module order, then id. */
+/** Sort items by canonical assessment sequence (stages + psychometrics). */
 export function sortAssessmentItems(items: AssessmentItem[]): AssessmentItem[] {
-  const order = new Map(MODULE_ORDER.map((m, i) => [m, i]));
-  return [...items].sort((a, b) => {
-    const ma = order.get(a.module) ?? 99;
-    const mb = order.get(b.module) ?? 99;
-    if (ma !== mb) return ma - mb;
-    return a.id.localeCompare(b.id);
-  });
+  return orderAssessmentItems(items);
 }
 
 function hasNestedWeights(weights: ChoiceWeights): boolean {

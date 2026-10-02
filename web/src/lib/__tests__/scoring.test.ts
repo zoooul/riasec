@@ -43,7 +43,7 @@ function item(
 ): AssessmentItem {
   return {
     id,
-    module: "personality",
+    module: "warmup",
     prompt: id,
     choices,
     source: {

@@ -22,6 +22,16 @@ export {
   type CatalogIssue,
   type ResolvedAssessmentItem,
 } from "./catalog";
+export {
+  MODULE_ORDER,
+  MODULE_LABELS,
+  MODULE_INTROS,
+  ITEM_SEQUENCE,
+  computeProgress,
+  moduleCoverageMatrix,
+  analyzeStructureIntegrity,
+  orderAssessmentItems,
+} from "../assessmentStructure";
 export type {
   AssessmentItem,
   AssessmentResult,

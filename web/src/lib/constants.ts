@@ -1,4 +1,4 @@
-import type { AxisId, BigFiveId, ModuleId, RiasecId } from "./types";
+import type { AxisId, BigFiveId, RiasecId } from "./types";
 
 export const AXIS_IDS: AxisId[] = ["E_I", "S_N", "T_F", "J_P"];
 export const BIG_FIVE_IDS: BigFiveId[] = ["O", "C", "E", "A", "N"];
@@ -10,19 +10,12 @@ export const ZWISCHEN_THRESHOLD = 18;
 export const COVERAGE_SOFT_HIGH = 0.75;
 export const COVERAGE_SOFT_MID = 0.4;
 
-export const MODULE_ORDER: ModuleId[] = [
-  "personality",
-  "interests",
-  "self_regulation",
-  "motives",
-];
-
-export const MODULE_LABELS: Record<ModuleId, string> = {
-  personality: "So tickst du",
-  interests: "Was dich anzieht",
-  self_regulation: "Unter Druck",
-  motives: "Was dich antreibt",
-};
+/** Module map lives in assessmentStructure — re-exported for callers. */
+export {
+  MODULE_ORDER,
+  MODULE_LABELS,
+  MODULE_INTROS,
+} from "./assessmentStructure";
 
 export const AXIS_PLAIN: Record<
   AxisId,

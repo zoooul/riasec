@@ -48,7 +48,7 @@ const miniProfiles: VistProfile[] = [
 function item(
   id: string,
   choices: AssessmentItem["choices"],
-  module: AssessmentItem["module"] = "personality",
+  module: AssessmentItem["module"] = "warmup",
 ): AssessmentItem {
   return {
     id,
@@ -65,7 +65,7 @@ function item(
   };
 }
 
-function bipolar(id: string, module: AssessmentItem["module"] = "personality") {
+function bipolar(id: string, module: AssessmentItem["module"] = "warmup") {
   return item(
     id,
     [
@@ -187,8 +187,8 @@ describe("analyzeResponsePattern / acquiescence", () => {
 describe("low coverage / missing module", () => {
   it("marks <50% coverage as lowCoverage → Orientierung and softens Beruf claims", () => {
     const items = [
-      ...[1, 2, 3, 4].map((n) => bipolar(`c${n}`, "personality")),
-      ...[1, 2, 3, 4].map((n) => bipolar(`i${n}`, "interests")),
+      ...[1, 2, 3, 4].map((n) => bipolar(`c${n}`, "energie")),
+      ...[1, 2, 3, 4].map((n) => bipolar(`i${n}`, "interessen")),
     ];
     const answers = {
       c1: items[0]!.choices[0]!.id,
@@ -199,7 +199,7 @@ describe("low coverage / missing module", () => {
     expect(analysis.coverageRatio).toBeLessThan(0.5);
     const flags = buildBiasFlags(analysis);
     expect(flags.lowCoverage).toBe(true);
-    expect(flags.missingModules).toContain("interests");
+    expect(flags.missingModules).toContain("interessen");
 
     const guarded = applyBiasGuards(baseResult(), flags, analysis);
     expect(guarded.qualityLabel).toBe("orientierung");
@@ -282,7 +282,7 @@ describe("item catalog balance (soft thresholds)", () => {
             weights: { riasec: { [letter]: 10 } },
           },
         ],
-        "interests",
+        "interessen",
       ),
     );
     const report = analyzeCatalogBalance(balanced);
