@@ -34,7 +34,7 @@ Implemented in `web/src/lib/bias.ts` (heuristics — not psychometrics).
 |---|---|---|
 | **Acquiescence** | ≥4 answers and ≥80% same choice index | `qualityLabel: unsicher`, confidence ≤ medium, caution preface |
 | **Low coverage** | answered / items &lt; 0.5 | `qualityLabel: orientierung`, confidence low, ≤2 jobs, soften occupation claims |
-| **Missing modules** | catalog module unanswered | folds into low confidence / Orientierung preface |
+| **Missing modules** | catalog stage unanswered (warmup → … → abschluss) | folds into low confidence / Orientierung preface |
 | **Absolute language** | immer / nie / niemals / perfekt / absolut / stets | sanitizer → oft / selten / sehr gut / eher |
 | **Trait exclusions** | always | fixed list (no clinical, IQ, ethnicity, politics/religion, orientation, medical claims) |
 | **Catalog balance** | soft max/min ratios on RIASEC/axis abs weights | soft warn if ratio &gt; 2.5 (hits &gt; 3) |
@@ -78,10 +78,26 @@ Always include the orientation disclaimer. Never claim diagnosis or validated ap
 | UX copy: no axis jargon in primary plainProfile lines; sentence length caps; no absolute words after sanitizer | Nested weights: Big-Five E ≠ RIASEC E collision; scoring determinism |
 | Catalog balance soft ratios | all-A ≠ all-B primary |
 | Profile JSON core sections non-empty | acquiescence → unsicher; sparse → orientierung + ≤2 jobs |
-| | exclusions always present; quality label set |
-| | PDF helper does not throw; plainProfile has required keys |
-| | Item catalog: unique ids, nested weights, 2 choices |
+| **Module map**: all items assigned; no orphan stages; stage intros ≤72 chars; prompts/labels short | exclusions always present; quality label set |
+| **Progress math**: answered/total %, stage boundaries, Teil i/n | PDF helper does not throw; plainProfile has required keys |
+| **AssessmentFlow smoke** (jsdom): first item + stage chip + choices render | Item catalog: unique ids, nested weights, 2 choices, canonical `ITEM_SEQUENCE` |
 | | occupations.json loads; `matchOccupations` returns sorted scores |
+| | **Coverage floors**: each axis ≥3 items; each RIASEC letter ≥1; every stage ≥2 items |
+| | **Module × trait matrix**: Warmup E_I, Wahrnehmen S_N, Entscheiden T_F, Energie E_I/J_P, Interessen all RIASEC, Abschluss ≥6 |
+| | Zwischenprofile when `\|axis\| < 18` still worded (“teils …”) |
+
+### Assessment stages (source of truth)
+
+Order in `web/src/lib/assessmentStructure.ts` + `mvp-pictorial.json` v6:
+
+1. **Ankommen** (`warmup`) — easy E_I openers  
+2. **Denken & Wahrnehmen** (`wahrnehmen`) — S_N  
+3. **Entscheiden** (`entscheiden`) — T_F  
+4. **Energie & Arbeit** (`energie`) — remaining E_I + J_P  
+5. **Was dich anzieht** (`interessen`) — RIASEC interleaved  
+6. **Druck & Antrieb** (`abschluss`) — stress ↔ motives mixed  
+
+Progress UI shows stage chip + Teil i/n + overall %; choice lock + session resume (“Weiter von Frage X”) stay mandatory.
 
 ---
 
@@ -98,11 +114,13 @@ Prioritized from gaps found during this guidelines / hard-test pass:
 7. **Open Peeps / Humaaans core pack** — replace geometric SVG placeholders with accessible illustration tiles.
 8. **RIASEC interest items expansion** — more balanced pictorial interest tiles if soft balance drifts.
 9. **Accessibility pass** — focus order, contrast on glass chips, reduced-motion for liquid-glass.
+10. **Left/right valence alternation** — within-stage polarity flips so left-index bias is not trivially high on every axis (acquiescence already flags same-index runs).
 
 ---
 
 ## Pointers
 
+- Structure / stages: `web/src/lib/assessmentStructure.ts`
 - Scoring: `web/src/lib/scoring.ts`
 - Bias: `web/src/lib/bias.ts`
 - Plain language: `web/src/lib/plainLanguage.ts`

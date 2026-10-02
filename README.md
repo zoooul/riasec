@@ -148,10 +148,10 @@ Item-Texte: `web/data/items/mvp-pictorial.json` (`label`, `hint` — kurzes Deut
 
 | Befehl | Bedeutung |
 |--------|-----------|
-| `npm test` | Vollsuite inkl. Katalog-, Scoring-, Bias-, UX-Smoke-Tests |
-| `npm run test:hard` | Nur `hard-guidelines` — darf nicht brechen |
+| `npm test` | Vollsuite inkl. Struktur-, Katalog-, Scoring-, Bias-, UX-Smoke-Tests |
+| `npm run test:hard` | Hard-Guidelines + Modul-Coverage — darf nicht brechen |
 
-Soft vs. hard: Guidelines §6. Browser-E2E: [`web/e2e/README.md`](web/e2e/README.md) (Playwright-CI noch Backlog).
+Soft vs. hard: Guidelines §6 (inkl. 6 Test-Stufen Warmup→Abschluss). Browser-E2E: [`web/e2e/README.md`](web/e2e/README.md) (Playwright-CI noch Backlog).
 
 **Manueller Smoke (nach `npm run dev`):**
 
