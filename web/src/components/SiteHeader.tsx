@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Chip } from "@/components/ui/chip";
 
 type Props = {
   right?: ReactNode;
@@ -21,9 +22,7 @@ export function SiteHeader({ right }: Props) {
         >
           Skill<span className="neon-text">ster</span>
         </Link>
-        {right ?? (
-          <span className="glass-chip">privat · lokal</span>
-        )}
+        {right ?? <Chip>privat · lokal</Chip>}
       </div>
     </header>
   );

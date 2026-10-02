@@ -17,4 +17,7 @@
   <rect x="46" y="58" width="40" height="28" rx="6" fill="rgba(255,255,255,0.08)" stroke="#8aa4bc" stroke-width="1.75"/>
   <path d="M28 92 H140" stroke="rgba(184,201,218,0.35)" stroke-width="1.5"/>
   <path d="M66 58 V48" stroke="#5ec8d6" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- solo-journal -->
+  <path d="M52 66 h28 M52 72 h20" stroke="#b8c9da" stroke-width="1.75" stroke-linecap="round" opacity="0.7"/>
 </svg>

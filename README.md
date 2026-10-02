@@ -1,131 +1,177 @@
 # Skillster
 
-Privates, lokal laufendes Profiling-Tool für Jobcoaching-Orientierung.
+**Skillster** ist ein privates, lokal laufendes Orientierungstool für Jobcoaching: Persönlichkeit und Arbeitsstil (**HOW**) plus Interessen und Berufsfelder (**WHAT**) — ohne Cloud-Pflicht, ohne Diagnose-Anspruch.
 
-**Product guidelines:** [`docs/GUIDELINES.md`](docs/GUIDELINES.md) — HOW vs WHAT, license layers, bias/fairness, UX copy, Ergebnis/PDF rules, soft vs hard tests, backlog.
+Produktregeln, Bias-Guards und Teststufen: [`docs/GUIDELINES.md`](docs/GUIDELINES.md).
 
-- **Hinten:** VIST-Profile, pictorial Items, O\*NET/ESCO-Berufe, Stimuli, Lizenzen (PSE/OASIS extra)
-- **Vorne:** einfacher Bild-Flow für Laien (liquid-glass UI)
-- **Strategie:** Kernquellen frei/verkaufbar; Extra (NC) getrennt und austauschbar
-- **Scoring:** Persönlichkeit (VIST-Achsen) + Interessen (RIASEC), nested weights, Zwischenprofile, `sessionStorage`
-- **Bias-Guards:** Heuristiken gegen Antwortmuster + explizite Ausschlüsse (keine klinischen/geschützten Merkmals-Claims); unvalidiert
+---
 
-## Start
+## Was Skillster macht
+
+| Ebene | Inhalt | Quelle |
+|--------|--------|--------|
+| **HOW** | Denk- und Verhaltensmuster entlang der VIST-Achsen (E/I, S/N, T/F, J/P) in Alltagssprache | Eigene bildgestützte Items + 16 VIST-Profiltexte (owned) |
+| **WHAT** | RIASEC-Interessen → passende Felder und Top-Berufe | O\*NET-Interessenvektoren, optional ESCO-DE-Titel |
+| **Qualität** | Zwischenprofile, Coverage-Chip, Bias-Heuristiken | `web/src/lib/bias.ts` — **keine normierte Psychometrie** |
+
+Alle MVP-Bilditems sind `validationStatus: "unvalidated"`. Ergebnisse sind **Orientierung** für Coaching, keine klinische oder validierte Eignungsdiagnose.
+
+---
+
+## Quick Start
 
 ```bash
 cd web
 npm install
-npm run dev
+npm run dev          # http://localhost:3000
 ```
 
-Öffnen: [http://localhost:3000](http://localhost:3000)
+**Tests & Build:**
 
 ```bash
 cd web
-npm test            # soft + hard (Vitest)
-npm run test:hard   # hard assertions only
+npm test             # Soft- + Hard-Guidelines (Vitest)
+npm run test:hard    # Nur Hard-Assertions (Guidelines §6)
 npm run build
+npm run lint
 ```
 
-See `docs/GUIDELINES.md` for what soft vs hard means.
-
-## Daten aktualisieren
+**Daten aktualisieren (Repo-Root):**
 
 ```bash
-# 16 VIST-Profile aus PDF (zwei Spalten → lesbare Bullets)
+# 16 VIST-Profile aus PDF → web/data/profiles/
 python3 scripts/extract_profiles.py
 
-# O*NET Interests (+ optionale ESCO-DE-Labels) → getrimmtes Set (~200–350)
+# O*NET (+ optional ESCO-DE) → web/data/occupations/occupations.json
 python3 scripts/import_occupations.py --limit 280
 # optional: python3 scripts/import_occupations.py --limit 280 --fetch-esco
 
 cd web && npm run build
 ```
 
-Details: `web/data/occupations/README.md`, `web/data/stimuli/README.md`.
+Details: [`web/data/occupations/README.md`](web/data/occupations/README.md), [`web/data/stimuli/README.md`](web/data/stimuli/README.md).
 
-## Datenpfade
+---
 
-| Pfad | Inhalt |
-|---|---|
-| `skillster_daten-komprimiert.pdf` | Quell-PDF (VIST-Profile) |
-| `scripts/extract_profiles.py` | PDF → `web/data/profiles/` |
-| `scripts/import_occupations.py` | O\*NET/ESCO → `web/data/occupations/occupations.json` |
-| `web/data/profiles/` | 16 Ergebnisprofile |
-| `web/data/items/mvp-pictorial.json` | ~32 Bilditems (nested weights, unvalidated) |
-| `web/data/occupations/occupations.json` | Getrimmte DE-Berufsliste mit RIASEC-Vektoren |
-| `web/data/occupations/seed.json` | Kleiner Fallback-Seed |
-| `web/data/stimuli/index.json` | Stimulus-Katalog (core SVGs + extra PSE/OASIS-Slots) |
-| `web/public/stimuli/core/` | Generierte CC0-artige Motiv-SVGs |
-| `web/data/licenses/sources.json` | Lizenzregister (core / extra / owned) |
-| `web/src/lib/` | Types, Scoring, Session, Occupations (`lib/README.md`) |
+## UX-Flow
 
-## Flow
-
-1. Assessment speichert Antworten in `sessionStorage` (keine URL-Payload)
-2. Mid-session: Fortschritt bleibt; Sticky-Progress; Doppel-Tap-Schutz; „Neu starten“ mit Bestätigung
-3. Ergebnisseite: Alltagssprache-Hero + Coverage; PDF/Druck; unvollständig → „Weiter im Test“
-4. **HOW:** Plain-Language-Abschnitte primär; VIST-Stichpunkte optional einklappbar + Blend
-5. **WHAT:** RIASEC + Top-3 Berufsvorschläge; Details mit Codes/Diagrammen
-6. Footer: Lizenz-Attribution (core + owned)
-
-## API (thin Route Handlers)
-
-| Route | Zweck |
-|---|---|
-| `GET /api/health` | Liveness |
-| `GET /api/items` | Katalog-Meta (ohne Weight-Dump) |
-| `POST /api/score` | Body `{ "answers": { "<itemId>": "<choiceId>", ... } }` → `AssessmentResult` |
-
-**Scoring:** `/ergebnis` scored **client-seitig** (`scoreAssessment`, offline). `POST /api/score` ist der Server-Spiegel derselben Pure Function (Testbarkeit / FE-BE-Trennung). Details: `web/src/lib/README.md`.
-
-## Frontend stack (glass UI)
-
-- Motion (`motion`) — restrained page/section/choice transitions
-- Radix Dialog / Progress / Collapsible — restart confirm, progress, disclosures
-- `clsx` + `tailwind-merge` (`cn`), Lucide icons sparingly
-- Liquid-glass tokens in `globals.css` (no default purple UI kit theme)
-
-## Extra-Layer (privat)
-
-- **PSE** (`stimuli/extra/pse/`): Motive — nur CC0/CC-BY für Produktpfad; Katalog-Slots ohne Login-Download
-- **OASIS** (`stimuli/extra/oasis/`): Affekt/Stress — NC/Research, vor Verkauf austauschen
-
-## Manual smoke / Re-test
-
-```bash
-cd web
-npm test          # incl. ux-smoke (session resume, plain profile, PDF build)
-npm run build
-npm run lint
-npm run dev
+```text
+Landing (/)  →  Assessment (/assessment, bildgestützt)  →  Ergebnis (/ergebnis)  →  PDF/Druck
+                      ↓
+              sessionStorage (Antworten nur lokal)
 ```
 
-Curl route check (SSR): `/` CTA + Marke, `/assessment`, `/ergebnis`, `/profile`, `/profile/enfj` all HTTP 200.
+1. **Landing:** Marke Skillster, CTA „Jetzt starten“, mobil tauglich.
+2. **Assessment:** Zwei Bildkarten pro Frage (`VisualCard` + SVG-Motive in `public/stimuli/core/`); Sticky-Fortschritt, Doppel-Tap-Schutz, „Neu starten“ mit Bestätigung, Reload setzt fort.
+3. **Ergebnis:** Qualitäts-Chip, HOW in Alltagssprache, RIASEC-Felder + ≤3 Berufe, Tipps, Ausschlüsse („Was wir nicht messen“), Details eingeklappt.
+4. **PDF:** Clientseitig (`skillster-profil-<rolle>.pdf` via jsPDF) oder Browser-Druck.
 
-1. Startseite: Marke **Skillster**, CTA „Jetzt starten“, mobil tauglich
-2. Assessment: Sticky-Progress; Doppel-Tap-Schutz; Reload setzt fort; „Neu starten“ mit Bestätigung
-3. `/ergebnis`: Plain-Language-Hero, Coverage-Chip, PDF/Druck, „Kurzfassung kopieren“, Details
-4. `/ergebnis` mit Teilantworten → „Noch nicht fertig“; ohne Session → „Noch kein Ergebnis“
-5. `/profile` Liste + `/profile/<code>` Detail (glass layout)
+Profil-Referenz: [`/profile`](http://localhost:3000/profile) und `/profile/<code>` (16 VIST-Codes).
 
-## Next milestones
+---
 
-Prioritized backlog lives in [`docs/GUIDELINES.md`](docs/GUIDELINES.md) §7. Top items:
+## Profiling-Modell
 
-1. ESCO DE titles (curated German occupation labels)
-2. Extra-Layer-Toggle (PSE/OASIS) strikt hinter Feature-Flag
-3. Normierung / Validierung der eigenen Items (aktuell: unvalidated)
-4. Playwright E2E smoke CI (logical smoke exists; see `web/e2e/README.md`)
-5. CC0-Stimulus-Packs (Open Peeps/Humaaans) unter `stimuli/core/`
+- **VIST / HOW:** Nested Weights auf Achsen `E_I`, `S_N`, `T_F`, `J_P` (+ Big-Five-Hilfsgewichte). Bei `|Achse| < 18` → **Zwischenprofile** in Worten („teils …, teils …“), keine Buchstabensuppe in der Hauptansicht.
+- **RIASEC / WHAT:** Realistic, Investigative, Artistic, Social, Enterprising, Conventional — aus Interessen-Items und Abgleich mit `occupations.json`.
+- **Bias-Guards:** Acquiescence, niedrige Coverage, fehlende Module, Absolutismen-Sanitizer, feste Trait-Ausschlüsse — siehe Guidelines §3.
+- **Scoring:** Pure Function `scoreAssessment` — primär **client-seitig** auf `/ergebnis`; Server-Spiegel für Tests.
 
-Alle eigenen Items sind als **unvalidiert** markiert. Bias-Guards in `web/src/lib/bias.ts` sind Heuristiken (Antwortmuster, Abdeckung, Text-Sanitizer, Ausschlussliste) — keine normierte Psychometrie.
+Scoring & Types: [`web/src/lib/README.md`](web/src/lib/README.md).
 
-## Ergebnis & PDF
+---
 
-Auf `/ergebnis` siehst du eine kurze Orientierung in Alltagssprache (kein Diagnosetest).
+## Architektur (kurz)
 
-- Button **PDF speichern** erzeugt clientseitig `skillster-profil-<rolle>.pdf` (jsPDF).
-- Alternativ: Browser-Druck — `@media print` bereitet die Seite auf.
-- Profiling-Texte sind **Orientierung** für Jobcoaching, keine klinische Aussage.
+```text
+Skillster/
+├── docs/GUIDELINES.md          # Produkt- & Testregeln
+├── scripts/                    # PDF-Profile, O*NET-Import
+├── skillster_daten-komprimiert.pdf   # Quell-PDF (VIST)
+└── web/                        # Next.js App (App Router, liquid-glass UI)
+    ├── data/
+    │   ├── items/mvp-pictorial.json   # ~32 Bildfragen
+    │   ├── profiles/                  # 16 Ergebnisprofile
+    │   ├── occupations/               # RIASEC-Berufe
+    │   ├── stimuli/index.json         # Motiv-Katalog
+    │   └── licenses/sources.json
+    ├── public/stimuli/core/*.svg      # CC0-artige Kernmotive
+    └── src/lib/                       # Scoring, Bias, PDF, Session
+```
 
+Stack: Next.js 16, React 19, Tailwind 4, Motion, Radix (Dialog/Progress/Collapsible), Vitest.
+
+Mehr zur Web-App: [`web/README.md`](web/README.md).
+
+---
+
+## Datenquellen & Lizenzen
+
+| Layer | Beispiele | Lizenz / Hinweis |
+|-------|-----------|------------------|
+| **core** | IPIP-nahe Items (eigene pictorial weights), O\*NET CC BY, ESCO, generierte SVG-Stimuli | Verkaufbar mit Attribution |
+| **owned** | VIST-Profilnarrative aus PDF | Eigentum, im Footer genannt |
+| **extra** | PSE-Motive, OASIS-Affekt (NC) | Feature-Flag, vor Commercial-Ship austauschen |
+
+Register: `web/data/licenses/sources.json`. PSE/OASIS: Katalog-Slots unter `web/data/stimuli/` — siehe [`web/data/stimuli/README.md`](web/data/stimuli/README.md).
+
+---
+
+## API (Route Handlers)
+
+| Route | Methode | Zweck |
+|-------|---------|--------|
+| `/api/health` | GET | Liveness |
+| `/api/items` | GET | Item-Katalog-Meta (ohne Weight-Dump) |
+| `/api/score` | POST | Body `{ "answers": { "<itemId>": "<choiceId>" } }` → `AssessmentResult` |
+
+---
+
+## Bildstimuli & Denkmuster
+
+Jede Assessment-Option verknüpft `visual.motif` → Eintrag in `web/data/stimuli/index.json` → SVG unter `/stimuli/core/`. Fallback: inline-Motive in `VisualCard.tsx`.
+
+| Dimension | Kontrast in Motiv & Copy |
+|-----------|---------------------------|
+| **E/I** | Gruppenenergie vs. ruhiger Fokus |
+| **S/N** | Detail/Fehler vs. Muster/Gestalt |
+| **T/F** | Fakten/Logik vs. Menschen/Werte |
+| **J/P** | Plan/Struktur vs. Flexibilität |
+| **RIASEC** | R–C typische Szenen (Werkstatt, Labor, Studio, …) |
+| **Stress** | Plan/strukturieren vs. Pause/Atem |
+
+Item-Texte: `web/data/items/mvp-pictorial.json` (`label`, `hint` — kurzes Deutsch für Laien).
+
+---
+
+## Testing
+
+| Befehl | Bedeutung |
+|--------|-----------|
+| `npm test` | Vollsuite inkl. Katalog-, Scoring-, Bias-, UX-Smoke-Tests |
+| `npm run test:hard` | Nur `hard-guidelines` — darf nicht brechen |
+
+Soft vs. hard: Guidelines §6. Browser-E2E: [`web/e2e/README.md`](web/e2e/README.md) (Playwright-CI noch Backlog).
+
+**Manueller Smoke (nach `npm run dev`):**
+
+- `/`, `/assessment`, `/ergebnis`, `/profile`, `/profile/enfj` → HTTP 200
+- Assessment durchklicken → Ergebnis + PDF; Teilantworten → „Weiter im Test“
+
+---
+
+## Roadmap / Backlog
+
+Priorisiert in [`docs/GUIDELINES.md`](docs/GUIDELINES.md) §7, u. a.:
+
+1. ESCO-DE-Berufstitel kuratiert
+2. PSE/OASIS strikt hinter Feature-Flag
+3. Normierung / Validierung der pictorial Items
+4. Playwright E2E in CI
+5. CC0-Illustrations-Packs (Open Peeps / Humaaans) unter `stimuli/core/`
+
+---
+
+## Rechtlicher Rahmen
+
+Ergebnis- und PDF-Texte: Orientierung für Jobcoaching. Keine Diagnose, keine IQ-/Gesundheits-/Schutzmerkmals-Claims. Footer: Core- + Owned-Attribution.

@@ -8,6 +8,8 @@ import * as Progress from "@radix-ui/react-progress";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronDown, Copy, FileDown, Printer, RotateCcw } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Button } from "@/components/ui/button";
+import { Chip } from "@/components/ui/chip";
 import { RIASEC_IDS, RIASEC_LABELS } from "@/lib/constants";
 import { cn } from "@/lib/cn";
 import type { OccupationSeed } from "@/lib/occupations";
@@ -112,12 +114,9 @@ export function ErgebnisClient({
           <p className="text-[var(--muted)]">
             Starte den Bild-Test — danach erscheint hier dein Muster.
           </p>
-          <Link
-            href="/assessment"
-            className="glass-btn glass-btn-primary min-h-11 w-full max-w-xs"
-          >
-            Test starten
-          </Link>
+          <Button asChild className="w-full max-w-xs">
+            <Link href="/assessment">Test starten</Link>
+          </Button>
         </div>
       </main>
     );
@@ -128,9 +127,7 @@ export function ErgebnisClient({
       <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
         <SiteHeader />
         <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 text-center">
-          <span className="glass-chip text-[var(--neon-coral)]">
-            Nur Orientierung
-          </span>
+          <Chip className="text-[var(--neon-coral)]">Nur Orientierung</Chip>
           <h1 className="font-[family-name:var(--font-display)] text-2xl tracking-tight text-[var(--ink)]">
             Noch nicht fertig
           </h1>
@@ -138,12 +135,9 @@ export function ErgebnisClient({
             {result.coverageHint}. Mach weiter, damit das Ergebnis stabiler
             wird. Bis dahin ist alles nur eine grobe Orientierung.
           </p>
-          <Link
-            href="/assessment"
-            className="glass-btn glass-btn-primary min-h-11 w-full max-w-xs"
-          >
-            Weiter im Test
-          </Link>
+          <Button asChild className="w-full max-w-xs">
+            <Link href="/assessment">Weiter im Test</Link>
+          </Button>
           <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
             <Dialog.Trigger asChild>
               <button
@@ -164,9 +158,9 @@ export function ErgebnisClient({
                   Dein Zwischenspeicher wird geleert.
                 </Dialog.Description>
                 <div className="flex flex-wrap gap-2">
-                  <button
+                  <Button
                     type="button"
-                    className="glass-btn glass-btn-primary min-h-11 px-4 text-sm"
+                    size="sm"
                     onClick={() => {
                       clearAnswers();
                       setLocalAnswers({});
@@ -174,14 +168,11 @@ export function ErgebnisClient({
                     }}
                   >
                     Ja, löschen
-                  </button>
+                  </Button>
                   <Dialog.Close asChild>
-                    <button
-                      type="button"
-                      className="glass-btn glass-btn-secondary min-h-11 px-4 text-sm"
-                    >
+                    <Button type="button" variant="secondary" size="sm">
                       Abbrechen
-                    </button>
+                    </Button>
                   </Dialog.Close>
                 </div>
               </Dialog.Content>
@@ -266,13 +257,15 @@ export function ErgebnisClient({
         right={
           <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
             <Dialog.Trigger asChild>
-              <button
-                type="button"
-                className="glass-chip min-h-11 gap-1.5 text-[var(--neon-cyan)] no-print"
+              <Chip
+                asChild
+                className="text-[var(--neon-cyan)] no-print"
               >
-                <RotateCcw className="size-3.5" aria-hidden />
-                Nochmal
-              </button>
+                <button type="button">
+                  <RotateCcw className="size-3.5 shrink-0" aria-hidden />
+                  Nochmal
+                </button>
+              </Chip>
             </Dialog.Trigger>
             <Dialog.Portal>
               <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm no-print" />
@@ -284,20 +277,15 @@ export function ErgebnisClient({
                   Dein aktuelles Ergebnis wird aus dem Zwischenspeicher gelöscht.
                 </Dialog.Description>
                 <div className="flex flex-wrap gap-2">
-                  <Link
-                    href="/assessment"
-                    className="glass-btn glass-btn-primary min-h-11 px-5 text-sm"
-                    onClick={() => clearAnswers()}
-                  >
-                    Ja, neu starten
-                  </Link>
+                  <Button asChild size="sm">
+                    <Link href="/assessment" onClick={() => clearAnswers()}>
+                      Ja, neu starten
+                    </Link>
+                  </Button>
                   <Dialog.Close asChild>
-                    <button
-                      type="button"
-                      className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
-                    >
+                    <Button type="button" variant="secondary" size="sm">
                       Behalten
-                    </button>
+                    </Button>
                   </Dialog.Close>
                 </div>
               </Dialog.Content>
@@ -316,7 +304,7 @@ export function ErgebnisClient({
           id="zusammenfassung"
           className="glass-panel glass-panel-strong glass-sheen space-y-4 p-6 md:p-8"
         >
-          <span className={cn("glass-chip", chip.className)}>{chip.text}</span>
+          <Chip className={chip.className}>{chip.text}</Chip>
           <h1 className="display-title text-3xl text-[var(--ink)] md:text-[2.75rem]">
             {plain.roleLabel}
           </h1>
@@ -331,31 +319,33 @@ export function ErgebnisClient({
           ) : null}
 
           <div className="flex flex-wrap gap-2 pt-1 no-print">
-            <button
+            <Button
               type="button"
+              size="sm"
               onClick={onSavePdf}
               disabled={pdfBusy}
-              className="glass-btn glass-btn-primary inline-flex min-h-11 items-center gap-2 px-5 text-sm"
             >
-              <FileDown className="size-4" aria-hidden />
+              <FileDown className="size-4 shrink-0" aria-hidden />
               {pdfBusy ? "PDF wird gebaut…" : "PDF speichern"}
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
+              variant="secondary"
+              size="sm"
               onClick={() => window.print()}
-              className="glass-btn glass-btn-secondary inline-flex min-h-11 items-center gap-2 px-5 text-sm"
             >
-              <Printer className="size-4" aria-hidden />
+              <Printer className="size-4 shrink-0" aria-hidden />
               Drucken
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
+              variant="secondary"
+              size="sm"
               onClick={onCopy}
-              className="glass-btn glass-btn-secondary inline-flex min-h-11 items-center gap-2 px-5 text-sm"
             >
-              <Copy className="size-4" aria-hidden />
+              <Copy className="size-4 shrink-0" aria-hidden />
               {copied ? "Kopiert" : "Kurzfassung kopieren"}
-            </button>
+            </Button>
           </div>
           {pdfError ? (
             <p className="text-sm text-[var(--neon-coral)] no-print">{pdfError}</p>
@@ -437,19 +427,21 @@ export function ErgebnisClient({
                 </p>
               </div>
               <Collapsible.Trigger asChild>
-                <button
-                  type="button"
-                  className="glass-chip inline-flex min-h-11 items-center gap-1.5 text-[var(--neon-cyan)]"
+                <Chip
+                  asChild
+                  className="text-[var(--neon-cyan)]"
                 >
-                  {howOpen ? "Weniger" : "Mehr lesen"}
-                  <ChevronDown
-                    className={cn(
-                      "size-4 transition-transform duration-200",
-                      howOpen && "rotate-180",
-                    )}
-                    aria-hidden
-                  />
-                </button>
+                  <button type="button">
+                    {howOpen ? "Weniger" : "Mehr lesen"}
+                    <ChevronDown
+                      className={cn(
+                        "size-4 shrink-0 transition-transform duration-200",
+                        howOpen && "rotate-180",
+                      )}
+                      aria-hidden
+                    />
+                  </button>
+                </Chip>
               </Collapsible.Trigger>
             </div>
             <Collapsible.Content className="space-y-3 data-[state=open]:animate-rise">

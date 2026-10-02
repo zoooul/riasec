@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Chip } from "@/components/ui/chip";
 import {
   getProfile,
   listProfileCodes,
@@ -25,9 +26,9 @@ export default async function ProfileDetailPage({ params }: Props) {
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <Link href="/profile" className="glass-chip">
-            Alle Profile
-          </Link>
+          <Chip asChild>
+            <Link href="/profile">Alle Profile</Link>
+          </Chip>
         }
       />
 

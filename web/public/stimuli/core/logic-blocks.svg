@@ -17,4 +17,7 @@
   <rect x="65" y="42" width="30" height="30" rx="7" fill="#6fbe9a" opacity="0.8"/>
   <rect x="100" y="42" width="30" height="30" rx="7" fill="#d8899a" opacity="0.8"/>
   <path d="M60 57 h5 M95 57 h5" stroke="rgba(184,201,218,0.35)" stroke-width="2"/>
+
+  <!-- logic-flow -->
+  <path d="M60 57 h5 l3 -4 l3 4 h5" fill="none" stroke="#b8c9da" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M95 57 h5 l3 -4 l3 4 h5" fill="none" stroke="#b8c9da" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

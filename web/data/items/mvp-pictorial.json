@@ -1,7 +1,7 @@
 {
-  "version": 4,
+  "version": 5,
   "validationStatus": "unvalidated",
-  "notes": "Expanded pictorial MVP. Nested weights { axes, bigFive, riasec }. Balance pass: +tf_04 (T/F), +a_03 (Artistic). Unvalidated until norming.",
+  "notes": "Pictorial MVP v5: Denkmuster-Copy + klarere SVG-Kontraste (VIST/RIASEC/Stress). Nested weights unchanged. Unvalidated until norming.",
   "items": [
     {
       "id": "ei_01",
@@ -12,7 +12,7 @@
         {
           "id": "ei_01_a",
           "label": "Mit anderen",
-          "hint": "Austausch, Reize von außen.",
+          "hint": "Gespräch, Reize von außen, gemeinsame Energie.",
           "visual": {
             "kind": "scene",
             "motif": "group-energy"
@@ -28,7 +28,7 @@
         },
         {
           "id": "ei_01_b",
-          "label": "Für mich",
+          "label": "Für mich allein",
           "hint": "Ruhe, Fokus, innere Verarbeitung.",
           "visual": {
             "kind": "scene",
@@ -59,8 +59,8 @@
       "choices": [
         {
           "id": "ei_02_a",
-          "label": "Schneller Austausch",
-          "hint": "Kurz mit jemandem sprechen, Energie teilen.",
+          "label": "Kurzer Austausch",
+          "hint": "Erst reden, dann in den Tag.",
           "visual": {
             "kind": "scene",
             "motif": "coffee-chat"
@@ -77,7 +77,7 @@
         {
           "id": "ei_02_b",
           "label": "Stiller Einstieg",
-          "hint": "Allein ankommen, erstmal sortieren.",
+          "hint": "Allein ankommen, Kopf frei machen.",
           "visual": {
             "kind": "scene",
             "motif": "solo-morning"
@@ -107,8 +107,8 @@
       "choices": [
         {
           "id": "ei_03_a",
-          "label": "Noch mehr Leute",
-          "hint": "Nachplaudern, Ideen weiterdrehen.",
+          "label": "Noch weiterreden",
+          "hint": "Nach dem Meeting dranbleiben.",
           "visual": {
             "kind": "scene",
             "motif": "after-huddle"
@@ -124,8 +124,8 @@
         },
         {
           "id": "ei_03_b",
-          "label": "Eine Pause allein",
-          "hint": "Kopf leeren, wieder zu dir kommen.",
+          "label": "Pause allein",
+          "hint": "Abstand gewinnen, wieder zu dir kommen.",
           "visual": {
             "kind": "scene",
             "motif": "quiet-walk"
@@ -156,8 +156,8 @@
       "choices": [
         {
           "id": "sn_01_a",
-          "label": "Kleine Unterschiede",
-          "hint": "Ich checke Details und Abweichungen.",
+          "label": "Das eine Detail",
+          "hint": "Abweichung, Fehler, konkrete Stelle.",
           "visual": {
             "kind": "pattern",
             "motif": "grid-error"
@@ -173,8 +173,8 @@
         },
         {
           "id": "sn_01_b",
-          "label": "Das große Muster",
-          "hint": "Ich sehe zuerst die Gesamtform.",
+          "label": "Das große Bild",
+          "hint": "Muster, Trend, Gesamtform zuerst.",
           "visual": {
             "kind": "pattern",
             "motif": "gestalt-wave"
@@ -204,8 +204,8 @@
       "choices": [
         {
           "id": "sn_02_a",
-          "label": "Fehler finden",
-          "hint": "Liste prüfen, Unstimmigkeiten markieren.",
+          "label": "Genau prüfen",
+          "hint": "Liste, Check, Unstimmigkeit finden.",
           "visual": {
             "kind": "scene",
             "motif": "checklist"
@@ -221,8 +221,8 @@
         },
         {
           "id": "sn_02_b",
-          "label": "Idee spinnen",
-          "hint": "Neue Wege und Zusammenhänge entdecken.",
+          "label": "Ideen verknüpfen",
+          "hint": "Neue Zusammenhänge und Möglichkeiten.",
           "visual": {
             "kind": "scene",
             "motif": "idea-map"
@@ -252,8 +252,8 @@
       "choices": [
         {
           "id": "sn_03_a",
-          "label": "Konkrete Beispiele",
-          "hint": "Was schon funktioniert hat, Schritt für Schritt.",
+          "label": "Schritt für Schritt",
+          "hint": "Beispiele, Anleitung, Bewährtes.",
           "visual": {
             "kind": "scene",
             "motif": "howto-steps"
@@ -269,8 +269,8 @@
         },
         {
           "id": "sn_03_b",
-          "label": "Große Theorien",
-          "hint": "Warum etwas so ist — Zusammenhänge.",
+          "label": "Warum & Zusammenhang",
+          "hint": "Theorie, Modell, große Linie.",
           "visual": {
             "kind": "pattern",
             "motif": "theory-web"
@@ -300,8 +300,8 @@
       "choices": [
         {
           "id": "sn_04_a",
-          "label": "Zahlen & Fakten",
-          "hint": "Was steht konkret drin?",
+          "label": "Zahlen zuerst",
+          "hint": "Tabellen, Fakten, harte Daten.",
           "visual": {
             "kind": "scene",
             "motif": "data-table"
@@ -317,8 +317,8 @@
         },
         {
           "id": "sn_04_b",
-          "label": "Die Story dahinter",
-          "hint": "Wohin könnte das führen?",
+          "label": "Story zuerst",
+          "hint": "Richtung, Bedeutung, Was-wenn.",
           "visual": {
             "kind": "scene",
             "motif": "story-arc"
@@ -348,8 +348,8 @@
       "choices": [
         {
           "id": "tf_01_a",
-          "label": "Zahlen & Fakten",
-          "hint": "Was lässt sich belegen?",
+          "label": "Fakten & Daten",
+          "hint": "Belegbar, nachvollziehbar, sachlich.",
           "visual": {
             "kind": "scene",
             "motif": "charts"
@@ -366,7 +366,7 @@
         {
           "id": "tf_01_b",
           "label": "Menschen & Werte",
-          "hint": "Was fühlt sich stimmig und fair an?",
+          "hint": "Fairness, Stimmigkeit, Beziehung.",
           "visual": {
             "kind": "scene",
             "motif": "circle-talk"
@@ -397,7 +397,7 @@
         {
           "id": "tf_02_a",
           "label": "Klare Logik",
-          "hint": "Saubere Begründung, sachlich bleiben.",
+          "hint": "Argumente, Regeln, Konsistenz.",
           "visual": {
             "kind": "pattern",
             "motif": "logic-blocks"
@@ -410,8 +410,8 @@
         },
         {
           "id": "tf_02_b",
-          "label": "Gute Atmosphäre",
-          "hint": "Beziehungen und Stimmung mitdenken.",
+          "label": "Gute Stimmung",
+          "hint": "Teamgefühl und Harmonie mitdenken.",
           "visual": {
             "kind": "scene",
             "motif": "warm-team"
@@ -441,8 +441,8 @@
       "choices": [
         {
           "id": "tf_03_a",
-          "label": "Direkt und klar",
-          "hint": "Sachlich sagen, was nicht passt.",
+          "label": "Direkt sagen",
+          "hint": "Klar benennen, was nicht passt.",
           "visual": {
             "kind": "scene",
             "motif": "direct-arrow"
@@ -458,8 +458,8 @@
         },
         {
           "id": "tf_03_b",
-          "label": "Sanft und achtsam",
-          "hint": "Beziehung und Gefühl mitdenken.",
+          "label": "Behutsam formulieren",
+          "hint": "Gefühl schützen, Beziehung wahren.",
           "visual": {
             "kind": "scene",
             "motif": "soft-feedback"
@@ -489,11 +489,11 @@
       "choices": [
         {
           "id": "tf_04_a",
-          "label": "Was stimmt sachlich",
-          "hint": "Fakten klären, dann entscheiden.",
+          "label": "Sachlage klären",
+          "hint": "Fakten sammeln, dann entscheiden.",
           "visual": {
             "kind": "pattern",
-            "motif": "logic-blocks"
+            "motif": "charts"
           },
           "weights": {
             "axes": {
@@ -506,11 +506,11 @@
         },
         {
           "id": "tf_04_b",
-          "label": "Wie sich alle fühlen",
-          "hint": "Beziehungen und Fairness zuerst.",
+          "label": "Stimmung hören",
+          "hint": "Gefühle und Fairness zuerst.",
           "visual": {
             "kind": "scene",
-            "motif": "warm-team"
+            "motif": "belong-circle"
           },
           "weights": {
             "axes": {
@@ -538,7 +538,7 @@
         {
           "id": "jp_01_a",
           "label": "Plan & Struktur",
-          "hint": "Termine, Schritte, klare Abschlüsse.",
+          "hint": "Termine, Schritte, Abschlüsse.",
           "visual": {
             "kind": "scene",
             "motif": "calendar"
@@ -554,8 +554,8 @@
         },
         {
           "id": "jp_01_b",
-          "label": "Offen & flexibel",
-          "hint": "Optionen offen lassen, spontan reagieren.",
+          "label": "Offen bleiben",
+          "hint": "Optionen, spontan reagieren.",
           "visual": {
             "kind": "scene",
             "motif": "open-road"
@@ -586,7 +586,7 @@
         {
           "id": "jp_02_a",
           "label": "Meilensteine setzen",
-          "hint": "Rahmen klären, Deadlines fixieren.",
+          "hint": "Rahmen, Deadlines, Klarheit.",
           "visual": {
             "kind": "scene",
             "motif": "milestone"
@@ -602,8 +602,8 @@
         },
         {
           "id": "jp_02_b",
-          "label": "Erstmal ausprobieren",
-          "hint": "Ins Tun kommen, später sortieren.",
+          "label": "Erst ausprobieren",
+          "hint": "Ins Tun, später sortieren.",
           "visual": {
             "kind": "scene",
             "motif": "prototype"
@@ -633,8 +633,8 @@
       "choices": [
         {
           "id": "jp_03_a",
-          "label": "Ordnung",
-          "hint": "Alles hat seinen Platz.",
+          "label": "Aufgeräumt",
+          "hint": "Alles hat seinen festen Platz.",
           "visual": {
             "kind": "scene",
             "motif": "tidy-desk"
@@ -650,8 +650,8 @@
         },
         {
           "id": "jp_03_b",
-          "label": "Lebendiges Chaos",
-          "hint": "Ideen liegen sichtbar herum.",
+          "label": "Sichtbares Chaos",
+          "hint": "Ideen liegen offen herum.",
           "visual": {
             "kind": "scene",
             "motif": "messy-desk"
@@ -681,8 +681,8 @@
       "choices": [
         {
           "id": "r_01_a",
-          "label": "Mit den Händen arbeiten",
-          "hint": "Werkstatt, Geräte, praktisches Tun.",
+          "label": "Handwerk & Werkzeug",
+          "hint": "Anfassen, bauen, reparieren.",
           "visual": {
             "kind": "scene",
             "motif": "workshop"
@@ -696,7 +696,7 @@
         {
           "id": "r_01_b",
           "label": "Menschen begleiten",
-          "hint": "Beraten, helfen, erklären.",
+          "hint": "Helfen, erklären, coachen.",
           "visual": {
             "kind": "scene",
             "motif": "coaching"
@@ -724,7 +724,7 @@
         {
           "id": "r_02_a",
           "label": "Draußen / Technik",
-          "hint": "Bauen, reparieren, anfassen.",
+          "hint": "Praktisch, körperlich, Geräte.",
           "visual": {
             "kind": "scene",
             "motif": "field-tools"
@@ -737,8 +737,8 @@
         },
         {
           "id": "r_02_b",
-          "label": "Am Schreibtisch",
-          "hint": "Systeme, Listen, Abläufe.",
+          "label": "Büro & Ablauf",
+          "hint": "Listen, Systeme, Ordnung.",
           "visual": {
             "kind": "scene",
             "motif": "office-order"
@@ -765,8 +765,8 @@
       "choices": [
         {
           "id": "i_01_a",
-          "label": "Untersuchen & verstehen",
-          "hint": "Forschen, analysieren, knifflige Fragen.",
+          "label": "Forschen & verstehen",
+          "hint": "Fragen stellen, analysieren.",
           "visual": {
             "kind": "scene",
             "motif": "lab-search"
@@ -782,8 +782,8 @@
         },
         {
           "id": "i_01_b",
-          "label": "Organisieren & ordnen",
-          "hint": "Abläufe, Tabellen, Systeme pflegen.",
+          "label": "Ordnen & pflegen",
+          "hint": "Tabellen, Prozesse, Struktur.",
           "visual": {
             "kind": "scene",
             "motif": "office-order"
@@ -810,8 +810,8 @@
       "choices": [
         {
           "id": "i_02_a",
-          "label": "Forschen & testen",
-          "hint": "Hypothesen, Daten, Ursachen finden.",
+          "label": "Hypothesen testen",
+          "hint": "Daten, Ursachen, Labor-Denken.",
           "visual": {
             "kind": "scene",
             "motif": "microscope"
@@ -827,8 +827,8 @@
         },
         {
           "id": "i_02_b",
-          "label": "Sofort anpacken",
-          "hint": "Praktisch lösen, ausprobieren.",
+          "label": "Praktisch lösen",
+          "hint": "Anpacken, ausprobieren, fixen.",
           "visual": {
             "kind": "scene",
             "motif": "hands-on"
@@ -856,7 +856,7 @@
         {
           "id": "a_01_a",
           "label": "Gestalten & ausdrücken",
-          "hint": "Ideen sichtbar machen, kreativ werden.",
+          "hint": "Form, Farbe, eigener Stil.",
           "visual": {
             "kind": "scene",
             "motif": "studio"
@@ -872,8 +872,8 @@
         },
         {
           "id": "a_01_b",
-          "label": "Überzeugen & bewegen",
-          "hint": "Projekte vorantreiben, Menschen gewinnen.",
+          "label": "Überzeugen & pushen",
+          "hint": "Pitch, Wirkung, Menschen gewinnen.",
           "visual": {
             "kind": "scene",
             "motif": "pitch"
@@ -901,7 +901,7 @@
         {
           "id": "a_02_a",
           "label": "Etwas erschaffen",
-          "hint": "Musik, Design, Text, Handwerkskunst.",
+          "hint": "Kunst, Design, Handwerk.",
           "visual": {
             "kind": "scene",
             "motif": "create-canvas"
@@ -917,7 +917,7 @@
         },
         {
           "id": "a_02_b",
-          "label": "Andere unterstützen",
+          "label": "Andere stützen",
           "hint": "Zuhören, helfen, Gemeinschaft.",
           "visual": {
             "kind": "scene",
@@ -949,7 +949,7 @@
         {
           "id": "a_03_a",
           "label": "Visuell gestalten",
-          "hint": "Farben, Form, Ausdruck.",
+          "hint": "Layout, Ausdruck, Ästhetik.",
           "visual": {
             "kind": "scene",
             "motif": "create-canvas"
@@ -965,8 +965,8 @@
         },
         {
           "id": "a_03_b",
-          "label": "Systeme ordnen",
-          "hint": "Abläufe, Struktur, Übersicht.",
+          "label": "Struktur schaffen",
+          "hint": "Abläufe, Übersicht, Regeln.",
           "visual": {
             "kind": "scene",
             "motif": "office-order"
@@ -996,7 +996,7 @@
       "choices": [
         {
           "id": "s_01_a",
-          "label": "Mentor / Begleiter",
+          "label": "Begleiten & fördern",
           "hint": "Menschen wachsen lassen.",
           "visual": {
             "kind": "scene",
@@ -1013,8 +1013,8 @@
         },
         {
           "id": "s_01_b",
-          "label": "Analyst / Denker",
-          "hint": "Systeme verstehen, Modelle bauen.",
+          "label": "Denken & modellieren",
+          "hint": "Systeme, Analyse, Whiteboard.",
           "visual": {
             "kind": "scene",
             "motif": "think-board"
@@ -1044,8 +1044,8 @@
       "choices": [
         {
           "id": "e_01_a",
-          "label": "Ideen verkaufen",
-          "hint": "Überzeugen, Netzwerk, Wirkung.",
+          "label": "Verkaufen & vernetzen",
+          "hint": "Deals, Bühne, Überzeugen.",
           "visual": {
             "kind": "scene",
             "motif": "network-pitch"
@@ -1092,8 +1092,8 @@
       "choices": [
         {
           "id": "e_02_a",
-          "label": "Führung & Tempo",
-          "hint": "Richtung geben, Entscheidungen treffen.",
+          "label": "Führen & tempo",
+          "hint": "Richtung, Entscheidungen.",
           "visual": {
             "kind": "scene",
             "motif": "lead-flag"
@@ -1109,8 +1109,8 @@
         },
         {
           "id": "e_02_b",
-          "label": "Gestaltung & Story",
-          "hint": "Botschaft, Look, Ausdruck.",
+          "label": "Story & Look",
+          "hint": "Marke, Botschaft, Gestaltung.",
           "visual": {
             "kind": "scene",
             "motif": "brand-story"
@@ -1140,8 +1140,8 @@
       "choices": [
         {
           "id": "c_01_a",
-          "label": "Daten pflegen",
-          "hint": "Genauigkeit, Ordnung, Nachvollziehbarkeit.",
+          "label": "Daten exakt pflegen",
+          "hint": "Genauigkeit, Nachvollziehbarkeit.",
           "visual": {
             "kind": "scene",
             "motif": "spreadsheet"
@@ -1158,7 +1158,7 @@
         {
           "id": "c_01_b",
           "label": "Kunden gewinnen",
-          "hint": "Gespräche, Deals, Überzeugungskraft.",
+          "hint": "Gespräche, Deals, Überzeugung.",
           "visual": {
             "kind": "scene",
             "motif": "handshake"
@@ -1189,8 +1189,8 @@
       "choices": [
         {
           "id": "stress_01_a",
-          "label": "Plan machen",
-          "hint": "Klarheit schaffen, Schritte festlegen.",
+          "label": "Plan schreiben",
+          "hint": "Schritte festlegen, Klarheit.",
           "visual": {
             "kind": "affect",
             "motif": "calm-plan"
@@ -1207,8 +1207,8 @@
         },
         {
           "id": "stress_01_b",
-          "label": "Luft holen",
-          "hint": "Abstand, Entspannung, neu sortieren.",
+          "label": "Erst pausieren",
+          "hint": "Abstand, runterfahren, sortieren.",
           "visual": {
             "kind": "affect",
             "motif": "soft-pause"
@@ -1239,8 +1239,8 @@
       "choices": [
         {
           "id": "stress_02_a",
-          "label": "Prioritäten streichen",
-          "hint": "Fokus aufs Wichtigste, Rest später.",
+          "label": "Fokus schärfen",
+          "hint": "Wesentliches wählen, Rest parken.",
           "visual": {
             "kind": "affect",
             "motif": "focus-beam"
@@ -1257,7 +1257,7 @@
         },
         {
           "id": "stress_02_b",
-          "label": "Mit jemandem sprechen",
+          "label": "Kurz reden",
           "hint": "Entlastung durch Austausch.",
           "visual": {
             "kind": "affect",
@@ -1290,7 +1290,7 @@
       "choices": [
         {
           "id": "stress_03_a",
-          "label": "Struktur zurückholen",
+          "label": "Struktur zurück",
           "hint": "Listen, Rituale, kleine Siege.",
           "visual": {
             "kind": "affect",
@@ -1308,8 +1308,8 @@
         },
         {
           "id": "stress_03_b",
-          "label": "Körper & Atem",
-          "hint": "Bewegen, atmen, Spannung lösen.",
+          "label": "Atmen & bewegen",
+          "hint": "Körper, Spannung lösen.",
           "visual": {
             "kind": "affect",
             "motif": "breathe"
@@ -1337,8 +1337,8 @@
       "choices": [
         {
           "id": "motive_01_a",
-          "label": "Wirkung erzielen",
-          "hint": "Ziele erreichen, sichtbar vorankommen.",
+          "label": "Wirkung sichtbar",
+          "hint": "Ziele, Erfolg, vorankommen.",
           "visual": {
             "kind": "scene",
             "motif": "achieve-peak"
@@ -1355,8 +1355,8 @@
         },
         {
           "id": "motive_01_b",
-          "label": "Verbundenheit",
-          "hint": "Zugehörigkeit, gemeinsames Gelingen.",
+          "label": "Dazugehören",
+          "hint": "Team, Vertrauen, gemeinsam.",
           "visual": {
             "kind": "scene",
             "motif": "belong-circle"
@@ -1387,7 +1387,7 @@
         {
           "id": "motive_02_a",
           "label": "Meisterschaft",
-          "hint": "Etwas richtig gut können.",
+          "hint": "Etwas richtig gut beherrschen.",
           "visual": {
             "kind": "scene",
             "motif": "craft-master"
@@ -1405,8 +1405,8 @@
         },
         {
           "id": "motive_02_b",
-          "label": "Einfluss",
-          "hint": "Mitgestalten, Richtung setzen.",
+          "label": "Mitgestalten",
+          "hint": "Einfluss, Richtung setzen.",
           "visual": {
             "kind": "scene",
             "motif": "influence"
@@ -1438,7 +1438,7 @@
         {
           "id": "stress_04_a",
           "label": "Analyse & Lernen",
-          "hint": "Was ist schiefgelaufen — klar und sachlich.",
+          "hint": "Sachlich verstehen, was schiefging.",
           "visual": {
             "kind": "affect",
             "motif": "lesson-board"
@@ -1457,8 +1457,8 @@
         },
         {
           "id": "stress_04_b",
-          "label": "Wärme & Zuspruch",
-          "hint": "Jemanden, der dich hält und zuhört.",
+          "label": "Zuspruch & Nähe",
+          "hint": "Gehalten werden, zugehört werden.",
           "visual": {
             "kind": "affect",
             "motif": "warm-support"
@@ -1492,8 +1492,8 @@
       "choices": [
         {
           "id": "motive_03_a",
-          "label": "Freiraum gestalten",
-          "hint": "Eigene Wege, wenig Bevormundung.",
+          "label": "Freiraum",
+          "hint": "Eigene Wege, wenig Vorgaben.",
           "visual": {
             "kind": "scene",
             "motif": "open-horizon"
@@ -1511,8 +1511,8 @@
         },
         {
           "id": "motive_03_b",
-          "label": "Sicherheit & Ordnung",
-          "hint": "Verlässliche Strukturen, klare Regeln.",
+          "label": "Sicherer Rahmen",
+          "hint": "Klare Regeln, Verlässlichkeit.",
           "visual": {
             "kind": "scene",
             "motif": "safe-frame"

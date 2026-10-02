@@ -16,4 +16,7 @@
   <path d="M40 40 h52 a8 8 0 0 1 8 8 v20 a8 8 0 0 1 -8 8 H60 l-14 12 V76 H40 a8 8 0 0 1 -8 -8 V48 a8 8 0 0 1 8 -8 z" fill="rgba(255,255,255,0.08)" stroke="#d8899a" stroke-width="1.75" stroke-linejoin="round"/>
   <circle cx="118" cy="52" r="14" fill="rgba(255,255,255,0.08)" stroke="#6fbe9a" stroke-width="1.75"/>
   <path d="M112 52 h12" stroke="#6fbe9a" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- soft-heart -->
+  <path d="M88 44 C84 40, 78 42, 78 48 C78 54, 88 58, 88 58 C88 58, 98 54, 98 48 C98 42, 92 40, 88 44 Z" fill="#d8899a" opacity="0.55"/>
 </svg>

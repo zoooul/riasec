@@ -17,4 +17,7 @@
   <circle cx="104" cy="56" r="18" fill="rgba(255,255,255,0.08)" stroke="#5ec8d6" stroke-width="1.75"/>
   <path d="M74 50 Q80 44 86 50" fill="none" stroke="rgba(184,201,218,0.35)" stroke-width="2"/>
   <path d="M74 62 Q80 68 86 62" fill="none" stroke="rgba(184,201,218,0.35)" stroke-width="2"/>
+
+  <!-- values-bubble -->
+  <path d="M48 38 h22 a6 6 0 0 1 6 6 v10 a6 6 0 0 1 -6 6 H54 l-8 8 v-8 H48 a6 6 0 0 1 -6 -6 V44 a6 6 0 0 1 6 -6 z" fill="rgba(216,137,154,0.25)" stroke="#d8899a" stroke-width="1.5"/><path d="M90 38 h22 a6 6 0 0 1 6 6 v10 a6 6 0 0 1 -6 6 h-6 l-8 8 v-8 h-2 a6 6 0 0 1 -6 -6 V44 a6 6 0 0 1 6 -6 z" fill="rgba(94,200,214,0.2)" stroke="#5ec8d6" stroke-width="1.5"/>
 </svg>

@@ -17,4 +17,7 @@
   <rect x="58" y="40" width="44" height="30" rx="4" fill="rgba(255,255,255,0.08)" stroke="#5ec8d6" stroke-width="1.75"/>
   <path d="M70 52 h20 M80 42 v20" stroke="#6fbe9a" stroke-width="2" stroke-linecap="round"/>
   <circle cx="120" cy="48" r="10" fill="#c9a86a" opacity="0.7"/>
+
+  <!-- wrench-tool -->
+  <path d="M108 38 a10 10 0 1 0 4 16 l-6 10" fill="none" stroke="#c9a86a" stroke-width="2.25" stroke-linecap="round"/>
 </svg>

@@ -17,4 +17,7 @@
   <circle cx="80" cy="48" r="15" fill="#5ec8d6" opacity="0.8"/>
   <circle cx="108" cy="60" r="15" fill="#6fbe9a" opacity="0.8"/>
   <path d="M40 88 Q80 102 120 86" fill="none" stroke="rgba(184,201,218,0.35)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- energy-rays -->
+  <path d="M80 48 L80 20 M80 48 L56 30 M80 48 L104 30" stroke="#c9a86a" stroke-width="2.25" stroke-linecap="round" opacity="0.9"/>
 </svg>

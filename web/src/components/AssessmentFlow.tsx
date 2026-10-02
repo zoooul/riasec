@@ -17,6 +17,8 @@ import {
   saveAnswers,
 } from "@/lib/session";
 import type { AssessmentItem, ModuleId } from "@/lib/types";
+import { Button } from "@/components/ui/button";
+import { Chip } from "@/components/ui/chip";
 import { VisualCard } from "./VisualCard";
 
 type Props = {
@@ -126,9 +128,7 @@ export function AssessmentFlow({ items }: Props) {
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 overflow-x-hidden px-4 py-5 pb-[max(1.5rem,var(--safe-bottom))] md:gap-7 md:py-10">
       <div className="glass-panel sticky top-[calc(4.25rem+var(--safe-top))] z-10 space-y-2.5 p-3.5 md:p-4">
         <div className="flex items-center justify-between gap-3">
-          <span className="glass-chip" aria-live="polite">
-            {MODULE_LABELS[item.module]}
-          </span>
+          <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
           <span className="meta-label normal-case tracking-[0.04em]">
             {index + 1}/{items.length}
             {answeredN > 0 ? ` · ${progress}%` : ""}
@@ -161,27 +161,20 @@ export function AssessmentFlow({ items }: Props) {
               <Dialog.Portal>
                 <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm" />
                 <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 outline-none">
-                  <Dialog.Title className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">
+                  <Dialog.Title className="text-display text-xl text-[var(--ink)]">
                     Test neu starten?
                   </Dialog.Title>
                   <Dialog.Description className="text-sm text-[var(--muted)]">
                     Dein gespeicherter Fortschritt wird gelöscht.
                   </Dialog.Description>
                   <div className="flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      onClick={restart}
-                      className="glass-btn glass-btn-primary min-h-11 px-5 text-sm"
-                    >
+                    <Button type="button" size="sm" onClick={restart}>
                       Ja, neu starten
-                    </button>
+                    </Button>
                     <Dialog.Close asChild>
-                      <button
-                        type="button"
-                        className="glass-btn glass-btn-secondary min-h-11 px-5 text-sm"
-                      >
+                      <Button type="button" variant="secondary" size="sm">
                         Abbrechen
-                      </button>
+                      </Button>
                     </Dialog.Close>
                   </div>
                 </Dialog.Content>
@@ -198,10 +191,12 @@ export function AssessmentFlow({ items }: Props) {
             initial={reduceMotion ? false : { opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="glass-chip mx-auto text-[var(--neon-mint)]"
+            className="mx-auto w-fit"
             aria-live="polite"
           >
-            Neuer Teil: {MODULE_LABELS[moduleFlash]}
+            <Chip className="text-[var(--neon-mint)]">
+              Neuer Teil: {MODULE_LABELS[moduleFlash]}
+            </Chip>
           </motion.div>
         ) : null}
       </AnimatePresence>
@@ -254,7 +249,7 @@ export function AssessmentFlow({ items }: Props) {
                 imageUrl={choice.visual.imageUrl}
               />
               <div className="relative z-[1] mt-2.5 space-y-1 px-0.5 sm:mt-3">
-                <div className="text-[0.98rem] font-semibold tracking-tight text-[var(--ink)] sm:text-lg">
+                <div className="text-[0.98rem] font-semibold leading-snug tracking-tight text-[var(--ink)] sm:text-lg">
                   {choice.label}
                 </div>
                 <p className="text-sm leading-relaxed text-[var(--muted)]">
@@ -267,16 +262,18 @@ export function AssessmentFlow({ items }: Props) {
       </div>
 
       {index > 0 ? (
-        <button
+        <Button
           type="button"
+          variant="secondary"
+          size="sm"
+          className="self-start"
           onClick={() => {
             if (locked) return;
             setFlow({ answers, index: Math.max(0, index - 1) });
           }}
-          className="glass-btn glass-btn-secondary self-start px-5 py-2 text-sm"
         >
           Zurück
-        </button>
+        </Button>
       ) : null}
     </div>
   );

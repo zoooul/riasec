@@ -19,4 +19,7 @@
   </g>
   <circle cx="96" cy="48" r="9" fill="#d8899a" opacity="0.9"/>
   <path d="M92 44 l8 8 M100 44 l-8 8" stroke="#0a1524" stroke-width="1.75" stroke-linecap="round"/>
+
+  <!-- detail-lens -->
+  <circle cx="112" cy="72" r="12" fill="none" stroke="#c9a86a" stroke-width="1.75"/><path d="M120 80 l8 8" stroke="#c9a86a" stroke-width="2" stroke-linecap="round"/>
 </svg>

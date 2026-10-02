@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
+import { Chip } from "@/components/ui/chip";
 import { getAllProfiles } from "@/lib/profiles.server";
 
 export default function ProfileIndexPage() {
@@ -11,9 +12,9 @@ export default function ProfileIndexPage() {
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <Link href="/assessment" className="glass-chip text-[var(--neon-mint)]">
-            Zum Test
-          </Link>
+          <Chip asChild className="text-[var(--neon-mint)]">
+            <Link href="/assessment">Zum Test</Link>
+          </Chip>
         }
       />
 

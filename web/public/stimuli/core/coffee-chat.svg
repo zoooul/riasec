@@ -17,4 +17,7 @@
   <path d="M86 48 h10 a10 10 0 0 1 0 12 h-10" fill="none" stroke="#c9a86a" stroke-width="1.75"/>
   <circle cx="118" cy="48" r="12" fill="rgba(255,255,255,0.08)" stroke="#d8899a" stroke-width="1.75"/>
   <path d="M58 84 Q80 96 108 80" fill="none" stroke="rgba(184,201,218,0.35)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- second-cup -->
+  <path d="M94 44 h28 a10 10 0 0 1 0 20 h-28 z" fill="rgba(255,255,255,0.06)" stroke="#5ec8d6" stroke-width="1.5"/>
 </svg>

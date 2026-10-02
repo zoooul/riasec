@@ -16,4 +16,7 @@
   <rect x="38" y="30" width="84" height="60" rx="12" fill="rgba(255,255,255,0.08)" stroke="#8aa4bc" stroke-width="1.75"/>
   <path d="M54 52 h52 M54 68 h36" stroke="#5ec8d6" stroke-width="2.25" stroke-linecap="round"/>
   <circle cx="110" cy="68" r="5" fill="#6fbe9a"/>
+
+  <!-- plan-steps -->
+  <circle cx="50" cy="52" r="5" fill="#6fbe9a"/><circle cx="50" cy="68" r="5" fill="#6fbe9a"/><text x="62" y="55" fill="#b8c9da" font-size="8" font-family="system-ui,sans-serif">1.</text><text x="62" y="71" fill="#b8c9da" font-size="8" font-family="system-ui,sans-serif">2.</text>
 </svg>

@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "notes": "Core motifs are generated geometric SVGs (swappable for Open Peeps/Humaaans CC0). Extra PSE/OASIS entries are catalog-only until assets are dropped in.",
+  "version": 2,
+  "notes": "Core motifs: geometric SVGs (viewBox 160×120, glass palette). v2 adds Denkmuster accents aligned with VIST/RIASEC/Stress items. Swappable for Open Peeps/Humaaans CC0. Extra PSE/OASIS catalog-only until assets are dropped in.",
   "stimuli": [
     {
       "id": "core-group-energy",

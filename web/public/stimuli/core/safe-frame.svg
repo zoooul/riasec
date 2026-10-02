@@ -16,4 +16,7 @@
   <rect x="40" y="28" width="80" height="64" rx="12" fill="rgba(255,255,255,0.08)" stroke="#6fbe9a" stroke-width="2"/>
   <rect x="54" y="42" width="52" height="36" rx="8" fill="none" stroke="#5ec8d6" stroke-width="1.5" opacity="0.7"/>
   <circle cx="80" cy="60" r="6" fill="#c9a86a" opacity="0.8"/>
+
+  <!-- safe-lock -->
+  <rect x="76" y="54" width="8" height="10" rx="2" fill="none" stroke="#6fbe9a" stroke-width="1.5"/><path d="M74 54 a6 6 0 0 1 12 0" fill="none" stroke="#6fbe9a" stroke-width="1.5"/>
 </svg>

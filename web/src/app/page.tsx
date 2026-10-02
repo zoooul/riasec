@@ -1,17 +1,16 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Chip } from "@/components/ui/chip";
 
 export default function HomePage() {
   return (
     <main className="relative flex flex-1 flex-col overflow-x-hidden">
       <section className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-between gap-8 px-5 pb-[max(1.5rem,var(--safe-bottom))] pt-[max(1.25rem,var(--safe-top))] md:gap-10 md:px-8 md:py-10">
         <div className="flex items-center justify-between gap-3">
-          <span className="glass-chip">Coaching · Orientierung</span>
-          <Link
-            href="/profile"
-            className="glass-chip min-h-11 text-[var(--muted-strong)]"
-          >
-            Profile
-          </Link>
+          <Chip>Coaching · Orientierung</Chip>
+          <Chip asChild className="text-[var(--muted-strong)]">
+            <Link href="/profile">Profile</Link>
+          </Chip>
         </div>
 
         <div className="relative my-auto flex flex-1 flex-col items-center justify-center text-center">
@@ -56,12 +55,9 @@ export default function HomePage() {
           className="animate-rise relative z-10 mx-auto flex w-full max-w-md flex-col gap-3 pb-1"
           style={{ animationDelay: "240ms" }}
         >
-          <Link
-            href="/assessment"
-            className="glass-btn glass-btn-primary min-h-12 w-full text-base"
-          >
-            Jetzt starten
-          </Link>
+          <Button asChild variant="primary" size="lg" className="w-full">
+            <Link href="/assessment">Jetzt starten</Link>
+          </Button>
           <p className="meta-label text-center normal-case tracking-[0.04em]">
             Privat · mobil · Zwischenspeicher
           </p>

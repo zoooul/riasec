@@ -15,4 +15,7 @@
 
   <path d="M16 72 C40 28 56 96 80 52 S120 20 148 64" fill="none" stroke="#5ec8d6" stroke-width="3" stroke-linecap="round"/>
   <path d="M16 84 C44 50 60 100 84 66 S124 40 148 78" fill="none" stroke="#6fbe9a" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- scatter-dots -->
+  <circle cx="36" cy="34" r="3" fill="#b8c9da" opacity="0.6"/><circle cx="52" cy="28" r="3" fill="#b8c9da" opacity="0.6"/><circle cx="68" cy="36" r="3" fill="#b8c9da" opacity="0.6"/><circle cx="92" cy="30" r="3" fill="#b8c9da" opacity="0.6"/><circle cx="124" cy="32" r="3" fill="#b8c9da" opacity="0.6"/>
 </svg>

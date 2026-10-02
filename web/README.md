@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Skillster Web-App
 
-## Getting Started
+Next.js-Frontend für **Skillster** — bildgestütztes Assessment, Ergebnis in Alltagssprache, PDF-Export. Gesamtprojekt: [`../README.md`](../README.md) · Regeln: [`../docs/GUIDELINES.md`](../docs/GUIDELINES.md).
 
-First, run the development server:
+---
+
+## Entwicklung
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm test
+npm run test:hard
+npm run build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+NPM-Scripts aus dem Repo-Root:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run extract:profiles` → `python3 ../scripts/extract_profiles.py`
+- `npm run import:occupations` → `python3 ../scripts/import_occupations.py`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Routen
 
-To learn more about Next.js, take a look at the following resources:
+| Pfad | Beschreibung |
+|------|----------------|
+| `/` | Landing, CTA Assessment |
+| `/assessment` | Bild-Flow (`AssessmentFlow`, `VisualCard`) |
+| `/ergebnis` | Scoring client-seitig, HOW/WHAT, PDF |
+| `/profile`, `/profile/[code]` | 16 VIST-Profilseiten (Referenz) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**API:** `GET /api/health`, `GET /api/items`, `POST /api/score` — siehe [`../README.md`](../README.md#api-route-handlers).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Wichtige Pfade
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Pfad | Rolle |
+|------|--------|
+| `data/items/mvp-pictorial.json` | Fragen, Gewichte, Motiv-IDs |
+| `data/stimuli/index.json` | Katalog → `public/stimuli/core/*.svg` |
+| `data/profiles/` | Ergebnis-HOW-Texte |
+| `data/occupations/occupations.json` | RIASEC-Matching |
+| `src/lib/scoring.ts`, `bias.ts`, `plainLanguage.ts`, `profilePdf.ts` | Kernlogik |
+| `src/components/AssessmentFlow.tsx`, `VisualCard.tsx`, `ErgebnisClient.tsx` | UI |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Lib-Doku: [`src/lib/README.md`](src/lib/README.md).
+
+---
+
+## UI
+
+- **Liquid-glass** Tokens in `src/app/globals.css`
+- **Motion** für dezente Übergänge; **Radix** für Dialog (Neu starten), Progress, Collapsible (Details)
+- Antworten nur in **`sessionStorage`** — keine URL-Payload
+
+Stimuli-Layer: [`data/stimuli/README.md`](data/stimuli/README.md).
+
+---
+
+## Tests
+
+Vitest unter `src/lib/__tests__/`. Hard-Guidelines: `npm run test:hard` (Katalog, Scoring, Bias, PDF, Exclusions). E2E-Plan: [`e2e/README.md`](e2e/README.md).

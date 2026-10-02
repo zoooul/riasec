@@ -16,4 +16,7 @@
   <rect x="30" y="26" width="100" height="68" rx="10" fill="rgba(255,255,255,0.08)" stroke="#8aa4bc" stroke-width="1.75"/>
   <path d="M46 46 h68 M46 60 h52 M46 74 h60" stroke="#b8c9da" stroke-width="2" stroke-linecap="round"/>
   <rect x="70" y="94" width="20" height="8" rx="2" fill="rgba(184,201,218,0.35)"/>
+
+  <!-- lesson-check -->
+  <path d="M42 46 l4 4 8 -9" fill="none" stroke="#6fbe9a" stroke-width="2" stroke-linecap="round"/>
 </svg>

@@ -17,4 +17,7 @@
   <circle cx="80" cy="48" r="14" fill="#5ec8d6" opacity="0.8"/>
   <circle cx="110" cy="56" r="14" fill="#6fbe9a" opacity="0.8"/>
   <path d="M42 82 H118" stroke="rgba(184,201,218,0.35)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- team-heart -->
+  <path d="M80 64 C73 55, 58 58, 58 68 C58 78, 80 92, 80 92 C80 92, 102 78, 102 68 C102 58, 87 55, 80 64 Z" fill="#d8899a" opacity="0.5"/>
 </svg>

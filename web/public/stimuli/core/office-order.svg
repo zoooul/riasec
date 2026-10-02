@@ -16,4 +16,7 @@
   <rect x="36" y="30" width="88" height="62" rx="10" fill="rgba(255,255,255,0.08)" stroke="#8aa4bc" stroke-width="1.75"/>
   <path d="M50 48 h60 M50 62 h60 M50 76 h44" stroke="#5ec8d6" stroke-width="2" stroke-linecap="round"/>
   <rect x="108" y="70" width="10" height="10" rx="2" fill="#6fbe9a" opacity="0.8"/>
+
+  <!-- folder-tabs -->
+  <path d="M36 30 h16 v8 h-16 z M36 46 h12 v8 h-12 z M36 62 h14 v8 h-14 z" fill="#6fbe9a" opacity="0.35"/>
 </svg>

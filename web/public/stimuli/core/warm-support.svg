@@ -16,4 +16,7 @@
   <circle cx="68" cy="56" r="20" fill="rgba(255,255,255,0.08)" stroke="#d8899a" stroke-width="1.75"/>
   <circle cx="98" cy="56" r="20" fill="rgba(255,255,255,0.08)" stroke="#6fbe9a" stroke-width="1.75"/>
   <path d="M80 48 v16" stroke="#c9a86a" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- support-embrace -->
+  <path d="M68 72 Q80 82 92 72" fill="none" stroke="#d8899a" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

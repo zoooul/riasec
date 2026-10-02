@@ -16,4 +16,7 @@
   <circle cx="80" cy="58" r="28" fill="rgba(255,255,255,0.08)" stroke="#6fbe9a" stroke-width="1.75"/>
   <rect x="68" y="44" width="8" height="28" rx="3" fill="#5ec8d6" opacity="0.85"/>
   <rect x="84" y="44" width="8" height="28" rx="3" fill="#5ec8d6" opacity="0.85"/>
+
+  <!-- pause-label -->
+  <text x="80" y="98" text-anchor="middle" fill="#b8c9da" font-size="7" font-family="system-ui,sans-serif" opacity="0.8">Pause</text>
 </svg>
