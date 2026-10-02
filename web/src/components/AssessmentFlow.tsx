@@ -10,6 +10,10 @@ import {
   MODULE_ORDER,
   computeProgress,
 } from "@/lib/assessmentStructure";
+import {
+  CHOICE_KEY_HINTS,
+  shouldHandleAssessmentShortcut,
+} from "@/lib/assessmentShortcuts";
 import { cn } from "@/lib/cn";
 import {
   clearAnswers,
@@ -55,6 +59,7 @@ export function AssessmentFlow({ items }: Props) {
   const [showResumeHint, setShowResumeHint] = useState(false);
   const prevModuleRef = useRef<ModuleId | null>(null);
   const resumeHintShown = useRef(false);
+  const chooseRef = useRef<(choiceId: string) => void>(() => {});
 
   const active: FlowState =
     flow ??
@@ -96,22 +101,6 @@ export function AssessmentFlow({ items }: Props) {
     prevModuleRef.current = item.module;
   }, [item]);
 
-  if (!ready || !item) {
-    return (
-      <div className="page-shell flex flex-1 items-center justify-center text-center text-base-content/60">
-        Wird geladen…
-      </div>
-    );
-  }
-
-  const partial = hasPartialProgress(items, answers);
-  const stageIntro =
-    stageFlash || index === progress.stage.startIndex
-      ? MODULE_INTROS[item.module]
-      : null;
-  const showStatusStrip = showResumeHint || Boolean(stageFlash);
-  const currentModuleIdx = MODULE_ORDER.indexOf(item.module);
-
   function choose(choiceId: string) {
     if (locked || !item) return;
     setLocked(true);
@@ -144,79 +133,129 @@ export function AssessmentFlow({ items }: Props) {
     prevModuleRef.current = null;
   }
 
+  chooseRef.current = choose;
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      const choiceIndex = shouldHandleAssessmentShortcut({
+        key: event.key,
+        target: event.target,
+        locked,
+        modalOpen: confirmRestart,
+        metaKey: event.metaKey,
+        ctrlKey: event.ctrlKey,
+        altKey: event.altKey,
+      });
+      if (choiceIndex === null || !item) return;
+      const choice = item.choices[choiceIndex];
+      if (!choice) return;
+      event.preventDefault();
+      chooseRef.current(choice.id);
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [confirmRestart, item, locked]);
+
+  if (!ready || !item) {
+    return (
+      <div className="page-shell flex flex-1 items-center justify-center text-center text-base-content/60">
+        Wird geladen…
+      </div>
+    );
+  }
+
+  const partial = hasPartialProgress(items, answers);
+  const stageIntro =
+    stageFlash || index === progress.stage.startIndex
+      ? MODULE_INTROS[item.module]
+      : null;
+  const showStatusStrip = showResumeHint || Boolean(stageFlash);
+  const currentModuleIdx = MODULE_ORDER.indexOf(item.module);
+
   return (
-    <div className="assessment-flow page-shell page-shell-wide split-lg mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.5rem,var(--safe-bottom))] pt-[clamp(0.25rem,0.8vh,0.6rem)] sm:px-4 lg:px-6">
+    <div className="assessment-flow page-shell page-shell-wide split-lg mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.5rem,var(--safe-bottom))] pt-2 sm:px-4 lg:px-6">
       <div className="assessment-rail min-w-0">
-        <div className="card bg-base-100 border border-base-300 shadow-sm shrink-0 space-y-[clamp(0.3rem,0.8vh,0.55rem)] p-[clamp(0.5rem,1.1vh,0.85rem)]">
-          <div className="flex min-w-0 items-start justify-between gap-2">
-            <div className="flex min-w-0 flex-wrap items-center gap-1.5">
-              <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
-              <span className="meta-label normal-case tracking-[0.04em] text-base-content/60">
-                Teil {progress.stageIndex + 1}/{progress.stageCount}
+        <div className="card bg-base-100 border border-base-300 shadow-sm shrink-0">
+          <div className="card-body gap-2 p-3 sm:gap-2.5 sm:p-4">
+            <div className="flex min-w-0 items-start justify-between gap-2">
+              <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+                <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
+                <span className="meta-label normal-case tracking-[0.04em] text-base-content/60">
+                  Teil {progress.stageIndex + 1}/{progress.stageCount}
+                </span>
+              </div>
+              <span
+                className="meta-label shrink-0 pt-0.5 normal-case tracking-[0.04em]"
+                aria-live="polite"
+              >
+                {progress.questionNumber}/{progress.itemCount}
+                {progress.answeredCount > 0
+                  ? ` · ${progress.overallPercent}%`
+                  : ""}
               </span>
             </div>
-            <span
-              className="meta-label shrink-0 pt-1 normal-case tracking-[0.04em]"
-              aria-live="polite"
+
+            <ul className="assessment-steps steps steps-horizontal w-full text-[0.6rem] sm:text-[0.7rem]">
+              {MODULE_ORDER.map((mod, i) => (
+                <li
+                  key={mod}
+                  className={cn(
+                    "step",
+                    i <= currentModuleIdx && "step-primary",
+                  )}
+                  data-content={i < currentModuleIdx ? "✓" : undefined}
+                >
+                  <span className="hidden sm:inline">{MODULE_LABELS[mod]}</span>
+                </li>
+              ))}
+            </ul>
+
+            <progress
+              className="progress progress-primary assessment-progress w-full"
+              value={progressVisual}
+              max={100}
+              aria-label={`Reise: Aufgabe ${progress.questionNumber} von ${progress.itemCount}, ${progress.overallPercent} Prozent`}
+            />
+
+            <p
+              className="assessment-key-hint text-center text-[0.65rem] text-base-content/55 sm:text-left sm:text-[0.7rem] sm:text-base-content/45"
+              data-testid="assessment-key-hint"
             >
-              {progress.questionNumber}/{progress.itemCount}
-              {progress.answeredCount > 0
-                ? ` · ${progress.overallPercent}%`
-                : ""}
-            </span>
-          </div>
+              <span className="sm:hidden">Taste 1 oder 2</span>
+              <span className="hidden sm:inline">Tipp: 1 · 2</span>
+            </p>
 
-          <ul className="steps steps-horizontal w-full text-[0.65rem] sm:text-xs">
-            {MODULE_ORDER.map((mod, i) => (
-              <li
-                key={mod}
-                className={cn(
-                  "step",
-                  i <= currentModuleIdx && "step-primary",
-                )}
-                data-content={i < currentModuleIdx ? "✓" : undefined}
-              >
-                <span className="hidden sm:inline">{MODULE_LABELS[mod]}</span>
-              </li>
-            ))}
-          </ul>
-
-          <progress
-            className="progress progress-primary w-full"
-            value={progressVisual}
-            max={100}
-            aria-label={`Reise: Aufgabe ${progress.questionNumber} von ${progress.itemCount}, ${progress.overallPercent} Prozent`}
-          />
-
-          <div className="assessment-stage-meta flex flex-wrap items-center justify-between gap-2 text-[0.65rem] text-base-content/60 sm:text-[0.7rem]">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="assessment-stage-count">
-                Station: {progress.stageAnswered}/{progress.stage.count}
-              </span>
-              {index > 0 ? (
+            <div className="assessment-stage-meta flex flex-wrap items-center justify-between gap-2 text-[0.65rem] text-base-content/60 sm:text-[0.7rem]">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="assessment-stage-count">
+                  Station: {progress.stageAnswered}/{progress.stage.count}
+                </span>
+                {index > 0 ? (
+                  <button
+                    type="button"
+                    className="btn btn-ghost btn-xs h-9 min-h-9 px-2"
+                    disabled={locked}
+                    onClick={() => {
+                      if (locked) return;
+                      setFlow({ answers, index: Math.max(0, index - 1) });
+                    }}
+                  >
+                    Zurück
+                  </button>
+                ) : null}
+              </div>
+              {partial ? (
                 <button
                   type="button"
-                  className="btn btn-ghost btn-xs h-11 min-h-11 px-2"
-                  disabled={locked}
-                  onClick={() => {
-                    if (locked) return;
-                    setFlow({ answers, index: Math.max(0, index - 1) });
-                  }}
+                  className="btn btn-ghost btn-xs h-9 min-h-9 gap-1.5 px-2 text-accent"
+                  onClick={() => setConfirmRestart(true)}
                 >
-                  Zurück
+                  <IconRefresh size={14} aria-hidden />
+                  Neu starten
                 </button>
               ) : null}
             </div>
-            {partial ? (
-              <button
-                type="button"
-                className="btn btn-ghost btn-xs h-11 min-h-11 gap-1.5 px-2 text-accent"
-                onClick={() => setConfirmRestart(true)}
-              >
-                <IconRefresh size={14} aria-hidden />
-                Neu starten
-              </button>
-            ) : null}
           </div>
         </div>
 
@@ -231,11 +270,11 @@ export function AssessmentFlow({ items }: Props) {
           Dein gespeicherter Fortschritt wird gelöscht.
         </ConfirmDialog>
 
-        <div className="assessment-prompt relative min-h-0 min-w-0 shrink-0 lg:flex-1 lg:overflow-hidden">
+        <div className="assessment-prompt min-h-0 min-w-0 shrink-0 stack-sm lg:flex-1 lg:overflow-y-auto">
           <div
             className={cn(
               "assessment-status-strip flex flex-wrap items-center justify-center gap-2 lg:justify-start",
-              showStatusStrip && "mb-[clamp(0.15rem,0.5vh,0.35rem)]",
+              showStatusStrip && "mb-1",
             )}
             aria-live="polite"
           >
@@ -284,10 +323,10 @@ export function AssessmentFlow({ items }: Props) {
               animate={{ opacity: 1, y: 0 }}
               exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="space-y-[clamp(0.2rem,0.6vh,0.45rem)] text-center lg:text-left"
+              className="stack-sm text-center lg:text-left"
             >
               {stageIntro ? (
-                <p className="assessment-stage-intro mx-auto max-w-md text-[clamp(0.7rem,1.5vh,0.875rem)] leading-snug text-base-content/60 lg:mx-0">
+                <p className="assessment-stage-intro mx-auto max-w-md text-sm leading-snug text-base-content/60 lg:mx-0">
                   {stageIntro}
                 </p>
               ) : null}
@@ -296,11 +335,11 @@ export function AssessmentFlow({ items }: Props) {
                   {item.task.title}
                 </p>
               ) : null}
-              <h1 className="display-title text-[clamp(1.1rem,3.2vh,2rem)] text-base-content lg:text-[clamp(1.35rem,2.8vh,2.15rem)]">
+              <h1 className="display-title text-[clamp(1.15rem,2.6vh,1.85rem)] text-base-content lg:text-[clamp(1.35rem,2.4vh,2rem)]">
                 {item.prompt}
               </h1>
               {item.helpText ? (
-                <p className="assessment-help mx-auto max-w-xl text-[clamp(0.7rem,1.4vh,0.9rem)] leading-snug text-base-content/60 lg:mx-0">
+                <p className="assessment-help mx-auto max-w-xl text-sm leading-snug text-base-content/60 lg:mx-0">
                   {item.helpText}
                 </p>
               ) : null}
@@ -310,10 +349,7 @@ export function AssessmentFlow({ items }: Props) {
       </div>
 
       <div
-        className={cn(
-          "assessment-choice-grid grid min-h-0 min-w-0 flex-1 gap-[clamp(0.3rem,0.9vh,0.7rem)] overflow-hidden",
-          "grid-cols-2",
-        )}
+        className="assessment-choice-grid grid min-h-0 min-w-0 flex-1 grid-cols-2 items-stretch gap-3 overflow-hidden sm:gap-4"
         role="group"
         aria-label="Zwei Lösungspfade"
       >
@@ -321,6 +357,7 @@ export function AssessmentFlow({ items }: Props) {
           const isSelected =
             selectedId === choice.id || answers[item.id] === choice.id;
           const pathLabel = i === 0 ? "Weg A" : "Weg B";
+          const keyHint = CHOICE_KEY_HINTS[i] ?? CHOICE_KEY_HINTS[0];
           return (
             <motion.button
               key={`${item.id}-${choice.id}`}
@@ -329,6 +366,7 @@ export function AssessmentFlow({ items }: Props) {
               disabled={locked && !isSelected}
               aria-pressed={isSelected}
               aria-label={`${pathLabel}: ${choice.label}`}
+              aria-keyshortcuts={keyHint.aria}
               initial={reduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -337,26 +375,36 @@ export function AssessmentFlow({ items }: Props) {
               }}
               whileTap={reduceMotion ? undefined : { scale: 0.99 }}
               className={cn(
-                "card bg-base-100 border border-base-300 shadow-sm assessment-choice solution-card min-h-0 h-full overflow-hidden p-[clamp(0.3rem,0.8vh,0.6rem)] text-left",
+                "card bg-base-100 border border-base-300 shadow-sm assessment-choice solution-card h-full min-h-0 overflow-hidden text-left",
                 isSelected && "solution-card-picked",
               )}
             >
-              <div className="relative z-[1] flex h-full min-h-0 min-w-0 flex-1 flex-col gap-[clamp(0.2rem,0.6vh,0.5rem)]">
-                <span className="solution-path-tag">{pathLabel}</span>
+              <figure className="assessment-choice-figure shrink-0 px-2 pt-2 sm:px-3 sm:pt-3">
                 <VisualCard
                   kind={choice.visual.kind}
                   motif={choice.visual.motif}
                   imageUrl={choice.visual.imageUrl}
                   compact
                 />
-                <div className="mt-auto min-w-0 shrink-0 space-y-0.5 px-0.5">
-                  <div className="text-[clamp(0.8rem,1.8vh,1.05rem)] font-medium leading-snug tracking-tight text-base-content">
-                    {choice.label}
-                  </div>
-                  <p className="assessment-choice-hint text-[clamp(0.66rem,1.35vh,0.85rem)] leading-snug text-base-content/60">
-                    {choice.hint}
-                  </p>
+              </figure>
+              <div className="card-body min-w-0 flex-1 gap-1.5 p-3 pt-2 sm:p-4 sm:pt-3">
+                <div className="flex items-start justify-between gap-2">
+                  <span className="solution-path-tag">{pathLabel}</span>
+                  <span
+                    className="assessment-choice-keys inline-flex items-center gap-1 opacity-90 sm:opacity-55"
+                    aria-hidden
+                  >
+                    <kbd className="kbd kbd-sm">{keyHint.number}</kbd>
+                    <span className="text-[0.65rem] text-base-content/45">·</span>
+                    <kbd className="kbd kbd-sm">{keyHint.letter}</kbd>
+                  </span>
                 </div>
+                <div className="text-[clamp(0.85rem,1.7vh,1.05rem)] font-medium leading-snug tracking-tight text-base-content">
+                  {choice.label}
+                </div>
+                <p className="assessment-choice-hint text-[clamp(0.7rem,1.3vh,0.875rem)] leading-snug text-base-content/60">
+                  {choice.hint}
+                </p>
               </div>
             </motion.button>
           );

@@ -101,6 +101,8 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).toContain(first.choices[1]!.label);
     expect(html).toContain("solution-card");
     expect(html).toContain("card bg-base-100");
+    expect(html).toContain("card-body");
+    expect(html).toContain("assessment-choice-figure");
     expect(html).toContain("Zwei Lösungspfade");
     expect(html).toContain("Weg A");
     expect(html).toContain("Weg B");
@@ -109,7 +111,20 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).toContain("badge");
   });
 
-  it("uses viewport-fit shell classes so the step can compress without page scroll", () => {
+  it("shows keyboard shortcut hints and aria-keyshortcuts on choice cards", () => {
+    const items = orderAssessmentItems(loadMvpItems());
+    const html = renderToStaticMarkup(<AssessmentFlow items={items} />);
+
+    expect(html).toContain("assessment-key-hint");
+    expect(html).toContain("Taste 1 oder 2");
+    expect(html).toContain("Tipp: 1 · 2");
+    expect(html).toContain("assessment-choice-keys");
+    expect(html).toContain("kbd kbd-sm");
+    expect(html).toContain('aria-keyshortcuts="1 a ArrowLeft"');
+    expect(html).toContain('aria-keyshortcuts="2 b ArrowRight"');
+  });
+
+  it("uses classical stack: figure then card-body, no image/text overlays", () => {
     const items = orderAssessmentItems(loadMvpItems());
     const html = renderToStaticMarkup(<AssessmentFlow items={items} />);
 
@@ -123,10 +138,19 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).toContain("grid-cols-2");
     expect(html).toContain("min-h-0");
     expect(html).toContain("flex-1");
+    expect(html).toContain("assessment-choice-figure");
     expect(html).not.toContain("min-h-[12.5rem]");
     expect(html).not.toContain("sm:min-h-[14rem]");
     expect(html).not.toContain("absolute inset-x-0 -top-1");
+    expect(html).not.toContain("relative z-[1]");
     expect(html).not.toContain("glass-panel");
     expect(html).not.toContain("GlassShell");
+
+    const figureIdx = html.indexOf("assessment-choice-figure");
+    const bodyIdx = html.indexOf("card-body", figureIdx);
+    const labelIdx = html.indexOf(items[0]!.choices[0]!.label, figureIdx);
+    expect(figureIdx).toBeGreaterThan(-1);
+    expect(bodyIdx).toBeGreaterThan(figureIdx);
+    expect(labelIdx).toBeGreaterThan(bodyIdx);
   });
 });
