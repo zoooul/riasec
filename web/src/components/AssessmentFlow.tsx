@@ -109,6 +109,7 @@ export function AssessmentFlow({ items }: Props) {
     stageFlash || index === progress.stage.startIndex
       ? MODULE_INTROS[item.module]
       : null;
+  const showStatusStrip = showResumeHint || Boolean(stageFlash);
   const currentModuleIdx = MODULE_ORDER.indexOf(item.module);
 
   function choose(choiceId: string) {
@@ -144,10 +145,10 @@ export function AssessmentFlow({ items }: Props) {
   }
 
   return (
-    <div className="assessment-flow page-shell page-shell-wide split-lg mx-auto min-h-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.5rem,var(--safe-bottom))] pt-[clamp(0.25rem,0.8vh,0.6rem)] sm:px-4 lg:px-6">
-      <div className="assessment-rail">
+    <div className="assessment-flow page-shell page-shell-wide split-lg mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.5rem,var(--safe-bottom))] pt-[clamp(0.25rem,0.8vh,0.6rem)] sm:px-4 lg:px-6">
+      <div className="assessment-rail min-w-0">
         <div className="card bg-base-100 border border-base-300 shadow-sm shrink-0 space-y-[clamp(0.3rem,0.8vh,0.55rem)] p-[clamp(0.5rem,1.1vh,0.85rem)]">
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex min-w-0 items-start justify-between gap-2">
             <div className="flex min-w-0 flex-wrap items-center gap-1.5">
               <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
               <span className="meta-label normal-case tracking-[0.04em] text-base-content/60">
@@ -155,7 +156,7 @@ export function AssessmentFlow({ items }: Props) {
               </span>
             </div>
             <span
-              className="meta-label shrink-0 normal-case tracking-[0.04em]"
+              className="meta-label shrink-0 pt-1 normal-case tracking-[0.04em]"
               aria-live="polite"
             >
               {progress.questionNumber}/{progress.itemCount}
@@ -296,7 +297,7 @@ export function AssessmentFlow({ items }: Props) {
 
       <div
         className={cn(
-          "assessment-choice-grid grid min-h-0 flex-1 gap-[clamp(0.3rem,0.9vh,0.7rem)] overflow-hidden",
+          "assessment-choice-grid grid min-h-0 min-w-0 flex-1 gap-[clamp(0.3rem,0.9vh,0.7rem)] overflow-hidden",
           "grid-cols-2",
         )}
         role="group"
@@ -326,7 +327,7 @@ export function AssessmentFlow({ items }: Props) {
                 isSelected && "solution-card-picked",
               )}
             >
-              <div className="relative z-[1] flex h-full min-h-0 flex-1 flex-col gap-[clamp(0.2rem,0.6vh,0.5rem)]">
+              <div className="relative z-[1] flex h-full min-h-0 min-w-0 flex-1 flex-col gap-[clamp(0.2rem,0.6vh,0.5rem)]">
                 <span className="solution-path-tag">{pathLabel}</span>
                 <VisualCard
                   kind={choice.visual.kind}
@@ -334,7 +335,7 @@ export function AssessmentFlow({ items }: Props) {
                   imageUrl={choice.visual.imageUrl}
                   compact
                 />
-                <div className="mt-auto shrink-0 space-y-0.5 px-0.5">
+                <div className="mt-auto min-w-0 shrink-0 space-y-0.5 px-0.5">
                   <div className="text-[clamp(0.8rem,1.8vh,1.05rem)] font-medium leading-snug tracking-tight text-base-content">
                     {choice.label}
                   </div>
