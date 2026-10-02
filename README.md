@@ -118,14 +118,15 @@ Kein Paid-Theme. DaisyUI selbst: [MIT](https://github.com/saadeghi/daisyui/blob/
 
 ### Docs-MCP: Context7 (primär)
 
-Projekt-MCP [`.cursor/mcp.json`](.cursor/mcp.json) enthält **`context7`** als primären Docs-Server. Ohne API-Key: OAuth-URL (`https://mcp.context7.com/mcp/oauth`) — Cursor authentifiziert im IDE. Mit Secret `CONTEXT7_API_KEY`: Bearer-HTTP unter `https://mcp.context7.com/mcp` (siehe `.env.example`).
+Projekt-MCP [`.cursor/mcp.json`](.cursor/mcp.json) enthält **`context7`** als primären Docs-Server mit Bearer `Authorization: Bearer ${env:CONTEXT7_API_KEY}` (Key nur in `.env.local` / Shell-Env — siehe `.env.example`). Alternative ohne Key: OAuth-URL `https://mcp.context7.com/mcp/oauth`.
 
 ```bash
-# Einmalig im Repo (OAuth — Cursor authentifiziert im IDE):
-npx ctx7 setup --cursor --mcp --project -y --oauth
+# Key lokal (nicht committen):
+cp .env.example .env.local   # CONTEXT7_API_KEY=ctx7sk-…
+export CONTEXT7_API_KEY="$(grep ^CONTEXT7_API_KEY= .env.local | cut -d= -f2-)"
 
-# Optional mit API-Key statt OAuth:
-# CONTEXT7_API_KEY=… npx ctx7 setup --cursor --mcp --project -y --api-key "$CONTEXT7_API_KEY"
+# Optional Setup-CLI:
+# npx ctx7 setup --cursor --mcp --project -y --api-key "$CONTEXT7_API_KEY"
 
 # Docs ohne Key (CLI):
 npx ctx7 library daisyui
