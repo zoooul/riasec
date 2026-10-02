@@ -91,12 +91,18 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).toContain(MODULE_LABELS.warmup);
     expect(html).toContain(MODULE_INTROS.warmup);
     expect(html).toContain(first.prompt);
+    if (first.task?.title) {
+      expect(html).toContain(first.task.title);
+    }
     expect(html).toContain("Teil 1/");
-    expect(html).toContain("Fortschritt");
+    expect(html).toContain("Reise");
     expect(html).toContain(first.choices[0]!.label);
     expect(html).toContain(first.choices[1]!.label);
     expect(html).toContain("glass-choice");
-    expect(html).toContain("Antwortmöglichkeiten");
+    expect(html).toContain("solution-card");
+    expect(html).toContain("Zwei Lösungspfade");
+    expect(html).toContain("Weg A");
+    expect(html).toContain("Weg B");
   });
 
   it("uses viewport-fit shell classes so the step can compress without page scroll", () => {

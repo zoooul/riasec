@@ -114,8 +114,8 @@ export function ErgebnisClient({
           <p className="text-[var(--muted)]">
             Starte den Bild-Test — danach erscheint hier dein Muster.
           </p>
-          <Button asChild className="w-full max-w-xs">
-            <Link href="/assessment">Test starten</Link>
+          <Button asChild variant="secondary" className="w-full max-w-xs">
+            <Link href="/assessment">Aufgaben starten</Link>
           </Button>
         </div>
       </main>
@@ -136,7 +136,7 @@ export function ErgebnisClient({
             wird. Bis dahin ist alles nur eine grobe Orientierung.
           </p>
           <Button asChild className="w-full max-w-xs">
-            <Link href="/assessment">Weiter im Test</Link>
+            <Link href="/assessment">Weiter in den Aufgaben</Link>
           </Button>
           <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
             <Dialog.Trigger asChild>
@@ -160,6 +160,7 @@ export function ErgebnisClient({
                 <div className="actions-row">
                   <Button
                     type="button"
+                    variant="secondary"
                     size="sm"
                     onClick={() => {
                       clearAnswers();
@@ -170,7 +171,7 @@ export function ErgebnisClient({
                     Ja, löschen
                   </Button>
                   <Dialog.Close asChild>
-                    <Button type="button" variant="secondary" size="sm">
+                    <Button type="button" variant="ghost" size="sm">
                       Abbrechen
                     </Button>
                   </Dialog.Close>
@@ -277,13 +278,13 @@ export function ErgebnisClient({
                   Dein aktuelles Ergebnis wird aus dem Zwischenspeicher gelöscht.
                 </Dialog.Description>
                 <div className="actions-row">
-                  <Button asChild size="sm">
+                  <Button asChild variant="secondary" size="sm">
                     <Link href="/assessment" onClick={() => clearAnswers()}>
                       Ja, neu starten
                     </Link>
                   </Button>
                   <Dialog.Close asChild>
-                    <Button type="button" variant="secondary" size="sm">
+                    <Button type="button" variant="ghost" size="sm">
                       Behalten
                     </Button>
                   </Dialog.Close>

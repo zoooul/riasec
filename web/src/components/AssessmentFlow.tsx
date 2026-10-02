@@ -168,20 +168,20 @@ export function AssessmentFlow({ items }: Props) {
             className="glass-progress"
             value={progress.overallPercent}
             max={100}
-            aria-label={`Fortschritt: Frage ${progress.questionNumber} von ${progress.itemCount}, ${progress.overallPercent} Prozent`}
+            aria-label={`Reise: Aufgabe ${progress.questionNumber} von ${progress.itemCount}, ${progress.overallPercent} Prozent`}
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={progress.overallPercent}
           >
             <Progress.Indicator
-              className="block h-full rounded-[inherit] bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-mint)] transition-[width] duration-450 ease-out"
+              className="block h-full rounded-[inherit] bg-gradient-to-r from-[var(--neon-cyan)]/90 to-[var(--neon-mint)]/85 transition-[width] duration-450 ease-out"
               style={{ width: `${progressVisual}%` }}
             />
           </Progress.Root>
           <div className="assessment-stage-meta flex items-center justify-between gap-2 text-[0.65rem] text-[var(--muted)] sm:text-[0.7rem]">
             <div className="flex min-w-0 flex-wrap items-center gap-3">
               <span className="assessment-stage-count">
-                In diesem Teil: {progress.stageAnswered}/{progress.stage.count}
+                Station: {progress.stageAnswered}/{progress.stage.count}
               </span>
               {index > 0 ? (
                 <button
@@ -224,11 +224,16 @@ export function AssessmentFlow({ items }: Props) {
                       Dein gespeicherter Fortschritt wird gelöscht.
                     </Dialog.Description>
                     <div className="actions-row">
-                      <Button type="button" size="sm" onClick={restart}>
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        size="sm"
+                        onClick={restart}
+                      >
                         Ja, neu starten
                       </Button>
                       <Dialog.Close asChild>
-                        <Button type="button" variant="secondary" size="sm">
+                        <Button type="button" variant="ghost" size="sm">
                           Abbrechen
                         </Button>
                       </Dialog.Close>
@@ -252,7 +257,7 @@ export function AssessmentFlow({ items }: Props) {
                 aria-live="polite"
               >
                 <Chip className="text-[var(--neon-cyan)] shadow-lg">
-                  Weiter von Frage {progress.questionNumber}
+                  Weiter bei Aufgabe {progress.questionNumber}
                 </Chip>
               </motion.div>
             ) : null}
@@ -269,7 +274,7 @@ export function AssessmentFlow({ items }: Props) {
                 aria-live="polite"
               >
                 <Chip className="text-[var(--neon-mint)] shadow-lg">
-                  Neuer Teil: {MODULE_LABELS[stageFlash]}
+                  Nächste Station: {MODULE_LABELS[stageFlash]}
                 </Chip>
               </motion.div>
             ) : null}
@@ -287,6 +292,11 @@ export function AssessmentFlow({ items }: Props) {
               {stageIntro ? (
                 <p className="assessment-stage-intro mx-auto max-w-md text-[clamp(0.7rem,1.5vh,0.875rem)] leading-snug text-[var(--muted)] lg:mx-0">
                   {stageIntro}
+                </p>
+              ) : null}
+              {item.task?.title ? (
+                <p className="assessment-task-title meta-label mx-auto w-fit normal-case tracking-[0.06em] text-[var(--neon-mint)] lg:mx-0">
+                  {item.task.title}
                 </p>
               ) : null}
               <h1 className="display-title text-[clamp(1.1rem,3.2vh,2rem)] text-[var(--ink)] lg:text-[clamp(1.35rem,2.8vh,2.15rem)]">
@@ -308,11 +318,12 @@ export function AssessmentFlow({ items }: Props) {
           "grid-cols-2",
         )}
         role="group"
-        aria-label="Antwortmöglichkeiten"
+        aria-label="Zwei Lösungspfade"
       >
         {item.choices.map((choice, i) => {
           const isSelected =
             selectedId === choice.id || answers[item.id] === choice.id;
+          const pathLabel = i === 0 ? "Weg A" : "Weg B";
           return (
             <motion.button
               key={`${item.id}-${choice.id}`}
@@ -320,19 +331,21 @@ export function AssessmentFlow({ items }: Props) {
               onClick={() => choose(choice.id)}
               disabled={locked && !isSelected}
               aria-pressed={isSelected}
+              aria-label={`${pathLabel}: ${choice.label}`}
               initial={reduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 delay: reduceMotion ? 0 : 0.04 + i * 0.05,
                 duration: 0.28,
               }}
-              whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.99 }}
               className={cn(
-                "glass-panel glass-choice assessment-choice min-h-0 h-full overflow-hidden p-[clamp(0.3rem,0.8vh,0.6rem)]",
+                "glass-panel glass-choice assessment-choice solution-card min-h-0 h-full overflow-hidden p-[clamp(0.3rem,0.8vh,0.6rem)]",
                 isSelected && "glass-choice-picked glass-choice-pop",
               )}
             >
               <div className="relative z-[1] flex h-full min-h-0 flex-1 flex-col gap-[clamp(0.2rem,0.6vh,0.5rem)]">
+                <span className="solution-path-tag">{pathLabel}</span>
                 <VisualCard
                   kind={choice.visual.kind}
                   motif={choice.visual.motif}
@@ -340,7 +353,7 @@ export function AssessmentFlow({ items }: Props) {
                   compact
                 />
                 <div className="mt-auto shrink-0 space-y-0.5 px-0.5">
-                  <div className="text-[clamp(0.8rem,1.8vh,1.05rem)] font-semibold leading-snug tracking-tight text-[var(--ink)]">
+                  <div className="text-[clamp(0.8rem,1.8vh,1.05rem)] font-medium leading-snug tracking-tight text-[var(--ink)]">
                     {choice.label}
                   </div>
                   <p className="assessment-choice-hint text-[clamp(0.66rem,1.35vh,0.85rem)] leading-snug text-[var(--muted)]">

@@ -19,27 +19,49 @@ export const MODULE_ORDER: ModuleId[] = [
 
 export const MODULE_LABELS: Record<ModuleId, string> = {
   warmup: "Ankommen",
-  wahrnehmen: "Denken & Wahrnehmen",
+  wahrnehmen: "Wahrnehmen",
   entscheiden: "Entscheiden",
-  energie: "Energie & Arbeit",
-  interessen: "Was dich anzieht",
+  energie: "Energie",
+  interessen: "Anziehung",
   abschluss: "Druck & Antrieb",
 };
 
-/** One-sentence stage intros (soft-tested length). */
+/**
+ * Inductive stage intros — invite noticing, never name the trait.
+ * Soft-tested length (STAGE_INTRO_SOFT_MAX).
+ */
 export const MODULE_INTROS: Record<ModuleId, string> = {
-  warmup: "Zwei kurze Bilder — einfach die erste Reaktion.",
-  wahrnehmen: "Wie nimmst du Informationen eher wahr?",
-  entscheiden: "Wonach richtet sich deine Entscheidung?",
-  energie: "Wovon tankst du — und wie arbeitest du?",
-  interessen: "Welche Tätigkeiten ziehen dich eher an?",
-  abschluss: "Unter Druck und was dich antreibt.",
+  warmup: "Zwei kleine Szenen — folge dem ersten Impuls.",
+  wahrnehmen: "Nur bemerken, was zuerst auftaucht.",
+  entscheiden: "Spüre, wonach du greifen würdest.",
+  energie: "Was gibt dir wieder Boden unter den Füßen?",
+  interessen: "Womit würdest du lieber die Zeit verbringen?",
+  abschluss: "Wenn es eng wird — was kommt von allein?",
 };
 
 /** Soft UX caps for structure copy. */
 export const STAGE_INTRO_SOFT_MAX = 72;
 export const CHOICE_LABEL_SOFT_MAX = 28;
 export const PROMPT_SOFT_MAX = 80;
+export const TASK_TITLE_SOFT_MAX = 36;
+
+/**
+ * Lexemes that make the measured pole too foresightable in choice copy.
+ * Hard-tested against labels + hints (case-insensitive substring).
+ */
+export const TRANSPARENCY_BANNED: readonly string[] = [
+  "extravertiert",
+  "introvertiert",
+  "analytisch",
+  "empathisch",
+  "strukturiert",
+  "spontanität",
+  "mbti",
+  "e_i",
+  "s_n",
+  "t_f",
+  "j_p",
+] as const;
 
 /**
  * Canonical item sequence for psychometric flow:

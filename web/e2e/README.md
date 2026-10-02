@@ -15,7 +15,7 @@ session resume → scoreAssessment → plainProfile → PDF build → exclusions
 
 ## Manual checklist
 
-1. `npm run dev` → `/` shows **Skillster** + CTA „Jetzt starten“
+1. `npm run dev` → `/` shows **Skillster** + CTA „Zu den Aufgaben“
 2. Assessment: sticky progress, choice lock, reload resumes, „Neu starten“ confirms
 3. Finish all items → `/ergebnis`: Qualität-Chip, plain hero, exclusions („Was wir nicht messen“), PDF speichern
 4. Sparse answers: incomplete screen or Orientierung framing; never diagnostic language

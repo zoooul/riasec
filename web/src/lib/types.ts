@@ -59,9 +59,20 @@ export interface PictorialChoice {
   weights: ChoiceWeights;
 }
 
+/** Playful task framing — all kinds still score via 2 forced choices. */
+export type TaskKind = "scene" | "pattern" | "solve";
+
+export interface AssessmentTask {
+  kind: TaskKind;
+  /** Short playful title shown above the prompt. */
+  title: string;
+}
+
 export interface AssessmentItem {
   id: string;
   module: ModuleId;
+  /** Optional inductive mini-task wrapper. */
+  task?: AssessmentTask;
   prompt: string;
   helpText?: string;
   choices: PictorialChoice[];

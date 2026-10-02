@@ -8,12 +8,14 @@ import {
   COVERAGE_TARGETS,
   ITEM_SEQUENCE,
   MODULE_ORDER,
+  TRANSPARENCY_BANNED,
   moduleCoverageMatrix,
   orderAssessmentItems,
   traitItemCoverage,
 } from "@/lib/assessmentStructure";
 import { AXIS_IDS, RIASEC_IDS, ZWISCHEN_THRESHOLD } from "@/lib/constants";
 import { scoreAssessment } from "@/lib/scoring";
+import type { AxisId } from "@/lib/types";
 import {
   firstChoiceAnswers,
   lastChoiceAnswers,
@@ -139,6 +141,79 @@ describe("hard · nested weights + sequencing invariants", () => {
         expect(result.zwischenLabels.length).toBeGreaterThan(0);
         expect(result.zwischenLabels.join(" ")).toMatch(/teils/i);
         break;
+      }
+    }
+  });
+});
+
+describe("hard · task format + anti-transparency", () => {
+  it("every MVP item has a playful task wrapper", () => {
+    const items = loadMvpItems();
+    const kinds = new Set<string>();
+    for (const item of items) {
+      expect(item.task, item.id).toBeTruthy();
+      expect(["scene", "pattern", "solve"]).toContain(item.task!.kind);
+      expect(item.task!.title.trim().length, item.id).toBeGreaterThan(2);
+      kinds.add(item.task!.kind);
+    }
+    // All three interaction flavors present in the battery.
+    expect(kinds.has("scene")).toBe(true);
+    expect(kinds.has("pattern")).toBe(true);
+    expect(kinds.has("solve")).toBe(true);
+  });
+
+  it("choice labels/hints avoid foresightable trait lexemes", () => {
+    for (const item of loadMvpItems()) {
+      for (const choice of item.choices) {
+        const blob = `${choice.label} ${choice.hint}`.toLowerCase();
+        for (const word of TRANSPARENCY_BANNED) {
+          expect(blob, `${choice.id} contains ${word}`).not.toContain(word);
+        }
+        expect(blob).not.toMatch(/\b[ei][ns][tf][jp]\b/);
+      }
+    }
+  });
+
+  it("left-index valence is mixed per HOW axis (not always +pole first)", () => {
+    const items = loadMvpItems();
+    const firstSign: Record<AxisId, { pos: number; neg: number }> = {
+      E_I: { pos: 0, neg: 0 },
+      S_N: { pos: 0, neg: 0 },
+      T_F: { pos: 0, neg: 0 },
+      J_P: { pos: 0, neg: 0 },
+    };
+
+    for (const item of items) {
+      const axes = item.choices[0]?.weights.axes ?? {};
+      for (const id of AXIS_IDS) {
+        const v = axes[id];
+        if (v === undefined || v === 0) continue;
+        if (v > 0) firstSign[id].pos += 1;
+        else firstSign[id].neg += 1;
+      }
+    }
+
+    // Each HOW axis that appears on the left must flip polarity at least once.
+    for (const id of AXIS_IDS) {
+      const { pos, neg } = firstSign[id];
+      if (pos + neg < 2) continue;
+      expect(pos, `${id} never +first`).toBeGreaterThan(0);
+      expect(neg, `${id} never −first`).toBeGreaterThan(0);
+    }
+  });
+
+  it("boundary stages include soft axis weights for Zwischenprofile fuel", () => {
+    const softIds = new Set(["sn_02", "sn_04", "tf_02", "tf_04", "jp_02", "jp_03"]);
+    const items = loadMvpItems().filter((it) => softIds.has(it.id));
+    expect(items.length).toBe(softIds.size);
+    for (const item of items) {
+      for (const choice of item.choices) {
+        const axes = Object.values(choice.weights.axes ?? {});
+        expect(axes.length, choice.id).toBeGreaterThan(0);
+        for (const v of axes) {
+          expect(Math.abs(v), choice.id).toBeLessThanOrEqual(26);
+          expect(Math.abs(v), choice.id).toBeGreaterThanOrEqual(18);
+        }
       }
     }
   });

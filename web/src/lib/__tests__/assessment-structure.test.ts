@@ -11,6 +11,7 @@ import {
   MODULE_ORDER,
   PROMPT_SOFT_MAX,
   STAGE_INTRO_SOFT_MAX,
+  TASK_TITLE_SOFT_MAX,
   analyzeStructureIntegrity,
   buildStageBounds,
   computeProgress,
@@ -41,6 +42,12 @@ describe("soft · assessment structure map", () => {
 
     for (const item of loadMvpItems()) {
       expect(item.prompt.length, item.id).toBeLessThanOrEqual(PROMPT_SOFT_MAX);
+      expect(item.task, item.id).toBeTruthy();
+      expect(["scene", "pattern", "solve"]).toContain(item.task!.kind);
+      expect(item.task!.title.length, item.id).toBeGreaterThan(2);
+      expect(item.task!.title.length, item.id).toBeLessThanOrEqual(
+        TASK_TITLE_SOFT_MAX,
+      );
       for (const choice of item.choices) {
         expect(choice.label.length, choice.id).toBeLessThanOrEqual(
           CHOICE_LABEL_SOFT_MAX,

@@ -69,7 +69,7 @@ export default function HomePage() {
           style={{ animationDelay: "240ms" }}
         >
           <Button asChild variant="primary" size="lg" className="w-full">
-            <Link href="/assessment">Jetzt starten</Link>
+            <Link href="/assessment">Zu den Aufgaben</Link>
           </Button>
           <p className="meta-label text-center normal-case tracking-[0.04em] lg:text-left">
             Privat · mobil · Zwischenspeicher

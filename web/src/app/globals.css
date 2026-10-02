@@ -401,11 +401,42 @@ body {
   min-height: var(--control-h);
   text-align: left;
   font-family: var(--font-body), "Segoe UI", sans-serif;
+  /* Soft solution tiles — less CTA pressure than primary buttons */
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition:
     transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.2s ease,
     box-shadow 0.2s ease,
     background 0.2s ease;
+}
+
+.solution-card::before {
+  opacity: 0.35;
+}
+
+.solution-path-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1;
+  padding: 0.2rem 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.assessment-task-title {
+  color: var(--neon-mint);
+  opacity: 0.92;
 }
 
 /* ── Assessment viewport-fit ── */
@@ -534,36 +565,38 @@ body {
 }
 
 .glass-choice:hover {
-  transform: translateY(-2px);
-  border-color: rgba(94, 200, 214, 0.42);
+  transform: translateY(-1px);
+  border-color: rgba(94, 200, 214, 0.28);
+  background: rgba(255, 255, 255, 0.06);
   box-shadow:
-    0 12px 28px rgba(0, 0, 0, 0.22),
-    0 0 0 1px rgba(94, 200, 214, 0.2);
+    0 10px 24px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(94, 200, 214, 0.12);
 }
 
 .glass-choice:focus-visible {
-  outline: 2px solid var(--neon-cyan);
+  outline: 2px solid rgba(94, 200, 214, 0.65);
   outline-offset: 3px;
-  border-color: rgba(94, 200, 214, 0.55);
+  border-color: rgba(94, 200, 214, 0.4);
 }
 
 .glass-choice:active {
-  transform: scale(0.988);
+  transform: scale(0.992);
 }
 
 .glass-choice-pop {
   animation: choice-pop 0.42s cubic-bezier(0.22, 1, 0.36, 1);
-  border-color: rgba(111, 190, 154, 0.7) !important;
+  border-color: rgba(111, 190, 154, 0.45) !important;
   box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.26),
-    0 0 0 2px rgba(111, 190, 154, 0.4) !important;
+    0 8px 22px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(111, 190, 154, 0.28) !important;
 }
 
 .glass-choice-picked {
-  border-color: rgba(94, 200, 214, 0.5);
+  border-color: rgba(94, 200, 214, 0.36);
+  background: rgba(94, 200, 214, 0.06);
   box-shadow:
-    0 0 0 1px rgba(94, 200, 214, 0.28),
-    inset 0 0 0 1px rgba(94, 200, 214, 0.12);
+    0 0 0 1px rgba(94, 200, 214, 0.18),
+    inset 0 0 0 1px rgba(94, 200, 214, 0.08);
 }
 
 .glass-choice:disabled {

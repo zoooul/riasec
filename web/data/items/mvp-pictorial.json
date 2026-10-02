@@ -1,18 +1,18 @@
 {
-  "version": 6,
+  "version": 7,
   "validationStatus": "unvalidated",
-  "notes": "Pictorial MVP v6: deep module map (Warmup→Wahrnehmen→Entscheiden→Energie→Interessen→Abschluss), interleaved RIASEC + Abschluss mix. Nested weights unchanged. Unvalidated until norming.",
+  "notes": "Pictorial MVP v7: playful task framing (scene/pattern/solve), inductive copy, anti-transparency labels, valence mixing + soft boundary weights for Zwischenprofile. Unvalidated.",
   "items": [
     {
       "id": "ei_01",
       "module": "warmup",
-      "prompt": "Wovon tankst du eher Energie?",
-      "helpText": "Nicht nachdenken — einfach die erste Reaktion.",
+      "prompt": "Stell dir den Raum vor — wohin zieht es dich zuerst?",
+      "helpText": "Einfach dem Impuls folgen, ohne zu begründen.",
       "choices": [
         {
           "id": "ei_01_a",
-          "label": "Mit anderen",
-          "hint": "Gespräch, Reize von außen, gemeinsame Energie.",
+          "label": "Zur lebhaften Gruppe",
+          "hint": "Stimmen, Lachen, Bewegung im Raum.",
           "visual": {
             "kind": "scene",
             "motif": "group-energy"
@@ -28,8 +28,8 @@
         },
         {
           "id": "ei_01_b",
-          "label": "Für mich allein",
-          "hint": "Ruhe, Fokus, innere Verarbeitung.",
+          "label": "Zum ruhigen Tisch",
+          "hint": "Weniger Reiz, mehr Eigenraum.",
           "visual": {
             "kind": "scene",
             "motif": "quiet-desk"
@@ -50,17 +50,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Wo bleibst du hängen?"
       }
     },
     {
       "id": "ei_02",
       "module": "warmup",
-      "prompt": "Wie startest du lieber in den Tag?",
+      "prompt": "Der Tag beginnt. Was machst du zuerst?",
       "choices": [
         {
           "id": "ei_02_a",
-          "label": "Kurzer Austausch",
-          "hint": "Erst reden, dann in den Tag.",
+          "label": "Kurz jemanden abholen",
+          "hint": "Ein Blick, ein Satz, dann weiter.",
           "visual": {
             "kind": "scene",
             "motif": "coffee-chat"
@@ -76,8 +80,8 @@
         },
         {
           "id": "ei_02_b",
-          "label": "Stiller Einstieg",
-          "hint": "Allein ankommen, Kopf frei machen.",
+          "label": "Ruhig ankommen",
+          "hint": "Kaffee, Stille, erst dann raus.",
           "visual": {
             "kind": "scene",
             "motif": "solo-morning"
@@ -98,18 +102,22 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Erster Schritt am Morgen"
       }
     },
     {
       "id": "sn_01",
       "module": "wahrnehmen",
-      "prompt": "Was fällt dir zuerst auf?",
-      "helpText": "Nicht nachdenken — einfach die erste Reaktion.",
+      "prompt": "Du schaust kurz hin — was bleibt hängen?",
+      "helpText": "Nicht erklären. Nur bemerken.",
       "choices": [
         {
           "id": "sn_01_a",
-          "label": "Das eine Detail",
-          "hint": "Abweichung, Fehler, konkrete Stelle.",
+          "label": "Die eine Stelle",
+          "hint": "Etwas wirkt schief oder besonders.",
           "visual": {
             "kind": "pattern",
             "motif": "grid-error"
@@ -125,8 +133,8 @@
         },
         {
           "id": "sn_01_b",
-          "label": "Das große Bild",
-          "hint": "Muster, Trend, Gesamtform zuerst.",
+          "label": "Die ganze Form",
+          "hint": "Welle, Richtung, Gesamtbild.",
           "visual": {
             "kind": "pattern",
             "motif": "gestalt-wave"
@@ -147,17 +155,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "pattern",
+        "title": "Was springt ins Auge?"
       }
     },
     {
       "id": "sn_03",
       "module": "wahrnehmen",
-      "prompt": "Beim Lernen magst du eher…",
+      "prompt": "Du willst etwas Neues können. Womit startest du?",
       "choices": [
         {
           "id": "sn_03_a",
-          "label": "Schritt für Schritt",
-          "hint": "Beispiele, Anleitung, Bewährtes.",
+          "label": "Kleine Übung jetzt",
+          "hint": "Ein Schritt, ein Beispiel, spürbar.",
           "visual": {
             "kind": "scene",
             "motif": "howto-steps"
@@ -173,8 +185,8 @@
         },
         {
           "id": "sn_03_b",
-          "label": "Warum & Zusammenhang",
-          "hint": "Theorie, Modell, große Linie.",
+          "label": "Das große Warum",
+          "hint": "Zusammenhang, bevor du übst.",
           "visual": {
             "kind": "pattern",
             "motif": "theory-web"
@@ -195,44 +207,48 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "So würdest du lernen"
       }
     },
     {
       "id": "sn_02",
       "module": "wahrnehmen",
-      "prompt": "Welche Aufgabe würdest du eher übernehmen?",
+      "prompt": "Im Team liegt etwas offen. Was nimmst du?",
       "choices": [
         {
-          "id": "sn_02_a",
-          "label": "Genau prüfen",
-          "hint": "Liste, Check, Unstimmigkeit finden.",
-          "visual": {
-            "kind": "scene",
-            "motif": "checklist"
-          },
-          "weights": {
-            "axes": {
-              "S_N": -30
-            },
-            "bigFive": {
-              "C": 15
-            }
-          }
-        },
-        {
           "id": "sn_02_b",
-          "label": "Ideen verknüpfen",
-          "hint": "Neue Zusammenhänge und Möglichkeiten.",
+          "label": "Fügungen suchen",
+          "hint": "Ideen verbinden, was möglich wäre.",
           "visual": {
             "kind": "scene",
             "motif": "idea-map"
           },
           "weights": {
             "axes": {
-              "S_N": 30
+              "S_N": 22
             },
             "bigFive": {
               "O": 15
+            }
+          }
+        },
+        {
+          "id": "sn_02_a",
+          "label": "Liste durchgehen",
+          "hint": "Haken setzen, Unstimmiges finden.",
+          "visual": {
+            "kind": "scene",
+            "motif": "checklist"
+          },
+          "weights": {
+            "axes": {
+              "S_N": -22
+            },
+            "bigFive": {
+              "C": 15
             }
           }
         }
@@ -243,33 +259,20 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Aufgabe übernehmen"
       }
     },
     {
       "id": "sn_04",
       "module": "wahrnehmen",
-      "prompt": "Was liest du zuerst in einem Bericht?",
+      "prompt": "Ein Bericht liegt vor dir. Wo bleibst du zuerst?",
       "choices": [
         {
-          "id": "sn_04_a",
-          "label": "Zahlen zuerst",
-          "hint": "Tabellen, Fakten, harte Daten.",
-          "visual": {
-            "kind": "scene",
-            "motif": "data-table"
-          },
-          "weights": {
-            "axes": {
-              "S_N": -28
-            },
-            "bigFive": {
-              "C": 8
-            }
-          }
-        },
-        {
           "id": "sn_04_b",
-          "label": "Story zuerst",
+          "label": "Die Erzählspur",
           "hint": "Richtung, Bedeutung, Was-wenn.",
           "visual": {
             "kind": "scene",
@@ -277,10 +280,27 @@
           },
           "weights": {
             "axes": {
-              "S_N": 28
+              "S_N": 22
             },
             "bigFive": {
               "O": 12
+            }
+          }
+        },
+        {
+          "id": "sn_04_a",
+          "label": "Die Zahlenzeile",
+          "hint": "Tabellen und harte Punkte.",
+          "visual": {
+            "kind": "scene",
+            "motif": "data-table"
+          },
+          "weights": {
+            "axes": {
+              "S_N": -22
+            },
+            "bigFive": {
+              "C": 8
             }
           }
         }
@@ -291,17 +311,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Bericht aufschlagen"
       }
     },
     {
       "id": "tf_01",
       "module": "entscheiden",
-      "prompt": "Worauf würdest du dich bei einer Entscheidung stützen?",
+      "prompt": "Es muss entschieden werden. Wonach greifst du zuerst?",
       "choices": [
         {
           "id": "tf_01_a",
-          "label": "Fakten & Daten",
-          "hint": "Belegbar, nachvollziehbar, sachlich.",
+          "label": "Nach den Belegen",
+          "hint": "Was sich zeigen und prüfen lässt.",
           "visual": {
             "kind": "scene",
             "motif": "charts"
@@ -317,8 +341,8 @@
         },
         {
           "id": "tf_01_b",
-          "label": "Menschen & Werte",
-          "hint": "Fairness, Stimmigkeit, Beziehung.",
+          "label": "Nach dem Miteinander",
+          "hint": "Wer betroffen ist, was sich stimmig anfühlt.",
           "visual": {
             "kind": "scene",
             "motif": "circle-talk"
@@ -339,17 +363,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Entscheidung im Raum"
       }
     },
     {
       "id": "tf_03",
       "module": "entscheiden",
-      "prompt": "Feedback geben — was kommt zuerst?",
+      "prompt": "Du sollst etwas ansprechen. Wie beginnst du?",
       "choices": [
         {
           "id": "tf_03_a",
-          "label": "Direkt sagen",
-          "hint": "Klar benennen, was nicht passt.",
+          "label": "Klar beim Punkt",
+          "hint": "Kurz sagen, was nicht passt.",
           "visual": {
             "kind": "scene",
             "motif": "direct-arrow"
@@ -365,8 +393,8 @@
         },
         {
           "id": "tf_03_b",
-          "label": "Behutsam formulieren",
-          "hint": "Gefühl schützen, Beziehung wahren.",
+          "label": "Sanft einleiten",
+          "hint": "Erst den Raum halten, dann den Punkt.",
           "visual": {
             "kind": "scene",
             "motif": "soft-feedback"
@@ -387,41 +415,45 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Rückmeldung geben"
       }
     },
     {
       "id": "tf_02",
       "module": "entscheiden",
-      "prompt": "Was ist dir im Job wichtiger?",
+      "prompt": "Im Alltag bei der Arbeit — was wiegt schwerer?",
       "choices": [
         {
-          "id": "tf_02_a",
-          "label": "Klare Logik",
-          "hint": "Argumente, Regeln, Konsistenz.",
-          "visual": {
-            "kind": "pattern",
-            "motif": "logic-blocks"
-          },
-          "weights": {
-            "axes": {
-              "T_F": -30
-            }
-          }
-        },
-        {
           "id": "tf_02_b",
-          "label": "Gute Stimmung",
-          "hint": "Teamgefühl und Harmonie mitdenken.",
+          "label": "Dass es passt",
+          "hint": "Stimmung und Miteinander mitdenken.",
           "visual": {
             "kind": "scene",
             "motif": "warm-team"
           },
           "weights": {
             "axes": {
-              "T_F": 30
+              "T_F": 22
             },
             "bigFive": {
               "A": 10
+            }
+          }
+        },
+        {
+          "id": "tf_02_a",
+          "label": "Dass es stimmt",
+          "hint": "Argumente und klare Linie.",
+          "visual": {
+            "kind": "pattern",
+            "motif": "logic-blocks"
+          },
+          "weights": {
+            "axes": {
+              "T_F": -22
             }
           }
         }
@@ -432,44 +464,48 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "pattern",
+        "title": "Was zählt im Job?"
       }
     },
     {
       "id": "tf_04",
       "module": "entscheiden",
-      "prompt": "Bei einem Team-Konflikt zählst du eher…",
+      "prompt": "Es knirscht. Womit beginnst du?",
       "choices": [
         {
-          "id": "tf_04_a",
-          "label": "Sachlage klären",
-          "hint": "Fakten sammeln, dann entscheiden.",
-          "visual": {
-            "kind": "pattern",
-            "motif": "charts"
-          },
-          "weights": {
-            "axes": {
-              "T_F": -30
-            },
-            "bigFive": {
-              "C": 8
-            }
-          }
-        },
-        {
           "id": "tf_04_b",
-          "label": "Stimmung hören",
-          "hint": "Gefühle und Fairness zuerst.",
+          "label": "Zuerst zuhören",
+          "hint": "Was zwischen den Zeilen liegt.",
           "visual": {
             "kind": "scene",
             "motif": "belong-circle"
           },
           "weights": {
             "axes": {
-              "T_F": 30
+              "T_F": 24
             },
             "bigFive": {
               "A": 14
+            }
+          }
+        },
+        {
+          "id": "tf_04_a",
+          "label": "Zuerst sortieren",
+          "hint": "Was passiert ist, Schritt für Schritt.",
+          "visual": {
+            "kind": "pattern",
+            "motif": "charts"
+          },
+          "weights": {
+            "axes": {
+              "T_F": -24
+            },
+            "bigFive": {
+              "C": 8
             }
           }
         }
@@ -480,34 +516,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Spannung im Team"
       }
     },
     {
       "id": "ei_03",
       "module": "energie",
-      "prompt": "Nach einem langen Meeting brauchst du eher…",
+      "prompt": "Das Meeting ist vorbei. Was brauchst du jetzt?",
       "choices": [
         {
-          "id": "ei_03_a",
-          "label": "Noch weiterreden",
-          "hint": "Nach dem Meeting dranbleiben.",
-          "visual": {
-            "kind": "scene",
-            "motif": "after-huddle"
-          },
-          "weights": {
-            "axes": {
-              "E_I": 32
-            },
-            "bigFive": {
-              "E": 22
-            }
-          }
-        },
-        {
           "id": "ei_03_b",
-          "label": "Pause allein",
-          "hint": "Abstand gewinnen, wieder zu dir kommen.",
+          "label": "Einen stillen Gang",
+          "hint": "Abstand, dann wieder klar.",
           "visual": {
             "kind": "scene",
             "motif": "quiet-walk"
@@ -520,6 +543,23 @@
               "E": -22
             }
           }
+        },
+        {
+          "id": "ei_03_a",
+          "label": "Noch kurz bleiben",
+          "hint": "Nachhaken, weiter im Gespräch.",
+          "visual": {
+            "kind": "scene",
+            "motif": "after-huddle"
+          },
+          "weights": {
+            "axes": {
+              "E_I": 32
+            },
+            "bigFive": {
+              "E": 22
+            }
+          }
         }
       ],
       "source": {
@@ -528,17 +568,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Nach dem Meeting"
       }
     },
     {
       "id": "jp_01",
       "module": "energie",
-      "prompt": "Wie magst du arbeiten?",
+      "prompt": "Ein neues Vorhaben. Wie öffnest du es?",
       "choices": [
         {
           "id": "jp_01_a",
-          "label": "Plan & Struktur",
-          "hint": "Termine, Schritte, Abschlüsse.",
+          "label": "Mit grober Karte",
+          "hint": "Reihenfolge und Halt vorher.",
           "visual": {
             "kind": "scene",
             "motif": "calendar"
@@ -554,8 +598,8 @@
         },
         {
           "id": "jp_01_b",
-          "label": "Offen bleiben",
-          "hint": "Optionen, spontan reagieren.",
+          "label": "Mit offenem Start",
+          "hint": "Erst bewegen, dann nachziehen.",
           "visual": {
             "kind": "scene",
             "motif": "open-road"
@@ -576,24 +620,28 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "So legst du los"
       }
     },
     {
       "id": "jp_03",
       "module": "energie",
-      "prompt": "Dein Schreibtisch spiegelt eher…",
+      "prompt": "Welches Bild fühlt sich eher nach dir an?",
       "choices": [
         {
           "id": "jp_03_a",
-          "label": "Aufgeräumt",
-          "hint": "Alles hat seinen festen Platz.",
+          "label": "Alles an seinem Ort",
+          "hint": "Flächen frei, Dinge geordnet.",
           "visual": {
             "kind": "scene",
             "motif": "tidy-desk"
           },
           "weights": {
             "axes": {
-              "J_P": -28
+              "J_P": -22
             },
             "bigFive": {
               "C": 22
@@ -602,15 +650,15 @@
         },
         {
           "id": "jp_03_b",
-          "label": "Sichtbares Chaos",
-          "hint": "Ideen liegen offen herum.",
+          "label": "Lebendiges Durcheinander",
+          "hint": "Viel gleichzeitig sichtbar.",
           "visual": {
             "kind": "scene",
             "motif": "messy-desk"
           },
           "weights": {
             "axes": {
-              "J_P": 28
+              "J_P": 22
             },
             "bigFive": {
               "O": 8
@@ -624,44 +672,48 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "pattern",
+        "title": "Dein Arbeitsplatz"
       }
     },
     {
       "id": "jp_02",
       "module": "energie",
-      "prompt": "Ein Projekt startet — dein erster Impuls?",
+      "prompt": "Du willst etwas Neues anfassen. Was kommt zuerst?",
       "choices": [
         {
-          "id": "jp_02_a",
-          "label": "Meilensteine setzen",
-          "hint": "Rahmen, Deadlines, Klarheit.",
-          "visual": {
-            "kind": "scene",
-            "motif": "milestone"
-          },
-          "weights": {
-            "axes": {
-              "J_P": -32
-            },
-            "bigFive": {
-              "C": 18
-            }
-          }
-        },
-        {
           "id": "jp_02_b",
-          "label": "Erst ausprobieren",
-          "hint": "Ins Tun, später sortieren.",
+          "label": "Kurz reintauchen",
+          "hint": "Ausprobieren, dann sortieren.",
           "visual": {
             "kind": "scene",
             "motif": "prototype"
           },
           "weights": {
             "axes": {
-              "J_P": 32
+              "J_P": 24
             },
             "bigFive": {
               "O": 12
+            }
+          }
+        },
+        {
+          "id": "jp_02_a",
+          "label": "Etappen setzen",
+          "hint": "Haltepunkte, bevor es losgeht.",
+          "visual": {
+            "kind": "scene",
+            "motif": "milestone"
+          },
+          "weights": {
+            "axes": {
+              "J_P": -24
+            },
+            "bigFive": {
+              "C": 18
             }
           }
         }
@@ -672,17 +724,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Neues ausprobieren"
       }
     },
     {
       "id": "r_01",
       "module": "interessen",
-      "prompt": "Welche Szene zieht dich mehr an?",
+      "prompt": "Zwei Wege liegen da. Welchen nimmst du eher?",
       "choices": [
         {
           "id": "r_01_a",
-          "label": "Handwerk & Werkzeug",
-          "hint": "Anfassen, bauen, reparieren.",
+          "label": "Werkzeug in die Hand",
+          "hint": "Bauen, richten, greifbar machen.",
           "visual": {
             "kind": "scene",
             "motif": "workshop"
@@ -695,8 +751,8 @@
         },
         {
           "id": "r_01_b",
-          "label": "Menschen begleiten",
-          "hint": "Helfen, erklären, coachen.",
+          "label": "Jemanden begleiten",
+          "hint": "Zuhören, stützen, mitgehen.",
           "visual": {
             "kind": "scene",
             "motif": "coaching"
@@ -714,17 +770,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Womit beschäftigst du dich?"
       }
     },
     {
       "id": "i_01",
       "module": "interessen",
-      "prompt": "Was klingt spannender?",
+      "prompt": "Du hast Zeit für eine Sache. Was wählst du?",
       "choices": [
         {
           "id": "i_01_a",
-          "label": "Forschen & verstehen",
-          "hint": "Fragen stellen, analysieren.",
+          "label": "Dem Rätsel nach",
+          "hint": "Verstehen, bis es sich öffnet.",
           "visual": {
             "kind": "scene",
             "motif": "lab-search"
@@ -740,8 +800,8 @@
         },
         {
           "id": "i_01_b",
-          "label": "Ordnen & pflegen",
-          "hint": "Tabellen, Prozesse, Struktur.",
+          "label": "Ordnung schaffen",
+          "hint": "Pflegen, halten, sauber halten.",
           "visual": {
             "kind": "scene",
             "motif": "office-order"
@@ -759,17 +819,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "pattern",
+        "title": "Was ziehst du an?"
       }
     },
     {
       "id": "a_01",
       "module": "interessen",
-      "prompt": "Wohin zieht es dich?",
+      "prompt": "Du kannst eine Spur legen. Welche?",
       "choices": [
         {
           "id": "a_01_a",
-          "label": "Gestalten & ausdrücken",
-          "hint": "Form, Farbe, eigener Stil.",
+          "label": "Etwas Gestalt geben",
+          "hint": "Form, Ausdruck, Eigenes.",
           "visual": {
             "kind": "scene",
             "motif": "studio"
@@ -785,8 +849,8 @@
         },
         {
           "id": "a_01_b",
-          "label": "Überzeugen & pushen",
-          "hint": "Pitch, Wirkung, Menschen gewinnen.",
+          "label": "Andere mitnehmen",
+          "hint": "Richtung geben, Tempo setzen.",
           "visual": {
             "kind": "scene",
             "motif": "pitch"
@@ -804,17 +868,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Worauf geht die Energie?"
       }
     },
     {
       "id": "s_01",
       "module": "interessen",
-      "prompt": "Welche Rolle passt eher?",
+      "prompt": "Im Projekt fehlt etwas. Was legst du rein?",
       "choices": [
         {
           "id": "s_01_a",
-          "label": "Begleiten & fördern",
-          "hint": "Menschen wachsen lassen.",
+          "label": "Menschen stärken",
+          "hint": "Fördern, erklären, halten.",
           "visual": {
             "kind": "scene",
             "motif": "mentor"
@@ -830,8 +898,8 @@
         },
         {
           "id": "s_01_b",
-          "label": "Denken & modellieren",
-          "hint": "Systeme, Analyse, Whiteboard.",
+          "label": "Modell schärfen",
+          "hint": "Denken, prüfen, zuspitzen.",
           "visual": {
             "kind": "scene",
             "motif": "think-board"
@@ -852,17 +920,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Dein Beitrag"
       }
     },
     {
       "id": "e_01",
       "module": "interessen",
-      "prompt": "Was macht mehr Spaß?",
+      "prompt": "Zwei Felder. Wo spürst du mehr Zug?",
       "choices": [
         {
           "id": "e_01_a",
-          "label": "Verkaufen & vernetzen",
-          "hint": "Deals, Bühne, Überzeugen.",
+          "label": "Menschen gewinnen",
+          "hint": "Überzeugen, vernetzen, bewegen.",
           "visual": {
             "kind": "scene",
             "motif": "network-pitch"
@@ -878,8 +950,8 @@
         },
         {
           "id": "e_01_b",
-          "label": "Prozesse schärfen",
-          "hint": "Qualität, Regeln, Zuverlässigkeit.",
+          "label": "Abläufe glätten",
+          "hint": "Schärfen, was hakt.",
           "visual": {
             "kind": "scene",
             "motif": "process-flow"
@@ -900,17 +972,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Wo bist du lebendig?"
       }
     },
     {
       "id": "c_01",
       "module": "interessen",
-      "prompt": "Welche Aufgabe würdest du eher wählen?",
+      "prompt": "Was hält dich länger bei der Sache?",
       "choices": [
         {
           "id": "c_01_a",
-          "label": "Daten exakt pflegen",
-          "hint": "Genauigkeit, Nachvollziehbarkeit.",
+          "label": "Genauigkeit im Detail",
+          "hint": "Daten, Pflege, Exaktheit.",
           "visual": {
             "kind": "scene",
             "motif": "spreadsheet"
@@ -926,8 +1002,8 @@
         },
         {
           "id": "c_01_b",
-          "label": "Kunden gewinnen",
-          "hint": "Gespräche, Deals, Überzeugung.",
+          "label": "Jemand neues dazuholen",
+          "hint": "Kontakt, Angebot, Gewinn.",
           "visual": {
             "kind": "scene",
             "motif": "handshake"
@@ -948,17 +1024,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "pattern",
+        "title": "Feinarbeit"
       }
     },
     {
       "id": "r_02",
       "module": "interessen",
-      "prompt": "Wo fühlst du dich eher zu Hause?",
+      "prompt": "Wo arbeitest du lieber mit den Händen am Thema?",
       "choices": [
         {
           "id": "r_02_a",
           "label": "Draußen / Technik",
-          "hint": "Praktisch, körperlich, Geräte.",
+          "hint": "Materiell, greifbar, unterwegs.",
           "visual": {
             "kind": "scene",
             "motif": "field-tools"
@@ -972,7 +1052,7 @@
         {
           "id": "r_02_b",
           "label": "Büro & Ablauf",
-          "hint": "Listen, Systeme, Ordnung.",
+          "hint": "Prozesse, Schreibtisch, System.",
           "visual": {
             "kind": "scene",
             "motif": "office-order"
@@ -990,17 +1070,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Ort der Arbeit"
       }
     },
     {
       "id": "i_02",
       "module": "interessen",
-      "prompt": "Ein kniffliges Problem — dein Weg?",
+      "prompt": "Ein Problem liegt da. Wie gehst du ran?",
       "choices": [
         {
           "id": "i_02_a",
-          "label": "Hypothesen testen",
-          "hint": "Daten, Ursachen, Labor-Denken.",
+          "label": "Hypothese prüfen",
+          "hint": "Vermuten, testen, lernen.",
           "visual": {
             "kind": "scene",
             "motif": "microscope"
@@ -1016,8 +1100,8 @@
         },
         {
           "id": "i_02_b",
-          "label": "Praktisch lösen",
-          "hint": "Anpacken, ausprobieren, fixen.",
+          "label": "Sofort handfest",
+          "hint": "Praktisch lösen, was geht.",
           "visual": {
             "kind": "scene",
             "motif": "hands-on"
@@ -1035,17 +1119,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Wenn etwas unklar ist"
       }
     },
     {
       "id": "a_02",
       "module": "interessen",
-      "prompt": "Freizeit — was reizt dich mehr?",
+      "prompt": "Du kannst Zeit schenken. Wofür?",
       "choices": [
         {
           "id": "a_02_a",
-          "label": "Etwas erschaffen",
-          "hint": "Kunst, Design, Handwerk.",
+          "label": "Etwas Neues formen",
+          "hint": "Schaffen, was vorher nicht da war.",
           "visual": {
             "kind": "scene",
             "motif": "create-canvas"
@@ -1061,8 +1149,8 @@
         },
         {
           "id": "a_02_b",
-          "label": "Andere stützen",
-          "hint": "Zuhören, helfen, Gemeinschaft.",
+          "label": "Jemanden stützen",
+          "hint": "Da sein, mittragen.",
           "visual": {
             "kind": "scene",
             "motif": "helping-hand"
@@ -1083,17 +1171,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Was lässt du entstehen?"
       }
     },
     {
       "id": "e_02",
       "module": "interessen",
-      "prompt": "Ein Team braucht jemanden für…",
+      "prompt": "Es stockt. Was bringst du eher ein?",
       "choices": [
         {
           "id": "e_02_a",
-          "label": "Führen & Tempo",
-          "hint": "Richtung, Entscheidungen.",
+          "label": "Richtung und Tempo",
+          "hint": "Führen, entscheiden, ziehen.",
           "visual": {
             "kind": "scene",
             "motif": "lead-flag"
@@ -1109,8 +1201,8 @@
         },
         {
           "id": "e_02_b",
-          "label": "Story & Look",
-          "hint": "Marke, Botschaft, Gestaltung.",
+          "label": "Story und Look",
+          "hint": "Ausdruck, Bild, Wirkung.",
           "visual": {
             "kind": "scene",
             "motif": "brand-story"
@@ -1131,17 +1223,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Wenn Tempo fehlt"
       }
     },
     {
       "id": "a_03",
       "module": "interessen",
-      "prompt": "Welches Projekt reizt dich mehr?",
+      "prompt": "Was möchtest du hinterlassen?",
       "choices": [
         {
           "id": "a_03_a",
-          "label": "Visuell gestalten",
-          "hint": "Layout, Ausdruck, Ästhetik.",
+          "label": "Sichtbare Form",
+          "hint": "Visuell, spürbar, eigen.",
           "visual": {
             "kind": "scene",
             "motif": "create-canvas"
@@ -1157,8 +1253,8 @@
         },
         {
           "id": "a_03_b",
-          "label": "Struktur schaffen",
-          "hint": "Abläufe, Übersicht, Regeln.",
+          "label": "Klare Struktur",
+          "hint": "Halt, Ordnung, Rahmen.",
           "visual": {
             "kind": "scene",
             "motif": "office-order"
@@ -1179,18 +1275,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "pattern",
+        "title": "Deine Spur"
       }
     },
     {
       "id": "stress_01",
       "module": "abschluss",
-      "prompt": "Was hilft dir eher, wenn es stressig wird?",
-      "helpText": "Später mit OASIS-Affektbildern anreicherbar (extra layer).",
+      "prompt": "Es wird eng. Was tust du zuerst?",
       "choices": [
         {
           "id": "stress_01_a",
-          "label": "Plan schreiben",
-          "hint": "Schritte festlegen, Klarheit.",
+          "label": "Aufschreiben",
+          "hint": "Sortieren, bevor es weitergeht.",
           "visual": {
             "kind": "affect",
             "motif": "calm-plan"
@@ -1207,8 +1306,8 @@
         },
         {
           "id": "stress_01_b",
-          "label": "Erst pausieren",
-          "hint": "Abstand, runterfahren, sortieren.",
+          "label": "Kurz innehalten",
+          "hint": "Pause, dann wieder klar.",
           "visual": {
             "kind": "affect",
             "motif": "soft-pause"
@@ -1230,18 +1329,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Wenn Druck kommt"
       }
     },
     {
       "id": "motive_01",
       "module": "abschluss",
-      "prompt": "Was treibt dich im Job stärker an?",
-      "helpText": "Später mit PSE-Motiven anreicherbar (extra layer).",
+      "prompt": "Zwei Belohnungen. Welche fühlt sich stärker an?",
       "choices": [
         {
           "id": "motive_01_a",
-          "label": "Wirkung sichtbar",
-          "hint": "Ziele, Erfolg, vorankommen.",
+          "label": "Wirkung sehen",
+          "hint": "Ergebnis, das sich zeigt.",
           "visual": {
             "kind": "scene",
             "motif": "achieve-peak"
@@ -1258,8 +1360,8 @@
         },
         {
           "id": "motive_01_b",
-          "label": "Dazugehören",
-          "hint": "Team, Vertrauen, gemeinsam.",
+          "label": "Dabei sein",
+          "hint": "Zugehörigkeit, gemeinsamer Raum.",
           "visual": {
             "kind": "scene",
             "motif": "belong-circle"
@@ -1280,17 +1382,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Was zieht dich?"
       }
     },
     {
       "id": "stress_02",
       "module": "abschluss",
-      "prompt": "Unter Zeitdruck gehst du eher…",
+      "prompt": "Zu viel auf einmal. Was hilft dir eher?",
       "choices": [
         {
           "id": "stress_02_a",
-          "label": "Fokus schärfen",
-          "hint": "Wesentliches wählen, Rest parken.",
+          "label": "Alles ausblenden",
+          "hint": "Ein Fokus, Rest später.",
           "visual": {
             "kind": "affect",
             "motif": "focus-beam"
@@ -1307,8 +1413,8 @@
         },
         {
           "id": "stress_02_b",
-          "label": "Kurz reden",
-          "hint": "Entlastung durch Austausch.",
+          "label": "Kurz austauschen",
+          "hint": "Mit jemandem reden, dann weiter.",
           "visual": {
             "kind": "affect",
             "motif": "talk-it-out"
@@ -1331,17 +1437,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Unter Last"
       }
     },
     {
       "id": "motive_02",
       "module": "abschluss",
-      "prompt": "Welches Gefühl suchst du eher bei der Arbeit?",
+      "prompt": "Was hält dich länger bei einer Sache?",
       "choices": [
         {
           "id": "motive_02_a",
-          "label": "Meisterschaft",
-          "hint": "Etwas richtig gut beherrschen.",
+          "label": "Besser werden",
+          "hint": "Können, das wächst.",
           "visual": {
             "kind": "scene",
             "motif": "craft-master"
@@ -1360,7 +1470,7 @@
         {
           "id": "motive_02_b",
           "label": "Mitgestalten",
-          "hint": "Einfluss, Richtung setzen.",
+          "hint": "Einfluss, gemeinsam ziehen.",
           "visual": {
             "kind": "scene",
             "motif": "influence"
@@ -1381,17 +1491,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "pattern",
+        "title": "Wofür brennst du?"
       }
     },
     {
       "id": "stress_03",
       "module": "abschluss",
-      "prompt": "Wenn alles zu viel wird…",
+      "prompt": "Du bist aus dem Takt. Was bringt dich zurück?",
       "choices": [
         {
           "id": "stress_03_a",
-          "label": "Struktur zurück",
-          "hint": "Listen, Rituale, kleine Siege.",
+          "label": "Struktur zurückholen",
+          "hint": "Liste, Zeiten, Halt.",
           "visual": {
             "kind": "affect",
             "motif": "reset-list"
@@ -1408,8 +1522,8 @@
         },
         {
           "id": "stress_03_b",
-          "label": "Atmen & bewegen",
-          "hint": "Körper, Spannung lösen.",
+          "label": "Körper kurz lösen",
+          "hint": "Atmen, bewegen, Luft.",
           "visual": {
             "kind": "affect",
             "motif": "breathe"
@@ -1427,18 +1541,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Wieder Boden finden"
       }
     },
     {
       "id": "motive_03",
       "module": "abschluss",
-      "prompt": "Was gibt dir mehr Energie auf Dauer?",
-      "helpText": "PSE-Motive als extra layer unter data/stimuli/.",
+      "prompt": "Worin arbeitest du lieber?",
       "choices": [
         {
           "id": "motive_03_a",
-          "label": "Freiraum",
-          "hint": "Eigene Wege, wenig Vorgaben.",
+          "label": "Weiter Raum",
+          "hint": "Freiheit, eigene Wege.",
           "visual": {
             "kind": "scene",
             "motif": "open-horizon"
@@ -1457,7 +1574,7 @@
         {
           "id": "motive_03_b",
           "label": "Sicherer Rahmen",
-          "hint": "Klare Regeln, Verlässlichkeit.",
+          "hint": "Klarheit, Grenzen, Halt.",
           "visual": {
             "kind": "scene",
             "motif": "safe-frame"
@@ -1482,18 +1599,21 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "scene",
+        "title": "Dein Rahmen"
       }
     },
     {
       "id": "stress_04",
       "module": "abschluss",
-      "prompt": "Nach einem Rückschlag brauchst du eher…",
-      "helpText": "OASIS-Affektbilder können hier später als extra layer eingehängt werden.",
+      "prompt": "Etwas ist schiefgelaufen. Was suchst du zuerst?",
       "choices": [
         {
           "id": "stress_04_a",
-          "label": "Analyse & Lernen",
-          "hint": "Sachlich verstehen, was schiefging.",
+          "label": "Was daraus lernen",
+          "hint": "Analysieren, nächstes Mal besser.",
           "visual": {
             "kind": "affect",
             "motif": "lesson-board"
@@ -1512,8 +1632,8 @@
         },
         {
           "id": "stress_04_b",
-          "label": "Zuspruch & Nähe",
-          "hint": "Gehalten werden, zugehört werden.",
+          "label": "Jemanden an der Seite",
+          "hint": "Zuspruch, Nähe, mitfühlen.",
           "visual": {
             "kind": "affect",
             "motif": "warm-support"
@@ -1537,6 +1657,10 @@
         "layer": "core",
         "changeStatus": "own_construction",
         "validationStatus": "unvalidated"
+      },
+      "task": {
+        "kind": "solve",
+        "title": "Nach einem Fehler"
       }
     }
   ]
