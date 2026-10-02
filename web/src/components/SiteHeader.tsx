@@ -19,7 +19,7 @@ export function SiteHeader({ right, sticky = true, className }: Props) {
         className,
       )}
     >
-      <div className="site-header-inner navbar mx-auto min-h-11 w-full max-w-5xl px-3 py-0.5 sm:min-h-12 sm:px-4">
+      <div className="site-header-inner navbar mx-auto w-full max-w-5xl px-3 sm:px-4">
         <div className="navbar-start">
           <Link
             href="/"

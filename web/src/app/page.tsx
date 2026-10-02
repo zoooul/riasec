@@ -1,3 +1,4 @@
+import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 
@@ -9,8 +10,9 @@ import { Chip } from "@/components/ui/chip";
 export default function HomePage() {
   return (
     <main className="flex min-w-0 flex-1 flex-col overflow-x-hidden">
-      <section className="hero min-h-[calc(100dvh-5.5rem)]">
-        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-8 py-[max(1.5rem,var(--safe-top))] pb-[max(1.5rem,var(--safe-bottom))] lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:py-14">
+      <SiteHeader />
+      <section className="hero min-h-0 flex-1 lg:min-h-[calc(100dvh-var(--header-h)-8rem)]">
+        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-6 py-8 pb-[max(1.25rem,var(--safe-bottom))] pt-[max(1rem,var(--safe-top))] lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-10 lg:py-12">
           <div className="flex w-full items-center justify-between gap-3 lg:col-span-2">
             <Chip>Coaching · Orientierung</Chip>
             <Chip href="/profile">Profile</Chip>
@@ -36,7 +38,7 @@ export default function HomePage() {
               Tippen. Erkennen. Klarheit für den Berufsweg.
             </p>
             <div
-              className="animate-rise mx-auto flex w-full max-w-md flex-col gap-3 pt-5 lg:mx-0 lg:max-w-sm"
+              className="animate-rise mx-auto flex w-full max-w-md flex-col gap-2.5 pt-4 lg:mx-0 lg:max-w-sm"
               style={{ animationDelay: "240ms" }}
             >
               <Button href="/assessment" variant="primary" size="lg" className="w-full">
@@ -64,7 +66,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="page-shell page-shell-wide pb-14 pt-4">
+      <section className="page-shell page-shell-wide pb-10 pt-2">
         <div className="grid gap-4 sm:grid-cols-3">
           {[
             {

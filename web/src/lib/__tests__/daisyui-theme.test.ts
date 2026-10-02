@@ -47,7 +47,7 @@ describe("soft · DaisyUI skillster theme", () => {
     const visual = read("components/VisualCard.tsx");
 
     expect(css).toContain("assessment-choice-visual");
-    expect(css).toContain("max-height: min(22vh, 9.5rem)");
+    expect(css).toContain("max-height: min(20vh, 8.5rem)");
     expect(css).toContain(".assessment-progress");
     expect(css).toContain(".assessment-steps");
     expect(css).toMatch(/--text-hero:\s*clamp\(2\.75rem/);

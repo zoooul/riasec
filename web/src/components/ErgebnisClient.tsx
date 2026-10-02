@@ -262,7 +262,7 @@ export function ErgebnisClient({
       </ConfirmDialog>
 
       <motion.div
-        className="print-root page-shell stack-lg py-6 md:py-10"
+        className="print-root page-shell stack-lg py-5 md:py-8"
         initial={reduceMotion ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}

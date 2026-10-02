@@ -174,10 +174,10 @@ export function AssessmentFlow({ items }: Props) {
   const currentModuleIdx = MODULE_ORDER.indexOf(item.module);
 
   return (
-    <div className="assessment-flow page-shell page-shell-wide split-lg mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.5rem,var(--safe-bottom))] pt-2 sm:px-4 lg:px-6">
-      <div className="assessment-rail min-w-0">
-        <div className="card bg-base-100 border border-base-300 shadow-sm shrink-0">
-          <div className="card-body gap-2 p-3 sm:gap-2.5 sm:p-4">
+    <div className="assessment-flow page-shell page-shell-wide mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.35rem,var(--safe-bottom))] pt-1.5 sm:px-4 sm:pt-2 lg:flex lg:flex-row lg:gap-6 lg:px-6">
+      <div className="assessment-rail min-w-0 lg:flex lg:flex-col lg:gap-4">
+        <div className="assessment-meta-card card bg-base-100 border border-base-300 shadow-sm shrink-0">
+          <div className="card-body">
             <div className="flex min-w-0 items-start justify-between gap-2">
               <div className="flex min-w-0 flex-wrap items-center gap-1.5">
                 <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
@@ -196,7 +196,7 @@ export function AssessmentFlow({ items }: Props) {
               </span>
             </div>
 
-            <ul className="assessment-steps steps steps-horizontal w-full text-[0.6rem] sm:text-[0.7rem]">
+            <ul className="assessment-steps steps steps-horizontal w-full overflow-hidden text-[0.55rem] sm:text-[0.65rem]">
               {MODULE_ORDER.map((mod, i) => (
                 <li
                   key={mod}
@@ -270,7 +270,7 @@ export function AssessmentFlow({ items }: Props) {
           Dein gespeicherter Fortschritt wird gelöscht.
         </ConfirmDialog>
 
-        <div className="assessment-prompt min-h-0 min-w-0 shrink-0 stack-sm lg:flex-1 lg:overflow-y-auto">
+        <div className="assessment-prompt min-h-0 min-w-0 shrink stack-sm">
           <div
             className={cn(
               "assessment-status-strip flex flex-wrap items-center justify-center gap-2 lg:justify-start",
@@ -349,7 +349,7 @@ export function AssessmentFlow({ items }: Props) {
       </div>
 
       <div
-        className="assessment-choice-grid grid min-h-0 min-w-0 flex-1 grid-cols-2 items-stretch gap-3 overflow-hidden sm:gap-4"
+        className="assessment-choice-grid grid min-h-0 min-w-0 grid-cols-2 items-stretch gap-2 overflow-hidden sm:gap-3 lg:min-h-0 lg:flex-1 lg:gap-4"
         role="group"
         aria-label="Zwei Lösungspfade"
       >
@@ -379,7 +379,7 @@ export function AssessmentFlow({ items }: Props) {
                 isSelected && "solution-card-picked",
               )}
             >
-              <figure className="assessment-choice-figure shrink-0 px-2 pt-2 sm:px-3 sm:pt-3">
+              <figure className="assessment-choice-figure shrink-0 px-1.5 pt-1.5 sm:px-2.5 sm:pt-2.5">
                 <VisualCard
                   kind={choice.visual.kind}
                   motif={choice.visual.motif}
@@ -387,16 +387,15 @@ export function AssessmentFlow({ items }: Props) {
                   compact
                 />
               </figure>
-              <div className="card-body min-w-0 flex-1 gap-1.5 p-3 pt-2 sm:p-4 sm:pt-3">
-                <div className="flex items-start justify-between gap-2">
+              <div className="card-body min-w-0 flex-1 gap-1 p-2 pt-1.5 sm:gap-1.5 sm:p-3 sm:pt-2">
+                <div className="flex items-center justify-between gap-1.5">
                   <span className="solution-path-tag">{pathLabel}</span>
                   <span
-                    className="assessment-choice-keys inline-flex items-center gap-1 opacity-90 sm:opacity-55"
+                    className="assessment-choice-keys inline-flex gap-0.5 opacity-90 sm:opacity-55"
                     aria-hidden
                   >
-                    <kbd className="kbd kbd-sm">{keyHint.number}</kbd>
-                    <span className="text-[0.65rem] text-base-content/45">·</span>
-                    <kbd className="kbd kbd-sm">{keyHint.letter}</kbd>
+                    <kbd className="kbd kbd-xs">{keyHint.number}</kbd>
+                    <kbd className="kbd kbd-xs">{keyHint.letter}</kbd>
                   </span>
                 </div>
                 <div className="text-[clamp(0.85rem,1.7vh,1.05rem)] font-medium leading-snug tracking-tight text-base-content">

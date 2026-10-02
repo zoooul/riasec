@@ -29,7 +29,7 @@ export function ConfirmDialog({
 }: Props) {
   return (
     <dialog
-      className={`modal ${open ? "modal-open" : ""} ${className}`}
+      className={`modal z-[var(--z-modal)] ${open ? "modal-open" : ""} ${className}`}
       open={open || undefined}
       aria-labelledby="confirm-dialog-title"
       onCancel={(e) => {
