@@ -15,7 +15,7 @@ export function GlassShell({ children, className = "" }: Props) {
         aria-hidden
       />
       <div
-        className="glass-orb absolute bottom-[20%] right-[16%] h-14 w-14 md:h-22 md:w-22"
+        className="glass-orb absolute bottom-[20%] right-[16%] h-14 w-14 md:h-24 md:w-24"
         style={{ animation: "orb-drift 14s ease-in-out infinite reverse" }}
         aria-hidden
       />

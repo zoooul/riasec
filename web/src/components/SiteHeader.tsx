@@ -14,15 +14,15 @@ export function SiteHeader({ right }: Props) {
           "linear-gradient(180deg, rgba(7,16,31,0.72), rgba(7,16,31,0.2))",
       }}
     >
-      <div className="glass-panel glass-panel-strong mx-auto flex w-full max-w-3xl items-center justify-between px-4 py-3">
+      <div className="glass-panel glass-panel-strong mx-auto flex w-full max-w-3xl items-center justify-between px-4 py-2.5">
         <Link
           href="/"
-          className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-[var(--ink)] md:text-xl"
+          className="display-title text-xl text-[var(--ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--neon-cyan)] md:text-2xl"
         >
           Skill<span className="neon-text">ster</span>
         </Link>
         {right ?? (
-          <span className="glass-chip text-[var(--neon-cyan)]">privat · lokal</span>
+          <span className="glass-chip">privat · lokal</span>
         )}
       </div>
     </header>
