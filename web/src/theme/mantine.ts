@@ -65,18 +65,57 @@ export const skillsterTheme = createTheme({
       defaultProps: {
         radius: "xl",
       },
+      styles: {
+        root: {
+          height: "auto",
+          overflow: "visible",
+        },
+        label: {
+          overflow: "visible",
+          whiteSpace: "nowrap",
+        },
+        inner: {
+          overflow: "visible",
+        },
+      },
     },
     Badge: {
       defaultProps: {
         radius: "xl",
         variant: "light",
+        size: "lg",
+      },
+      styles: {
+        root: {
+          height: "auto",
+          textTransform: "uppercase",
+        },
+        label: {
+          overflow: "visible",
+          maxHeight: "none",
+          whiteSpace: "nowrap",
+        },
       },
     },
     Modal: {
       defaultProps: {
         centered: true,
         radius: "lg",
+        zIndex: 200,
         overlayProps: { backgroundOpacity: 0.55, blur: 6 },
+      },
+      styles: {
+        content: {
+          overflow: "hidden",
+        },
+        header: {
+          position: "relative",
+          zIndex: 1,
+        },
+        body: {
+          position: "relative",
+          zIndex: 1,
+        },
       },
     },
     Progress: {

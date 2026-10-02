@@ -156,10 +156,12 @@ export function ErgebnisClient({
             opened={confirmRestart}
             onClose={() => setConfirmRestart(false)}
             title="Antworten wirklich löschen?"
+            zIndex={200}
             classNames={{
               content: "glass-panel glass-panel-strong",
-              header: "bg-transparent",
+              header: "bg-transparent relative z-[1]",
               title: "display-title text-xl text-[var(--ink)]",
+              body: "relative z-[1]",
             }}
           >
             <Text size="sm" c="dimmed">
@@ -277,10 +279,12 @@ export function ErgebnisClient({
               opened={confirmRestart}
               onClose={() => setConfirmRestart(false)}
               title="Test neu starten?"
+              zIndex={200}
               classNames={{
                 content: "glass-panel glass-panel-strong no-print",
-                header: "bg-transparent",
+                header: "bg-transparent relative z-[1]",
                 title: "display-title text-xl text-[var(--ink)]",
+                body: "relative z-[1]",
               }}
             >
               <Text size="sm" c="dimmed">
@@ -317,10 +321,12 @@ export function ErgebnisClient({
       >
         <section
           id="zusammenfassung"
-          className="glass-panel glass-panel-strong space-y-4 p-5 md:p-7"
+          className="glass-panel glass-panel-strong relative space-y-4 p-5 md:p-7"
         >
-          <Chip className={chip.className}>{chip.text}</Chip>
-          <h1 className="display-title text-3xl text-[var(--ink)] md:text-[2.75rem]">
+          <div className="relative z-[1] flex min-w-0 flex-wrap items-center gap-2">
+            <Chip className={chip.className}>{chip.text}</Chip>
+          </div>
+          <h1 className="relative z-[1] display-title text-3xl text-[var(--ink)] md:text-[2.75rem]">
             {plain.roleLabel}
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-[var(--muted-strong)] md:text-lg">

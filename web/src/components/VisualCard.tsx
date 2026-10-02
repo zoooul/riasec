@@ -29,14 +29,14 @@ export function VisualCard({ motif, kind, imageUrl, compact = false }: MotifProp
       }`}
       aria-hidden
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.16),transparent_48%)]" />
-      <div className="visual-card-grain pointer-events-none absolute inset-0 opacity-60" />
+      <div className="glass-deco pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.16),transparent_48%)]" />
+      <div className="visual-card-grain glass-deco pointer-events-none absolute inset-0 z-0 opacity-60" />
       {imageUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={imageUrl}
           alt=""
-          className={`relative h-full w-full object-center ${
+          className={`relative z-[1] h-full w-full object-center ${
             compact ? "object-contain" : "object-cover"
           }`}
         />
@@ -44,7 +44,7 @@ export function VisualCard({ motif, kind, imageUrl, compact = false }: MotifProp
         <svg
           viewBox="0 0 160 120"
           preserveAspectRatio="xMidYMid meet"
-          className="relative h-full w-full"
+          className="relative z-[1] h-full w-full"
         >
           {motif.includes("grid") && (
             <>

@@ -59,9 +59,12 @@
 
   --page-max: 42rem;
   --page-max-wide: 64rem;
+  --z-deco: 0;
   --z-sheen: 0;
   --z-content: 1;
   --z-chrome: 20;
+  --z-overlay: 30;
+  --z-modal: 200;
 }
 
 @theme inline {
@@ -130,20 +133,34 @@ body {
   flex-direction: column;
   flex: 1 1 auto;
   gap: var(--space-3);
+  min-width: 0;
   min-height: 0;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .split-lg {
+    gap: var(--space-4);
+  }
+
+  .split-lg > * {
+    min-width: 0;
+    max-width: 100%;
+  }
 }
 
 @media (min-width: 1024px) {
   .split-lg {
     display: grid;
-    grid-template-columns: minmax(17rem, 0.88fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.2fr);
     grid-template-rows: minmax(0, 1fr);
     gap: var(--space-5);
     align-items: stretch;
   }
 
   .split-lg > * {
+    min-width: 0;
     min-height: 0;
+    max-width: 100%;
   }
 }
 
@@ -163,12 +180,12 @@ body {
 .glass-stage::after {
   content: "";
   position: fixed;
-  z-index: 0;
+  z-index: var(--z-deco);
   border-radius: 999px;
   filter: blur(56px);
   pointer-events: none;
   will-change: transform;
-  opacity: 0.38;
+  opacity: 0.28;
 }
 
 .glass-stage::before {
@@ -191,10 +208,11 @@ body {
 
 .glass-orb {
   position: absolute;
+  z-index: var(--z-deco);
   border-radius: 999px;
   pointer-events: none;
   filter: blur(4px);
-  opacity: 0.28;
+  opacity: 0.22;
   background: linear-gradient(
     145deg,
     rgba(255, 255, 255, 0.18),
@@ -204,6 +222,15 @@ body {
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.32),
     0 10px 28px rgba(94, 200, 214, 0.06);
+}
+
+.glass-stage:has(.assessment-viewport) > .glass-orb {
+  opacity: 0.12;
+}
+
+.glass-stage:has(.assessment-viewport)::before,
+.glass-stage:has(.assessment-viewport)::after {
+  opacity: 0.14;
 }
 
 /* ── Glass surfaces ── */
@@ -243,9 +270,20 @@ body {
   opacity: var(--glass-sheen-opacity);
 }
 
-.glass-panel > * {
+/*
+ * Elevate panel content above sheen WITHOUT overriding Tailwind absolute/fixed
+ * decorative children (those stay behind interactive text).
+ */
+.glass-panel > *:not(.absolute):not(.fixed):not(.glass-deco) {
   position: relative;
   z-index: var(--z-content);
+}
+
+.glass-panel > .absolute,
+.glass-panel > .fixed,
+.glass-panel > .glass-deco {
+  z-index: var(--z-deco);
+  pointer-events: none;
 }
 
 .glass-panel-strong {
@@ -257,28 +295,39 @@ body {
 }
 
 .glass-chip {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  min-height: var(--control-h);
+  height: auto !important;
+  min-height: 2.25rem;
+  max-height: none;
   border-radius: var(--radius-control);
-  padding: 0 0.85rem;
+  padding: 0.35rem 0.85rem !important;
   font-family: var(--font-body), "Segoe UI", sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.72rem !important;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.15 !important;
   letter-spacing: var(--tracking-meta);
   text-transform: uppercase;
   color: var(--muted-strong);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
   text-decoration: none;
   vertical-align: middle;
+  white-space: nowrap;
   -webkit-font-smoothing: antialiased;
+}
+
+.glass-chip .mantine-Badge-label,
+.glass-chip [data-badge-label] {
+  overflow: visible;
+  max-height: none;
+  line-height: inherit;
+  white-space: nowrap;
 }
 
 .glass-chip:focus-visible {
@@ -289,23 +338,25 @@ body {
 .glass-btn {
   position: relative;
   isolation: isolate;
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
+  height: auto !important;
   min-height: var(--control-h);
-  padding: 0 1.35rem;
+  padding: 0 1.35rem !important;
   border: none;
   border-radius: var(--radius-control);
   cursor: pointer;
   font-family: var(--font-body), "Segoe UI", sans-serif;
-  font-size: var(--text-md);
+  font-size: var(--text-md) !important;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.15 !important;
   letter-spacing: 0.01em;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
+  overflow: visible !important;
   -webkit-font-smoothing: antialiased;
   transition:
     transform 0.22s ease,
@@ -322,19 +373,19 @@ body {
 
 .glass-btn-md {
   min-height: var(--control-h);
-  padding-inline: 1.35rem;
+  padding-inline: 1.35rem !important;
 }
 
 .glass-btn-sm {
-  min-height: var(--control-h);
-  padding-inline: 1.2rem;
-  font-size: var(--text-sm);
+  min-height: 2.5rem;
+  padding-inline: 1.2rem !important;
+  font-size: var(--text-sm) !important;
 }
 
 .glass-btn-lg {
   min-height: var(--control-h-lg);
-  padding-inline: 1.55rem;
-  font-size: 1rem;
+  padding-inline: 1.55rem !important;
+  font-size: 1rem !important;
 }
 
 .glass-btn-ghost {
@@ -465,17 +516,59 @@ body {
   display: flex;
   flex-direction: column;
   gap: clamp(0.3rem, 1vh, 0.85rem);
+  min-width: 0;
   min-height: 0;
   flex-shrink: 0;
+}
+
+.assessment-prompt {
+  position: relative;
+  z-index: var(--z-content);
+  min-width: 0;
+}
+
+.assessment-status-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 0;
+}
+
+.assessment-status-strip:empty {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .assessment-status-strip {
+    justify-content: flex-start;
+  }
+}
+
+.assessment-stage-meta {
+  min-width: 0;
+  row-gap: 0.25rem;
+}
+
+.assessment-meta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2rem;
+  padding-block: 0.15rem;
+  line-height: 1.2;
 }
 
 .assessment-choice {
   min-height: 0;
   height: 100%;
+  min-width: 0;
 }
 
 .assessment-choice-grid {
   min-height: 0;
+  min-width: 0;
 }
 
 .assessment-choice .visual-card {
@@ -518,6 +611,12 @@ body {
 
   .site-header-inner {
     padding-block: 0.3rem;
+  }
+
+  .assessment-status-strip .glass-chip {
+    min-height: 1.75rem;
+    padding-block: 0.2rem !important;
+    font-size: 0.65rem !important;
   }
 }
 
@@ -609,18 +708,20 @@ body {
 }
 
 .glass-progress {
-  height: 0.35rem;
+  height: 0.35rem !important;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1) !important;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-progress-lg {
-  height: 0.55rem;
+  height: 0.55rem !important;
 }
 
-.glass-progress > span {
+.glass-progress > span,
+.glass-progress [data-progress],
+.glass-progress .mantine-Progress-section {
   display: block;
   height: 100%;
   border-radius: inherit;
@@ -674,6 +775,34 @@ body {
 }
 
 .content-layer {
+  position: relative;
+  z-index: var(--z-content);
+  isolation: isolate;
+  min-width: 0;
+}
+
+.site-header {
+  position: relative;
+  z-index: var(--z-chrome);
+  isolation: isolate;
+}
+
+.mantine-Modal-root,
+[data-modal="true"] {
+  z-index: var(--z-modal) !important;
+}
+
+.mantine-Modal-content.glass-panel,
+.mantine-Modal-content.glass-panel-strong {
+  overflow: hidden;
+}
+
+.mantine-Modal-content.glass-panel::before {
+  opacity: 0.12;
+}
+
+.mantine-Modal-header,
+.mantine-Modal-body {
   position: relative;
   z-index: var(--z-content);
 }
@@ -767,7 +896,8 @@ body {
 
   .glass-btn,
   .glass-choice,
-  .glass-progress > span {
+  .glass-progress > span,
+  .glass-progress .mantine-Progress-section {
     transition: none !important;
   }
 

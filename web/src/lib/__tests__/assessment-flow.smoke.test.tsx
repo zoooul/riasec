@@ -116,6 +116,8 @@ describe("soft · AssessmentFlow smoke", () => {
 
     expect(html).toContain("assessment-flow");
     expect(html).toContain("assessment-rail");
+    expect(html).toContain("assessment-prompt");
+    expect(html).toContain("assessment-status-strip");
     expect(html).toContain("split-lg");
     expect(html).toContain("assessment-choice-grid");
     expect(html).toContain("assessment-choice");
@@ -124,5 +126,6 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).toContain("flex-1");
     expect(html).not.toContain("min-h-[12.5rem]");
     expect(html).not.toContain("sm:min-h-[14rem]");
+    expect(html).not.toContain("absolute inset-x-0 -top-1");
   });
 });

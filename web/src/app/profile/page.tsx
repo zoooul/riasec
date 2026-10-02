@@ -18,8 +18,8 @@ export default function ProfileIndexPage() {
         }
       />
 
-      <div className="page-shell page-shell-wide stack-lg py-8 md:py-10">
-        <div className="stack-sm">
+      <div className="page-shell page-shell-wide stack-lg min-w-0 py-8 md:py-10">
+        <div className="stack-sm relative z-[1]">
           <h1 className="display-title text-3xl text-[var(--ink)] md:text-5xl">
             16 Profile
           </h1>
@@ -28,15 +28,15 @@ export default function ProfileIndexPage() {
           </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="relative z-[1] grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {profiles.map((p) => (
             <Link
               key={p.code}
               href={`/profile/${p.code.toLowerCase()}`}
-              className="glass-panel glass-choice px-5 py-4"
+              className="glass-panel glass-choice min-w-0 px-5 py-4"
             >
-              <div className="text-sm text-[var(--neon-cyan)]">{p.code}</div>
-              <div className="display-title text-2xl text-[var(--ink)]">
+              <div className="relative z-[1] text-sm text-[var(--neon-cyan)]">{p.code}</div>
+              <div className="relative z-[1] display-title text-2xl text-[var(--ink)]">
                 {p.role}
               </div>
             </Link>

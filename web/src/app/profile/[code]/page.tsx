@@ -29,12 +29,12 @@ export default async function ProfileDetailPage({ params }: Props) {
         }
       />
 
-      <div className="page-shell stack-lg py-8 md:py-10">
-        <div className="glass-panel glass-panel-strong space-y-2 p-5 md:p-7">
-          <h1 className="display-title text-3xl text-[var(--ink)] md:text-5xl">
+      <div className="page-shell stack-lg min-w-0 py-8 md:py-10">
+        <div className="glass-panel glass-panel-strong relative space-y-2 p-5 md:p-7">
+          <h1 className="relative z-[1] display-title text-3xl text-[var(--ink)] md:text-5xl">
             {profile.role}
           </h1>
-          <p className="text-[var(--neon-cyan)]">
+          <p className="relative z-[1] text-[var(--neon-cyan)]">
             {profile.code} · {profile.dimensions.E_I}
             {profile.dimensions.S_N}
             {profile.dimensions.T_F}
@@ -42,13 +42,13 @@ export default async function ProfileDetailPage({ params }: Props) {
           </p>
         </div>
 
-        <div className="stack">
+        <div className="stack relative z-[1]">
           {Object.entries(profile.sections).map(([key, bullets]) => (
-            <section key={key} className="glass-panel p-4 md:p-5">
-              <h2 className="mb-3 text-lg font-semibold text-[var(--ink)]">
+            <section key={key} className="glass-panel relative p-4 md:p-5">
+              <h2 className="relative z-[1] mb-3 text-lg font-semibold text-[var(--ink)]">
                 {SECTION_LABELS[key] ?? key}
               </h2>
-              <ul className="space-y-2">
+              <ul className="relative z-[1] space-y-2">
                 {bullets.slice(0, 8).map((b) => (
                   <li
                     key={b}

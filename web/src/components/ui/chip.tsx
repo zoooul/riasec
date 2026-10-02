@@ -34,6 +34,7 @@ export function Chip({
         className={classes}
         variant="light"
         color="cyan"
+        size="lg"
         {...props}
       >
         {children}
@@ -55,7 +56,13 @@ export function Chip({
   }
 
   return (
-    <Badge className={classes} variant="light" color="cyan" {...props}>
+    <Badge
+      className={classes}
+      variant="light"
+      color="cyan"
+      size="lg"
+      {...props}
+    >
       {children}
     </Badge>
   );
