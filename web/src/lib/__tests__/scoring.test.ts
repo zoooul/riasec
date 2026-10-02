@@ -144,20 +144,18 @@ describe("Zwischenprofile thresholds", () => {
 
     expect(result.zwischenLabels).toEqual(
       expect.arrayContaining([
-        "Energie: gemischt (eher für dich / eher mit anderen)",
-        "Entscheidung: gemischt (Fakten & Logik / Menschen & Werte)",
+        "teils für dich, teils mit anderen",
+        "teils Fakten, teils Menschen",
       ]),
     );
     expect(result.zwischenLabels).not.toEqual(
       expect.arrayContaining([
-        "Blick: gemischt (Details & Genauigkeit / Muster & Möglichkeiten)",
-        "Arbeitsstil: gemischt (Plan & Abschluss / Flexibel & offen)",
+        "teils Details, teils große Ideen",
+        "teils planvoll, teils flexibel",
       ]),
     );
     expect(result.zwischenLabels.join(" ")).not.toMatch(/\bzwischen E und I\b/);
-    expect(
-      result.zwischenLabels.some((l) => l.startsWith("Blick:")),
-    ).toBe(false);
+    expect(result.zwischenLabels.some((l) => /\b[EI]\b/.test(l))).toBe(false);
   });
 });
 
