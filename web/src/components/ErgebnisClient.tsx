@@ -2,11 +2,17 @@
 
 import Link from "next/link";
 import { useMemo, useState, useSyncExternalStore } from "react";
-import * as Collapsible from "@radix-ui/react-collapsible";
-import * as Dialog from "@radix-ui/react-dialog";
-import * as Progress from "@radix-ui/react-progress";
+import {
+  Collapse,
+  Group,
+  Modal,
+  Progress,
+  Stack,
+  Text,
+  UnstyledButton,
+} from "@mantine/core";
+import { IconChevronDown, IconCopy, IconDownload, IconPrinter, IconRefresh } from "@tabler/icons-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ChevronDown, Copy, FileDown, Printer, RotateCcw } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
@@ -114,8 +120,8 @@ export function ErgebnisClient({
           <p className="text-[var(--muted)]">
             Starte den Bild-Test — danach erscheint hier dein Muster.
           </p>
-          <Button asChild variant="secondary" className="w-full max-w-xs">
-            <Link href="/assessment">Aufgaben starten</Link>
+          <Button href="/assessment" variant="secondary" className="w-full max-w-xs">
+            Aufgaben starten
           </Button>
         </div>
       </main>
@@ -135,50 +141,53 @@ export function ErgebnisClient({
             {result.coverageHint}. Mach weiter, damit das Ergebnis stabiler
             wird. Bis dahin ist alles nur eine grobe Orientierung.
           </p>
-          <Button asChild className="w-full max-w-xs">
-            <Link href="/assessment">Weiter in den Aufgaben</Link>
+          <Button href="/assessment" className="w-full max-w-xs">
+            Weiter in den Aufgaben
           </Button>
-          <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
-            <Dialog.Trigger asChild>
-              <button
+          <UnstyledButton
+            type="button"
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm text-[var(--neon-coral)] underline-offset-2 hover:underline"
+            onClick={() => setConfirmRestart(true)}
+          >
+            <IconRefresh size={14} aria-hidden />
+            Neu starten
+          </UnstyledButton>
+          <Modal
+            opened={confirmRestart}
+            onClose={() => setConfirmRestart(false)}
+            title="Antworten wirklich löschen?"
+            classNames={{
+              content: "glass-panel glass-panel-strong",
+              header: "bg-transparent",
+              title: "display-title text-xl text-[var(--ink)]",
+            }}
+          >
+            <Text size="sm" c="dimmed">
+              Dein Zwischenspeicher wird geleert.
+            </Text>
+            <Group gap="sm" mt="md">
+              <Button
                 type="button"
-                className="inline-flex min-h-11 items-center gap-1.5 text-sm text-[var(--neon-coral)] underline-offset-2 hover:underline"
+                variant="secondary"
+                size="sm"
+                onClick={() => {
+                  clearAnswers();
+                  setLocalAnswers({});
+                  setConfirmRestart(false);
+                }}
               >
-                <RotateCcw className="size-3.5" aria-hidden />
-                Neu starten
-              </button>
-            </Dialog.Trigger>
-            <Dialog.Portal>
-              <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm" />
-              <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 text-left outline-none">
-                <Dialog.Title className="display-title text-xl text-[var(--ink)]">
-                  Antworten wirklich löschen?
-                </Dialog.Title>
-                <Dialog.Description className="text-sm text-[var(--muted)]">
-                  Dein Zwischenspeicher wird geleert.
-                </Dialog.Description>
-                <div className="actions-row">
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => {
-                      clearAnswers();
-                      setLocalAnswers({});
-                      setConfirmRestart(false);
-                    }}
-                  >
-                    Ja, löschen
-                  </Button>
-                  <Dialog.Close asChild>
-                    <Button type="button" variant="ghost" size="sm">
-                      Abbrechen
-                    </Button>
-                  </Dialog.Close>
-                </div>
-              </Dialog.Content>
-            </Dialog.Portal>
-          </Dialog.Root>
+                Ja, löschen
+              </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={() => setConfirmRestart(false)}
+              >
+                Abbrechen
+              </Button>
+            </Group>
+          </Modal>
           {(result.exclusions?.length ?? 0) > 0 ? (
             <div className="glass-panel w-full space-y-2 p-4 text-left">
               <h2 className="display-title text-base text-[var(--ink)]">
@@ -256,42 +265,47 @@ export function ErgebnisClient({
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
-            <Dialog.Trigger asChild>
-              <Chip
-                asChild
-                className="text-[var(--neon-cyan)] no-print"
-              >
-                <button type="button">
-                  <RotateCcw className="size-3.5 shrink-0" aria-hidden />
-                  Nochmal
-                </button>
-              </Chip>
-            </Dialog.Trigger>
-            <Dialog.Portal>
-              <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm no-print" />
-              <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 outline-none no-print">
-                <Dialog.Title className="display-title text-xl text-[var(--ink)]">
-                  Test neu starten?
-                </Dialog.Title>
-                <Dialog.Description className="text-sm text-[var(--muted)]">
-                  Dein aktuelles Ergebnis wird aus dem Zwischenspeicher gelöscht.
-                </Dialog.Description>
-                <div className="actions-row">
-                  <Button asChild variant="secondary" size="sm">
-                    <Link href="/assessment" onClick={() => clearAnswers()}>
-                      Ja, neu starten
-                    </Link>
-                  </Button>
-                  <Dialog.Close asChild>
-                    <Button type="button" variant="ghost" size="sm">
-                      Behalten
-                    </Button>
-                  </Dialog.Close>
-                </div>
-              </Dialog.Content>
-            </Dialog.Portal>
-          </Dialog.Root>
+          <>
+            <Chip
+              className="text-[var(--neon-cyan)] no-print"
+              onClick={() => setConfirmRestart(true)}
+            >
+              <IconRefresh size={14} aria-hidden />
+              Nochmal
+            </Chip>
+            <Modal
+              opened={confirmRestart}
+              onClose={() => setConfirmRestart(false)}
+              title="Test neu starten?"
+              classNames={{
+                content: "glass-panel glass-panel-strong no-print",
+                header: "bg-transparent",
+                title: "display-title text-xl text-[var(--ink)]",
+              }}
+            >
+              <Text size="sm" c="dimmed">
+                Dein aktuelles Ergebnis wird aus dem Zwischenspeicher gelöscht.
+              </Text>
+              <Group gap="sm" mt="md">
+                <Button
+                  href="/assessment"
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => clearAnswers()}
+                >
+                  Ja, neu starten
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setConfirmRestart(false)}
+                >
+                  Behalten
+                </Button>
+              </Group>
+            </Modal>
+          </>
         }
       />
 
@@ -326,7 +340,7 @@ export function ErgebnisClient({
               onClick={onSavePdf}
               disabled={pdfBusy}
             >
-              <FileDown className="size-4 shrink-0" aria-hidden />
+              <IconDownload size={16} aria-hidden />
               {pdfBusy ? "PDF wird gebaut…" : "PDF speichern"}
             </Button>
             <Button
@@ -335,7 +349,7 @@ export function ErgebnisClient({
               size="sm"
               onClick={() => window.print()}
             >
-              <Printer className="size-4 shrink-0" aria-hidden />
+              <IconPrinter size={16} aria-hidden />
               Drucken
             </Button>
             <Button
@@ -344,7 +358,7 @@ export function ErgebnisClient({
               size="sm"
               onClick={onCopy}
             >
-              <Copy className="size-4 shrink-0" aria-hidden />
+              <IconCopy size={16} aria-hidden />
               {copied ? "Kopiert" : "Kurzfassung kopieren"}
             </Button>
           </div>
@@ -413,12 +427,8 @@ export function ErgebnisClient({
         </section>
 
         {result.howBullets.length > 0 ? (
-          <Collapsible.Root
-            open={howOpen}
-            onOpenChange={setHowOpen}
-            className="stack-sm no-print"
-          >
-            <div className="flex flex-wrap items-end justify-between gap-2">
+          <Stack gap="sm" className="no-print">
+            <Group justify="space-between" align="flex-end" wrap="wrap">
               <div>
                 <h2 className="display-title text-xl text-[var(--ink)]">
                   Mehr aus dem Profil
@@ -427,25 +437,23 @@ export function ErgebnisClient({
                   Zusätzliche Stichpunkte — optional.
                 </p>
               </div>
-              <Collapsible.Trigger asChild>
-                <Chip
-                  asChild
-                  className="text-[var(--neon-cyan)]"
-                >
-                  <button type="button">
-                    {howOpen ? "Weniger" : "Mehr lesen"}
-                    <ChevronDown
-                      className={cn(
-                        "size-4 shrink-0 transition-transform duration-200",
-                        howOpen && "rotate-180",
-                      )}
-                      aria-hidden
-                    />
-                  </button>
-                </Chip>
-              </Collapsible.Trigger>
-            </div>
-            <Collapsible.Content className="stack-sm data-[state=open]:animate-rise">
+              <Chip
+                className="text-[var(--neon-cyan)]"
+                onClick={() => setHowOpen((v) => !v)}
+              >
+                {howOpen ? "Weniger" : "Mehr lesen"}
+                <IconChevronDown
+                  size={16}
+                  className={cn(
+                    "transition-transform duration-200",
+                    howOpen && "rotate-180",
+                  )}
+                  aria-hidden
+                />
+              </Chip>
+            </Group>
+            <Collapse expanded={howOpen}>
+              <Stack gap="sm" className="animate-rise">
               {result.howBullets.map((block) => (
                 <div
                   key={block.title}
@@ -475,8 +483,9 @@ export function ErgebnisClient({
                   </ul>
                 </div>
               ) : null}
-            </Collapsible.Content>
-          </Collapsible.Root>
+              </Stack>
+            </Collapse>
+          </Stack>
         ) : null}
 
         {(result.exclusions?.length ?? 0) > 0 ? (
@@ -492,37 +501,23 @@ export function ErgebnisClient({
           </section>
         ) : null}
 
-        <Collapsible.Root
-          id="details"
-          open={detailsOpen}
-          onOpenChange={setDetailsOpen}
-          className="glass-panel p-4 md:p-5 no-print"
-        >
-          <Collapsible.Trigger asChild>
-            <button
-              type="button"
-              className="flex w-full min-h-11 items-center justify-between gap-3 text-left display-title text-lg text-[var(--ink)]"
-            >
-              Details (Codes & Diagramme)
-              <ChevronDown
-                className={cn(
-                  "size-5 shrink-0 text-[var(--muted)] transition-transform duration-200",
-                  detailsOpen && "rotate-180",
-                )}
-                aria-hidden
-              />
-            </button>
-          </Collapsible.Trigger>
-          <AnimatePresence initial={false}>
-            {detailsOpen ? (
-              <Collapsible.Content forceMount asChild>
-                <motion.div
-                  initial={reduceMotion ? false : { opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
-                  transition={{ duration: 0.25 }}
-                  className="overflow-hidden"
-                >
+        <div id="details" className="glass-panel p-4 md:p-5 no-print">
+          <UnstyledButton
+            type="button"
+            className="flex w-full min-h-11 items-center justify-between gap-3 text-left display-title text-lg text-[var(--ink)]"
+            onClick={() => setDetailsOpen((v) => !v)}
+          >
+            Details (Codes & Diagramme)
+            <IconChevronDown
+              size={20}
+              className={cn(
+                "shrink-0 text-[var(--muted)] transition-transform duration-200",
+                detailsOpen && "rotate-180",
+              )}
+              aria-hidden
+            />
+          </UnstyledButton>
+          <Collapse expanded={detailsOpen}>
                   <div className="mt-4 space-y-5">
                     <p className="text-sm text-[var(--muted)]">
                       Mustercode {result.primaryCode}
@@ -545,20 +540,11 @@ export function ErgebnisClient({
                               <span>{axis.poleLow}</span>
                               <span>{axis.poleHigh}</span>
                             </div>
-                            <Progress.Root
+                            <Progress
                               className="glass-progress"
-                              value={pct}
-                              max={100}
-                            >
-                              <Progress.Indicator
-                                className="block h-full rounded-[inherit]"
-                                style={{
-                                  width: `${Math.max(8, Math.min(100, pct))}%`,
-                                  background:
-                                    "linear-gradient(90deg, #39f3ff, #7dffb2, #ff6b9d)",
-                                }}
-                              />
-                            </Progress.Root>
+                              value={Math.max(8, Math.min(100, pct))}
+                              color="cyan"
+                            />
                             <p className="text-sm text-[var(--ink)]">
                               {axis.plain}
                             </p>
@@ -617,30 +603,18 @@ export function ErgebnisClient({
                               </span>
                               <span className="text-[var(--muted)]">{id}</span>
                             </div>
-                            <Progress.Root
+                            <Progress
                               className="glass-progress"
-                              value={width}
-                              max={100}
-                            >
-                              <Progress.Indicator
-                                className="block h-full rounded-[inherit]"
-                                style={{
-                                  width: `${Math.max(value > 0 ? 8 : 0, width)}%`,
-                                  background:
-                                    "linear-gradient(90deg, #39f3ff, #7dffb2)",
-                                }}
-                              />
-                            </Progress.Root>
+                              value={Math.max(value > 0 ? 8 : 0, width)}
+                              color="mint"
+                            />
                           </div>
                         );
                       })}
                     </div>
                   </div>
-                </motion.div>
-              </Collapsible.Content>
-            ) : null}
-          </AnimatePresence>
-        </Collapsible.Root>
+          </Collapse>
+        </div>
       </motion.div>
     </main>
   );

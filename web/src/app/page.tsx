@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 
@@ -8,8 +7,8 @@ export default function HomePage() {
       <section className="page-shell page-shell-wide relative mx-auto flex w-full flex-1 flex-col justify-between gap-6 pb-[max(1.25rem,var(--safe-bottom))] pt-[max(1rem,var(--safe-top))] md:gap-8 md:py-8 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-10 lg:py-10">
         <div className="flex items-center justify-between gap-3 lg:col-span-2">
           <Chip>Coaching · Orientierung</Chip>
-          <Chip asChild className="text-[var(--muted-strong)]">
-            <Link href="/profile">Profile</Link>
+          <Chip href="/profile" className="text-[var(--muted-strong)]">
+            Profile
           </Chip>
         </div>
 
@@ -68,8 +67,8 @@ export default function HomePage() {
           className="animate-rise relative z-10 mx-auto flex w-full max-w-md flex-col gap-3 pb-1 lg:col-span-2 lg:mx-0 lg:max-w-sm"
           style={{ animationDelay: "240ms" }}
         >
-          <Button asChild variant="primary" size="lg" className="w-full">
-            <Link href="/assessment">Zu den Aufgaben</Link>
+          <Button href="/assessment" variant="primary" size="lg" className="w-full">
+            Zu den Aufgaben
           </Button>
           <p className="meta-label text-center normal-case tracking-[0.04em] lg:text-left">
             Privat · mobil · Zwischenspeicher

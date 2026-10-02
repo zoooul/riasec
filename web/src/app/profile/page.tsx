@@ -12,8 +12,8 @@ export default function ProfileIndexPage() {
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <Chip asChild className="text-[var(--neon-mint)]">
-            <Link href="/assessment">Zum Test</Link>
+          <Chip href="/assessment" className="text-[var(--neon-mint)]">
+            Zum Test
           </Chip>
         }
       />

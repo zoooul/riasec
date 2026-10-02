@@ -2,10 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
-import * as Dialog from "@radix-ui/react-dialog";
-import * as Progress from "@radix-ui/react-progress";
+import { Group, Modal, Progress, Text, UnstyledButton } from "@mantine/core";
+import { IconRefresh } from "@tabler/icons-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { RotateCcw } from "lucide-react";
 import {
   MODULE_INTROS,
   MODULE_LABELS,
@@ -164,27 +163,24 @@ export function AssessmentFlow({ items }: Props) {
                 : ""}
             </span>
           </div>
-          <Progress.Root
+          <Progress
             className="glass-progress"
-            value={progress.overallPercent}
-            max={100}
+            value={progressVisual}
             aria-label={`Reise: Aufgabe ${progress.questionNumber} von ${progress.itemCount}, ${progress.overallPercent} Prozent`}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={progress.overallPercent}
+            color="cyan"
+          />
+          <Group
+            justify="space-between"
+            gap="xs"
+            className="assessment-stage-meta text-[0.65rem] text-[var(--muted)] sm:text-[0.7rem]"
+            wrap="nowrap"
           >
-            <Progress.Indicator
-              className="block h-full rounded-[inherit] bg-gradient-to-r from-[var(--neon-cyan)]/90 to-[var(--neon-mint)]/85 transition-[width] duration-450 ease-out"
-              style={{ width: `${progressVisual}%` }}
-            />
-          </Progress.Root>
-          <div className="assessment-stage-meta flex items-center justify-between gap-2 text-[0.65rem] text-[var(--muted)] sm:text-[0.7rem]">
-            <div className="flex min-w-0 flex-wrap items-center gap-3">
+            <Group gap="md" wrap="wrap">
               <span className="assessment-stage-count">
                 Station: {progress.stageAnswered}/{progress.stage.count}
               </span>
               {index > 0 ? (
-                <button
+                <UnstyledButton
                   type="button"
                   className="inline-flex min-h-11 items-center text-[var(--muted-strong)] underline-offset-2 hover:underline disabled:opacity-50"
                   disabled={locked}
@@ -194,56 +190,50 @@ export function AssessmentFlow({ items }: Props) {
                   }}
                 >
                   Zurück
-                </button>
+                </UnstyledButton>
               ) : null}
-            </div>
+            </Group>
             {partial ? (
-              <Dialog.Root open={confirmRestart} onOpenChange={setConfirmRestart}>
-                <Dialog.Trigger asChild>
-                  <button
-                    type="button"
-                    className="inline-flex min-h-11 items-center gap-1.5 text-[var(--neon-coral)] underline-offset-2 hover:underline"
-                  >
-                    <RotateCcw className="size-3.5" aria-hidden />
-                    Neu starten
-                  </button>
-                </Dialog.Trigger>
-                <Dialog.Portal>
-                  <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm" />
-                  <Dialog.Content
-                    className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 max-h-[min(85dvh,28rem)] w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 overflow-y-auto overscroll-contain p-5 outline-none"
-                    style={{
-                      marginTop: "max(0px, env(safe-area-inset-top, 0px))",
-                      marginBottom: "max(0px, env(safe-area-inset-bottom, 0px))",
-                    }}
-                  >
-                    <Dialog.Title className="text-display text-xl text-[var(--ink)]">
-                      Test neu starten?
-                    </Dialog.Title>
-                    <Dialog.Description className="text-sm text-[var(--muted)]">
-                      Dein gespeicherter Fortschritt wird gelöscht.
-                    </Dialog.Description>
-                    <div className="actions-row">
-                      <Button
-                        type="button"
-                        variant="secondary"
-                        size="sm"
-                        onClick={restart}
-                      >
-                        Ja, neu starten
-                      </Button>
-                      <Dialog.Close asChild>
-                        <Button type="button" variant="ghost" size="sm">
-                          Abbrechen
-                        </Button>
-                      </Dialog.Close>
-                    </div>
-                  </Dialog.Content>
-                </Dialog.Portal>
-              </Dialog.Root>
+              <UnstyledButton
+                type="button"
+                className="inline-flex min-h-11 items-center gap-1.5 text-[var(--neon-coral)] underline-offset-2 hover:underline"
+                onClick={() => setConfirmRestart(true)}
+              >
+                <IconRefresh size={14} aria-hidden />
+                Neu starten
+              </UnstyledButton>
             ) : null}
-          </div>
+          </Group>
         </div>
+
+        <Modal
+          opened={confirmRestart}
+          onClose={() => setConfirmRestart(false)}
+          title="Test neu starten?"
+          classNames={{
+            content: "glass-panel glass-panel-strong",
+            header: "bg-transparent",
+            title: "text-display text-xl text-[var(--ink)]",
+            body: "space-y-4",
+          }}
+        >
+          <Text size="sm" c="dimmed">
+            Dein gespeicherter Fortschritt wird gelöscht.
+          </Text>
+          <Group gap="sm" mt="md">
+            <Button type="button" variant="secondary" size="sm" onClick={restart}>
+              Ja, neu starten
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={() => setConfirmRestart(false)}
+            >
+              Abbrechen
+            </Button>
+          </Group>
+        </Modal>
 
         <div className="relative min-h-0 shrink-0 lg:flex-1 lg:overflow-hidden">
           <AnimatePresence>

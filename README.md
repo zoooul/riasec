@@ -99,9 +99,19 @@ Skillster/
     └── src/lib/                       # Scoring, Bias, PDF, Session
 ```
 
-Stack: Next.js 16, React 19, Tailwind 4, Motion, Radix (Dialog/Progress/Collapsible), Vitest.
+Stack: Next.js 16, React 19, **Mantine 9** (core/hooks/notifications + Tabler icons), Tailwind 4 (liquid-glass tokens), Motion, Vitest.
 
 Mehr zur Web-App: [`web/README.md`](web/README.md).
+
+### Design-MCP (kostenlos)
+
+Projekt-MCP [`.cursor/mcp.json`](.cursor/mcp.json): **`figma-mcp-go`** ([npm](https://www.npmjs.com/package/@vkhanhqui/figma-mcp-go)) — kein Figma-API-Key, keine Rate-Limits (Plugin-Bridge statt REST).
+
+1. Cursor neu starten (MCP lädt nur beim Start).
+2. **Figma Desktop** öffnen → *Plugins → Development → Import plugin from manifest* → `manifest.json` aus dem [plugin.zip Release](https://github.com/vkhanhqui/figma-mcp-go/releases).
+3. Plugin in einer Datei starten, dann im Chat Design lesen/bauen lassen.
+
+Offizielle Figma-Dev-Mode-MCPs brauchen oft bezahlte Kontingente — deshalb bewusst die freie Variante.
 
 ---
 

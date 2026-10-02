@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Chip } from "@/components/ui/chip";
@@ -26,9 +25,7 @@ export default async function ProfileDetailPage({ params }: Props) {
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <Chip asChild>
-            <Link href="/profile">Alle Profile</Link>
-          </Chip>
+          <Chip href="/profile">Alle Profile</Chip>
         }
       />
 

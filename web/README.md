@@ -53,7 +53,8 @@ Lib-Doku: [`src/lib/README.md`](src/lib/README.md).
 ## UI
 
 - **Liquid-glass** Tokens in `src/app/globals.css`
-- **Motion** für dezente Übergänge; **Radix** für Dialog (Neu starten), Progress, Collapsible (Details)
+- **Mantine 9** via `MantineRoot` (`src/components/providers/MantineRoot.tsx`) + Theme (`src/theme/mantine.ts`); Tabler Icons; Modal/Progress/Collapse/Group für Assessment & Ergebnis
+- **Motion** für dezente Übergänge; Tailwind 4 für liquid-glass Klassen
 - Antworten nur in **`sessionStorage`** — keine URL-Payload
 
 Stimuli-Layer: [`data/stimuli/README.md`](data/stimuli/README.md).

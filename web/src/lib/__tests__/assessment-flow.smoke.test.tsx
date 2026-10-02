@@ -12,6 +12,7 @@ import {
   orderAssessmentItems,
 } from "@/lib/assessmentStructure";
 import { loadMvpItems } from "./helpers";
+import { withMantine } from "./mantine";
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }),
@@ -86,7 +87,9 @@ describe("soft · AssessmentFlow smoke", () => {
   it("renders first item with stage chip, intro, and equal choice cards", () => {
     const items = orderAssessmentItems(loadMvpItems());
     const first = items[0]!;
-    const html = renderToStaticMarkup(<AssessmentFlow items={items} />);
+    const html = renderToStaticMarkup(
+      withMantine(<AssessmentFlow items={items} />),
+    );
 
     expect(html).toContain(MODULE_LABELS.warmup);
     expect(html).toContain(MODULE_INTROS.warmup);
@@ -107,7 +110,9 @@ describe("soft · AssessmentFlow smoke", () => {
 
   it("uses viewport-fit shell classes so the step can compress without page scroll", () => {
     const items = orderAssessmentItems(loadMvpItems());
-    const html = renderToStaticMarkup(<AssessmentFlow items={items} />);
+    const html = renderToStaticMarkup(
+      withMantine(<AssessmentFlow items={items} />),
+    );
 
     expect(html).toContain("assessment-flow");
     expect(html).toContain("assessment-rail");

@@ -1,7 +1,18 @@
-import type { ElementType, HTMLAttributes, ReactElement } from "react";
+"use client";
+
+import { Text as MantineText, Title, type TitleOrder } from "@mantine/core";
+import type { ReactElement, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type HeadingSize = "sm" | "md" | "lg" | "xl" | "hero";
+
+const headingOrder: Record<HeadingSize, TitleOrder> = {
+  sm: 3,
+  md: 2,
+  lg: 1,
+  xl: 3,
+  hero: 1,
+};
 
 const headingSizeClass: Record<HeadingSize, string> = {
   sm: "text-xl md:text-2xl",
@@ -11,23 +22,29 @@ const headingSizeClass: Record<HeadingSize, string> = {
   hero: "text-6xl sm:text-7xl md:text-8xl",
 };
 
-type HeadingProps<T extends ElementType = "h2"> = {
-  as?: T;
+type HeadingProps = {
+  as?: "h1" | "h2" | "h3" | "h4";
   size?: HeadingSize;
-} & HTMLAttributes<HTMLElement>;
+  className?: string;
+  children?: ReactNode;
+};
 
-export function Heading<T extends ElementType = "h2">({
+export function Heading({
   as,
   size = "md",
   className,
-  ...props
-}: HeadingProps<T>): ReactElement {
-  const Tag = (as ?? "h2") as ElementType;
+  children,
+}: HeadingProps): ReactElement {
+  const order = as
+    ? (Number(as.replace("h", "")) as TitleOrder)
+    : headingOrder[size];
   return (
-    <Tag
+    <Title
+      order={order}
       className={cn("text-display", headingSizeClass[size], className)}
-      {...props}
-    />
+    >
+      {children}
+    </Title>
   );
 }
 
@@ -40,18 +57,25 @@ const textVariantClass: Record<TextVariant, string> = {
   label: "text-label",
 };
 
-type TextProps = HTMLAttributes<HTMLParagraphElement> & {
+type TextProps = {
   variant?: TextVariant;
   as?: "p" | "span" | "div";
+  className?: string;
+  children?: ReactNode;
 };
 
 export function Text({
   variant = "body",
-  as: Tag = "p",
+  as = "p",
   className,
-  ...props
+  children,
 }: TextProps): ReactElement {
   return (
-    <Tag className={cn(textVariantClass[variant], className)} {...props} />
+    <MantineText
+      component={as}
+      className={cn(textVariantClass[variant], className)}
+    >
+      {children}
+    </MantineText>
   );
 }
