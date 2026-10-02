@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "validationStatus": "unvalidated",
-  "notes": "Core pictorial MVP items. Own constructions inspired by VIST dimensions + RIASEC. Marked unvalidated until norming.",
+  "notes": "Core pictorial MVP items with nested weights (axes / bigFive / riasec) to avoid Big-Five E vs RIASEC E collision. Own constructions inspired by VIST dimensions + RIASEC. Marked unvalidated until norming.",
   "items": [
     {
       "id": "sn_01",
@@ -14,14 +14,14 @@
           "label": "Kleine Unterschiede",
           "hint": "Ich checke Details und Abweichungen.",
           "visual": { "kind": "pattern", "motif": "grid-error" },
-          "weights": { "S_N": -35, "C": 10 }
+          "weights": { "axes": { "S_N": -35 }, "bigFive": { "C": 10 } }
         },
         {
           "id": "sn_01_b",
           "label": "Das große Muster",
           "hint": "Ich sehe zuerst die Gesamtform.",
           "visual": { "kind": "pattern", "motif": "gestalt-wave" },
-          "weights": { "S_N": 35, "O": 10 }
+          "weights": { "axes": { "S_N": 35 }, "bigFive": { "O": 10 } }
         }
       ],
       "source": {
@@ -42,14 +42,14 @@
           "label": "Fehler finden",
           "hint": "Liste prüfen, Unstimmigkeiten markieren.",
           "visual": { "kind": "scene", "motif": "checklist" },
-          "weights": { "S_N": -30, "C": 15 }
+          "weights": { "axes": { "S_N": -30 }, "bigFive": { "C": 15 } }
         },
         {
           "id": "sn_02_b",
           "label": "Idee spinnen",
           "hint": "Neue Wege und Zusammenhänge entdecken.",
           "visual": { "kind": "scene", "motif": "idea-map" },
-          "weights": { "S_N": 30, "O": 15 }
+          "weights": { "axes": { "S_N": 30 }, "bigFive": { "O": 15 } }
         }
       ],
       "source": {
@@ -70,14 +70,14 @@
           "label": "Zahlen & Fakten",
           "hint": "Was lässt sich belegen?",
           "visual": { "kind": "scene", "motif": "charts" },
-          "weights": { "T_F": -35, "C": 5 }
+          "weights": { "axes": { "T_F": -35 }, "bigFive": { "C": 5 } }
         },
         {
           "id": "tf_01_b",
           "label": "Menschen & Werte",
           "hint": "Was fühlt sich stimmig und fair an?",
           "visual": { "kind": "scene", "motif": "circle-talk" },
-          "weights": { "T_F": 35, "A": 15 }
+          "weights": { "axes": { "T_F": 35 }, "bigFive": { "A": 15 } }
         }
       ],
       "source": {
@@ -98,14 +98,14 @@
           "label": "Klare Logik",
           "hint": "Saubere Begründung, sachlich bleiben.",
           "visual": { "kind": "pattern", "motif": "logic-blocks" },
-          "weights": { "T_F": -30 }
+          "weights": { "axes": { "T_F": -30 } }
         },
         {
           "id": "tf_02_b",
           "label": "Gute Atmosphäre",
           "hint": "Beziehungen und Stimmung mitdenken.",
           "visual": { "kind": "scene", "motif": "warm-team" },
-          "weights": { "T_F": 30, "A": 10 }
+          "weights": { "axes": { "T_F": 30 }, "bigFive": { "A": 10 } }
         }
       ],
       "source": {
@@ -126,14 +126,14 @@
           "label": "Plan & Struktur",
           "hint": "Termine, Schritte, klare Abschlüsse.",
           "visual": { "kind": "scene", "motif": "calendar" },
-          "weights": { "J_P": -35, "C": 20 }
+          "weights": { "axes": { "J_P": -35 }, "bigFive": { "C": 20 } }
         },
         {
           "id": "jp_01_b",
           "label": "Offen & flexibel",
           "hint": "Optionen offen lassen, spontan reagieren.",
           "visual": { "kind": "scene", "motif": "open-road" },
-          "weights": { "J_P": 35, "O": 10 }
+          "weights": { "axes": { "J_P": 35 }, "bigFive": { "O": 10 } }
         }
       ],
       "source": {
@@ -154,14 +154,20 @@
           "label": "Mit anderen",
           "hint": "Austausch, Reize von außen.",
           "visual": { "kind": "scene", "motif": "group-energy" },
-          "weights": { "E_I": 35, "E": 25 }
+          "weights": {
+            "axes": { "E_I": 35 },
+            "bigFive": { "E": 25 }
+          }
         },
         {
           "id": "ei_01_b",
           "label": "Für mich",
           "hint": "Ruhe, Fokus, innere Verarbeitung.",
           "visual": { "kind": "scene", "motif": "quiet-desk" },
-          "weights": { "E_I": -35, "E": -25 }
+          "weights": {
+            "axes": { "E_I": -35 },
+            "bigFive": { "E": -25 }
+          }
         }
       ],
       "source": {
@@ -182,14 +188,14 @@
           "label": "Mit den Händen arbeiten",
           "hint": "Werkstatt, Geräte, praktisches Tun.",
           "visual": { "kind": "scene", "motif": "workshop" },
-          "weights": { "R": 40 }
+          "weights": { "riasec": { "R": 40 } }
         },
         {
           "id": "r_01_b",
           "label": "Menschen begleiten",
           "hint": "Beraten, helfen, erklären.",
           "visual": { "kind": "scene", "motif": "coaching" },
-          "weights": { "S": 40 }
+          "weights": { "riasec": { "S": 40 } }
         }
       ],
       "source": {
@@ -210,14 +216,17 @@
           "label": "Untersuchen & verstehen",
           "hint": "Forschen, analysieren, knifflige Fragen.",
           "visual": { "kind": "scene", "motif": "lab-search" },
-          "weights": { "I": 40, "O": 10 }
+          "weights": {
+            "riasec": { "I": 40 },
+            "bigFive": { "O": 10 }
+          }
         },
         {
           "id": "i_01_b",
           "label": "Organisieren & ordnen",
           "hint": "Abläufe, Tabellen, Systeme pflegen.",
           "visual": { "kind": "scene", "motif": "office-order" },
-          "weights": { "C": 40 }
+          "weights": { "riasec": { "C": 40 } }
         }
       ],
       "source": {
@@ -238,14 +247,17 @@
           "label": "Gestalten & ausdrücken",
           "hint": "Ideen sichtbar machen, kreativ werden.",
           "visual": { "kind": "scene", "motif": "studio" },
-          "weights": { "A": 40, "O": 15 }
+          "weights": {
+            "riasec": { "A": 40 },
+            "bigFive": { "O": 15 }
+          }
         },
         {
           "id": "a_01_b",
           "label": "Überzeugen & bewegen",
           "hint": "Projekte vorantreiben, Menschen gewinnen.",
           "visual": { "kind": "scene", "motif": "pitch" },
-          "weights": { "E": 40 }
+          "weights": { "riasec": { "E": 40 } }
         }
       ],
       "source": {
@@ -267,14 +279,20 @@
           "label": "Plan machen",
           "hint": "Klarheit schaffen, Schritte festlegen.",
           "visual": { "kind": "affect", "motif": "calm-plan" },
-          "weights": { "J_P": -20, "N": -10, "C": 15 }
+          "weights": {
+            "axes": { "J_P": -20 },
+            "bigFive": { "N": -10, "C": 15 }
+          }
         },
         {
           "id": "stress_01_b",
           "label": "Luft holen",
           "hint": "Abstand, Entspannung, neu sortieren.",
           "visual": { "kind": "affect", "motif": "soft-pause" },
-          "weights": { "J_P": 15, "N": -15, "A": 5 }
+          "weights": {
+            "axes": { "J_P": 15 },
+            "bigFive": { "N": -15, "A": 5 }
+          }
         }
       ],
       "source": {

@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { MODULE_LABELS } from "@/lib/constants";
+import { saveAnswers } from "@/lib/session";
 import type { AssessmentItem } from "@/lib/types";
 import { VisualCard } from "./VisualCard";
 
@@ -16,8 +18,8 @@ export function AssessmentFlow({ items }: Props) {
 
   const item = items[index];
   const progress = useMemo(
-    () => Math.round((Object.keys(answers).length / items.length) * 100),
-    [answers, items.length],
+    () => Math.round(((index + (answers[item?.id ?? ""] ? 1 : 0)) / items.length) * 100),
+    [answers, index, item?.id, items.length],
   );
 
   if (!item) return null;
@@ -25,52 +27,50 @@ export function AssessmentFlow({ items }: Props) {
   function choose(choiceId: string) {
     const nextAnswers = { ...answers, [item.id]: choiceId };
     setAnswers(nextAnswers);
+    saveAnswers(nextAnswers);
 
     if (index >= items.length - 1) {
-      const payload = encodeURIComponent(JSON.stringify(nextAnswers));
-      router.push(`/ergebnis?a=${payload}`);
+      router.push("/ergebnis");
       return;
     }
     setIndex((i) => i + 1);
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 px-4 py-10">
-      <div className="space-y-3">
-        <div className="flex items-center justify-between text-sm text-[var(--muted)]">
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6 pb-[max(1.5rem,var(--safe-bottom))] md:gap-8 md:py-10">
+      <div className="glass-panel space-y-3 p-4 md:p-5">
+        <div className="flex items-center justify-between gap-3 text-sm text-[var(--muted)]">
+          <span className="glass-chip">{MODULE_LABELS[item.module]}</span>
           <span>
-            Frage {index + 1} von {items.length}
+            {index + 1}/{items.length}
           </span>
-          <span>{progress}%</span>
         </div>
-        <div className="h-2 overflow-hidden rounded-full bg-[var(--chip)]">
-          <div
-            className="h-full rounded-full bg-[var(--accent)] transition-all duration-500"
-            style={{ width: `${Math.max(progress, ((index + 1) / items.length) * 100)}%` }}
-          />
+        <div className="glass-progress" aria-hidden>
+          <span style={{ width: `${Math.max(progress, ((index + 1) / items.length) * 100)}%` }} />
         </div>
       </div>
 
-      <div className="space-y-3 text-center">
-        <h1 className="font-[family-name:var(--font-display)] text-3xl leading-tight text-[var(--ink)] md:text-4xl">
+      <div className="animate-rise space-y-2 text-center">
+        <h1 className="font-[family-name:var(--font-display)] text-2xl leading-tight text-[var(--ink)] sm:text-3xl md:text-4xl">
           {item.prompt}
         </h1>
         {item.helpText ? (
-          <p className="text-[var(--muted)]">{item.helpText}</p>
+          <p className="text-sm text-[var(--muted)] md:text-base">{item.helpText}</p>
         ) : null}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {item.choices.map((choice) => (
+      <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
+        {item.choices.map((choice, i) => (
           <button
             key={choice.id}
             type="button"
             onClick={() => choose(choice.id)}
-            className="group rounded-3xl border border-[var(--line)] bg-[var(--card)] p-4 text-left shadow-[0_10px_30px_rgba(30,40,35,0.06)] transition hover:-translate-y-0.5 hover:border-[var(--accent)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            className="glass-panel glass-choice glass-sheen p-3 sm:p-4"
+            style={{ animationDelay: `${i * 60}ms` }}
           >
             <VisualCard kind={choice.visual.kind} motif={choice.visual.motif} />
-            <div className="mt-4 space-y-1">
-              <div className="text-lg font-semibold text-[var(--ink)]">
+            <div className="relative z-[1] mt-3 space-y-1 sm:mt-4">
+              <div className="text-base font-semibold text-[var(--ink)] sm:text-lg">
                 {choice.label}
               </div>
               <p className="text-sm leading-relaxed text-[var(--muted)]">
@@ -85,7 +85,7 @@ export function AssessmentFlow({ items }: Props) {
         <button
           type="button"
           onClick={() => setIndex((i) => Math.max(0, i - 1))}
-          className="self-start text-sm text-[var(--muted)] underline-offset-4 hover:underline"
+          className="glass-btn glass-btn-secondary self-start px-5 py-2 text-sm"
         >
           Zurück
         </button>

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "notes": "Small German seed set for RIASEC occupation matching until O*NET/ESCO import. Core layer stub.",
+  "occupations": [
+    {
+      "id": "seed_handwerk",
+      "titleDe": "Handwerk / Technik vor Ort",
+      "riasec": "RIC",
+      "vector": { "R": 90, "I": 40, "A": 10, "S": 20, "E": 25, "C": 45 }
+    },
+    {
+      "id": "seed_analyse",
+      "titleDe": "Analyse / Forschung / IT",
+      "riasec": "IRC",
+      "vector": { "R": 30, "I": 95, "A": 25, "S": 15, "E": 20, "C": 55 }
+    },
+    {
+      "id": "seed_gestaltung",
+      "titleDe": "Gestaltung / Medien / Design",
+      "riasec": "AIR",
+      "vector": { "R": 25, "I": 35, "A": 95, "S": 30, "E": 40, "C": 15 }
+    },
+    {
+      "id": "seed_sozial",
+      "titleDe": "Beratung / Pflege / Bildung",
+      "riasec": "SAE",
+      "vector": { "R": 15, "I": 30, "A": 40, "S": 95, "E": 35, "C": 25 }
+    },
+    {
+      "id": "seed_vertrieb",
+      "titleDe": "Vertrieb / Projektleitung / Gründung",
+      "riasec": "ESA",
+      "vector": { "R": 20, "I": 25, "A": 35, "S": 55, "E": 95, "C": 30 }
+    },
+    {
+      "id": "seed_verwaltung",
+      "titleDe": "Verwaltung / Qualität / Organisation",
+      "riasec": "CEI",
+      "vector": { "R": 20, "I": 40, "A": 10, "S": 30, "E": 35, "C": 95 }
+    },
+    {
+      "id": "seed_labor",
+      "titleDe": "Labor / Qualitätsprüfung",
+      "riasec": "IRC",
+      "vector": { "R": 55, "I": 85, "A": 10, "S": 15, "E": 15, "C": 70 }
+    },
+    {
+      "id": "seed_coaching",
+      "titleDe": "Coaching / HR / Teamentwicklung",
+      "riasec": "SAE",
+      "vector": { "R": 10, "I": 35, "A": 45, "S": 90, "E": 50, "C": 30 }
+    }
+  ]
+}

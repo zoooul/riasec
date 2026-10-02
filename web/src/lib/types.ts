@@ -3,6 +3,11 @@ export type LicenseLayer = "core" | "extra" | "owned";
 export type AxisId = "E_I" | "S_N" | "T_F" | "J_P";
 export type BigFiveId = "O" | "C" | "E" | "A" | "N";
 export type RiasecId = "R" | "I" | "A" | "S" | "E" | "C";
+export type ModuleId =
+  | "personality"
+  | "interests"
+  | "motives"
+  | "self_regulation";
 
 export type ValidationStatus = "validated" | "unvalidated" | "enrichment";
 
@@ -31,22 +36,27 @@ export interface VistProfile {
   sections: ProfileSectionMap;
 }
 
+/** Nested weights avoid Big-Five E vs RIASEC E collision. */
+export interface ChoiceWeights {
+  axes?: Partial<Record<AxisId, number>>;
+  bigFive?: Partial<Record<BigFiveId, number>>;
+  riasec?: Partial<Record<RiasecId, number>>;
+}
+
 export interface PictorialChoice {
   id: string;
   label: string;
-  /** Short plain-language description shown under the choice */
   hint: string;
-  /** Visual placeholder until real stimuli are wired */
   visual: {
     kind: "pattern" | "scene" | "affect";
     motif: string;
   };
-  weights: Partial<Record<AxisId | BigFiveId | RiasecId, number>>;
+  weights: ChoiceWeights;
 }
 
 export interface AssessmentItem {
   id: string;
-  module: "personality" | "interests" | "motives" | "self_regulation";
+  module: ModuleId;
   prompt: string;
   helpText?: string;
   choices: PictorialChoice[];
@@ -54,24 +64,41 @@ export interface AssessmentItem {
 }
 
 export interface AxisScore {
-  id: AxisId | BigFiveId | RiasecId;
-  value: number; // -100 .. +100
+  id: AxisId;
+  value: number;
+  poleLow: string;
+  poleHigh: string;
+  plain: string;
 }
 
 export interface ClusterMatch {
   code: string;
   role: string;
-  weight: number; // 0..1
+  weight: number;
   isPrimary: boolean;
   isZwischen: boolean;
 }
 
+export interface OccupationMatch {
+  id: string;
+  titleDe: string;
+  riasec: string;
+  score: number;
+  why: string;
+}
+
 export interface AssessmentResult {
+  answeredCount: number;
+  itemCount: number;
   axes: AxisScore[];
   bigFive: Record<BigFiveId, number>;
   riasec: Record<RiasecId, number>;
+  riasecCode: string;
   clusters: ClusterMatch[];
   primaryCode: string;
   zwischenLabels: string[];
   plainSummary: string[];
+  howBullets: { title: string; bullets: string[] }[];
+  blendBullets: string[];
+  occupations: OccupationMatch[];
 }

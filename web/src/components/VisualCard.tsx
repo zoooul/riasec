@@ -3,79 +3,62 @@ type MotifProps = {
   kind: "pattern" | "scene" | "affect";
 };
 
-/** Lightweight SVG placeholders until real PSE/OASIS/CC0 assets are wired. */
+/** Glossy motif tiles — neon strokes on frosted glass. */
 export function VisualCard({ motif, kind }: MotifProps) {
-  const bg =
+  const glow =
     kind === "pattern"
-      ? "from-[#d5e8e6] to-[#eef4f7]"
+      ? "from-cyan-400/25 via-transparent to-mint-400/10"
       : kind === "affect"
-        ? "from-[#d9e4ef] to-[#f2f6f8]"
-        : "from-[#cfe0e8] to-[#f4f8fa]";
+        ? "from-pink-400/25 via-transparent to-amber-300/15"
+        : "from-sky-400/25 via-transparent to-fuchsia-400/15";
+
+  const stroke = "#e8f7ff";
+  const neon = kind === "affect" ? "#ff6b9d" : "#39f3ff";
 
   return (
     <div
-      className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-br ${bg}`}
+      className={`relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/25 bg-gradient-to-br ${glow} shadow-[inset_0_1px_0_rgba(255,255,255,0.45)]`}
+      style={{
+        backgroundColor: "rgba(255,255,255,0.06)",
+        backdropFilter: "blur(10px)",
+      }}
       aria-hidden
     >
-      <svg viewBox="0 0 160 120" className="h-full w-full">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.28),transparent_45%)]" />
+      <svg viewBox="0 0 160 120" className="relative h-full w-full">
         {motif.includes("grid") && (
           <>
             {[20, 40, 60, 80, 100, 120, 140].map((x) => (
-              <line
-                key={`v${x}`}
-                x1={x}
-                y1={10}
-                x2={x}
-                y2={110}
-                stroke="#2f4a3c"
-                strokeOpacity="0.25"
-              />
+              <line key={`v${x}`} x1={x} y1={10} x2={x} y2={110} stroke={stroke} strokeOpacity="0.25" />
             ))}
             {[20, 40, 60, 80, 100].map((y) => (
-              <line
-                key={`h${y}`}
-                x1={10}
-                y1={y}
-                x2={150}
-                y2={y}
-                stroke="#2f4a3c"
-                strokeOpacity="0.25"
-              />
+              <line key={`h${y}`} x1={10} y1={y} x2={150} y2={y} stroke={stroke} strokeOpacity="0.25" />
             ))}
-            <circle cx="92" cy="48" r="6" fill="#0f5c63" />
+            <circle cx="92" cy="48" r="7" fill={neon} />
           </>
         )}
-        {motif.includes("wave") || motif.includes("gestalt") ? (
+        {(motif.includes("wave") || motif.includes("gestalt")) && (
           <path
             d="M10 70 C40 20, 70 120, 100 50 S140 20, 155 65"
             fill="none"
-            stroke="#1f4d5c"
+            stroke={neon}
             strokeWidth="6"
             strokeLinecap="round"
           />
-        ) : null}
+        )}
         {motif.includes("checklist") && (
           <>
-            <rect x="35" y="25" width="90" height="70" rx="8" fill="#fffaf2" />
-            <path
-              d="M50 45 h50 M50 60 h40 M50 75 h55"
-              stroke="#2f4a3c"
-              strokeWidth="4"
-            />
-            <path
-              d="M42 44 l5 5 10-12"
-              fill="none"
-              stroke="#2f7a4d"
-              strokeWidth="3"
-            />
+            <rect x="35" y="25" width="90" height="70" rx="10" fill="rgba(255,255,255,0.12)" stroke={stroke} />
+            <path d="M50 45 h50 M50 60 h40 M50 75 h55" stroke={stroke} strokeWidth="4" />
+            <path d="M42 44 l5 5 10-12" fill="none" stroke="#7dffb2" strokeWidth="3" />
           </>
         )}
         {motif.includes("idea") && (
           <>
-            <circle cx="80" cy="48" r="18" fill="#f0c95a" />
+            <circle cx="80" cy="48" r="18" fill="#ffd166" opacity="0.9" />
             <path
               d="M80 68 v18 M70 55 h-18 M90 55 h18 M68 38 l-14-14 M92 38 l14-14"
-              stroke="#1f4d5c"
+              stroke={stroke}
               strokeWidth="4"
               strokeLinecap="round"
             />
@@ -83,112 +66,96 @@ export function VisualCard({ motif, kind }: MotifProps) {
         )}
         {motif.includes("chart") && (
           <>
-            <rect x="30" y="55" width="18" height="40" fill="#1f4d5c" />
-            <rect x="58" y="35" width="18" height="60" fill="#3f7d6a" />
-            <rect x="86" y="45" width="18" height="50" fill="#1f4d5c" />
-            <rect x="114" y="28" width="18" height="67" fill="#0f5c63" />
+            <rect x="30" y="55" width="18" height="40" fill="#39f3ff" opacity="0.85" />
+            <rect x="58" y="35" width="18" height="60" fill="#7dffb2" opacity="0.85" />
+            <rect x="86" y="45" width="18" height="50" fill="#39f3ff" opacity="0.7" />
+            <rect x="114" y="28" width="18" height="67" fill="#ff6b9d" opacity="0.85" />
           </>
         )}
-        {motif.includes("circle") || motif.includes("warm") || motif.includes("group") || motif.includes("coaching") ? (
+        {(motif.includes("circle") ||
+          motif.includes("warm") ||
+          motif.includes("group") ||
+          motif.includes("coaching")) && (
           <>
-            <circle cx="55" cy="55" r="14" fill="#d9a48a" />
-            <circle cx="85" cy="48" r="14" fill="#c9896d" />
-            <circle cx="115" cy="58" r="14" fill="#e0b59f" />
-            <ellipse cx="85" cy="95" rx="45" ry="12" fill="#1f4d5c" opacity="0.15" />
+            <circle cx="55" cy="55" r="14" fill="#ff6b9d" opacity="0.85" />
+            <circle cx="85" cy="48" r="14" fill="#39f3ff" opacity="0.85" />
+            <circle cx="115" cy="58" r="14" fill="#7dffb2" opacity="0.85" />
           </>
-        ) : null}
+        )}
         {motif.includes("calendar") && (
           <>
-            <rect x="40" y="28" width="80" height="70" rx="8" fill="#fffaf2" />
-            <rect x="40" y="28" width="80" height="18" fill="#1f4d5c" />
-            <circle cx="60" cy="68" r="5" fill="#3f7d6a" />
-            <circle cx="80" cy="68" r="5" fill="#3f7d6a" />
-            <circle cx="100" cy="68" r="5" fill="#0f5c63" />
+            <rect x="40" y="28" width="80" height="70" rx="10" fill="rgba(255,255,255,0.1)" stroke={stroke} />
+            <rect x="40" y="28" width="80" height="18" fill="#39f3ff" opacity="0.8" />
+            <circle cx="60" cy="68" r="5" fill="#7dffb2" />
+            <circle cx="80" cy="68" r="5" fill="#7dffb2" />
+            <circle cx="100" cy="68" r="5" fill="#ff6b9d" />
           </>
         )}
         {motif.includes("quiet") && (
           <>
-            <rect x="45" y="50" width="70" height="8" rx="2" fill="#1f4d5c" />
-            <rect x="55" y="35" width="50" height="30" rx="4" fill="#fffaf2" />
-            <circle cx="120" cy="30" r="10" fill="#f0c95a" opacity="0.7" />
+            <rect x="45" y="50" width="70" height="8" rx="2" fill={stroke} opacity="0.5" />
+            <rect x="55" y="35" width="50" height="30" rx="6" fill="rgba(255,255,255,0.12)" stroke={stroke} />
+            <circle cx="120" cy="30" r="10" fill="#ffd166" opacity="0.85" />
           </>
         )}
         {motif.includes("workshop") && (
           <>
-            <rect x="30" y="70" width="100" height="12" fill="#6b4f3a" />
-            <rect x="70" y="40" width="10" height="35" fill="#888" />
-            <circle cx="75" cy="38" r="10" fill="#bbb" />
+            <rect x="30" y="70" width="100" height="12" fill="rgba(255,255,255,0.2)" />
+            <rect x="70" y="40" width="10" height="35" fill="#39f3ff" />
+            <circle cx="75" cy="38" r="10" fill="#7dffb2" />
           </>
         )}
         {motif.includes("lab") && (
           <>
-            <path
-              d="M60 30 h20 l15 55 h-50 z"
-              fill="#9fd0c2"
-              stroke="#1f4d5c"
-              strokeWidth="3"
-            />
-            <circle cx="110" cy="40" r="12" fill="none" stroke="#1f4d5c" strokeWidth="4" />
+            <path d="M60 30 h20 l15 55 h-50 z" fill="rgba(57,243,255,0.35)" stroke={neon} strokeWidth="3" />
+            <circle cx="110" cy="40" r="12" fill="none" stroke="#ff6b9d" strokeWidth="4" />
           </>
         )}
         {motif.includes("office") && (
           <>
-            <rect x="35" y="30" width="90" height="60" rx="6" fill="#fffaf2" />
+            <rect x="35" y="30" width="90" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke={stroke} />
             {[42, 54, 66, 78].map((y) => (
-              <line
-                key={y}
-                x1="48"
-                y1={y}
-                x2="112"
-                y2={y}
-                stroke="#1f4d5c"
-                strokeWidth="3"
-              />
+              <line key={y} x1="48" y1={y} x2="112" y2={y} stroke={neon} strokeWidth="3" />
             ))}
           </>
         )}
         {motif.includes("studio") && (
           <>
-            <rect x="40" y="35" width="55" height="45" fill="#fffaf2" stroke="#1f4d5c" />
-            <circle cx="110" cy="55" r="18" fill="#0f5c63" opacity="0.8" />
-            <path d="M55 70 l20-25 15 15 10-10" stroke="#1f4d5c" strokeWidth="3" fill="none" />
+            <rect x="40" y="35" width="55" height="45" fill="rgba(255,255,255,0.1)" stroke={stroke} />
+            <circle cx="110" cy="55" r="18" fill="#ff6b9d" opacity="0.85" />
+            <path d="M55 70 l20-25 15 15 10-10" stroke={neon} strokeWidth="3" fill="none" />
           </>
         )}
         {motif.includes("pitch") && (
           <>
-            <polygon points="40,85 80,30 120,85" fill="#1f4d5c" opacity="0.85" />
-            <circle cx="80" cy="55" r="8" fill="#f0c95a" />
+            <polygon points="40,85 80,30 120,85" fill="rgba(57,243,255,0.35)" stroke={neon} />
+            <circle cx="80" cy="55" r="8" fill="#ffd166" />
           </>
         )}
         {motif.includes("plan") && (
           <>
-            <rect x="38" y="28" width="84" height="64" rx="8" fill="#fffaf2" />
-            <path d="M55 50 h50 M55 65 h35" stroke="#1f4d5c" strokeWidth="4" />
+            <rect x="38" y="28" width="84" height="64" rx="10" fill="rgba(255,255,255,0.1)" stroke={stroke} />
+            <path d="M55 50 h50 M55 65 h35" stroke={neon} strokeWidth="4" />
           </>
         )}
-        {motif.includes("pause") || motif.includes("soft") ? (
+        {(motif.includes("pause") || motif.includes("soft")) && (
           <>
-            <circle cx="80" cy="55" r="28" fill="#9fd0c2" opacity="0.7" />
-            <path
-              d="M60 70 C70 40, 90 40, 100 70"
-              fill="none"
-              stroke="#1f4d5c"
-              strokeWidth="4"
-            />
+            <circle cx="80" cy="55" r="28" fill="rgba(125,255,178,0.35)" />
+            <path d="M60 70 C70 40, 90 40, 100 70" fill="none" stroke={stroke} strokeWidth="4" />
           </>
-        ) : null}
+        )}
         {motif.includes("logic") && (
           <>
-            <rect x="30" y="40" width="28" height="28" fill="#1f4d5c" />
-            <rect x="66" y="40" width="28" height="28" fill="#3f7d6a" />
-            <rect x="102" y="40" width="28" height="28" fill="#1f4d5c" />
+            <rect x="30" y="40" width="28" height="28" rx="6" fill="#39f3ff" opacity="0.85" />
+            <rect x="66" y="40" width="28" height="28" rx="6" fill="#7dffb2" opacity="0.85" />
+            <rect x="102" y="40" width="28" height="28" rx="6" fill="#ff6b9d" opacity="0.85" />
           </>
         )}
         {motif.includes("open") && (
           <path
             d="M20 80 C50 60, 70 95, 100 55 S140 40, 155 50"
             fill="none"
-            stroke="#0f5c63"
+            stroke="#ff6b9d"
             strokeWidth="6"
           />
         )}
