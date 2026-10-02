@@ -248,7 +248,10 @@ export function AssessmentFlow({ items }: Props) {
                   exit={{ opacity: 0 }}
                   className="w-fit max-w-full"
                 >
-                  <div className="alert alert-info py-1.5 text-sm shadow-sm">
+                  <div
+                    role="status"
+                    className="alert alert-info alert-soft py-1.5 text-sm"
+                  >
                     Weiter bei Aufgabe {progress.questionNumber}
                   </div>
                 </motion.div>
@@ -263,7 +266,10 @@ export function AssessmentFlow({ items }: Props) {
                   exit={{ opacity: 0 }}
                   className="w-fit max-w-full"
                 >
-                  <div className="alert alert-success py-1.5 text-sm shadow-sm">
+                  <div
+                    role="status"
+                    className="alert alert-success alert-soft py-1.5 text-sm"
+                  >
                     Nächste Station: {MODULE_LABELS[stageFlash]}
                   </div>
                 </motion.div>

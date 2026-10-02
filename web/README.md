@@ -63,7 +63,7 @@ Lib-Doku: [`src/lib/README.md`](src/lib/README.md).
 | Shell | `SiteHeader` navbar + `AppShell` footer |
 
 - **DaisyUI 5** (`@plugin "daisyui"`) + custom theme `skillster` in `src/app/globals.css`
-- Components: `btn` / `badge` / `card` / `progress` / `modal` / `collapse` / `steps` / `footer` / `hero`
+- Components: `btn` / `badge` / `card` / `progress` / `modal` / `collapse` / `steps` / `footer` / `hero` / `alert`
 - **Motion** for light transitions; Tabler Icons; Tailwind CSS v4
 - Antworten nur in **`sessionStorage`** — keine URL-Payload
 
