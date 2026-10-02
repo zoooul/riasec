@@ -232,7 +232,13 @@ export function AssessmentFlow({ items }: Props) {
         </ConfirmDialog>
 
         <div className="assessment-prompt relative min-h-0 min-w-0 shrink-0 lg:flex-1 lg:overflow-hidden">
-          <div className="assessment-status-strip mb-[clamp(0.15rem,0.5vh,0.35rem)] flex flex-wrap items-center justify-center gap-2 lg:justify-start" aria-live="polite">
+          <div
+            className={cn(
+              "assessment-status-strip flex flex-wrap items-center justify-center gap-2 lg:justify-start",
+              showStatusStrip && "mb-[clamp(0.15rem,0.5vh,0.35rem)]",
+            )}
+            aria-live="polite"
+          >
             <AnimatePresence>
               {showResumeHint ? (
                 <motion.div
@@ -240,6 +246,7 @@ export function AssessmentFlow({ items }: Props) {
                   initial={reduceMotion ? false : { opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
+                  className="w-fit max-w-full"
                 >
                   <div className="alert alert-info py-1.5 text-sm shadow-sm">
                     Weiter bei Aufgabe {progress.questionNumber}
@@ -254,6 +261,7 @@ export function AssessmentFlow({ items }: Props) {
                   initial={reduceMotion ? false : { opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
+                  className="w-fit max-w-full"
                 >
                   <div className="alert alert-success py-1.5 text-sm shadow-sm">
                     Nächste Station: {MODULE_LABELS[stageFlash]}

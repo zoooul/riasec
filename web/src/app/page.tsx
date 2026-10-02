@@ -4,18 +4,19 @@ import { Chip } from "@/components/ui/chip";
 /**
  * Landing — classical DaisyUI hero (template: navbar elsewhere, hero + CTA).
  * First viewport: brand, one headline, one sentence, one CTA.
+ * Chips stay in-flow (no absolute overlays over brand/copy).
  */
 export default function HomePage() {
   return (
-    <main className="relative flex flex-1 flex-col overflow-x-hidden">
+    <main className="relative flex min-w-0 flex-1 flex-col overflow-x-hidden">
       <section className="hero min-h-[calc(100dvh-5.5rem)]">
-        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-8 py-[max(1.5rem,var(--safe-top))] pb-[max(1.5rem,var(--safe-bottom))] lg:flex-row lg:items-center lg:gap-12 lg:py-12">
-          <div className="flex w-full items-center justify-between gap-3 lg:absolute lg:left-0 lg:right-0 lg:top-[max(1rem,var(--safe-top))] lg:mx-auto lg:max-w-[var(--page-max-wide)] lg:px-4">
+        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-6 py-[max(1.5rem,var(--safe-top))] pb-[max(1.5rem,var(--safe-bottom))] lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:py-12">
+          <div className="relative z-[2] flex w-full items-center justify-between gap-3 lg:col-span-2">
             <Chip>Coaching · Orientierung</Chip>
             <Chip href="/profile">Profile</Chip>
           </div>
 
-          <div className="stack-sm relative z-10 max-w-xl flex-1 text-center lg:pt-10 lg:text-left">
+          <div className="stack-sm relative z-10 max-w-xl min-w-0 flex-1 text-center lg:text-left">
             <p
               className="animate-rise brand-mark text-base-content"
               style={{ animationDelay: "40ms", fontSize: "var(--text-hero)" }}
@@ -48,7 +49,7 @@ export default function HomePage() {
           </div>
 
           <div
-            className="animate-rise relative mx-auto hidden aspect-[5/4] w-full max-w-lg flex-1 lg:block"
+            className="animate-rise relative z-[1] mx-auto hidden aspect-[5/4] w-full max-w-lg min-w-0 flex-1 lg:block"
             style={{ animationDelay: "100ms" }}
             aria-hidden
           >
