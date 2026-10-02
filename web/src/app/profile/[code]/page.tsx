@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getProfile, listProfileCodes, SECTION_LABELS } from "@/lib/profiles";
+import {
+  getProfile,
+  listProfileCodes,
+  SECTION_LABELS,
+} from "@/lib/profiles.server";
 
 type Props = {
   params: Promise<{ code: string }>;

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="prototype">
+  <rect width="160" height="120" fill="#0b1a24"/>
+  <rect width="160" height="120" fill="url(#fade)" opacity="0.4"/>
+  <defs>
+    <radialGradient id="fade" cx="30%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="28" y="28" width="70" height="55" rx="10" fill="rgba(255,255,255,0.12)" stroke="#ffd166" stroke-width="2"/>
+  <circle cx="118" cy="55" r="20" fill="#ff6b9d" opacity="0.9"/>
+  <path d="M40 70 L55 45 L70 60 L85 40" fill="none" stroke="#ffd166" stroke-width="3" stroke-linecap="round"/>
+
+</svg>

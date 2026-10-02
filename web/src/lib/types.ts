@@ -50,6 +50,8 @@ export interface PictorialChoice {
   visual: {
     kind: "pattern" | "scene" | "affect";
     motif: string;
+    /** Catalog asset path under /public or absolute URL when present. */
+    imageUrl?: string;
   };
   weights: ChoiceWeights;
 }

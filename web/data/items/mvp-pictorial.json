@@ -1,8 +1,93 @@
 {
-  "version": 2,
+  "version": 3,
   "validationStatus": "unvalidated",
-  "notes": "Core pictorial MVP items with nested weights (axes / bigFive / riasec) to avoid Big-Five E vs RIASEC E collision. Own constructions inspired by VIST dimensions + RIASEC. Marked unvalidated until norming.",
+  "notes": "Expanded pictorial MVP (~30 items). Nested weights { axes, bigFive, riasec } avoid Big-Five E vs RIASEC E collision. Own constructions inspired by VIST dimensions + Holland RIASEC. Marked unvalidated until norming.",
   "items": [
+    {
+      "id": "ei_01",
+      "module": "personality",
+      "prompt": "Wovon tankst du eher Energie?",
+      "helpText": "Nicht nachdenken — einfach die erste Reaktion.",
+      "choices": [
+        {
+          "id": "ei_01_a",
+          "label": "Mit anderen",
+          "hint": "Austausch, Reize von außen.",
+          "visual": { "kind": "scene", "motif": "group-energy" },
+          "weights": { "axes": { "E_I": 35 }, "bigFive": { "E": 25 } }
+        },
+        {
+          "id": "ei_01_b",
+          "label": "Für mich",
+          "hint": "Ruhe, Fokus, innere Verarbeitung.",
+          "visual": { "kind": "scene", "motif": "quiet-desk" },
+          "weights": { "axes": { "E_I": -35 }, "bigFive": { "E": -25 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "ei_02",
+      "module": "personality",
+      "prompt": "Wie startest du lieber in den Tag?",
+      "choices": [
+        {
+          "id": "ei_02_a",
+          "label": "Schneller Austausch",
+          "hint": "Kurz mit jemandem sprechen, Energie teilen.",
+          "visual": { "kind": "scene", "motif": "coffee-chat" },
+          "weights": { "axes": { "E_I": 30 }, "bigFive": { "E": 20 } }
+        },
+        {
+          "id": "ei_02_b",
+          "label": "Stiller Einstieg",
+          "hint": "Allein ankommen, erstmal sortieren.",
+          "visual": { "kind": "scene", "motif": "solo-morning" },
+          "weights": { "axes": { "E_I": -30 }, "bigFive": { "E": -20 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "ei_03",
+      "module": "personality",
+      "prompt": "Nach einem langen Meeting brauchst du eher…",
+      "choices": [
+        {
+          "id": "ei_03_a",
+          "label": "Noch mehr Leute",
+          "hint": "Nachplaudern, Ideen weiterdrehen.",
+          "visual": { "kind": "scene", "motif": "after-huddle" },
+          "weights": { "axes": { "E_I": 32 }, "bigFive": { "E": 22 } }
+        },
+        {
+          "id": "ei_03_b",
+          "label": "Eine Pause allein",
+          "hint": "Kopf leeren, wieder zu dir kommen.",
+          "visual": { "kind": "scene", "motif": "quiet-walk" },
+          "weights": { "axes": { "E_I": -32 }, "bigFive": { "E": -22 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
     {
       "id": "sn_01",
       "module": "personality",
@@ -50,6 +135,62 @@
           "hint": "Neue Wege und Zusammenhänge entdecken.",
           "visual": { "kind": "scene", "motif": "idea-map" },
           "weights": { "axes": { "S_N": 30 }, "bigFive": { "O": 15 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "sn_03",
+      "module": "personality",
+      "prompt": "Beim Lernen magst du eher…",
+      "choices": [
+        {
+          "id": "sn_03_a",
+          "label": "Konkrete Beispiele",
+          "hint": "Was schon funktioniert hat, Schritt für Schritt.",
+          "visual": { "kind": "scene", "motif": "howto-steps" },
+          "weights": { "axes": { "S_N": -32 }, "bigFive": { "C": 10 } }
+        },
+        {
+          "id": "sn_03_b",
+          "label": "Große Theorien",
+          "hint": "Warum etwas so ist — Zusammenhänge.",
+          "visual": { "kind": "pattern", "motif": "theory-web" },
+          "weights": { "axes": { "S_N": 32 }, "bigFive": { "O": 15 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "sn_04",
+      "module": "personality",
+      "prompt": "Was liest du zuerst in einem Bericht?",
+      "choices": [
+        {
+          "id": "sn_04_a",
+          "label": "Zahlen & Fakten",
+          "hint": "Was steht konkret drin?",
+          "visual": { "kind": "scene", "motif": "data-table" },
+          "weights": { "axes": { "S_N": -28 }, "bigFive": { "C": 8 } }
+        },
+        {
+          "id": "sn_04_b",
+          "label": "Die Story dahinter",
+          "hint": "Wohin könnte das führen?",
+          "visual": { "kind": "scene", "motif": "story-arc" },
+          "weights": { "axes": { "S_N": 28 }, "bigFive": { "O": 12 } }
         }
       ],
       "source": {
@@ -117,6 +258,34 @@
       }
     },
     {
+      "id": "tf_03",
+      "module": "personality",
+      "prompt": "Feedback geben — was kommt zuerst?",
+      "choices": [
+        {
+          "id": "tf_03_a",
+          "label": "Direkt und klar",
+          "hint": "Sachlich sagen, was nicht passt.",
+          "visual": { "kind": "scene", "motif": "direct-arrow" },
+          "weights": { "axes": { "T_F": -32 }, "bigFive": { "A": -5 } }
+        },
+        {
+          "id": "tf_03_b",
+          "label": "Sanft und achtsam",
+          "hint": "Beziehung und Gefühl mitdenken.",
+          "visual": { "kind": "scene", "motif": "soft-feedback" },
+          "weights": { "axes": { "T_F": 32 }, "bigFive": { "A": 18 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
       "id": "jp_01",
       "module": "personality",
       "prompt": "Wie magst du arbeiten?",
@@ -145,29 +314,51 @@
       }
     },
     {
-      "id": "ei_01",
+      "id": "jp_02",
       "module": "personality",
-      "prompt": "Wovon tankst du eher Energie?",
+      "prompt": "Ein Projekt startet — dein erster Impuls?",
       "choices": [
         {
-          "id": "ei_01_a",
-          "label": "Mit anderen",
-          "hint": "Austausch, Reize von außen.",
-          "visual": { "kind": "scene", "motif": "group-energy" },
-          "weights": {
-            "axes": { "E_I": 35 },
-            "bigFive": { "E": 25 }
-          }
+          "id": "jp_02_a",
+          "label": "Meilensteine setzen",
+          "hint": "Rahmen klären, Deadlines fixieren.",
+          "visual": { "kind": "scene", "motif": "milestone" },
+          "weights": { "axes": { "J_P": -32 }, "bigFive": { "C": 18 } }
         },
         {
-          "id": "ei_01_b",
-          "label": "Für mich",
-          "hint": "Ruhe, Fokus, innere Verarbeitung.",
-          "visual": { "kind": "scene", "motif": "quiet-desk" },
-          "weights": {
-            "axes": { "E_I": -35 },
-            "bigFive": { "E": -25 }
-          }
+          "id": "jp_02_b",
+          "label": "Erstmal ausprobieren",
+          "hint": "Ins Tun kommen, später sortieren.",
+          "visual": { "kind": "scene", "motif": "prototype" },
+          "weights": { "axes": { "J_P": 32 }, "bigFive": { "O": 12 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "jp_03",
+      "module": "personality",
+      "prompt": "Dein Schreibtisch spiegelt eher…",
+      "choices": [
+        {
+          "id": "jp_03_a",
+          "label": "Ordnung",
+          "hint": "Alles hat seinen Platz.",
+          "visual": { "kind": "scene", "motif": "tidy-desk" },
+          "weights": { "axes": { "J_P": -28 }, "bigFive": { "C": 22 } }
+        },
+        {
+          "id": "jp_03_b",
+          "label": "Lebendiges Chaos",
+          "hint": "Ideen liegen sichtbar herum.",
+          "visual": { "kind": "scene", "motif": "messy-desk" },
+          "weights": { "axes": { "J_P": 28 }, "bigFive": { "O": 8 } }
         }
       ],
       "source": {
@@ -207,6 +398,34 @@
       }
     },
     {
+      "id": "r_02",
+      "module": "interests",
+      "prompt": "Wo fühlst du dich eher zu Hause?",
+      "choices": [
+        {
+          "id": "r_02_a",
+          "label": "Draußen / Technik",
+          "hint": "Bauen, reparieren, anfassen.",
+          "visual": { "kind": "scene", "motif": "field-tools" },
+          "weights": { "riasec": { "R": 38 } }
+        },
+        {
+          "id": "r_02_b",
+          "label": "Am Schreibtisch",
+          "hint": "Systeme, Listen, Abläufe.",
+          "visual": { "kind": "scene", "motif": "office-order" },
+          "weights": { "riasec": { "C": 38 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
       "id": "i_01",
       "module": "interests",
       "prompt": "Was klingt spannender?",
@@ -216,10 +435,7 @@
           "label": "Untersuchen & verstehen",
           "hint": "Forschen, analysieren, knifflige Fragen.",
           "visual": { "kind": "scene", "motif": "lab-search" },
-          "weights": {
-            "riasec": { "I": 40 },
-            "bigFive": { "O": 10 }
-          }
+          "weights": { "riasec": { "I": 40 }, "bigFive": { "O": 10 } }
         },
         {
           "id": "i_01_b",
@@ -227,6 +443,34 @@
           "hint": "Abläufe, Tabellen, Systeme pflegen.",
           "visual": { "kind": "scene", "motif": "office-order" },
           "weights": { "riasec": { "C": 40 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "i_02",
+      "module": "interests",
+      "prompt": "Ein kniffliges Problem — dein Weg?",
+      "choices": [
+        {
+          "id": "i_02_a",
+          "label": "Forschen & testen",
+          "hint": "Hypothesen, Daten, Ursachen finden.",
+          "visual": { "kind": "scene", "motif": "microscope" },
+          "weights": { "riasec": { "I": 42 }, "bigFive": { "O": 12 } }
+        },
+        {
+          "id": "i_02_b",
+          "label": "Sofort anpacken",
+          "hint": "Praktisch lösen, ausprobieren.",
+          "visual": { "kind": "scene", "motif": "hands-on" },
+          "weights": { "riasec": { "R": 38 } }
         }
       ],
       "source": {
@@ -247,10 +491,7 @@
           "label": "Gestalten & ausdrücken",
           "hint": "Ideen sichtbar machen, kreativ werden.",
           "visual": { "kind": "scene", "motif": "studio" },
-          "weights": {
-            "riasec": { "A": 40 },
-            "bigFive": { "O": 15 }
-          }
+          "weights": { "riasec": { "A": 40 }, "bigFive": { "O": 15 } }
         },
         {
           "id": "a_01_b",
@@ -258,6 +499,146 @@
           "hint": "Projekte vorantreiben, Menschen gewinnen.",
           "visual": { "kind": "scene", "motif": "pitch" },
           "weights": { "riasec": { "E": 40 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "a_02",
+      "module": "interests",
+      "prompt": "Freizeit — was reizt dich mehr?",
+      "choices": [
+        {
+          "id": "a_02_a",
+          "label": "Etwas erschaffen",
+          "hint": "Musik, Design, Text, Handwerkskunst.",
+          "visual": { "kind": "scene", "motif": "create-canvas" },
+          "weights": { "riasec": { "A": 42 }, "bigFive": { "O": 18 } }
+        },
+        {
+          "id": "a_02_b",
+          "label": "Andere unterstützen",
+          "hint": "Zuhören, helfen, Gemeinschaft.",
+          "visual": { "kind": "scene", "motif": "helping-hand" },
+          "weights": { "riasec": { "S": 40 }, "bigFive": { "A": 12 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "s_01",
+      "module": "interests",
+      "prompt": "Welche Rolle passt eher?",
+      "choices": [
+        {
+          "id": "s_01_a",
+          "label": "Mentor / Begleiter",
+          "hint": "Menschen wachsen lassen.",
+          "visual": { "kind": "scene", "motif": "mentor" },
+          "weights": { "riasec": { "S": 42 }, "bigFive": { "A": 15 } }
+        },
+        {
+          "id": "s_01_b",
+          "label": "Analyst / Denker",
+          "hint": "Systeme verstehen, Modelle bauen.",
+          "visual": { "kind": "scene", "motif": "think-board" },
+          "weights": { "riasec": { "I": 40 }, "bigFive": { "O": 10 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "e_01",
+      "module": "interests",
+      "prompt": "Was macht mehr Spaß?",
+      "choices": [
+        {
+          "id": "e_01_a",
+          "label": "Ideen verkaufen",
+          "hint": "Überzeugen, Netzwerk, Wirkung.",
+          "visual": { "kind": "scene", "motif": "network-pitch" },
+          "weights": { "riasec": { "E": 42 }, "bigFive": { "E": 15 } }
+        },
+        {
+          "id": "e_01_b",
+          "label": "Prozesse schärfen",
+          "hint": "Qualität, Regeln, Zuverlässigkeit.",
+          "visual": { "kind": "scene", "motif": "process-flow" },
+          "weights": { "riasec": { "C": 42 }, "bigFive": { "C": 15 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "e_02",
+      "module": "interests",
+      "prompt": "Ein Team braucht jemanden für…",
+      "choices": [
+        {
+          "id": "e_02_a",
+          "label": "Führung & Tempo",
+          "hint": "Richtung geben, Entscheidungen treffen.",
+          "visual": { "kind": "scene", "motif": "lead-flag" },
+          "weights": { "riasec": { "E": 40 }, "bigFive": { "E": 12 } }
+        },
+        {
+          "id": "e_02_b",
+          "label": "Gestaltung & Story",
+          "hint": "Botschaft, Look, Ausdruck.",
+          "visual": { "kind": "scene", "motif": "brand-story" },
+          "weights": { "riasec": { "A": 40 }, "bigFive": { "O": 12 } }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "c_01",
+      "module": "interests",
+      "prompt": "Welche Aufgabe würdest du eher wählen?",
+      "choices": [
+        {
+          "id": "c_01_a",
+          "label": "Daten pflegen",
+          "hint": "Genauigkeit, Ordnung, Nachvollziehbarkeit.",
+          "visual": { "kind": "scene", "motif": "spreadsheet" },
+          "weights": { "riasec": { "C": 42 }, "bigFive": { "C": 18 } }
+        },
+        {
+          "id": "c_01_b",
+          "label": "Kunden gewinnen",
+          "hint": "Gespräche, Deals, Überzeugungskraft.",
+          "visual": { "kind": "scene", "motif": "handshake" },
+          "weights": { "riasec": { "E": 40 }, "bigFive": { "E": 10 } }
         }
       ],
       "source": {
@@ -292,6 +673,142 @@
           "weights": {
             "axes": { "J_P": 15 },
             "bigFive": { "N": -15, "A": 5 }
+          }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "stress_02",
+      "module": "self_regulation",
+      "prompt": "Unter Zeitdruck gehst du eher…",
+      "choices": [
+        {
+          "id": "stress_02_a",
+          "label": "Prioritäten streichen",
+          "hint": "Fokus aufs Wichtigste, Rest später.",
+          "visual": { "kind": "affect", "motif": "focus-beam" },
+          "weights": {
+            "axes": { "J_P": -18 },
+            "bigFive": { "N": -8, "C": 12 }
+          }
+        },
+        {
+          "id": "stress_02_b",
+          "label": "Mit jemandem sprechen",
+          "hint": "Entlastung durch Austausch.",
+          "visual": { "kind": "affect", "motif": "talk-it-out" },
+          "weights": {
+            "axes": { "E_I": 15 },
+            "bigFive": { "N": -12, "E": 10, "A": 8 }
+          }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "stress_03",
+      "module": "self_regulation",
+      "prompt": "Wenn alles zu viel wird…",
+      "choices": [
+        {
+          "id": "stress_03_a",
+          "label": "Struktur zurückholen",
+          "hint": "Listen, Rituale, kleine Siege.",
+          "visual": { "kind": "affect", "motif": "reset-list" },
+          "weights": {
+            "axes": { "J_P": -22 },
+            "bigFive": { "N": -10, "C": 16 }
+          }
+        },
+        {
+          "id": "stress_03_b",
+          "label": "Körper & Atem",
+          "hint": "Bewegen, atmen, Spannung lösen.",
+          "visual": { "kind": "affect", "motif": "breathe" },
+          "weights": {
+            "bigFive": { "N": -18 }
+          }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "motive_01",
+      "module": "motives",
+      "prompt": "Was treibt dich im Job stärker an?",
+      "helpText": "Später mit PSE-Motiven anreicherbar (extra layer).",
+      "choices": [
+        {
+          "id": "motive_01_a",
+          "label": "Wirkung erzielen",
+          "hint": "Ziele erreichen, sichtbar vorankommen.",
+          "visual": { "kind": "scene", "motif": "achieve-peak" },
+          "weights": {
+            "riasec": { "E": 20 },
+            "bigFive": { "C": 10, "E": 8 }
+          }
+        },
+        {
+          "id": "motive_01_b",
+          "label": "Verbundenheit",
+          "hint": "Zugehörigkeit, gemeinsames Gelingen.",
+          "visual": { "kind": "scene", "motif": "belong-circle" },
+          "weights": {
+            "riasec": { "S": 20 },
+            "bigFive": { "A": 15 }
+          }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "motive_02",
+      "module": "motives",
+      "prompt": "Welches Gefühl suchst du eher bei der Arbeit?",
+      "choices": [
+        {
+          "id": "motive_02_a",
+          "label": "Meisterschaft",
+          "hint": "Etwas richtig gut können.",
+          "visual": { "kind": "scene", "motif": "craft-master" },
+          "weights": {
+            "riasec": { "I": 15, "R": 10 },
+            "bigFive": { "C": 12, "O": 8 }
+          }
+        },
+        {
+          "id": "motive_02_b",
+          "label": "Einfluss",
+          "hint": "Mitgestalten, Richtung setzen.",
+          "visual": { "kind": "scene", "motif": "influence" },
+          "weights": {
+            "riasec": { "E": 22 },
+            "bigFive": { "E": 12 }
           }
         }
       ],

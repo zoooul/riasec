@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getAllProfiles } from "@/lib/profiles";
+import { getAllProfiles } from "@/lib/profiles.server";
 
 export default function ProfileIndexPage() {
   const profiles = getAllProfiles().sort((a, b) =>

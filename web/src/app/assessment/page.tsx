@@ -1,6 +1,6 @@
 import { AssessmentFlow } from "@/components/AssessmentFlow";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getMvpItems } from "@/lib/items";
+import { getMvpItems } from "@/lib/items.server";
 
 export default function AssessmentPage() {
   const items = getMvpItems();

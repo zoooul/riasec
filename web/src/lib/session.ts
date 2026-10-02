@@ -1,4 +1,6 @@
-export const SESSION_ANSWERS_KEY = "skillster.answers.v1";
+import { SESSION_ANSWERS_KEY } from "./constants";
+
+export { SESSION_ANSWERS_KEY };
 
 export function saveAnswers(answers: Record<string, string>) {
   if (typeof window === "undefined") return;
@@ -14,4 +16,9 @@ export function loadAnswers(): Record<string, string> {
   } catch {
     return {};
   }
+}
+
+export function clearAnswers() {
+  if (typeof window === "undefined") return;
+  window.sessionStorage.removeItem(SESSION_ANSWERS_KEY);
 }

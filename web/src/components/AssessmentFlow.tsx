@@ -68,7 +68,11 @@ export function AssessmentFlow({ items }: Props) {
             className="glass-panel glass-choice glass-sheen p-3 sm:p-4"
             style={{ animationDelay: `${i * 60}ms` }}
           >
-            <VisualCard kind={choice.visual.kind} motif={choice.visual.motif} />
+            <VisualCard
+              kind={choice.visual.kind}
+              motif={choice.visual.motif}
+              imageUrl={choice.visual.imageUrl}
+            />
             <div className="relative z-[1] mt-3 space-y-1 sm:mt-4">
               <div className="text-base font-semibold text-[var(--ink)] sm:text-lg">
                 {choice.label}

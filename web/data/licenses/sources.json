@@ -61,6 +61,16 @@
       "notes": "German occupation labels. Attribution: This service uses the ESCO classification of the European Commission."
     },
     {
+      "id": "own-generated-patterns",
+      "name": "Skillster generated geometric motifs",
+      "url": "local:web/public/stimuli/core/",
+      "license": "CC0 / own_construction",
+      "layer": "core",
+      "commercial": "yes",
+      "modules": ["stimuli"],
+      "notes": "Fallback pictorial tiles; swappable for Open Peeps / Humaaans CC0 assets."
+    },
+    {
       "id": "open-peeps",
       "name": "Open Peeps",
       "url": "https://www.openpeeps.com/",
