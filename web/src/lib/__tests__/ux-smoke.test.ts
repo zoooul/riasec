@@ -29,7 +29,7 @@ describe("UX critical-path smoke (logical)", () => {
     expect(result.plainProfile.oneLine.length).toBeGreaterThan(10);
     expect(result.plainProfile.howYouWork.length).toBeGreaterThan(0);
     expect(result.occupations.length).toBeGreaterThan(0);
-    expect(result.exclusions.length).toBeGreaterThan(0);
+    expect(result.exclusions?.length).toBeGreaterThan(0);
     expect(containsAxisCodeJargon(result.plainProfile.oneLine)).toBe(false);
 
     const doc = buildProfilePdf({

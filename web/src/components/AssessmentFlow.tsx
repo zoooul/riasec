@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import { MODULE_LABELS } from "@/lib/constants";
 import {
@@ -10,7 +10,7 @@ import {
   resumeIndex,
   saveAnswers,
 } from "@/lib/session";
-import type { AssessmentItem } from "@/lib/types";
+import type { AssessmentItem, ModuleId } from "@/lib/types";
 import { VisualCard } from "./VisualCard";
 
 type Props = {
@@ -21,6 +21,8 @@ type FlowState = {
   answers: Record<string, string>;
   index: number;
 };
+
+const CHOICE_LOCK_MS = 420;
 
 function subscribeNoop() {
   return () => {};
@@ -39,8 +41,11 @@ export function AssessmentFlow({ items }: Props) {
   );
   const [flow, setFlow] = useState<FlowState | null>(null);
   const [confirmRestart, setConfirmRestart] = useState(false);
+  const [locked, setLocked] = useState(false);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [moduleFlash, setModuleFlash] = useState<ModuleId | null>(null);
+  const prevModuleRef = useRef<ModuleId | null>(null);
 
-  // Derive initial client state from session once hydrated.
   const active: FlowState =
     flow ??
     (stored
@@ -60,6 +65,16 @@ export function AssessmentFlow({ items }: Props) {
     return Math.round((answeredN / items.length) * 100);
   }, [answeredN, items.length]);
 
+  useEffect(() => {
+    if (!item) return;
+    if (prevModuleRef.current && prevModuleRef.current !== item.module) {
+      setModuleFlash(item.module);
+      const t = window.setTimeout(() => setModuleFlash(null), 1400);
+      return () => window.clearTimeout(t);
+    }
+    prevModuleRef.current = item.module;
+  }, [item]);
+
   if (!ready || !item) {
     return (
       <div className="mx-auto w-full max-w-3xl px-4 py-16 text-center text-[var(--muted)]">
@@ -71,37 +86,60 @@ export function AssessmentFlow({ items }: Props) {
   const partial = hasPartialProgress(items, answers);
 
   function choose(choiceId: string) {
+    if (locked || !item) return;
+    setLocked(true);
+    setSelectedId(choiceId);
+
     const nextAnswers = { ...answers, [item.id]: choiceId };
     saveAnswers(nextAnswers);
 
-    if (index >= items.length - 1) {
-      setFlow({ answers: nextAnswers, index });
-      router.push("/ergebnis");
-      return;
-    }
-    setFlow({ answers: nextAnswers, index: index + 1 });
+    window.setTimeout(() => {
+      setSelectedId(null);
+      setLocked(false);
+      if (index >= items.length - 1) {
+        setFlow({ answers: nextAnswers, index });
+        router.push("/ergebnis");
+        return;
+      }
+      setFlow({ answers: nextAnswers, index: index + 1 });
+    }, CHOICE_LOCK_MS);
   }
 
   function restart() {
     clearAnswers();
     setFlow({ answers: {}, index: 0 });
     setConfirmRestart(false);
+    setSelectedId(null);
+    setLocked(false);
+    prevModuleRef.current = null;
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6 pb-[max(1.5rem,var(--safe-bottom))] md:gap-8 md:py-10">
-      <div className="glass-panel space-y-3 p-4 md:p-5">
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 overflow-x-hidden px-4 py-6 pb-[max(1.5rem,var(--safe-bottom))] md:gap-8 md:py-10">
+      <div className="glass-panel sticky top-[calc(4.25rem+var(--safe-top))] z-10 space-y-3 p-4 md:p-5">
         <div className="flex items-center justify-between gap-3 text-sm text-[var(--muted)]">
-          <span className="glass-chip">{MODULE_LABELS[item.module]}</span>
+          <span className="glass-chip" aria-live="polite">
+            {MODULE_LABELS[item.module]}
+          </span>
           <span>
             {index + 1}/{items.length}
             {answeredN > 0 ? ` · ${progress}%` : ""}
           </span>
         </div>
-        <div className="glass-progress" aria-hidden>
+        <div
+          className="glass-progress"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label="Fortschritt"
+        >
           <span
             style={{
-              width: `${Math.max(progress, ((index + 1) / items.length) * 100)}%`,
+              width: `${Math.max(
+                progress,
+                ((index + 1) / items.length) * 100 * 0.15,
+              )}%`,
             }}
           />
         </div>
@@ -139,6 +177,15 @@ export function AssessmentFlow({ items }: Props) {
         ) : null}
       </div>
 
+      {moduleFlash ? (
+        <div
+          className="animate-rise glass-chip mx-auto text-[var(--neon-mint)]"
+          aria-live="polite"
+        >
+          Neuer Teil: {MODULE_LABELS[moduleFlash]}
+        </div>
+      ) : null}
+
       <div className="animate-rise space-y-2 text-center">
         <h1 className="font-[family-name:var(--font-display)] text-2xl leading-tight text-[var(--ink)] sm:text-3xl md:text-4xl">
           {item.prompt}
@@ -152,14 +199,16 @@ export function AssessmentFlow({ items }: Props) {
 
       <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
         {item.choices.map((choice, i) => {
-          const selected = answers[item.id] === choice.id;
+          const isSelected =
+            selectedId === choice.id || answers[item.id] === choice.id;
           return (
             <button
               key={choice.id}
               type="button"
               onClick={() => choose(choice.id)}
+              disabled={locked && !isSelected}
               className={`glass-panel glass-choice glass-sheen p-3 sm:p-4 ${
-                selected ? "ring-2 ring-[var(--neon-cyan)]/70" : ""
+                isSelected ? "ring-2 ring-[var(--neon-cyan)]/70" : ""
               }`}
               style={{ animationDelay: `${i * 60}ms` }}
             >
@@ -184,9 +233,10 @@ export function AssessmentFlow({ items }: Props) {
       {index > 0 ? (
         <button
           type="button"
-          onClick={() =>
-            setFlow({ answers, index: Math.max(0, index - 1) })
-          }
+          onClick={() => {
+            if (locked) return;
+            setFlow({ answers, index: Math.max(0, index - 1) });
+          }}
           className="glass-btn glass-btn-secondary self-start px-5 py-2 text-sm"
         >
           Zurück

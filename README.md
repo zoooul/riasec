@@ -47,7 +47,7 @@ Details: `web/data/occupations/README.md`, `web/data/stimuli/README.md`.
 | `scripts/extract_profiles.py` | PDF → `web/data/profiles/` |
 | `scripts/import_occupations.py` | O\*NET/ESCO → `web/data/occupations/occupations.json` |
 | `web/data/profiles/` | 16 Ergebnisprofile |
-| `web/data/items/mvp-pictorial.json` | ~30 Bilditems (nested weights, unvalidated) |
+| `web/data/items/mvp-pictorial.json` | ~32 Bilditems (nested weights, unvalidated) |
 | `web/data/occupations/occupations.json` | Getrimmte DE-Berufsliste mit RIASEC-Vektoren |
 | `web/data/occupations/seed.json` | Kleiner Fallback-Seed |
 | `web/data/stimuli/index.json` | Stimulus-Katalog (core SVGs + extra PSE/OASIS-Slots) |
@@ -82,10 +82,10 @@ npm run dev
 Curl route check (SSR): `/` CTA + Marke, `/assessment`, `/ergebnis`, `/profile`, `/profile/enfj` all HTTP 200.
 
 1. Startseite: Marke **Skillster**, CTA „Jetzt starten“, mobil tauglich
-2. Assessment: Antworten speichern Fortschritt; Zurück; Reload setzt fort; optional „Neu starten“
-3. `/ergebnis`: Plain-Language-Zusammenfassung, Occupations, PDF speichern, Details aufklappbar, kein Crash
-4. `/profile` Liste + `/profile/<code>` Detail (glass layout)
-5. Ohne Session auf `/ergebnis` → leerer State mit „Test starten“ (nach Hydration)
+2. Assessment: Sticky-Progress; Doppel-Tap-Schutz; Reload setzt fort; „Neu starten“ mit Bestätigung
+3. `/ergebnis`: Plain-Language-Hero, Coverage-Chip, PDF/Druck, „Kurzfassung kopieren“, Details
+4. `/ergebnis` mit Teilantworten → „Noch nicht fertig“; ohne Session → „Noch kein Ergebnis“
+5. `/profile` Liste + `/profile/<code>` Detail (glass layout)
 
 ## Next milestones
 
