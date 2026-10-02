@@ -1,0 +1,178 @@
+{
+  "code": "ISTJ",
+  "role": "Inspektor",
+  "system": "VIST/ClaVis",
+  "source": {
+    "file": "skillster_daten-komprimiert.pdf",
+    "licenseLayer": "owned",
+    "notes": "Profiltexte aus eigener Lizenzquelle."
+  },
+  "dimensions": {
+    "E_I": "I",
+    "S_N": "S",
+    "T_F": "T",
+    "J_P": "J"
+  },
+  "sections": {
+    "eigenschaften": [
+      "Konzentrationsfähigkeit",
+      "Systematik",
+      "Gründlichkeit",
+      "Fleiß",
+      "Gewissenhaftigkeit",
+      "Sie sind kühl, ruhig, kritisch"
+    ],
+    "staerken": [
+      "Sie setzen klare Prioritäten und anspruchsvolle Maßstäbe, auch an sich selbst. Fehlersensibilität zeigt.",
+      "Abweichungen fallen ihnen direkt auf, was sich in Ihrer ausgeprägten",
+      "Ein ausgeprägtes Organisationstalent zeichnet Sie aus.",
+      "In Ihrem Vorgehen sind Sie sehr systematisch.",
+      "Sie haben einen Sinn für Ordnung und Struktur.",
+      "Eine realistische und nüchterne Faktenorientierung zeichnet Sie aus.",
+      "Ihre Sicht auf die Welt wird von der Suche nach dem Ursache-Wirkungs- Prinzip bestimmt. zu verarbeiten.",
+      "Sie sind in der Lage den Überblick über viele Informationen zu behalten und diese mit Leichtigkeit zu verwalten und",
+      "Sie haben ein scharfes Auge und arbeiten sehr genau.",
+      "Im Umgang mit Zahlen und Daten sind Sie besonders begabt.",
+      "Sie besitzen ein hohes Maß an Durchhaltevermögen. konsequent und belastbar.",
+      "In Ihrem Verhalten und in Ihren Entscheidungen sind Sie sehr",
+      "Sie haben ein großes Verantwortungsbewusstsein.",
+      "Auch bei nur geringem Anreiz entwickeln Sie einen großen Ehrgeiz.",
+      "Sie zeichnen sich durch ein hohes Maß an Fleiß aus."
+    ],
+    "schwaechen": [
+      "Manchmal konzentrieren Sie sich zu sehr auf das Tagesgeschäft und übersehen dabei langfristige Konsequenzen.",
+      "Ihr Interesse gilt eher der zu erledigenden Aufgabe als den Menschen, denen Sie dabei begegnen.",
+      "Sie neigen dazu, zu sehr an Ihren Gewohnheiten festzuhalten.",
+      "Beim Ausdruck von eigenen Gefühlen tun Sie sich schwer.",
+      "Da Sie gerne an der herkömmlichen Herangehensweise festhalten, werden Sie von anderen als nicht flexibel betrachtet.",
+      "Mitunter fällt es Ihnen schwer zu erkennen und anzuerkennen, was anderen Menschen wichtig ist."
+    ],
+    "motivation": [
+      "Ziele motivieren Sie sehr stark. Haben Sie Aufgaben einmal akzeptiert, erledigen Sie diese zuverlässig. Dabei benötigen Sie keinen emotionalen Bezug zur Aufgabe. Fairness.",
+      "Disziplin, Gründlichkeit, Präzision und Zuverlässigkeit sind Ihnen sehr wichtig. Das erwarten Sie von sich und anderen. Die strikte Einhaltung dieser ist zugleich Ihre wichtigste Basis für Loyalität und",
+      "Sie schätzen planbare und vorhersagbare Aufgaben. Aufgabenumsetzung.",
+      "Sie mögen eine klare Definition Ihrer Rolle und achten auf eine engagierte",
+      "Ein starkes Motiv Ihrer Handlungen ist die Angst vor dem Misserfolg.",
+      "Sie bevorzugen eine ordentliche und strukturierte Umgebung."
+    ],
+    "demotivation": [
+      "Unklare oder fehlende Richtlinien und unstrukturierte Pläne verunsichern Sie. Sie haben Angst vor Orientierungslosigkeit. ordnungsgemäß und engagiert erfüllen.",
+      "Sie werden unnachgiebig, ärgerlich und stur, wenn die Dinge nicht gut umgesetzt werden und Ihre Mitmenschen ihre Aufgaben nicht",
+      "Chaotische Zustände mögen Sie nicht. Sie brauchen ein strukturiertes, klares Umfeld.",
+      "Sie mögen keine unklaren, unpräzisen Absprachen, diese machen Sie unruhig.",
+      "Es macht Sie wütend, wenn Vereinbarungen nicht eingehalten werden. können.",
+      "Sie haben Angst vor Unbegreiflichem, vor Dingen, die Sie nicht verstehen",
+      "Unlogische Vorgänge und Handlungen irritieren Sie.",
+      "Die Beschäftigung mit Inhalten, die Sie nicht interessieren, demotiviert Sie."
+    ],
+    "rollen_berufe": [
+      "Sie können gut mit Routinearbeiten umgehen, in denen Sie Ihr gelerntes Wissen und Können einbringen können. besonders.",
+      "Berufe, bei denen Sie Ihre Fähigkeiten für Organisation und Präzision einbringen können, liegen Ihnen",
+      "Als analytische Person sollten sich im beruflichen Bereich Aufgaben zuwenden, bei denen Sie Details, Daten oder Fakten organisieren oder verarbeiten und absehbare Ziele erreichen können. Kreative Prozesse liegen Ihnen hingehen nicht besonders.",
+      "Sie suchen die Herausforderung in der Arbeit. Von Ihnen könnte der Ausspruch „Erst die Arbeit und dann das Vergnügen“ stammen. Sie sind mehr ein arbeitender Typ als ein kämpferischer."
+    ],
+    "rolle_im_team": [
+      "Zunächst wirken Sie nicht wie ein Teamplayer. Sie sind eher ein Einzelgänger und schätzen das Alleinsein, um Fehler und Erlebnisse in Ruhe verarbeiten zu können. Für sich allein finden Sie Ruhe und können Kraft schöpfen.",
+      "Sie sind ein fleißiger Arbeiter und ein guter Organisator. Sie prüfen ständig die Eindeutigkeit und Struktur und können Ihr Team mit Ihren analytischen Fähigkeiten bereichern.",
+      "Im Team kann man sich jedoch gut auf Sie verlassen. Sie erfüllen Ihre Aufgabe zuverlässig. entwickeln. Ihre Talente in der Organisation",
+      "Sie sind selbstmotiviert. Sie benötigen keinen hohen äußeren Anreiz und keine Fremdmotivation, um Ehrgeiz zu",
+      "Sie sind ein Organisationstalent und sorgen für reibungslose Abläufe. Urteilsvermögen.",
+      "Aufgrund Ihrer gründlichen Analyse haben Sie ein gesundes",
+      "Sie achten strikt auf ein kontinuierliches Abarbeiten und die Einhaltung vereinbarter Abläufe.",
+      "Wenn Sie Verantwortung übernehmen, sind Sie zuverlässig und Ihrer Institution gegenüber loyal.",
+      "Sie treffen verlässliche Zusagen und setzen Dinge geplant um. richtigen Zeit am richtigen Ort.",
+      "Sie arbeiten beständig und termingetreu. Und haben alles zur"
+    ],
+    "konflikt_positiv": [
+      "Sie entscheiden bedächtig auf objektiver • Basis. verständig.",
+      "Sie handeln vernünftig, fair und",
+      "Sie lieben die ruhige, möglichst emotionsfreie Klärung von Problemen. dem Kern des Problems, denn Sie wollen den Fehler verstehen.",
+      "Sie legen den Finger in die Wunde. Sie sind diszipliniert bei der Suche nach",
+      "Sie sind ein analytischer, logischer Problemlöser und setzen dabei Ihre Erfahrungen ein.",
+      "Sie zeigen generell wenig gefühlsmäßige Reaktionen. Aber hinter der kühlen Fassade steckt ein engagierter Geist."
+    ],
+    "konflikt_negativ": [
+      "Probleme entstehen dann, wenn Sie von • anderen Menschen erwarten, dass diese so logisch und genau vorgehen sollten, wie Sie es selbst tun. Dann laufen Sie nämlich Gefahr, andere vorschnell zu beurteilen und zurückhaltende Leute zu übergehen.",
+      "Sie sprechen die Dinge direkt an. Dabei siegt die Wahrheit vor dem Taktgefühl. Das kann auf andere sehr kantig, verletzend und unnachgiebig wirken.",
+      "Sie werden wütend, wenn Sie sich ungerecht behandelt fühlen. widersetzen Sie sich dieser Dominanz und versuchen, diese umzukehren.",
+      "Sie mögen es nicht, von anderen vereinnahmt zu werden, dann",
+      "Sie ziehen sich bei starken (Außen- Reizen und Emotionen gerne zurück. Im Extremfall besteht eine Isolierungsgefahr."
+    ],
+    "idealer_chef": [
+      "Ihr Vorgesetzter sollte Sie im Vorfeld über neue Entwicklungen oder Erkenntnisse informieren.",
+      "Negativ wird es für Sie, wenn der Vorgesetzte seine Kritik zu emotional und zu persönlich äußert.",
+      "Er sollte offen für Ihre Anregungen sein, z.B. für neue Strategien und kann Sie gut als Berater nutzen. entwickelt sich Ihre Selbstmotivation.",
+      "Ziele müssen genau und umfassend kommuniziert sein. Sie müssen rechtzeitig formuliert werden. Dadurch",
+      "Ihr Chef sollte den Kontakt zu Ihnen halten und interessante Fachgespräche führen.",
+      "Termine für Gespräche sollten klar vereinbart und eingehalten werden.",
+      "Er sollte das Gefühl des Willkommenseins vermitteln, dabei aber nicht zu kumpelhaft werden.",
+      "Besprechungen sollten hinter verschlossenen Türen stattfinden und vertraulich sein.",
+      "Projektabläufe sollten wie angekündigt umgesetzt werden. Wenn Sie zu kurzfristig neue Information erhalten, verunsichert Sie das. Sie können es eventuell so schnell nicht umsetzen, erst recht dann nicht, wenn Sie darüber noch nachdenken müssen.",
+      "Ihr Vorgesetzter sollte Sie mit einer positiven Ansprache stärken und Lob aussprechen."
+    ],
+    "verhalten_als_chef": [
+      "Sie halten sich an Absprachen. Genauigkeit und Einhaltung der vereinbarten Regeln sind Ihnen sehr wichtig. Von Ihren Mitarbeitern erwarten Sie Verlässlichkeit.",
+      "Sie richten Ihre Aufmerksamkeit auf unmittelbare und konkrete Anliegen und Bedürfnisse der Mitarbeiter oder des Unternehmens und sorgen für eine sofortige Umsetzung.",
+      "Sie schätzen gute Vorbereitung und ein beständiges Leistungsniveau. erfüllen.",
+      "Sie belohnen Ihre Mitarbeiter, wenn Sie Ihre Arbeit den Richtlinien gemäß",
+      "Sie nehmen gerne Einfluss auf andere und auf Entscheidungen. Sie wollen überzeugen, damit andere handeln wie Sie es gerne möchten. Dabei können Sie unter Umständen sehr hartnäckig, stur und eingefahren reagieren.",
+      "Sie entscheiden auf Basis von Erfahrungen und Fakten."
+    ],
+    "kommunikation_sollten": [
+      "Sie bevorzugen die Kommunikation auf der Sachebene. wichtig.",
+      "Eine ruhige, möglichst emotionsfreie Klärung von Problemen ist Ihnen",
+      "Andere sollten in der Kommunikation mit Ihnen direkt auf den Punkt kommen.",
+      "Sie schätzen die Einhaltung von genauen Absprachen.",
+      "Sie mögen das pragmatische, nüchterne, fachliche und strukturierte Gespräch.",
+      "Von anderen erwarten Sie möglichst präzise formulierte Arbeitsaufträge."
+    ],
+    "kommunikation_vermeiden": [
+      "Kreative Vorstellungen und Intuition erscheinen Ihnen eher suspekt. Sie nehmen diese nicht ernst.",
+      "Wenn andere Ihnen gegenüber Kritik äußern wollen, sollte diese nicht zu emotional und persönlich ausfallen.",
+      "Sie wissen gerne was auf Sie zukommt, um sich frühzeitig darauf einzustellen oder vorbereiten zu können. Daher ärgern zu viele unsinnige Veränderungen Sie.",
+      "Sie bevorzugen die sachlich distanzierte Ebene, die auch vom Gegenüber eingehalten werden sollte. Im Kontakt mit Ihnen sollten andere nicht zu kumpelhaft werden.",
+      "Sie kommen mit wenigen Worten aus. Daher sollten auch andere in der Kommunikation mit Ihnen nicht um das Wesentliche herumreden.",
+      "Sie mögen in der Regel nur kurze körperliche Berührungen. Sie mögen es lieber, wenn man Sie über Ansprache motiviert bzw. aufmuntert."
+    ],
+    "stress": [
+      "In Krisensituationen wirken Sie ausgeglichen. Ihre Aufgaben meistern Sie zuverlässig und gewissenhaft durch überlegtes Handeln.",
+      "In Stresssituationen sind Sie zögerlicher bei Entscheidungsprozessen und warten mit Schlussfolgerungen ein wenig länger als gewöhnlich.",
+      "Sie ziehen sich gerne zurück, um sich zu schützen und Energien aufzutanken. Sie zur Obsession.",
+      "Bei unkontrolliertem Stress wird der „große Zusammenhang“ manchmal für",
+      "Unter mäßigem Stress äußern Sie sich weiterhin nüchtern, klar und hart.",
+      "Bei zunehmendem Stress können Sie ungewöhnlich laut werden.",
+      "Bei starkem Stress verstärkt sich Ihre Konzentration auf Aufgaben und Details. Sie werden ungeduldig mit denen, die nicht sofort die relevanten Fakten sehen oder Sie sogar ablehnen.",
+      "Wenn Sie unter Stress stehen, nimmt Ihr Widerstand gegen Veränderung weiter zu. Sie glauben, dass der Stresszustand nicht aufhören wird und halten ihn für den Normalzustand.",
+      "Es kann passieren, dass Sie unrealistische und unpassende Erwartungen äußern. Möglichkeiten. Häufig ergreifen Sie dann mehrere Optionen gleichzeitig.",
+      "Sie werden ungeduldig, wenn sich nicht mehr Optionen auftun und suchen zwanghaft nach noch mehr",
+      "Unter Stress wirken Sie wie in sich gefangen und machen einen introvertierten Eindruck. Ihre Freude, auf Mitmenschen zuzugehen, geht dann verloren. etwas unterkühlt und reserviert.",
+      "Menschliche Nähe ist Ihnen in diesen Situationen unangenehm. Sie mögen keine körperlichen Berührungen und zeigen nur wenig Mimikspiel. Auf andere wirken Sie daher manchmal"
+    ],
+    "lernen": [
+      "Sie besitzen Logik und Detailorientiertheit und können sich daher viele Informationen gut merken.",
+      "Sie mögen es, wenn Sie sich auf nur wenige Aufgaben konzentrieren müssen.",
+      "Als Lerner überzeugen Sie mit hoher Fachlichkeit und pflichtbewusster Leistungserfüllung.",
+      "Sie brauchen systematische, gut strukturierte Lernpläne mit klaren Lernzieletappen.",
+      "Sie haben eine gute Konzentrationsfähigkeit.",
+      "Schaffen Sie sich Lernroutinen, das gibt Ihnen Sicherheit.",
+      "Eine ruhige und konzentrierte Atmosphäre ist Ihnen daher wichtig. Sie möchten ungestört arbeiten und lernen lieber allein.",
+      "Um das Gelernte zu verarbeiten brauchen Sie Zeit und Raum.",
+      "Für Sie ist es wichtig, den großen Zusammenhang nicht aus den Augen zu verlieren. Dabei hilft Ihnen ein Lernplan, der sowohl alle Zwischenschritte als auch das große Ziel veranschaulicht."
+    ],
+    "entwicklungspotential": [
+      "Denken Sie daran, Ihre Erfahrungen, die Sie in der Vergangenheit gemacht haben, spielen im “großen Zusammenhang” eine wichtige Rolle und sind relevant.",
+      "Wenn Sie sich nicht nur darauf konzentrieren, die Fehler im System zu finden und zu reklamieren, können Sie das, was gut läuft, besser schätzen.",
+      "Aus Organisiertheit und Genauigkeit sollten nicht Penetranz, Überkorrektheit und unflexibles Verhalten werden. Lassen Sie mal „Fünfe gerade sein“ und lernen Sie von anderen.",
+      "Sie fühlen sich an Ihre Loyalität und Zusagen gebunden. Lernen Sie auch mal Nein zu sagen, denn Ihre Loyalität sollte nicht zu einem „blinden Gehorsam“ führen.",
+      "Probieren Sie einfach mal Alternativen aus Lebens zu genießen.",
+      "Lernen Sie, auch die schönen Dinge des",
+      "Sie sollten sich mehr auf das Wagnis einlassen, auf die eigenen Gefühle zu hören, ihnen zu vertrauen und darauf zu setzen. kommen lassen.",
+      "Sie können Ihre Beziehungen verbessern, wenn Sie zwischen- menschliche Wärme nicht zu kurz",
+      "Seien Sie weniger geizig mit dem Ausleben Ihrer Emotionen. Lernen Sie, mehr Gefühle zu zeigen. Erweitern Sie Ihren emotionalen Horizont. Niederlage abzuwenden.",
+      "Drohende Niederlagen machen Sie wütend. Diese so freiwerdende Emotion können Sie nutzen. Sie kann Ihnen zusätzliche Energie verleihen, um die",
+      "Schenken Sie den zwischenmenschlichen Bedürfnissen mehr Beachtung und mehr Wertschätzung. Hinterfragen Sie Ihr eigenes distanziertes Verhalten. Bemühen Sie sich, den Menschen in seiner Ganzheit und mit seinen Motiven zu verstehen.",
+      "Wenn Sie erkennen, was anderen wichtig ist und dies als bemerkenswerte Tatsache notieren, dann können Sie anderen Menschen generös und unterstützend begegnen, Problem lösen und für Stabilität in jeder Sache sorgen, für die Sie sich engagieren.",
+      "Bauen Sie auf Ihre substanzielle Analysefähigkeit, die alle Daten und Fakten berücksichtigt. Wenn Sie darüber hinaus Ihre Flexibilität und Ihre emotionalen Fähigkeiten trainieren und einbeziehen, können Sie eine überdurchschnittliche Urteilskraft entwickeln und damit eine starke Wirkung erzielen."
+    ]
+  }
+}

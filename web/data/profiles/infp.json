@@ -1,0 +1,191 @@
+{
+  "code": "INFP",
+  "role": "Träumer",
+  "system": "VIST/ClaVis",
+  "source": {
+    "file": "skillster_daten-komprimiert.pdf",
+    "licenseLayer": "owned",
+    "notes": "Profiltexte aus eigener Lizenzquelle."
+  },
+  "dimensions": {
+    "E_I": "I",
+    "S_N": "N",
+    "T_F": "F",
+    "J_P": "P"
+  },
+  "sections": {
+    "eigenschaften": [
+      "Idealismus",
+      "Offenheit",
+      "Kreativität",
+      "sozialer Integrationsfähigkeit",
+      "Flexibilität",
+      "Toleranz",
+      "Anpassungsfähigkeit",
+      "Kompromissbereitschaft"
+    ],
+    "staerken": [
+      "Ihre Selbstständigkeit und Unabhängigkeit und Ihr Mut zur Autonomie zeichnen Sie aus.",
+      "Eigenständigkeit im Denken und Handeln ist Ihnen sehr wichtig.",
+      "Sie sind visionär und in der Entwicklung und Umsetzung von Ideen sehr kreativ. und schaffen es, große Zusammenhänge zu sehen.",
+      "Ihre Kreativität zeichnet Sie aus. Dadurch sind Sie konzeptionell stark",
+      "Wenn es um Ihre ureigenen Themen geht, können Sie genial und überzeugend sein. Mitunter spüren Menschen Ihres Typs eine Berufung für ein Thema.",
+      "Mit ungewissem Ausgang können Sie flexibel und gut umgehen. Auf neue Anforderungen können Sie sich schnell einstellen.",
+      "Sie sind offen und tolerant. Äußerlichkeiten sind Ihnen nicht so wichtig. kommunizieren können.",
+      "Sie wissen instinktiv, wie man Menschen erreicht und wie Sie Ihre eigenen Anliegen überzeugend",
+      "Durch Ihre soziale Art können Sie gut mit anderen Menschen umgehen.",
+      "Sie haben keine Ambitionen andere zu beeindrucken.",
+      "Sie sind sensibel und fördern Harmonie und Kooperation. Anderen gegenüber agieren Sie äußert wertschätzend.",
+      "Sie interpretieren sicher aus minimaler Information",
+      "Schon im Frühstadium erkennen Sie eintretende Entwicklungen und tragen dazu bei, Ungewolltes zu vermeiden oder Veränderungsprozesse zu unterstützen.",
+      "Bei der Umsetzung Ihrer Aufgaben sind Sie sehr zuverlässig und pflichtbewusst"
+    ],
+    "schwaechen": [
+      "Sie sind immer bereit für Ihre Ideen und Ideale Ihr Bestes zu geben. Dabei neigen Sie jedoch dazu, nicht alle Eventualitäten und Details im Vorhinein zu bedenken. könnte.",
+      "Häufig können Sie sich nicht entscheiden und schieben Entscheidungen auf, weil es noch bessere Informationen geben",
+      "In Ihrer Grundhaltung können Sie sehr selbstzentriert und manchmal mit einer Art Sendungsbewusstsein ausgestattet sein. Das behindert aber einen weiten Blick und kann für Sie zur Isolierung werden. dessen bewusst sind.",
+      "Sie versuchen das, was Sie wahrnehmen, mit bereits gelernten Dingen oder erlebten Situationen zu vergleichen. Dabei laufen Sie Gefahr zu vereinfachen, ohne dass Sie sich",
+      "Sie wollen Ihre Visionen umsetzen, sind dabei aber manchmal zu „verkopft“. für andere schwer zu verstehen ist.",
+      "Manchmal drücken Sie sich eher indirekt und verschlüsselt aus, was",
+      "Auf der einen Seite suchen Sie persönliche Wärme und Harmonie. Sie passen sich jedoch nicht gern an. Sich nach anderen zu richten, empfinden Sie als eher kräftezehrend und ermüdend."
+    ],
+    "motivation": [
+      "Sie verspüren ein starkes Bedürfnis nach • der Verwirklichung Ihrer Ideale. für Reflexion bieten.",
+      "Ihr Umfeld sollte flexibel, ruhig und unbürokratisch sein und Zeit und Raum",
+      "Sie mögen es, wenn Ihr Umfeld aus angenehmen und engagierten Menschen besteht, die die Werte anderer achten.",
+      "Sie sind interessiert daran, zu etwas Bedeutendem beizutragen, greifen gerne neue Ideen auf und werden dann gerne selbst zum Trendsetter.",
+      "Echtheit und innere Überzeugung sind Ihnen wichtig.",
+      "Sie schätzen eine angenehme und partnerschaftliche Atmosphäre",
+      "Sie sind ständig auf der Suche nach Inspiration und nach dem Besonderen. Dabei hilft Ihnen eine tolerante, anpassungsfähige Ordnung, die Raum für individuelle Entwürfe lässt.",
+      "Die Suche nach dem Wesen der Dinge und nach ihrem Sinngehalt treibt Sie an. Sie versuchen alles in der Tiefe zu verstehen und auch letzte Mysterien zu ergründen.",
+      "Haben Sie einen Weg zur Lösung eines Problems gefunden, gehen Sie ihn ausdauernd an und steuern mit Einfallsreichtum auf Ihre Ziele zu. Sie mögen unkonventionelle Lösungen.",
+      "Sie genießen Ihre Selbstständigkeit. Sie benötigen keine Vorgaben und haben ein großes Bedürfnis, selbst zu entscheiden."
+    ],
+    "demotivation": [
+      "Wird die vorgegebene Struktur zu starr und zu eng, neigen Sie dazu auszubrechen.",
+      "Sie sind ungeduldig und Routinen ermüden Sie.",
+      "Die Analyse einer Vielzahl von Details schätzen Sie eher wenig. überlassen Sie gerne anderen.",
+      "Mit den realistischen Gegebenheiten halten Sie sich nicht gerne lange auf, das Was jeder kennt und was offensichtlich ist, verliert für Sie schnell an Attraktivität.",
+      "Personen, die visionäre Ideen und Veränderungen ablehnen, langweilen Sie.",
+      "Ihre Offenheit endet abrupt, wenn Ihr persönliches Wertesystem und Ihre wichtigsten Überzeugungen angetastet werden. Geschieht dies, lassen Sie sich auf keinen Kompromiss mehr ein."
+    ],
+    "rollen_berufe": [
+      "Sie sollten sich Aufgaben suchen, bei denen Sie Ihre persönlichen Werte einbringen können.",
+      "Ihr Arbeitsumfeld sollte Ihnen Raum zur freien Entfaltung bieten.",
+      "Das konzeptionelle Arbeiten, das Entwickeln von Ideen und das Erkennen von Zusammenhängen sollten in Ihrem Aufgabenbereich möglich sein.",
+      "Da Ihnen die Arbeit mit Menschen liegt, sollten Sie eine Beschäftigung suchen, bei der Sie mit anderen zusammenarbeiten können.",
+      "Sie sollten sich einen Tätigkeitsbereich suchen, in dem Sie sich kreativ ausleben können. können.",
+      "Am besten ist für Sie eine Umgebung, in der Sie eng mit einem Ihnen vertrauten, kleinen Team zusammenarbeiten",
+      "Menschen Ihres Typs interessieren sich häufig für Bücher und Sprachen und können sich gut ausdrücken. Mit entsprechendem Talent können Sie ein guter Schriftsteller werden.",
+      "Gleichzeitig brauchen Sie einen Raum, wo Sie sich zurückziehen, reflektieren und alleine arbeiten können."
+    ],
+    "rolle_im_team": [
+      "Sie sind gerne mit anderen zusammen. In kleinen Gruppen oder im Team mit einer zweiten Person fühlen Sie sich besonders wohl.",
+      "Im Team verhalten Sie sich eher ruhig, übernehmen aber auch gerne die Rolle des Moderators, weil Sie gut vermitteln können.",
+      "Sie mögen Gruppen, die aus angenehmen und engagierten Menschen bestehen und die Werte Ihrer Mitglieder beachtet.",
+      "Sie schätzen eine Atmosphäre der Partnerschaft und des Respekts. Daher fördern Sie den Gemeinschaftssinn.",
+      "Bei aller Freundlichkeit und dem Interesse an Ihren Teammitgliedern verlieren Sie sich nicht leicht in Beziehungen, sondern begeben sich im Umgang mit anderen nach einer Phase der Nähe oft wieder in die Distanz.",
+      "Sie können sich schnell in eine Gruppe integrieren, sich aber ebenso schnell auch wieder lösen. Dies dokumentiert Ihre autonome Grundhaltung.",
+      "Sie ermutigen Ihre Gruppenmitglieder, entsprechend Ihrer Ideale und Ziele zu handeln."
+    ],
+    "talente_organisation": [
+      "Sie suchen stets nach neuen Ideen und Möglichkeiten für Organisationen, in denen Sie arbeiten.",
+      "Sie überzeugen mit hoher Fachlichkeit und pflichtbewusster Leistungserfüllung.",
+      "Großen Herausforderungen und Veränderungen nehmen Sie sich gerne an. oder alte Denkmuster zu lösen.",
+      "Ihre Einsichten aus höherer Warte tragen dazu bei, verkrustete Strukturen",
+      "Sich schnell auf neue Situationen, Gruppen und Menschen einzustellen, liegt Ihnen.",
+      "Sie bemühen sich, für jeden Menschen in Ihrer engeren Umgebung den idealen Platz zu finden.",
+      "Sie haben ein Talent dafür, andere Menschen zu erreichen und Ihnen Ihre eigene Sichtweise zu vermitteln.",
+      "Wenn Sie sich einer Sache sicher sind, können Sie sehr überzeugend auftreten und andere für Ihre Ideen gewinnen.",
+      "Sie sammeln die Menschen um ein gemeinsames Ziel herum und können Sinn stiften."
+    ],
+    "konflikt_positiv": [
+      "Sie sorgen auch in kritischen Situationen • für eine positive Stimmung, indem Sie Ihrem Gegenüber Verständnis zeigen und Wertschätzung entgegenbringen.",
+      "Sie denken über das Wichtige nach und tragen konzentriert zu einer vertretbaren Lösung bei, die auf den gemeinsamen Werten basiert.",
+      "In Krisensituationen sehen Sie die Gestaltungsmöglichkeiten und Chancen. Sie sind belastbar.",
+      "Sie zeigen eine Bereitschaft, über eigene Schwächen nachzudenken und diese auch zu verändern.",
+      "Sie gehen den Dingen auf den Grund.",
+      "Sie mögen unkonventionelle Lösungen.",
+      "In Konfliktsituationen können Sie gut zwischen den Beteiligten vermitteln."
+    ],
+    "konflikt_negativ": [
+      "Wenn Sie Ihre Ideale nicht umsetzen können, werden Sie leicht übersensibel und verletzlich.",
+      "Es fällt Ihnen oft schwer, andere zu kritisieren. Dazu sind Sie zu wenig konfliktbereit.",
+      "Bei unkontrolliertem Stress kann es im Gespräch mit anderen passieren, dass Sie sich aggressiv und bestimmend verhalten.",
+      "Unter Stress ignorieren Sie eventuell die Beiträge von anderen, wenn deren Vorschläge nicht in die „richtige” Analyse passen.",
+      "Entweder es gelingt Ihnen, die anderen zu überzeugen oder Sie steigen – ganz gleich, worum es geht – aus und gehen Ihren Weg allein weiter.",
+      "Sie sind kompromisslos, wenn man Ihre eigenen Werte antastet."
+    ],
+    "idealer_chef": [
+      "Wenn ein Ziel Sie innerlich begeistert, können Sie viel Leidenschaft aufbringen. Ihr Chef sollte also darauf bedacht sein, Ihre Leidenschaft für die Sache zu entfachen.",
+      "Kritik sollte immer auch mit Wertschätzung Ihrer Person verbunden sein, genauso wie Sie andere wertschätzend kritisieren.",
+      "Ihr Vorgesetzter sollte Ihnen langfristige Ziele vorschlagen.",
+      "Ideal ist für Sie ein Vorgesetzter, der dabei Ihre Eigenständigkeit akzeptiert.",
+      "Er sollte tolerant mit Ihnen umgehen und Ihnen Freiheiten und Freiräume lassen. Er wird von Ihnen nicht enttäuscht werden. Ihre Kreativität entwickeln Sie aus sich selbst heraus, ohne auf andere angewiesen zu sein.",
+      "Eine vernünftige Reflexion und qualitatives Feedback sind für Sie sehr wichtig.",
+      "Authentisches Verhalten ist für Sie ein sehr wichtiges Kriterium.",
+      "Sie schätzen das persönliche Gespräch auf einer Ebene.",
+      "Er muss Ihnen das Gefühl vermitteln, aus der Vielfalt der Methoden die richtige Methode ausgewählt zu haben. Sie wollen ihm vertrauen und von ihm vermittelt bekommen, wie Sie Ihre Intuition noch weiter verbessern und Ihre Kreativität weiter ausleben können.",
+      "Mit Ihrem Vorgesetzten darf es zu keiner Konkurrenzsituation kommen. Denn dann ziehen Sie sich zurück und gehen Ihre eigenen Wege."
+    ],
+    "verhalten_als_chef": [
+      "Sie führen personenorientiert und auf Augenhöhe. Sie mögen den partnerschaftlichen, selbstverantwortlichen Führungsstil.",
+      "Sie ermutigen andere, Ihren Idealen entsprechend zu handeln und führen und fokussieren Ihre Mitarbeiter auf ein gemeinsames Ziel.",
+      "Sie haben eine unbürokratische und ruhige Art zu führen.",
+      "Sie inspirieren Ihre Mitarbeiter und halten Ideale und Werte hoch.",
+      "Sie hören Ihren Mitarbeitern zu und reagieren sanft auf Ihre Bedürfnisse und Ängste. auszuüben.",
+      "Sie haben wenig Ambitionen, jemanden zu beeindrucken oder Macht",
+      "Ihre Mitarbeiter zu loben fällt Ihnen leichter, als Sie zu kritisieren. Sie streben nach kooperativer Zusammenarbeit.",
+      "Manchmal fällt es Ihnen daher schwer, sich durchzusetzen."
+    ],
+    "kommunikation_sollten": [
+      "Ihre Vorstellung von guter Kommunikation beinhaltet Aussprachen und gegenseitigen Respekt.",
+      "Sie kommunizieren zuerst auf der Beziehungsebene, dann auf der Sachebene.",
+      "Inhaltlich fundierte Aussagen sind Ihnen wichtig.",
+      "Sie mögen eine natürliche Sprache und Wesensart im Gespräch.",
+      "Harmonie ist Ihnen wichtig. Wortwahl.",
+      "Sie bevorzugen eine bedächtige",
+      "Als einfühlsamer Gesprächspartner, der gut zuhören kann, erwarten Sie das auch von anderen.",
+      "Sie tauschen sich mit anderen gerne über Werte und Ideale aus.",
+      "Es ist Ihnen wichtig, den großen Zusammenhang zu sehen. Sie versuchen, andere auf einer tiefen Ebene zu verstehen und erwarten, dass dieses auf Gegenseitigkeit basiert."
+    ],
+    "kommunikation_vermeiden": [
+      "Das Gefühl in Ihrer Freiheit eingeschränkt zu werden, mögen Sie gar nicht. Sobald andere Ihnen bei der Umsetzung Ihrer Ideale im Weg stehen, sind Sie nicht bereit, sich auf Kompromisse einzulassen.",
+      "Problematisch wird es auch, wenn Sie einen Sinnzusammenhang erkennen oder vielmehr erfühlen, der von anderen nicht wahrgenommen wird. Ihr Gegenüber sollte bei Erklärungen nicht zu sehr ins Detail gehen.",
+      "Wenn andere unsensibel sind und direkt • Ihr persönliches Wertesystem in Frage stellen, verstehen Sie keinen Spaß."
+    ],
+    "stress": [
+      "Unter Stress neigen Sie dazu, sehr emotional zu werden.",
+      "Subjektive Empfindungen bewerten Sie in Stresssituationen höher als die Logik.",
+      "Sie sind dann anfällig für Selbstzweifel. Sie fühlen sich überrollt und unfähig, selbst die kleinsten Aufgaben zu erledigen.",
+      "Sie spüren, wie sich Ihre negative Stimmung ausbreitet und es Ihnen schwerer fällt, sich authentisch zu verhalten.",
+      "Ihre hohe Sensibilität in Kombination mit Ihrem Pflichtbewusstsein kann unter starkem Stress an Ihnen zehren. Dabei laufen Sie Gefahr an die körperlichen oder psychischen Grenzen zu geraten.",
+      "Sie schützen Ihre Verletzlichkeit, indem Sie sich reserviert und zurückhaltend geben und sich von anderen distanzieren."
+    ],
+    "lernen": [
+      "Ihre Offenheit für Neues führt dazu, dass Sie gerne neue Ansätze und Ideen kennen lernen.",
+      "Sie experimentieren gerne.",
+      "Sie können sich selbst gut organisieren.",
+      "Sie sehen das große Ganze.",
+      "Sie mögen es, wenn Sie sich auf nur wenige Aufgaben konzentrieren müssen und dabei nicht gestört werden.",
+      "Sie müssen von der Sinnhaftigkeit und Richtigkeit der Lerninhalte überzeugt sein.",
+      "Um das Erlebte zu verarbeiten, brauchen Sie Zeit und Raum.",
+      "Großer Ehrgeiz entwickelt sich bei einem inneren positiven Anreiz. In kleinen Lernteams fühlen Sie sich wohl, können aber allein oftmals am besten arbeiten.",
+      "Am besten lernen Sie durch Erfahrungen • in der Praxis, nicht durch die „graue Theorie“."
+    ],
+    "entwicklungspotential": [
+      "Sie neigen dazu, Projekte anzustoßen, diese aber nicht zu beenden. Lernen Sie, sich auf die Wirklichkeit einzustellen, Details zu beachten und statt auf perfekte Gegebenheiten zu warten, begonnene Aufgaben trotz Ihres hohen Anspruchs auch bis zum Ende umzusetzen.",
+      "Sie werden das Gefühl, unzulänglich zu sein und hinter Ihren Idealen zurückzubleiben oft nicht los. Es ist daher wichtig, dass Sie eine konkrete Gestalt für Ihre Ideale finden. Werte haben dadurch ihren Bestand, dass Sie durch Prinzipien und objektive Überlegungen gestützt werden.",
+      "Achten Sie darauf, aus Ihrem Harmoniebedürfnis heraus nicht zu viele Menschen auf einmal zufriedenstellen zu wollen. Lernen Sie Nein zu sagen. konkreter wahrzunehmen.",
+      "Treten Sie auch manchmal von Ihren eigenen Haltungen, Einstellungen und Wünschen zurück, um Beziehungen und wie Menschen zu Ihnen stehen,",
+      "Achten Sie darauf, ein gutes Zeitmanagement einzuführen.",
+      "Nehmen Sie sich die Zeit, Ihre Visionen einem Realitätscheck zu unterziehen.",
+      "Lernen Sie konkrete Aktionspläne zu entwickeln und umzusetzen. vereinfachen.",
+      "Versuchen Sie, die Komplexität der Welt anzuerkennen und nicht zu",
+      "Finden Sie Raum und Zeit für sich selbst. Sichern Sie sich diese Freiräume zum Nachdenken, Entwickeln und Tun.",
+      "Ein Wechselspiel der Interaktion mit den Menschen, denen Sie begegnen kann Ihnen helfen.",
+      "Vertrauen Sie auf Ihre Intuition und Ihre persönlichen Wertvorstellungen. Wenn Sie zudem versuchen, konsequenter auf wichtige Details zu achten, Prioritäten zu setzen und nicht alles zu beginnen, was auf den ersten Blick attraktiv erscheint, können Ihr visionäres Denken und Ihr Talent andere mitzureißen Sie weit bringen.",
+      "Unter Umständen kann es Ihnen passieren, dass Sie Visionen mit Tatsachen verwechseln. Stellen Sie sich schneller auf die Realität, die Tatsachen und das „Hier-und-Jetzt“ ein."
+    ]
+  }
+}

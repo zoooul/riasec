@@ -1,0 +1,212 @@
+{
+  "code": "ESTJ",
+  "role": "Direktor",
+  "system": "VIST/ClaVis",
+  "source": {
+    "file": "skillster_daten-komprimiert.pdf",
+    "licenseLayer": "owned",
+    "notes": "Profiltexte aus eigener Lizenzquelle."
+  },
+  "dimensions": {
+    "E_I": "E",
+    "S_N": "S",
+    "T_F": "T",
+    "J_P": "J"
+  },
+  "sections": {
+    "eigenschaften": [
+      "Effizienz",
+      "Entschlossenheit",
+      "Organisation",
+      "Sachlichkeit",
+      "Realismus",
+      "Pragmatismus"
+    ],
+    "staerken": [
+      "Charakteristisch für Sie sind vorausschauende Planung, analytische Entscheidungsfindung und ein bewusstes Handeln.",
+      "Sie sorgen für einen guten Ablauf mit einem Sinn für Entscheidungen, Ordnung und Struktur.",
+      "ESTJs besitzen Organisationstalent und sind häufig gute Manager.",
+      "Sie planen folgerichtig und systematisch und gehen ebenso vor.",
+      "Ihr Handeln ist geprägt von Disziplin, Logik und Detailorientierung.",
+      "Ihr Blick für Details ermöglicht es Ihnen, gute Vorhersagen zu treffen.",
+      "Sie besitzen eine nüchterne und realistische Faktenorientierung und spekulieren nur ungern.",
+      "Von anderen werden Sie als genau, konsequent und zielstrebig erlebt.",
+      "Begonnenes bringen Sie zu Ende. Sie arbeiten ausdauernd daran, ihre Ziele zu erreichen.",
+      "Sie mögen es, auf dem Weg zur Zielerreichung gestaltend und kontrollierend tätig zu werden.",
+      "Auch bei geringem Anreiz zeigen Sie Ehrgeiz.",
+      "Eine Ihrer besonderen Stärken ist es, Aufgaben zuverlässig umzusetzen.",
+      "Sie wissen genau, was Sie wollen und wie man es regeln muss.",
+      "Effizienz in der Umsetzung ist Ihnen wichtig.",
+      "Insgesamt verfügen Sie über eine praktische Veranlagung und schätzen Fleiß und Verantwortungsbewusstsein.",
+      "Sie sind hartnäckig und belastbar.",
+      "Es fällt Ihnen leicht, schnell Entscheidungen zu treffen. Dabei konzentrieren Sie sich auf das Wesentliche."
+    ],
+    "schwaechen": [
+      "Sie neigen dazu, sich zu sehr an der Aufgabe und dem Ziel zu messen.",
+      "Alles wird dem Maßstab der Qualität, Arbeit und Leistung untergeordnet.",
+      "Ist dieser Maßstab nicht gegeben, haben Sie Schwierigkeiten im Chaos eine Struktur zu erkennen.",
+      "Aus Unsicherheit entspringt dann eine Fehlerfokussierung.",
+      "Sie sind dann in der Lage, einzelne Prozesse zu sehen, verlieren aber den Blick für den Gesamtzusammenhang.",
+      "Dabei besteht die Gefahr, dass Sie einen „Tunnelblick“ entwickeln, also nicht nach links und nach rechts schauen.",
+      "Das kann dazu führen, dass Sie eingefahren und wenig zukunftsorientiert agieren.",
+      "Sie verfolgen stur die gesetzten Ziele; selbst dann, wenn diese Ziele falsch sind.",
+      "Einmal gefasste Pläne werden durchgezogen, auch wenn sich erweisen sollte, dass eine andere Taktik die bessere wäre. Sie brauchen etwas Zeit, um sich umzustellen.",
+      "Aus Organisiertheit und Genauigkeit sollte nicht Penetranz, bürokratische Überkorrektheit und unflexibles Verhalten werden.",
+      "Ihr Ansatz, alles regeln und kontrollieren zu wollen, kann dazu führen, dass eine freie Entfaltung für sich und andere blockiert wird und Sie Ihre eigenen Bedürfnisse aus dem Blick verlieren.",
+      "Schwierigkeiten können auftreten, wenn sich Ihre Familie, Freunde oder Kollegen durch Ihre Überorganisation eingeengt fühlen.",
+      "Bei Entscheidungen sollten alle relevanten Faktoren berücksichtigt werden, auch die, die mit den Bedürfnissen von Menschen zu tun haben."
+    ],
+    "motivation": [
+      "Sie streben nach Kontrolle und Sicherheit, eindeutigen Entscheidungen, klaren Normen und nach Geschlossenheit.",
+      "Ergebnisse sind für Sie entweder eindeutig richtig oder eindeutig falsch. Auf Ihrer Suche nach der „Wahrheit“ bevorzugen Sie eindeutige Kriterien.",
+      "Sie streben ein beständiges Leistungsniveau an.",
+      "Sie arbeiten gern an konkreten Projekten mit messbaren, sichtbaren Ergebnissen.",
+      "Ihr Umfeld sollte möglichst stabil, vorhersagbar und auf Effizienz ausgerichtet sein.",
+      "Sie fühlen sich wohl in einem Team, das aus hart arbeitenden und zielorientierten Menschen besteht.",
+      "Sie schätzen klare Organisation und Strukturen. Umgebung weiterzuentwickeln.",
+      "Sie schätzen die Möglichkeit, sich in einer gut definierten, strukturierten",
+      "Haben Sie Aufgaben einmal akzeptiert, erledigen Sie diese zuverlässig. Sie benötigen dabei keine große emotionale Identifikation mit der Aufgabe; Ihre Motivation ziehen Sie aus der erfolgreichen Umsetzung.",
+      "Ziele motivieren Sie sehr stark. Diese sollten für Sie genau und umfassend formuliert und kommuniziert sein."
+    ],
+    "demotivation": [
+      "Ebenso führen Widersprüche oder unklare Situationen bei Ihnen zu Irritationen.",
+      "Wenn Sie Ihr Ziel im Blick haben, lassen Sie sich nicht gern davon abbringen.",
+      "Sie reagieren frustriert, wenn Sie von Anderen vereinnahmt werden und widersetzen sich dieser Dominanz. Sie entsprechend wenig.",
+      "Situationen, in denen Sie keine Kontrolle haben oder keine Verantwortung übernehmen, schätzen",
+      "Fairness ist Ihnen wichtig. Sie mögen keine Ungerechtigkeiten.",
+      "Sie mögen keine unklaren, unpräzisen Absprachen und Regelverstöße.",
+      "Zu viele unsinnige und unbedachte Veränderungen ärgern Sie. Lieber halten Sie an bestehenden und funktionierenden Prozessen fest."
+    ],
+    "rollen_berufe": [
+      "Ihre Entschlossenheit und Ihr Organisationstalent machen Sie sind zu einem guten Organisator.",
+      "Ihre absolute Stärke liegt in der praktischen Umsetzungsphase von Projekten.",
+      "Sie setzen spezifische, anfordernde und realistische Ziele und sorgen dafür, dass sie termingerecht erreicht werden.",
+      "Auf Ihrem Karriereweg könnte es eine Option für Sie sein, sich um eine Führungsrolle zu bemühen.",
+      "Für Sie ist es wichtig Projekte und Aufgaben abschließen zu können (und nicht in einer kreativ-konzeptionellen Schleife zu verharren).",
+      "Entsprechend bevorzugen Sie solche Arbeit, bei der die Ergebnisse handgreiflich, sichtbar und konkret sind.",
+      "Mit Ihrer Detailorientierung besitzen Sie die Gabe, Fehler schon weit im Voraus erkennen zu können. bestmögliche Leistung zu erbringen und stärken Sie.",
+      "Sachlich-konstruktive Feedbackgespräche helfen Ihnen die",
+      "Sie brauchen ein Arbeitsumfeld, bei dem der Gesamtprozess auf Basis objektiver Fakten für Sie nachvollziehbar ist und aktiv mitgedacht, entschieden und bearbeitet werden kann.",
+      "Menschen Ihres Typs fühlen sich häufig mit koordinativen, organisatorischen und Managementaufgaben sehr wohl.",
+      "Routinehandlungen und bestimmte notwendige Prozeduren können Sie gut akzeptieren. Dabei entwickeln Sie eine gewisse Ausdauer in der Umsetzung und bauen Ihre Fähigkeiten und Methodenkompetenzen weiter aus.",
+      "Sie mögen klare Strukturen und bereiten sich gerne gut vor."
+    ],
+    "rolle_im_team": [
+      "Sie sind vor allem aufgabenorientiert. stabil und vorhersagbar verhalten.",
+      "Sie mögen es, wenn Menschen sich",
+      "Sie können gut die Ärmel hochkrempeln und ziehen Sie dabei Ihre Teammitglieder mit.",
+      "Sie fühlen sich am wohlsten, wenn Sie in gut strukturierte, automatisierte Prozesse (Teams) eingebunden sind.",
+      "Ihre Stärke liegt mehr in der Organisation und Umsetzung, als im Aufbau und Pflege zwischenmenschlicher Beziehungen.",
+      "Im Team werden vor allem Ihre Analysefähigkeit und Ihre Zuverlässigkeit geschätzt."
+    ],
+    "talente_organisation": [
+      "Durch Ihre Zuverlässigkeit und Zielorientierung leisten Sie einen wichtigen Beitrag zum Erreichen von Organisationszielen.",
+      "Ihr ausgeprägtes Verantwortungsgefühl veranlasst Sie häufig mitanzupacken, wo es gilt, anderen zu helfen oder Dinge zum Wohle der Allgemeinheit zu tun.",
+      "Sie organisieren beständig Abläufe, Produkte und Menschen und kontrollieren, ob die Arbeit gemacht wurde.",
+      "Es ist wichtig für Sie, Regeln zu formulieren, die das Zusammenleben organisieren.",
+      "Sie haben hohe qualitative Ansprüche. Sie setzen hohe Standards.",
+      "Sie sind ein guter Projektmanager und Organisator.",
+      "Wenn ESTJ-Typen beginnen, für andere deren Leben zu regeln, geschieht dies oft mit den besten Absichten. Sie sind dabei jedoch so effektiv, dass der Zielperson dieser Hilfeleistung dadurch häufig die Chance genommen wird, sich selbst zu erproben und zu beweisen.",
+      "Neuerungen können mitunter von Ihnen verhindert werden, weil Sie andere anweisen, sich an die bisherigen Anordnungen und Vorgehensweisen zu halten.",
+      "Sie sorgen für Pünktlichkeit und Disziplin, die Einhaltung von Vorgaben und Zielen."
+    ],
+    "konflikt_positiv": [
+      "Sie agieren in kritischen Situationen als Vorbild, indem Sie Ihre Aufgabe 100%ig erfüllen.",
+      "Sie sind ein guter analytischer Problemlöser mit einem pragmatischen Lösungsansatz.",
+      "Das, was Sie vorfinden, versuchen Sie zu regeln, zu ordnen und zum Laufen zu bringen und zeigen anderen damit, dass Sie nicht aufgeben.",
+      "Sie schätzen eine ruhige, möglichst emotionsfreie Klärung von Problemen.",
+      "Ihre Kritik bauen Sie logisch auf. in die Wunde.",
+      "Wenn es sein muss, legen Sie den Finger",
+      "Dadurch finden Sie schnell den Kern des Problems und weisen immer wieder darauf hin."
+    ],
+    "konflikt_negativ": [
+      "Sie haben keine Geduld bei fehlerhaftem Verhalten. Sie sind Perfektionist. werden.",
+      "Wenn sich Ihrem Perfektionismus Hindernisse in den Weg stellen, dann können Sie zornig und dünnhäutig",
+      "Sie selbst ziehen sich bei starken (Außen-)Reizen und emotionalen Reaktionen gerne zurück. selbstkritisch und betrachten auch andere gern einmal zu kritisch.",
+      "Wenn Sie sich unsicher fühlen, neigen Sie zu Selbstzweifeln und reagieren verschlossen. Dann werden Sie",
+      "Ihre Unzufriedenheit oder Kritik sprechen Sie direkt an. Dabei siegt die Wahrheit vor dem Taktgefühl. Gesten menschlicher Wärme und Zuneigung.",
+      "Ihre Direktheit kann auf andere mitunter sehr kantig, verletzend und unnachgiebig wirken. Sie zeigen wenige",
+      "Sie setzen mitunter zu wenig Vertrauen in andere. Das Vertrauen muss man sich mit ehrlicher Leistung verdienen. Eigene qualitative Maßstäbe an die Abgabe einer Leistung werden auf andere sofort übertragen. Da gibt es keine zwei Meinungen.",
+      "Sie drängen Anderen gern Ihre strukturierte Lebensauffassung auf."
+    ],
+    "idealer_chef": [
+      "Ihr idealer Chef sollte auf eine klare Definition Ihrer Rolle achten und Ihnen planbare und vorhersagbare Aufgaben geben.",
+      "Die Aufgaben sollten realistisch sein und detailgenau beschrieben werden.",
+      "Klare Richtlinien und strukturierte Pläne sind wichtig, um Ihnen Orientierung zu geben. Umsetzung Ihrer Ziele verleihen Ihnen Sicherheit und Stärke.",
+      "Zuverlässige Informationen, Sachlichkeit, Perfektion und eine zügige",
+      "Von Ihrem Chef erwarten Sie klare Ziele und klares, direktes Feedback. mit Ihrem Chef.",
+      "Sie schätzen einen stetigen Informationsaustausch",
+      "Aufbauende Worte Ihres Chefs helfen Ihnen begangene Fehler oder Misserfolge als nicht so schlimm anzusehen und damit Ihr negatives Gefühl zu verarbeiten."
+    ],
+    "verhalten_als_chef": [
+      "Menschen Ihres Typen wollen in der Regel führen und übernehmen schnell Führung.",
+      "Sie respektieren Traditionen und Hierarchien und führen gerecht, ehrlich und loyal. Am liebsten schließen Sie dabei von der Vergangenheit auf die Zukunft.",
+      "Sie führen und entscheiden vor allem im • Sinne der Aufgabe, des Systems und auf Basis Ihrer Erfahrungen.",
+      "Sie wissen genau, wie Sie vorgehen wollen und wollen andere Menschen in erster Linie von Ihrem Ansatz überzeugen.",
+      "Wenn allerdings die Fakten offen liegen, dass eine Neuerung notwendig ist, können Sie schnell einen neuen Weg gehen.",
+      "Mit Ihrem Handeln setzen Sie klare Prioritäten und Maßstäbe.",
+      "Sie agieren kompetent und verantwortungsvoll.",
+      "Manchmal übersehen Sie dabei, dass Veränderungen notwendig sind, auch",
+      "Sie nehmen gern Einfluss auf Andere und auf Entscheidungen. weil Sie Bewährtes mögen.",
+      "Das kann mitunter dazu führen, dass Ihre Mitarbeiter weniger Verantwortung bekommen und damit nicht die Chance, sich selbst zu beweisen und sich frei entwickeln zu können.",
+      "Sanfte Manipulation liegt Ihnen nicht so sehr, Sie schaffen lieber schnell klare Verhältnisse. Wenn es sein muss, können Sie hartnäckig, stur und eingefahren reagieren.",
+      "Vorgänge müssen für Sie faktisch messbar und begreifbar sein.",
+      "Andere überzeugen Sie durch Ihr eigenes vorbildliches Verhalten."
+    ],
+    "kommunikation_sollten": [
+      "Sie mögen das pragmatische, nüchterne, fachliche, strukturierte Gespräch.",
+      "Entsprechend schätzen Sie Interaktionspartner, die sachlich und ehrlich kommunizieren.",
+      "Sie besitzen ein hohes Stimulationsbedürfnis, das Sie zu einer schnellen und direkten Kommunikation mit Ihren Mitmenschen führt.",
+      "Ihre Argumente und Entscheidungen bauen Sie logisch und folgerichtig auf und eine solche Vorgehensweise erwarten Sie auch von Anderen.",
+      "Generell kommunizieren Sie eher zurückhaltend und kurz angebunden.",
+      "Effizienz spielt für Sie auch in der Kommunikation eine große Rolle.",
+      "Die Schlussfolgerungen anderer stellen Sie gern mal in Frage. aufnehmen.",
+      "Sie können im interaktiven Dialog gut verstehen und Informationen",
+      "Durch Gespräche gewinnen Sie neue Erkenntnisse und Ideen und können sich darüber austauschen.",
+      "Daher sprechen Sie auch lieber über Fakten als über den neuesten Tratsch.",
+      "Sie kommunizieren lieber auf der Sachebene und erst darauffolgend auf der Beziehungsebene.",
+      "Ihre Gefühle versuchen Sie weitgehend nicht zu zeigen und wirken für andere mitunter unterkühlt und unnahbar.",
+      "Sie kommen mit wenigen, klaren Worten aus. Es sei denn, Sie können darüber erzählen, was Sie wirklich interessiert. Dann kann es passieren, dass Sie anderen kaum das Wort geben, weil Sie selbst gerne mit Argumenten überzeugen möchten."
+    ],
+    "kommunikation_vermeiden": [
+      "Aufgrund Ihrer Praxisorientierung und Ihres Effizienzdenkens dürfen theoretische Diskussionen nicht zu abgehoben und weltfremd werden.",
+      "Wenn Menschen Ihnen zu nahekommen und zu aufdringlich sind, können Sie derb, kühl und unsensibel werden und sich schnell verschließen. Alles was nicht konkret erfassbar ist, was visionär oder abgehoben daherkommt, macht Sie misstrauisch.",
+      "Wenn Sie merken, dass Dinge nicht klar • bestimmt und Absprachen ungenau sind oder dass sich andere nicht an die Regeln halten, werden Sie unruhig.",
+      "Als unangenehm empfinden Sie zudem, wenn Ihr Gegenüber seine Kritik zu emotional und zu persönlich äußert.",
+      "Sie haben Angst vor Unbegreiflichem, vor Dingen, die Sie nicht verstehen können und auch vor unlogischen Vorgängen und Handlungen.",
+      "Zugleich sträuben Sie sich gegen oberflächliche Erläuterungen."
+    ],
+    "lernen": [
+      "Sie bevorzugen ein planvolles, sinnvolles • und strukturiertes Lernen. genau etwas funktioniert.",
+      "Für Sie ist es wichtig zu verstehen, wofür, warum, was und wie",
+      "Sie sind beim Lernen sehr geduldig und gründlich – neue Inhalte nehmen Sie sich erst dann vor, wenn bisheriges genauestens präsentiert und verstanden wurde.",
+      "Hoher Realitätsbezug ist auch in den Lerninhalten für Sie wichtig – Sie bauen auf erwiesene, glaubwürdige Fakten.",
+      "Mitunter hilft Ihnen das Lernen mit allen Sinnen – Sachen anzufassen, auszuprobieren.",
+      "Im Allgemeinen priorisieren Sie jedoch eindeutig praktisches, handwerkliches, präzises und qualitatives Lernen.",
+      "Am besten lernen Sie in einer ruhigen Atmosphäre, gern auch allein.",
+      "Sie können sich gut Details einprägen und übersehen wenig."
+    ],
+    "stress": [
+      "In Stresssituationen versuchen Sie, die Kontrolle zu behalten.",
+      "Sie wollen alles richtig machen und setzen sich dafür ein.",
+      "Das kann mitunter dazu führen, dass Sie sich sehr stark auf Ihre Ziele fokussieren und einen regelrechten Tunnelblick entwickeln.",
+      "Dabei laufen Sie Gefahr auch dann an gesetzten Zielen festzuhalten, wenn diese sich auf dem Weg als falsch herausstellen. Unter Umständen können dabei Sie auf andere unnahbar oder kantig wirken.",
+      "Auch unter hoher Belastung schaffen Sie • es, klar und folgerichtig zu argumentieren und Probleme direkt anzusprechen.",
+      "Als Hilfestellung dient Ihnen dazu mitunter eine konkrete Tatsache, ein Beispiel oder ein Prinzip, an dem Sie sich",
+      "Bei Ermüdungserscheinungen fällt es Ihnen immer schwerer logisches Denken durchzuhalten. orientieren können.",
+      "Dann ziehen Sie sich lieber zurück und sind eher reserviert, um sich zu schützen und Energien aufzutanken.",
+      "Bei extremen oder länger andauernden Stresssituationen laufen Sie Gefahr Ihr natürliches Selbstvertrauen und Selbstwertgefühl zu verlieren."
+    ],
+    "entwicklungspotential": [
+      "Zwingen Sie sich auch einmal, die Vorteile von Veränderungen zu sehen. Entscheidung betroffen sind.",
+      "Versuchen Sie vorne weg die Meinung der Menschen anzuhören, die von ihrer",
+      "Suchen Sie nicht nur die Fehler im System und reklamieren diese, sondern schätzen Sie auch das, was gut läuft.",
+      "Nehmen Sie sich die Zeit anderen Ihre Wertschätzung für die Bemühungen auszudrücken.",
+      "Auch wenn Sie gern die Fäden in der Hand haben – versuchen Sie nicht immer nur zu wollen, sondern auch mit sich geschehen zu lassen.",
+      "Seien Sie im Umgang mit anderen weniger geizig mit dem Ausleben von Emotionen. Lernen Sie, mehr Gefühle zu zeigen.",
+      "Begeben Sie sich vertrauensvoll in das Leben und seine grundsätzliche Offenheit hinein, lassen Sie sich fallen. Einfach so. Hinein in die Improvisation, das kleine Chaos, in kleine interessante Regelverstöße.",
+      "Nehmen Sie sich mehr Zeit für Ihre eigenen Gefühle und Wertvorstellungen. Dies hilft Ihnen sich selbst treu zu bleiben und nicht die eigene Überzeugung ad absurdum zu führen.",
+      "Schenken Sie den Leistungen und Ideen anderer mehr Beachtung und versuchen Sie etwas Gutes daran zu entdecken."
+    ]
+  }
+}

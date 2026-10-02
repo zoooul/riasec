@@ -1,0 +1,193 @@
+{
+  "code": "ESFP",
+  "role": "Entertainer",
+  "system": "VIST/ClaVis",
+  "source": {
+    "file": "skillster_daten-komprimiert.pdf",
+    "licenseLayer": "owned",
+    "notes": "Profiltexte aus eigener Lizenzquelle."
+  },
+  "dimensions": {
+    "E_I": "E",
+    "S_N": "S",
+    "T_F": "F",
+    "J_P": "P"
+  },
+  "sections": {
+    "eigenschaften": [
+      "Offenheit",
+      "Umgänglichkeit",
+      "Neugierde",
+      "Geselligkeit",
+      "Realistische Sicht auf die Welt",
+      "Soziale Integrationsfähigkeit"
+    ],
+    "staerken": [
+      "Sie sind freundlich, fröhlich und gewinnend.",
+      "Auf andere gehen Sie offen, tolerant und ohne Vorurteile zu.",
+      "Sie sprühen vor Ideen und Tatendrang, können begeistern und strahlen Energie aus. was dieser zu bedeuten hat.",
+      "Da Sie ein guter Beobachter sind, erkennen Sie genau den Moment und",
+      "Sie sind mit dem Hier und Jetzt verbunden. Sie können Krisen gut bewältigen.",
+      "Die Welt sehen Sie so, wie sie ist. Sie sind Realist.",
+      "Sie beschäftigen sich gerne mit konkreten Dingen und der Umsetzung in die Praxis.",
+      "Sie sind ein Menschenkenner und besitzen daher gute Fähigkeiten im zwischenmenschlichen Umgang.",
+      "Da Sie die Abwechslung lieben, können Sie sich mit viel Spontaneität auf neue Situationen einstellen.",
+      "Ästhetik und Stil sind Ihnen wichtig. Sie haben ein gutes Urteilsvermögen für Kunst und Mode.",
+      "Die Beschäftigung mit Details liegt Ihnen. Sie besitzen die Fähigkeit, eine enorme Datenfülle effektiv zu verwalten und zu verarbeiten.",
+      "Ihre hohe Flexibilität und Anpassungsfähigkeit zeichnen Sie aus."
+    ],
+    "schwaechen": [
+      "Sie entscheiden erst, wenn alle Informationen vorliegen. Daher neigen Sie dazu, Entscheidungen aufzuschieben bzw. sich nicht entscheiden zu können, weil es noch haben. bessere Informationen geben könnte.",
+      "Es kann Ihnen passieren, dass Sie einfach aus dem Gefühl heraus handeln, ohne vorher bewusste logische Überlegungen in Ihre Entscheidungsprozesse mit einbezogen zu",
+      "Manchmal fällt es Ihnen schwer, Prioritäten zu setzen. der Zielerreichung ausleben.",
+      "Harmonie ist Ihnen wichtig. Daher kann es passieren, dass Sie Geselligkeit auf Kosten",
+      "Ein gutes Zeitmanagement einzuführen ist eine Herausforderung für Sie, weil Sie stets versuchen, alle Eventualitäten zu berücksichtigen und dann nicht einfach loslegen.",
+      "In Ihren Entscheidungen lassen Sie sich teilweise von den sich bietenden Gelegenheiten mitreißen. Sie sind sehr empfänglich für „ansteckende Emotionalität“. Dabei laufen Sie Gefahr, nicht immer alles zu beenden, was sie anfangen, weil Sie sich leicht ablenken lassen.",
+      "Wenn Sie zu tolerant sind und zu viel • zulassen, kann es auf andere orientierungslos und chaotisch wirken.",
+      "Manchmal neigen Sie dazu, Ihre eigenen Bedürfnisse zu verdrängen. Sie versuchen dann mit allgemeinen Aktivitäten, Arbeit und Spaß Ihre persönlichen Baustellen zu überdecken.",
+      "Der Wunsch nach Anerkennung durch andere ist bei Ihnen stark ausgeprägt. Es herrscht bei Ihnen daher eine gewisse Diskrepanz zwischen Ihrem Innenleben und dem, wie Sie sich nach Außen zeigen. Um anderen zu gefallen setzen Sie dann Masken auf, die Ihnen vielleicht nicht passen."
+    ],
+    "motivation": [
+      "Alles, was einen Reiz auf die Sinne ausübt, kann Sie begeistern.",
+      "Sie freuen sich über Abwechslung und lieben daher Überraschungen.",
+      "Sie sind unternehmungslustig und suchen aktiv die Stimulation in dem, was Sie umgibt.",
+      "Sie lieben es, Ihr Leben in einem vorgefertigten Rahmen bunt, reichhaltig und intensiv zu führen.",
+      "Sie laufen zur Hochform auf, wenn Sie es mit konkreten Dingen sowie mit konkreten Aktionen zu tun haben.",
+      "Für Sie ist es wichtig, Richtung und Sinn für Ihr Leben zu finden.",
+      "Sie sind eher an Menschen als an Dingen interessiert. Der direkte Kontakt zum Leben ist Ihnen wichtig. besteht, motiviert Sie.",
+      "Ein Umfeld, das aus energiegeladenen, umgänglichen und gegenwartsbezogenen Menschen",
+      "Sie verspüren ein großes Bedürfnis nach Harmonie.",
+      "Ihr soziales Umfeld sollte lebendig und harmonisch sein.",
+      "Sie lieben es, wenn Ihre sozialen Kompetenzen gefragt sind und Ihre Anpassungsfähigkeit gefordert wird.",
+      "Sie mögen eine Umgebung, die einen lockeren Umgang mit Menschen ermöglicht. Sie sind hoch selbstmotiviert etwas zu erreichen und an Ihrer eigenen Entwicklung interessiert. Dabei sind Sie",
+      "Positive Rückmeldung motiviert Sie. Sie • geben Ihr Bestes, wenn man Sie viel lobt und Ihren Einsatz direkt anspricht. auch selbstkritisch.",
+      "Sie suchen die Autonomie. Selbstbestimmt entscheiden und handeln zu können ist Ihnen daher besonders wichtig.",
+      "Sie sind ein Genießertyp, mögen gutes Essen, schöne Landschaften und Gegenstände. Reichtum ist für Sie weniger materiell als sinnlich."
+    ],
+    "demotivation": [
+      "Tägliche Routine, Verpflichtungen und Abläufe werden von Ihnen ertragen, aber nicht sehr geschätzt. ein.",
+      "Da Sie Stimulationen und Abwechslung suchen, fehlt Ihnen manchmal die nötige Geduld und Langeweile stellt sich",
+      "Sie wollen häufig zu vieles auf einmal. Deshalb kann man Sie nur schwer zufrieden stellen.",
+      "Da Sie großen Wert auf Loyalität legen, demotiviert Sie unsolidarisches Verhalten.",
+      "Vor allzu „Wissenschaftlichem“ schrecken Sie schnell zurück – manchmal vielleicht etwas voreilig.",
+      "Wird die vorgegebene Struktur zu starr und zu eng, neigen Sie dazu auszubrechen.",
+      "Widersprüche oder komplexe Situationen können zu Irritationen führen. Dabei kann es vorkommen, dass Sie ein „Unstimmigkeitsexperte“ werden und vor lauter Details das große Ganze nicht mehr sehen."
+    ],
+    "rollen_berufe": [
+      "Im beruflichen Bereich sollten Sie sich Aufgaben suchen, bei denen ein gutes Gedächtnis für Details gebraucht wird.",
+      "Sie sollten sich um eine Position zu bemühen, in der Sie selbst bestimmen, wie eine Aufgabe gelöst wird.",
+      "Sie bevorzugen ein kommunikatives Arbeitsumfeld und einen klar definierten, strukturierten und durchaus umfangreichen Tätigkeitsbereich.",
+      "In Berufen mit viel Aktivität und Abwechslung fühlen Sie sich wohl, zum Beispiel im Sportbereich.",
+      "Da Ihnen die Vermittlung in menschlichen Krisensituationen liegt, eignen Sie sich auch für die Arbeit im sozialen Bereich. Krisenmanagement vorstellbar.",
+      "Es liegt Ihnen, Krisensituationen zu meistern und zwischen Konfliktparteien zu vermitteln. Daher ist eine Arbeit, wie zum Beispiel im Verkauf, Risiko- oder",
+      "Im Zentrum des Geschehens zu stehen gefällt Ihnen. Daher fühlen sich Menschen Ihres Typs häufig zu Berufen in der darstellenden Kunst hingezogen."
+    ],
+    "rolle_im_team": [
+      "Sie können sich gut in eine Gruppe integrieren und sind ein außerordentlicher Teamplayer.",
+      "Sie begeistern und regen Kooperationen an. Dadurch fördern Sie den Teamgeist.",
+      "Die Interaktion zwischen Menschen ist Ihnen sehr wichtig. Sie fördern daher die effektive Zusammenarbeit. Lösungen, die alle befriedigen.",
+      "Im Umgang mit anderen versuchen Sie nicht, irgendwelche Regeln durchzusetzen, sondern suchen nach",
+      "Es ist Ihnen wichtig, sich mit der Aufgabe, die Sie zu bewältigen haben und den Gruppenmitgliedern zu identifizieren.",
+      "Sie pflegen eine charmante Art des Umgangs miteinander, vermitteln Spaß und Freude.",
+      "Die Rolle des Vermittlers einzunehmen liegt Ihnen. Durch Ihre soziale Kompetenz lösen Sie Spannungen auf.",
+      "Weil Sie sehr harmoniebedürftig sind, sind Sie ungern für die Disziplin in der Gruppe verantwortlich.",
+      "Sie identifizieren sich mit den Menschen, mit denen Sie in Berührung kommen. Sie setzen sich für andere ein, helfen und fördern."
+    ],
+    "talente_organisation": [
+      "Sie vermitteln ein positives Bild vom Team und dem Unternehmen.",
+      "Sie fördern den Enthusiasmus.",
+      "Sie akzeptieren und behandeln die Menschen so, wie sie sind.",
+      "Sie haben einen Sinn für unkonventionelle Lösungen.",
+      "Sie setzen Projekte detailliert und präzise um.",
+      "In Krisensituationen bleiben Sie ruhig. Sie gehen unkonventionelle Wege. Denn oft sind es die verhärteten, etablierten Ordnungen, Regeln und Gesetze, die „überholt“ werden müssen, um mit einer Sache ans Ziel zu kommen.",
+      "Durch Ihr Talent zu vermitteln sind Sie in • der Lage, tiefe „Gräben“ in Unternehmen zu. überbrücken, wie Ihnen dies im Kleinen bei Einzelpersonen gelingt.",
+      "Ihr personenbezogenes Wertegefühl vermittelt Ihnen Takt, Sympathie und ein ehrliches Interesse für andere.",
+      "Wenn sich einmal keine Grenzen auflösen lassen, dann haben Sie einen guten Blick für die freien Räume innerhalb der Grenzen."
+    ],
+    "konflikt_positiv": [
+      "Ihr Augenmerk richtet sich auf unmittelbar anstehende Probleme. Sie sind daher ein guter Problemlöser.",
+      "Durch Ihre natürliche und pragmatische Art können Sie gut vermitteln und verhandeln.",
+      "Von der schlechten Stimmung anderer lassen Sie sich nicht so leicht beeinflussen.",
+      "Sie lösen Spannungen auf, indem Sie Gegensätze vereinen.",
+      "Wenn Sie mittendrin sind, sind Sie in Ihrem Element. Dann wissen Sie auch in schwierigen Situationen instinktiv, was zu tun ist.",
+      "Bevor Sie Ihre Entscheidungen treffen reden Sie mit den Beteiligten, um die entsprechenden Informationen zu sammeln.",
+      "Eine realistische Einschätzung der Situation hat bei Ihnen erste Priorität. Dabei konzentrieren Sie sich auf die unmittelbare Situation, weil Sie in der Gegenwart leben.",
+      "In Krisensituationen bleiben Sie ruhig und stabil. Dabei hilft Ihnen Ihr Optimismus."
+    ],
+    "konflikt_negativ": [
+      "Aufgrund Ihres Harmoniebedürfnisses sind Sie zu wenig konfliktfähig.",
+      "Sie haben manchmal Schwierigkeiten durchzuhalten.",
+      "Aus Ihrer Suche nach Harmonie und Beziehung neigen Sie zu empfindsamen Reaktionen in Konfliktsituationen, zu Unterordnung und Überanpassung.",
+      "Beim Blick in die Zukunft sind Sie manchmal zu sorglos und unbesonnen. Verlangen die äußeren Umstände einen Strategiewechsel, erkennen Sie dies häufig zu spät.",
+      "Sie reagieren gestresst auf Undankbarkeit und Nichtbeachtung. Sie können auch unkooperativ werden und „in den Streik treten“."
+    ],
+    "idealer_chef": [
+      "Da Sie ein entwicklungsorientierter Mensch sind, benötigen Sie regelmäßiges Feedback über Ihre aktuelle Leistung. vereinbaren.",
+      "In einem wertschätzenden Gespräch sollte Ihr Vorgesetzter über die vergangenen Leistungen sprechen und mit Ihnen weitere Maßnahmen",
+      "Ihr Vorgesetzter sollte Ihnen jedoch keine langfristigen Pläne oder zu konkrete Fragestellungen vorgeben. Sie reagieren lieber spontan auf das, was kommt, als zu weit in die Zukunft zu planen. Gleichzeitig sollte Ihnen Ihr Chef mögliche Entwicklungsperspektiven aufzeigen.",
+      "Sich wiederholende Arbeitsinhalte werden von Ihnen ertragen, aber nicht sehr geschätzt. Ihr Chef sollte dies wissen und darauf achten, Abwechslung in den Arbeitsalltag einzuarbeiten.",
+      "Ideal ist für Sie ein Vorgesetzter, der mit bewährten Methoden arbeitet und Sie ausführlich und schlüssig informiert. achtsam und freundlich sein und Ihnen das Gefühl geben, dass er Sie versteht.",
+      "Eine positive und emotionale Bindung ist Ihnen wichtig. Ihr Chef sollte das persönliche Gespräch suchen und dabei"
+    ],
+    "verhalten_als_chef": [
+      "Sie führen entwicklungsorientiert. Am liebsten durch positiven Ansporn, Lob, Kooperation und den guten Willen. Dies geschieht auch sofort, sobald Sie etwas begeistert.",
+      "Eine direktive Führungsrolle liegt Ihnen nicht besonders. Ihre Vision ist die eines partnerschaftlichen Teams. Teamwork wird von Ihnen daher besonders gefördert.",
+      "Sie überzeugen, indem Sie zu Ihren Aussagen stehen und als Vorbild vorangehen. Sie tun und handeln so, wie Sie es von anderen fordern. fördern.",
+      "Sie erkennen bei all Ihren Mitarbeitern das Besondere. Sie nutzen Ihre Fähigkeit, Gegensätze zu vereinen, um Kooperation und effektives Arbeiten zu",
+      "Sie benötigen und schenken Vertrauen. so die Mitarbeiter zusammen.",
+      "Sie sind ein guter Vermittler und halten",
+      "Sie können Menschen gewinnend auf Ihre Seite bringen und das Beste aus ihnen herausholen.",
+      "Sie engagieren sich sehr für Ihre Angestellten und verfügen über ein diplomatisches Geschick.",
+      "Da Sie Hemmungen haben, unpopuläre Entscheidungen zu treffen, scheuen Sie manchmal vor Konfrontationen zurück und es fällt Ihnen schwer, Disziplin einzufordern.",
+      "Es besteht die Gefahr, dass Sie sich zu nachgiebig und zu gutmütig geben. Sie können sich dann nicht wirklich durchsetzen.",
+      "Sie führen ausgesprochen kooperativ, kompetent und verantwortungsvoll."
+    ],
+    "kommunikation_sollten": [
+      "Eine schnelle und direkte Kommunikation mit Ihren Mitmenschen ist Ihnen wichtig. bei Ihnen emotionale Wunder.",
+      "Sie mögen es, von Ihren Mitmenschen aufgemuntert zu werden. Ein positiver Satz und ein Kompliment wirken",
+      "Sie bevorzugen lustige und positiv knisternde Gespräche. mit allen Intensitäten und Ausschweifungen.",
+      "Sie mögen das persönliche Gespräch, auch bei Auseinandersetzungen, Im Gespräch sind Sie offen für spontane Impulse, die Sie erhalten, wenn Sie mitten im Geschehen sind. Reflektion und Analyse liegen Ihnen weniger.",
+      "Kritik können Sie dann annehmen, wenn • Sie gleichzeitig merken, dass Ihr Gegenüber mit positivem Beispiel vorangeht."
+    ],
+    "kommunikation_vermeiden": [
+      "Eine zu kühle und distanzierte Ansprache verunsichert Sie. Sie bevorzugen das persönlich wertschätzende Gespräch. Thema.",
+      "Kritik sollte vorsichtig vorgebracht werden, denn Sie nehmen diese schnell persönlich und reagieren dann mit Gegenkritik oder wechseln einfach das",
+      "Sie mögen Sachverhalte, die eindeutig und realistisch sind. Allzu komplexe Abhandlungen und Darstellungen verunsichern Sie.",
+      "Sie mögen keine Diskussionen um uneffektive Dinge."
+    ],
+    "stress": [
+      "Das Gefühl von Isolation kann dann starke Ängste hervorrufen.",
+      "In stressigen Situationen suchen Sie sich Hilfe bei anderen.",
+      "Sie neigen dazu, sich um andere zu sorgen. Dabei tun Sie häufig mehr als nötig oder angemessen wäre. übernehmen.",
+      "Stress verursacht, dass Sie sich unwohl fühlen, weil Sie zu viele Verpflichtungen, Aufgaben und Verantwortungen",
+      "Unter Stress neigen Sie dazu, zufällige und nebensächliche Ereignisse überzuinterpretieren und sehen darin schlimme Vorzeichen, was die Zukunft betrifft.",
+      "Unter Stress kann es passieren, dass Sie fürchten, nicht genug Akte der Freundlichkeit tun. Der Akt des “Dienens” als solcher wird wichtiger als das angestrebte Resultat oder Ergebnis.",
+      "Wenn Sie gestresst sind, sinkt Ihr Selbstwertgefühl und Sie haben dann Probleme authentisch zu bleiben. nehmen.",
+      "Sie haben dann unter Umständen Angst, dass nahe und gute Beziehungen in die Brüche gehen oder zumindest Schaden",
+      "Unter Stress werden Sie leicht pessimistisch, machen sich Sorgen und nehmen die Rückmeldung von anderen zu persönlich. Sie verlieren dann die Leichtigkeit Ihrer positiven Grundstimmung."
+    ],
+    "lernen": [
+      "Lernen muss für Sie einen Sinn haben. Fehlt Ihnen die Einsicht, wozu etwas gelernt werden soll, so fällt Ihnen das Lernen schwer. abstrakten Gedanken oder Theorien auseinandersetzen müssen.",
+      "Aus der eigenen Erfahrung und im unmittelbaren Kontakt mit einer Aufgabe lernen Sie sehr viel besser, als wenn Sie sich mit",
+      "Aufgaben sollten realistisch sein und detailgenau beschrieben werden. Mit Ihren Sinnen können Sie sich Details gut einprägen und vertrauen auf Tatsachen und Fakten.",
+      "Sie sehen die Dinge real und können Sachverhalte gut strukturieren und konkretisieren.",
+      "Lernvorgänge müssen für Sie faktisch messbar und begreiflich sein.",
+      "Ein gutes Faktengedächtnis zeichnet Sie aus.",
+      "Ihr Ehrgeiz entwickelt sich bei stimulierendem Anreiz. lassen.",
+      "Sie brauchen beim Lernen eine ruhige Atmosphäre, da Sie sich leicht ablenken",
+      "Sie brauchen Phasen des konzentrierten Informationen-sammelns, in denen Sie ungestört und allein lernen. Es sind aber auch Phasen wichtig, in denen Sie sich z. B. in einer Lerngruppe über Ergebnisse und Zusammenhänge austauschen. lernen.",
+      "Schrecken Sie nicht zu voreilig vor „Wissenschaftlichem“ zurück. Versuchen Sie, sich in die Theorie einzuarbeiten. Wenn Sie von der Theorie einen Bezug zur Praxis herstellen können, werden Sie viel",
+      "Sie lernen besser, wenn der Sinn klar ist. Zudem können Sie besser durch Erfahrungen lernen, als theoretische Bücher zu studieren."
+    ],
+    "entwicklungspotential": [
+      "Sie müssen lernen, Ihr Verhalten, besonders Ihr Durchhaltevermögen, kritisch zu hinterfragen. Tun Sie dies nicht, laufen Sie Gefahr, nur Ihr eigenes Vergnügen zu suchen oder vorschnell aufzugeben, statt Konflikte und Schwierigkeiten durch- und auszuhalten.",
+      "Ihre Risikobereitschaft und Spontaneität ist Chance und Gefahr zugleich. Sie können damit viel für sich gewinnen, aber auch hoch verlieren. Nehmen Sie sich die Zeit, Ihren ersten Impuls noch einmal kritisch zu prüfen. Besprechen Sie Ihre Ideen mit anderen.",
+      "Sie müssen lernen, sehr genau hinzusehen, wenn Ihnen etwas misslingt. Wenn Sie nicht verdrängen, sondern auch Unangenehmes ins Bewusstsein gelangen lassen, kann Ihr Selbstwertgefühl wachsen.",
+      "Bei anstehenden Entscheidungen können Sie sich gut auf Ihr Gefühl verlassen, sollten aber zusätzlich verstärkt darauf achten, logisches und analytisches Beurteilen in Ihre Entscheidungsprozesse einzubeziehen.",
+      "Sie sollten stärker darauf vertrauen, Menschen und Situationen zu nehmen, wie sie sind und das Beste daraus zu machen. effektive Lösungen zu finden.",
+      "Lernen Sie, den eigenen Potenzialen mehr zu vertrauen, wie Ihrem Optimismus und der Fähigkeit, schnelle,",
+      "Um sich vor Augen zu führen, wie sehr Sie darauf angewiesen sind, gute Kritiken zu bekommen, sollten Sie sich immer wieder bewusst machen, wie sensibel Sie auf das Urteil anderer reagieren. Versuchen Sie Kritik weniger als Angriff oder Ablehnung, sondern mehr als eine Chance zur persönlichen Weiterentwicklung zu sehen. Ihrer optimistischen und offenen Grundhaltung selbstbewusst nach außen vertreten.",
+      "Wenn Sie sich den inneren Wahrheiten stellen und lernen, sich selbst zu erkennen und so anzunehmen, wie Sie wirklich sind, können Sie Ihre eigenen Wünsche und Ziele besser erkennen. So sind Sie nicht nur von der Akzeptanz der anderen abhängig, sondern können sich auch selbst akzeptieren und das mit"
+    ]
+  }
+}

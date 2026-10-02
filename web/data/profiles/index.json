@@ -1,0 +1,118 @@
+{
+  "count": 16,
+  "profiles": [
+    {
+      "code": "ENFJ",
+      "role": "Lehrer",
+      "file": "enfj.json",
+      "sectionCount": 17,
+      "bulletCount": 132
+    },
+    {
+      "code": "ENFP",
+      "role": "Visionär",
+      "file": "enfp.json",
+      "sectionCount": 16,
+      "bulletCount": 170
+    },
+    {
+      "code": "ENTJ",
+      "role": "General",
+      "file": "entj.json",
+      "sectionCount": 17,
+      "bulletCount": 140
+    },
+    {
+      "code": "ENTP",
+      "role": "Erfinder",
+      "file": "entp.json",
+      "sectionCount": 13,
+      "bulletCount": 132
+    },
+    {
+      "code": "ESFJ",
+      "role": "Gastgeber",
+      "file": "esfj.json",
+      "sectionCount": 16,
+      "bulletCount": 148
+    },
+    {
+      "code": "ESFP",
+      "role": "Entertainer",
+      "file": "esfp.json",
+      "sectionCount": 17,
+      "bulletCount": 141
+    },
+    {
+      "code": "ESTJ",
+      "role": "Direktor",
+      "file": "estj.json",
+      "sectionCount": 17,
+      "bulletCount": 160
+    },
+    {
+      "code": "ESTP",
+      "role": "Unternehmer",
+      "file": "estp.json",
+      "sectionCount": 15,
+      "bulletCount": 163
+    },
+    {
+      "code": "INFJ",
+      "role": "Psychologe",
+      "file": "infj.json",
+      "sectionCount": 15,
+      "bulletCount": 176
+    },
+    {
+      "code": "INFP",
+      "role": "Träumer",
+      "file": "infp.json",
+      "sectionCount": 17,
+      "bulletCount": 139
+    },
+    {
+      "code": "INTJ",
+      "role": "Forscher",
+      "file": "intj.json",
+      "sectionCount": 17,
+      "bulletCount": 150
+    },
+    {
+      "code": "INTP",
+      "role": "Philosoph",
+      "file": "intp.json",
+      "sectionCount": 17,
+      "bulletCount": 147
+    },
+    {
+      "code": "ISFJ",
+      "role": "Versorger",
+      "file": "isfj.json",
+      "sectionCount": 17,
+      "bulletCount": 148
+    },
+    {
+      "code": "ISFP",
+      "role": "Künstler",
+      "file": "isfp.json",
+      "sectionCount": 16,
+      "bulletCount": 173
+    },
+    {
+      "code": "ISTJ",
+      "role": "Inspektor",
+      "file": "istj.json",
+      "sectionCount": 16,
+      "bulletCount": 128
+    },
+    {
+      "code": "ISTP",
+      "role": "Mechaniker",
+      "file": "istp.json",
+      "sectionCount": 17,
+      "bulletCount": 168
+    }
+  ],
+  "generatedBy": "scripts/extract_profiles.py"
+}

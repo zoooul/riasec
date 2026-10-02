@@ -1,0 +1,202 @@
+{
+  "code": "INTJ",
+  "role": "Forscher",
+  "system": "VIST/ClaVis",
+  "source": {
+    "file": "skillster_daten-komprimiert.pdf",
+    "licenseLayer": "owned",
+    "notes": "Profiltexte aus eigener Lizenzquelle."
+  },
+  "dimensions": {
+    "E_I": "I",
+    "S_N": "N",
+    "T_F": "T",
+    "J_P": "J"
+  },
+  "sections": {
+    "eigenschaften": [
+      "strategischem Denken",
+      "Entschlossenheit",
+      "Unabhängigkeit",
+      "Durchsetzungsstärke",
+      "Individualität",
+      "Originalität"
+    ],
+    "staerken": [
+      "Sie besitzen die Fähigkeit, komplexe Probleme zu erfassen und zu beschreiben.",
+      "Sie machen Ihre Meinung nicht von der Umwelt abhängig",
+      "Aus einer Fülle von Daten schaffen Sie es, die relevanten Informationen herauszufiltern und sich auf die kritischen Aspekte zu konzentrieren.",
+      "Es fällt Ihnen leicht Entscheidungen zu treffen. Dabei konzentrieren Sie sich ehrgeizig auf das Wesentliche. Sie mögen schnelle Entscheidungen.",
+      "Bei der Analyse können Sie auch ungewöhnliche Perspektiven einnehmen und zulassen.",
+      "Dies äußert sich auch in einer hohen Durchsetzungsfähigkeit.",
+      "Sie sind ein Denkertyp. Entscheidungen treffen Sie auf Basis strukturierter, logischer, sachlicher und objektiver Überlegungen. Sie analysieren nach bekannten und anerkannten Prinzipien. Sie beachten Ursache-Wirkungs- Zusammenhänge",
+      "Charakteristische Verhaltensweisen für Sie sind vorausschauendes Planen, analytische Entscheidungsfindung und bewusstes Handeln. Das rationale Ordnungssystem befähigt Sie, herausfordernde Ziele zu verfolgen.",
+      "Ihr Handeln ist geprägt von einer starken Entschlusskraft und einem guten Durchhaltevermögen. Wenn Sie einmal auf dem Weg sind, arbeiten Sie unermüdlich, bis das Ziel erreicht ist.",
+      "Mit Ihrer intuitiven Wahrnehmung sehen Sie Chancen, Verbindungsmöglichkeiten und Zusammenhänge.",
+      "Sie haben im Laufe Ihres Lebens gelernt, dass Sie sich auf Ihre Einsichten verlassen können.",
+      "Sie entwickeln Strategien zur Lösung von Problemen.",
+      "Ihre Einsichten und Ihre Analysefähigkeit lassen Sie in einem tiefen Sinne begreifen, was um Sie herum passiert.",
+      "Sie haben eine ausgeprägte Intuition, die Sie in einer Welt der Ideen, Konzepte und Theorien leben lässt."
+    ],
+    "schwaechen": [
+      "Sie sind eine sehr unabhängige Person, die enormes Vertrauen in Ihre eigenen Kräfte setzt. Das lässt Sie manchmal eigensinnig erscheinen.",
+      "Mitunter sind Sie sehr zurückhaltend, schweigsam und wenig kontaktfreudig, wenn Sie es mit Gruppen zu tun haben.",
+      "Es fällt Ihnen manchmal schwer, sich unterzuordnen, da Sie ein ausgeprägter Individualist sind.",
+      "Sie haben Schwierigkeiten, Ihr Herz an etwas zu hängen und die objektive Distanz zu verlieren.",
+      "Sie neigen zu der Überzeugung, alles selbst machen zu müssen, ohne darauf zu achten, wie die eigenen Ideen von anderen aufgenommen werden. nur solche Punkte unterstützen und im Gespräch zulassen, die Sie für wichtig halten.",
+      "Arbeiten Sie sehr konzentriert an einer Sache, kann es passieren, dass Sie den Informationsfluss zu anderen einschränken, wenig kommunizieren oder Mitunter können Sie für andere unzugänglich erscheinen. Einige lassen sich davon vielleicht auch abschrecken oder gehen auf Distanz. Gleichzeitig vergleichen Sie sich oft kritisch mit anderen. Durch die Angst, Fehler zu machen, setzen Sie sich sehr unter Druck. Daraus resultiert, dass Sie Entscheidungen hinauszögern. Sie verlieren Ihren Pragmatismus und das Gefühl für die Verhältnismäßigkeit der eingesetzten Mittel, um ein Ziel zu erreichen.",
+      "Viele Reize und Stimulation, z.B. bei • großen Gruppen, überfordern Sie leicht. Sie ziehen sich dann lieber zurück, als sich in die Menge zu stürzen.",
+      "Ihre stark ausgeprägten Ideale sorgen • für einen sehr hohen Maßstab, an dem Sie Ihre und die Leistung Ihrer Kollegen messen. Hierbei übertreiben Sie es jedoch manchmal und geben Ihren Kollegen zu wenig Freiräume, die diese zu Ihrer Entwicklung benötigen.",
+      "Manchmal ist Ihre Zeit so sehr mit Aktivitäten und Gedanken, was Sie tun sollten ausgefüllt, dass Sie zu wenig auf Ihre Bedürfnisse hören. Sie verbringen dann einen guten Teil Ihrer Zeit damit, noch irgendetwas zu verbessern. Sie tun dies, ohne sich selbst in aller Ruhe zu befragen, ob dies wirklich der Weg ist, den Sie gehen wollen."
+    ],
+    "motivation": [
+      "Sie sind immer wieder auf der Suche nach Dynamik, Veränderbarkeit, Flexibilität und Spontanität",
+      "Dabei sind Sie intrinsisch motiviert. Sie brauchen keine externen Anreize.",
+      "Die Freiheit, innovative Problemlösungen für komplexe Fragestellungen zu schaffen, motiviert Sie.",
+      "Dabei ist für Sie ist die Fixierung auf die Lösung von Aufgaben und ausreichend Raum zur Reflexion wichtig.",
+      "Vorgänge zu optimieren motiviert Sie. und dem dauerhaften Erfolg.",
+      "Sie streben nach Herausforderungen",
+      "Es motiviert Sie, an der Kontrolle von systematischen Abläufen beteiligt zu sein (Konzepten, Produkten, Aufgaben, Planungen etc.).",
+      "Sie schätzen, intellektuell herausfordernde Menschen, die sich mit der Umsetzung langfristiger Visionen beschäftigen.",
+      "Sie fühlen sich wohl in einem Umfeld, das effizient ist und Autonomie und Kreativität fördert.",
+      "Eine druckvolle, energiegeladene, auf Effizienz und Wirksamkeit ausgerichtete Teamarbeit motiviert Sie."
+    ],
+    "demotivation": [
+      "Sie handeln erst nach reiflicher Überlegung und treffen Entscheidungen ungern überstürzt. Impulsives Verhalten irritiert Sie.",
+      "Sie brauchen ein strukturiertes, klares Umfeld. Chaotische Zustände mögen Sie nicht.",
+      "Es fällt Ihnen schwer, in einem Team zu arbeiten, in dem die von Ihnen erwarteten hohen Leistungsmaßstäbe und Effizienzvorgaben nicht umgesetzt werden.",
+      "Das Abarbeiten von vorgegebenen, kleinteiligen Arbeitsschritten, Fehlersuchen und Detailanalysen interessieren Sie weniger.",
+      "Eine autoritäre, einschüchternde Struktur frustriert Sie. verärgert.",
+      "Wenn Ihnen Ihre Freiheiten nicht eingestanden werden, reagieren Sie",
+      "Sie reagieren mitunter unwirsch auf Zwang und Disziplinierungen.",
+      "Es frustriert Sie, wenn Ihre Individualität und Eigenständigkeit untergraben wird",
+      "Die Beschäftigung mit Details fällt Ihnen eher schwer.",
+      "Große Gruppen schüchtern Sie ein."
+    ],
+    "rollen_berufe": [
+      "Unabhängig davon welchen Beruf INTJs ausüben, trägt ihr Denken wissenschaftliche Züge.",
+      "Sie sind gerne an Reformen oder der Entwicklung neuer Systeme als Experte beteiligt.",
+      "Sie schätzen Komplexität als kreative Herausforderung und entwickeln neue Konzepte. Sie können aus verschiedenen Ideen und Erfahrungen eine neue gestalten. finden.",
+      "Sie haben ein Talent, technische und naturwissenschaftliche Systeme, Dinge und Situationen aus einer ungewöhnlichen Perspektive betrachten zu können und innovative Lösungen zu",
+      "Sie suchen nach Strukturen, die Ihre Sicherheits- und Wachstumsbedürfnisse gleichermaßen befriedigen.",
+      "Sie sollten sich bei Ihrer Beschäftigung um die größtmögliche Autonomie bemühen.",
+      "Eine gute Struktur respektiert für Sie die Bedürfnisse, Individualität und Intelligenz jedes Mitgliedes einer Gruppe. Ihr Arbeitsumfeld sollte entsprechend flexibel, offen und diskutierbar sein.",
+      "Sie könnten der Verantwortliche für die Umsetzung der taktischen Vorgaben des Vorgesetzten innerhalb eines Projektes sein."
+    ],
+    "rolle_im_team": [
+      "Sie mögen es, wenn Menschen sich vorhersagbar verhalten. Daher fühlen Sie sich am wohlsten, wenn Sie in gut strukturierte, automatisierte Prozesse und Teams eingebunden sind.",
+      "Selbst kompetent zu sein und sich mit kompetenten Menschen auseinander zu setzen, ist für Sie sehr wichtig. Das Niveau innerhalb der (Klein-)Gruppe muss für Sie sehr hoch sein.",
+      "Sie müssen sich nicht regelmäßig mit anderen Menschen treffen oder austauschen, um Ideen zu entwickeln. verantwortlich ist.",
+      "Sie bevorzugen kleine Powerteams, in denen jeder für seine Aufgabe mit Einsatzwillen und Kompetenz",
+      "Sie bevorzugen ein Team, in dem Kritik als konstruktiv angesehen wird.",
+      "Sie mögen Teams mit klaren Zukunftsorientierungen",
+      "Sie können mit einem Team langfristig auf ein Ziel hinarbeiten. Die Hauptsache ist, dass alle engagiert beschäftigt sind. Teammitglieder.",
+      "Sie haben Respekt vor der Individualität. Sie akzeptieren die Bedürfnisse und forcieren die Intelligenz Ihrer Unabhängig davon, welche Position oder welche Rolle Sie innerhalb des Teams bekleiden, beschäftigen Sie sich sehr mit Strategien und Konzepten.",
+      "Am liebsten orientieren Sie sich an Ihren • eigenen moralischen Maßstäben und nicht an den Maßstäben des Teams oder des Vorgesetzten."
+    ],
+    "talente_organisation": [
+      "Sie haben ein Talent in Geschäftsfragen. konzeptionelle Fähigkeiten.",
+      "Sie haben stark ausgeprägte",
+      "Sie erkennen, wie die Verhältnisse tatsächlich sind und was Sie eigentlich bedeuten.",
+      "Häufig haben Sie klare Zukunftsvisionen in Bezug auf das Team oder das Unternehmen.",
+      "Sie suchen mit anderen eine starke, schlagkräftige Kooperation mit einer gemeinsamen Philosophie. akzeptieren.",
+      "Dabei sind Sie anderen gegenüber sehr tolerant und sozial kompetent. Sie können Merkwürdigkeiten anderer",
+      "Die Arbeit geht bei Ihnen vor Beziehungen."
+    ],
+    "konflikt_positiv": [
+      "Sie haben eine ausgeprägte Fähigkeit, auch mit komplexen Situationen souverän umgehen zu können.",
+      "Widerstände fordern Sie heraus. Sie nutzen Ihr enormes Selbstvertrauen, um Probleme zu lösen.",
+      "Sie versuchen Ihr Ziel auch dann durchzusetzen, wenn es Gegenströmungen gibt. Sie zeichnen sich durch einen hohen Ehrgeiz aus.",
+      "Sie behalten das Augenmaß für das Machbare und verlieren sich nicht in Details.",
+      "Bei der Beseitigung von Hindernissen schätzen Sie klares Denken und Ruhe.",
+      "Sie suchen in Problemen die Systematik und was Sie konkret verändern können.",
+      "Die Meinung anderer wägen Sie fundiert ab."
+    ],
+    "konflikt_negativ": [
+      "Es kann passieren, dass Sie kritisiert werden, weil Sie das große Ganze zu viel verändern, nur um einen kleinen Fehler zu bereinigen. Dies empfinden Sie als sehr schmerzlich. Sie haben schon die Last des eigenen Urteils zu tragen, das häufig noch erheblich schärfer mit Ihnen ins Gericht geht als der äußere Kritiker.",
+      "Sie werden emotional, wenn die Diskrepanz oder die innere Spannung zwischen dem, was Sie tun und Ihren Bedürfnissen zu groß wird. Sie sind kein guter Verlierer.",
+      "Sie selbst können sich manchmal nur sehr schwer von Ihrer Vision lösen. Dann bleiben Sie zu hartnäckig und können sich nur schwer von nicht praktikablen Ideen lösen.",
+      "Sie streben nach Disziplin. In kritischen Situationen können Sie jedoch emotional ausbrechen und wütend werden."
+    ],
+    "idealer_chef": [
+      "Ihr Chef muss eine kompetente Persönlichkeit mit einer natürlichen Autorität sein. Sonst gibt es Probleme mit der Anerkennung und mit Machtspielen. müssen und dabei nicht gestört werden.",
+      "Sie überzeugen mit hoher Fachlichkeit und pflichtbewusster Leistungserfüllung. Ihr Chef sollte möglichst dafür sorgen, dass Sie sich auf nur wenige Aufgaben konzentrieren",
+      "Ihr Chef sollte Ihnen Herausforderungen, Möglichkeiten und langfristige Ziele aufzeigen können.",
+      "Ideal ist für Sie ein Chef, der klare Strukturen bietet, ohne Sie einzuengen.",
+      "Sie mögen Selbstständigkeit, Autonomie und Unabhängigkeit. wichtig.",
+      "Eine vernünftige Reflexion und qualitatives Feedback sind für Sie sehr"
+    ],
+    "verhalten_als_chef": [
+      "Sie übernehmen nicht so gern die Führung innerhalb des Teams, obwohl Sie ein dominantes Teammitglied sind. Das liegt daran, dass Sie sich nicht immer wieder mit den Problemen Ihrer Mitarbeiter auseinandersetzen möchten.",
+      "Sie setzen lieber auf Vertrauen als auf Furcht. Sie schätzen Werte, die sich mit Individualität und Eigenständigkeit verbinden. Sie suchen und setzen Maßstäbe, die inspirierend statt einschüchternd wirken.",
+      "Am liebsten würden Sie alles allein machen. Denn dann wissen Sie, dass es auch „richtig“ gemacht wird. Auch Entscheidungen treffen Sie gern allein. auf zu reorganisieren.",
+      "Wenn Sie entschlossen sind, Ihre Visionen in Ziele umzusetzen, räumen Sie alle Hindernisse aus dem Weg. Sie sind bereit hierfür Systeme von Grund",
+      "Das kann dazu führen, dass Sie wichtige Entscheidungen manchmal zu wenig mit anderen absprechen",
+      "In Führungspositionen führen Sie ausgesprochen zielorientiert und entschlossen.",
+      "Sie schätzen Konzeptionen und klaren Zukunftsvisionen, die Sie durch die Darstellung einzelner Stufen konkretisieren können.",
+      "Für sich selbst setzen Sie hohe Maßstäbe und erwarten von anderen eine ebensolche Leistung.",
+      "Sie loben wenig und sind sehr sachlich. Mitunter neigen Sie dazu, zu wenig Anerkennung auszusprechen und stark zu kritisieren.",
+      "Sie streben nach Kontrolle, eindeutigen Entscheidungen und klaren Normen. Sie möchten, dass die Dinge nach Plan und ergebnisorientiert erledigt werden"
+    ],
+    "kommunikation_sollten": [
+      "Menschen Ihres Typs sind in größeren Gruppenhäufig reserviert und wenig kontaktfreudig. Beziehungsebene.",
+      "Entsprechend kommunizieren Sie erst auf der Sachebene und erst darauffolgend auf der",
+      "Sie äußern sich in Gruppen auch eher zurückhaltend und sind in der Kommunikation dann eher ruhig, verschlossen und einsilbig. Das kann auf manche arrogant und unnahbar wirken. Dabei kann man im Zweiergespräch hervorragend mit Ihnen kommunizieren.",
+      "Sie treten nicht so gern in einen schnellen und unmittelbaren Ideenaustausch. Ihre Vorstellung von guter Kommunikation beinhaltet Aussprechen und Respekt, die in strukturierten Aussagen vorgetragen werden.",
+      "Sie sprechen lieber über Fakten als über den neuesten Tratsch.",
+      "Argumentationen müssen logisch und schlüssig sein.",
+      "Kritische Fragen sollte Ihr Gegenüber sach- und fachkundig auf hohem Niveau beantworten können.",
+      "Sie bevorzugen eine klare Kommunikation. Sie sind logisch und analytisch.",
+      "Sie wissen gern, wie alles zusammengehört. Das bedeutet, dass Sie auch in größerem Maße nach dem roten Faden des Sinns suchen.",
+      "Sie arbeiten gern mit Symbolen, Verallgemeinerungen und mit abstrakten Orientierungen.",
+      "Ihr Gegenüber muss Sie argumentativ überzeugen können. Sie benötigen Erklärungen und keine Befehle.",
+      "Die sachlich-konstruktive und durchaus harte Kritik ist Ihnen wichtiger als die Beziehungsebene.",
+      "Nur die relevanten Informationen sollten herausgefiltert werden.",
+      "In der Diskussion mit anderen haben Sie gerne Recht.",
+      "Das sollte nicht darüber hinwegtäuschen, dass Sie gut zuhören können und ein Gefühl für den anderen entwickeln.",
+      "Sie selbst mögen es, für gute Leistungen sachlich gelobt zu werden"
+    ],
+    "kommunikation_vermeiden": [
+      "Ausschweifende Gespräche interessieren Sie weniger, dann neigen Sie zur Ungeduld.",
+      "Emotionale Gespräche verunsichern Sie. Sie geben nicht gerne Ihre Gefühle und Gedanken preis.",
+      "Sie nehmen gerne Einfluss, auf andere und auf Entscheidungen. Sie wollen überzeugen, damit andere handeln wie Sie es gern möchten. Wenn andere Ihren Willen nicht ernstnehmen, können Sie mitunter hartnäckig und stur sein.",
+      "Es nimmt Ihnen die Energie, wenn Ihr Gegenüber Ihre Unabhängigkeit und Selbstständigkeit nicht akzeptiert und Ihnen keinen Spielraum für eigene Entscheidungen lässt.",
+      "Sie reagieren verärgert, wenn Ihre eigenen Bedürfnisse vernachlässigt werden. äußern.",
+      "Fehlende Fakten erzeugen Unzufriedenheit, die Sie dann auch",
+      "Sie reagieren verärgert, wenn Störungen und Unterbrechungen auftreten.",
+      "Schmeicheleien lehnen Sie ab."
+    ],
+    "stress": [
+      "Unter Stress versuchen Sie, die Kontrolle zu behalten und geben Direktive.",
+      "Dabei laufen Sie Gefahr, nicht mehr auf Ihre eigenen Bedürfnisse zu hören.",
+      "Dabei neigen Sie dazu, sich in Mikro- Management zu verlieren. Sie sehen nicht mehr die globale Perspektive und kümmern sich nur noch um das, was vor Ihnen liegt.",
+      "Unter starken Druck wirken Sie angespannt und von innen her gesteuert. Sie neigen zu Selbstüberforderungen.",
+      "Sie begrenzen Ihre Kommunikation auf das Wesentliche und Notwendige. dass Sie selbst emotional werden.",
+      "Sie streben nach Disziplin. In kritischen Situationen kann es jedoch passieren,",
+      "Wenn Sie von der Richtigkeit eines von Ihnen überprüften Standpunktes überzeugt sind, verteidigen Sie Ihre Meinung gegen alle Widerstände.",
+      "Dies kann passieren, wenn andere die von Ihnen gesetzten Maßstäbe nicht erfüllen, oder wenn Sie dafür kritisiert werden, zu viel verändern zu wollen."
+    ],
+    "lernen": [
+      "Sie mögen planvolles, sinnvolles und strukturiertes Lernen.",
+      "Klare Orientierung gibt Ihnen Sicherheit.",
+      "Am besten lernen Sie, wenn Sie sich klare Ziele setzen, diese planen und erreichen. Dafür hilft Ihnen ein detaillierter Lehr- und Methoden- und Zeitplan.",
+      "Zum Lernen schätzen Sie eine ruhige und konzentrierte Atmosphäre. Sie werden ungern gestört oder abgelenkt.",
+      "Das Lernergebnis ist für Sie sehr wichtig. Hier liegt auch die Lernkonzentration. Gefühl haben, alles verstanden und automatisiert zu haben.",
+      "Sie sind sehr ausdauernd bis hartnäckig beim Lernen. Sie lernen bis Sie das",
+      "Sie richten Ihre Aufmerksamkeit auf all das, was „richtig“ ist und arbeiten dies unermüdlich ab.",
+      "Sie interessieren sich stark für Ideen und Konzepte. Sie mögen Theorien und hohe Standards.",
+      "Sie entwickeln gern neue Denkmodelle und Strategien. Dabei stellen Sie auch das bisherige System auf den Prüfstand und verändern es, wenn es sein muss.",
+      "Sie haben ein großes Interesse daran, Hypothesen und Prognosen aufzustellen und diese zu prüfen."
+    ],
+    "entwicklungspotential": [
+      "Wenn Sie sich allein auf Ihr objektives Urteil verlassen, beachten Sie Widersprüche und Zielkonflikte mit den Vorstellungen, Gefühlen und Bedürfnissen Ihrer ebenso beteiligten Teammitglieder oder Mitarbeiter oft nicht genügend. Deshalb müssen Sie sich aktiv um die Ansichten anderer, beteiligter Personen bemühen.",
+      "Versuchen Sie, Ihre Emotionen zu analysieren, insbesondere wenn Sie unzufrieden sind. Dann herrscht in der Regel eine Diskrepanz zwischen dem was Sie aktuell machen und Ihren Bedürfnissen. Sie können dies als einen Wegweiser benutzen, um Ihre echten Wünsche aufzuspüren und zu befriedigen.",
+      "Versuchen Sie sich verstärkt die Emotionen aller beteiligten Menschen bewusst zu machen und ihnen Raum zugestehen.",
+      "Für Sie ist es hilfreich, Feedback und Vorschläge von anderen einzuholen und deren Meinung schätzen zu lernen.",
+      "Betrachten Sie Fehler als eine Chance zur Weiterentwicklung und als einen Teil der täglichen Normalität.",
+      "Lernen Sie, loszulassen, auch von Ideen und Visionen.",
+      "Sie sind sich im Allgemeinen nicht darüber bewusst, dass Sie sich Vergnügen versagen. Sie laufen Gefahr, so beschäftigt zu sein mit dem, was Sie tun „sollen“, und was getan werden muss, dass Sie sich selten fragen, was Sie vom Leben bekommen wollen.",
+      "Sie haben sehr wahrscheinlich gelernt, Ihre natürlichen Wünsche abzustellen und Ihre Aufmerksamkeit auf das zu lenken, was „richtig“ ist."
+    ]
+  }
+}

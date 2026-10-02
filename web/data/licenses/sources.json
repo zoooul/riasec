@@ -1,0 +1,154 @@
+{
+  "policy": {
+    "mode": "private_local_first",
+    "preference": "Prefer commercially redistributable (core) sources for the product path. Extra (NC/research) sources may enrich private local use and stay swappable.",
+    "frontendRule": "Simple layperson UI; heavy data stays in backend modules."
+  },
+  "layers": {
+    "core": "Free / later-sellable with attribution",
+    "extra": "Private/NC/research enrichment; do not ship in a commercial build without clearance",
+    "owned": "User-owned rights (VIST profile texts)"
+  },
+  "sources": [
+    {
+      "id": "ipip",
+      "name": "International Personality Item Pool",
+      "url": "https://ipip.ori.org/",
+      "license": "Public Domain",
+      "layer": "core",
+      "commercial": "yes",
+      "modules": ["personality"],
+      "notes": "Primary personality item pool."
+    },
+    {
+      "id": "ipip-de-asselmann",
+      "name": "German IPIP translations (Asselmann et al.)",
+      "url": "https://plos.figshare.com/articles/journal_contribution/German_translations_of_the_English_version_of_the_International_Personality_Item_Pool_IPIP_/13305995",
+      "license": "check",
+      "layer": "extra",
+      "commercial": "check",
+      "modules": ["personality"],
+      "notes": "Use for private enrichment; own DE wording remains core fallback."
+    },
+    {
+      "id": "onet-database",
+      "name": "O*NET Database",
+      "url": "https://www.onetcenter.org/database.html",
+      "license": "CC BY 4.0",
+      "layer": "core",
+      "commercial": "yes",
+      "modules": ["interests", "occupations"],
+      "notes": "RIASEC profiles per occupation. Attribution required. O*NET® trademark rules apply."
+    },
+    {
+      "id": "onet-interest-profiler",
+      "name": "O*NET Interest Profiler",
+      "url": "https://www.onetcenter.org/IP.html",
+      "license": "CC BY-ND 4.0 or O*NET Tools Developer License",
+      "layer": "core",
+      "commercial": "yes",
+      "modules": ["interests"],
+      "notes": "Prefer API / unmodified Mini-IP for product path. Modified pictorial items are separate own constructions."
+    },
+    {
+      "id": "esco",
+      "name": "ESCO classification",
+      "url": "https://esco.ec.europa.eu/de/use-esco/download",
+      "license": "EU Commission reuse decision 2011/833/EU",
+      "layer": "core",
+      "commercial": "yes",
+      "modules": ["occupations"],
+      "notes": "German occupation labels. Attribution: This service uses the ESCO classification of the European Commission."
+    },
+    {
+      "id": "open-peeps",
+      "name": "Open Peeps",
+      "url": "https://www.openpeeps.com/",
+      "license": "CC0",
+      "layer": "core",
+      "commercial": "yes",
+      "modules": ["stimuli"],
+      "notes": "Modular illustrations for accessible pictorial items."
+    },
+    {
+      "id": "humaaans",
+      "name": "Humaaans",
+      "url": "https://www.figma.com/community/plugin/1144126943696233460/humaaans-illustrations-by-iconduck",
+      "license": "CC0",
+      "layer": "core",
+      "commercial": "yes",
+      "modules": ["stimuli"],
+      "notes": "Alternate modular illustration set."
+    },
+    {
+      "id": "vist-pdf",
+      "name": "Skillster VIST/ClaVis profile texts",
+      "url": "local:skillster_daten-komprimiert.pdf",
+      "license": "owned",
+      "layer": "owned",
+      "commercial": "owner_decision",
+      "modules": ["result_text"],
+      "notes": "16 profile narratives used as result building blocks."
+    },
+    {
+      "id": "pse",
+      "name": "PSE picture database (Schönbrodt et al.)",
+      "url": "https://osf.io/pqckn/",
+      "license": "Per-image (CC0 / CC-BY / CC-BY-SA / unclear)",
+      "layer": "extra",
+      "commercial": "partial",
+      "modules": ["motives", "stimuli"],
+      "notes": "Private: usable. Product path: only CC0/CC-BY (and carefully CC-BY-SA). Exclude unclear."
+    },
+    {
+      "id": "oasis",
+      "name": "OASIS affective image set",
+      "url": "https://osf.io/6pnd7/",
+      "license": "Research / reportedly CC BY-NC-SA",
+      "layer": "extra",
+      "commercial": "no",
+      "modules": ["self_regulation", "stimuli"],
+      "notes": "Private local enrichment for affect/stress. Swap out before commercial ship."
+    },
+    {
+      "id": "pdii",
+      "name": "Pictorial and Descriptive Interest Inventory",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0001879114000402",
+      "license": "unclear / author permission",
+      "layer": "extra",
+      "commercial": "no",
+      "modules": ["interests", "stimuli"],
+      "notes": "Private if obtained. Product path: own CC0 job scenes + O*NET IP."
+    },
+    {
+      "id": "ums",
+      "name": "Unified Motive Scales",
+      "url": "https://osf.io/zq2wx/",
+      "license": "No License on OSF (check / ask author)",
+      "layer": "extra",
+      "commercial": "check",
+      "modules": ["motives"],
+      "notes": "Private enrichment only until written clearance for redistribution."
+    },
+    {
+      "id": "openpsychometrics",
+      "name": "Open-Source Psychometrics raw data",
+      "url": "http://openpsychometrics.org/_rawdata/",
+      "license": "check per dataset",
+      "layer": "extra",
+      "commercial": "check",
+      "modules": ["norms"],
+      "notes": "Prefer IPIP-FFM-data-8Nov2018 and RIASEC datasets for private norm exploration."
+    },
+    {
+      "id": "berufenet",
+      "name": "BERUFENET (unofficial API)",
+      "url": "https://github.com/bundesAPI/berufenet-api",
+      "license": "unclear",
+      "layer": "extra",
+      "commercial": "no",
+      "modules": ["occupations"],
+      "notes": "Research only; not a product data source."
+    }
+  ]
+}
