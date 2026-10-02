@@ -21,7 +21,7 @@ describe("Button", () => {
       </Button>,
     );
     expect(html).toContain("btn-soft");
-    expect(html).toContain("btn-primary");
+    expect(html).toContain("btn-secondary");
     expect(html).toContain("w-full");
   });
 });

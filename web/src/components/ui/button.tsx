@@ -1,7 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactElement, ReactNode } from "react";
+import {
+  forwardRef,
+  type ReactElement,
+  type ReactNode,
+  type Ref,
+} from "react";
 import { cn } from "@/lib/cn";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
@@ -33,7 +38,7 @@ export type ButtonProps = SharedProps &
 
 const variantClass: Record<ButtonVariant, string> = {
   primary: "btn-primary",
-  secondary: "btn-soft btn-primary",
+  secondary: "btn-soft btn-secondary",
   ghost: "btn-ghost",
 };
 
@@ -47,17 +52,23 @@ const sizeClass: Record<ButtonSize, string> = {
  * Skillster button — DaisyUI `btn` tokens.
  * Use `href` for Next.js Link navigation.
  */
-export function Button({
-  className,
-  variant = "primary",
-  size = "default",
-  href,
-  asChild,
-  type = "button",
-  children,
-  onClick,
-  disabled,
-}: ButtonProps): ReactElement {
+export const Button = forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  ButtonProps
+>(function Button(
+  {
+    className,
+    variant = "primary",
+    size = "default",
+    href,
+    asChild,
+    type = "button",
+    children,
+    onClick,
+    disabled,
+  },
+  ref,
+): ReactElement {
   void asChild;
   const classes = cn(
     "btn",
@@ -75,6 +86,7 @@ export function Button({
         onClick={
           onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>
         }
+        ref={ref as Ref<HTMLAnchorElement>}
       >
         {children}
       </Link>
@@ -87,8 +99,9 @@ export function Button({
       className={classes}
       disabled={disabled}
       onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
+      ref={ref as Ref<HTMLButtonElement>}
     >
       {children}
     </button>
   );
-}
+});

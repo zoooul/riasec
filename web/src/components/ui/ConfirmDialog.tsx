@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useId, useRef, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 
 type Props = {
@@ -27,11 +27,23 @@ export function ConfirmDialog({
   confirmHref,
   className = "",
 }: Props) {
+  const titleId = useId();
+  const confirmRef = useRef<HTMLButtonElement | HTMLAnchorElement | null>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const node = confirmRef.current;
+    if (node && "focus" in node) {
+      window.requestAnimationFrame(() => node.focus());
+    }
+  }, [open]);
+
   return (
     <dialog
       className={`modal z-[var(--z-modal)] ${open ? "modal-open" : ""} ${className}`}
       open={open || undefined}
-      aria-labelledby="confirm-dialog-title"
+      aria-modal="true"
+      aria-labelledby={titleId}
       onCancel={(e) => {
         e.preventDefault();
         onClose();
@@ -48,17 +60,29 @@ export function ConfirmDialog({
             ✕
           </button>
         </form>
-        <h3 id="confirm-dialog-title" className="display-title pr-8 text-xl">
+        <h3 id={titleId} className="display-title pr-8 text-xl">
           {title}
         </h3>
         <div className="py-3 text-sm text-base-content/70">{children}</div>
         <div className="modal-action">
           {confirmHref ? (
-            <Button href={confirmHref} variant="secondary" size="sm" onClick={onConfirm}>
+            <Button
+              href={confirmHref}
+              variant="secondary"
+              size="sm"
+              onClick={onConfirm}
+              ref={confirmRef}
+            >
               {confirmLabel}
             </Button>
           ) : (
-            <Button type="button" variant="secondary" size="sm" onClick={onConfirm}>
+            <Button
+              type="button"
+              variant="secondary"
+              size="sm"
+              onClick={onConfirm}
+              ref={confirmRef}
+            >
               {confirmLabel}
             </Button>
           )}
@@ -68,8 +92,8 @@ export function ConfirmDialog({
         </div>
       </div>
       <form method="dialog" className="modal-backdrop">
-        <button type="submit" onClick={onClose}>
-          close
+        <button type="submit" onClick={onClose} aria-label="Schließen">
+          Schließen
         </button>
       </form>
     </dialog>

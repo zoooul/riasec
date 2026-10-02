@@ -26,9 +26,9 @@ export default async function ProfileDetailPage({ params }: Props) {
       <SiteHeader right={<Chip href="/profile">Alle Profile</Chip>} />
 
       <div className="page-shell stack-lg py-8 md:py-10">
-        <div className="card bg-base-100 border border-base-300 shadow-sm">
+        <div className="card border border-base-300 bg-base-100 shadow-sm">
           <div className="card-body gap-2 p-5 md:p-7">
-            <h1 className="display-title text-3xl text-base-content md:text-5xl">
+            <h1 className="card-title display-title mb-0 text-3xl text-base-content md:text-5xl">
               {profile.role}
             </h1>
             <p className="text-primary">
@@ -44,10 +44,10 @@ export default async function ProfileDetailPage({ params }: Props) {
           {Object.entries(profile.sections).map(([key, bullets]) => (
             <section
               key={key}
-              className="card bg-base-100 border border-base-300 shadow-sm"
+              className="card border border-base-300 bg-base-100 shadow-sm"
             >
               <div className="card-body gap-3 p-4 md:p-5">
-                <h2 className="text-lg font-semibold text-base-content">
+                <h2 className="card-title mb-0 text-lg font-semibold text-base-content">
                   {SECTION_LABELS[key] ?? key}
                 </h2>
                 <ul className="space-y-2">

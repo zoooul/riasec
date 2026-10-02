@@ -7,10 +7,12 @@ import {
   clearAnswers,
   countValidAnswers,
   hasPartialProgress,
+  isAssessmentComplete,
   loadAnswers,
   resetAnswersCache,
   resumeIndex,
   saveAnswers,
+  subscribeAnswers,
 } from "@/lib/session";
 import type { AssessmentItem } from "@/lib/types";
 
@@ -150,5 +152,26 @@ describe("session restore helpers", () => {
     expect(countValidAnswers(items, { i1: "not-a-choice", i2: "i2_a" })).toBe(
       1,
     );
+  });
+
+  it("isAssessmentComplete when every item has a valid choice", () => {
+    const items = miniItems();
+    expect(isAssessmentComplete(items, {})).toBe(false);
+    expect(isAssessmentComplete(items, { i1: "i1_a", i2: "i2_a" })).toBe(false);
+    expect(
+      isAssessmentComplete(items, { i1: "i1_a", i2: "i2_a", i3: "i3_a" }),
+    ).toBe(true);
+  });
+
+  it("subscribeAnswers notifies on save and clear", () => {
+    let ticks = 0;
+    const unsub = subscribeAnswers(() => {
+      ticks += 1;
+    });
+    saveAnswers({ i1: "i1_a" });
+    clearAnswers();
+    unsub();
+    saveAnswers({ i1: "i1_a" });
+    expect(ticks).toBe(2);
   });
 });

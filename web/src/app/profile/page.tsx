@@ -24,7 +24,7 @@ export default function ProfileIndexPage() {
             16 Profile
           </h1>
           <p className="max-w-2xl text-base-content/60">
-            Ergebnisbausteine — später gemischt mit deinen Scores und Zwischenprofilen.
+            Ergebnisbausteine — Orientierung fürs Coaching, keine Diagnose.
           </p>
         </div>
 
@@ -33,11 +33,11 @@ export default function ProfileIndexPage() {
             <Link
               key={p.code}
               href={`/profile/${p.code.toLowerCase()}`}
-              className="card bg-base-100 border border-base-300 shadow-sm transition-colors hover:border-primary/40"
+              className="card border border-base-300 bg-base-100 shadow-sm transition-colors hover:border-primary/40"
             >
               <div className="card-body gap-1 px-5 py-4">
                 <div className="text-sm text-primary">{p.code}</div>
-                <div className="display-title text-2xl text-base-content">
+                <div className="card-title display-title mb-0 text-2xl text-base-content">
                   {p.role}
                 </div>
               </div>

@@ -12,8 +12,40 @@ let cachedSnapshot: Record<string, string> = EMPTY_ANSWERS as Record<
   string
 >;
 
+type AnswersListener = () => void;
+const answersListeners = new Set<AnswersListener>();
+
 function invalidateSnapshotCache() {
   cachedRaw = undefined;
+}
+
+function notifyAnswersListeners() {
+  for (const listener of answersListeners) listener();
+}
+
+/**
+ * Subscribe to answer store changes for `useSyncExternalStore`.
+ * Also listens to cross-tab `storage` events for the same key.
+ */
+export function subscribeAnswers(onStoreChange: AnswersListener): () => void {
+  answersListeners.add(onStoreChange);
+  const onStorage = (event: StorageEvent) => {
+    if (event.storageArea && event.storageArea !== window.sessionStorage) {
+      return;
+    }
+    if (event.key !== null && event.key !== SESSION_ANSWERS_KEY) return;
+    invalidateSnapshotCache();
+    onStoreChange();
+  };
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", onStorage);
+  }
+  return () => {
+    answersListeners.delete(onStoreChange);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("storage", onStorage);
+    }
+  };
 }
 
 /** Test helper — reset in-memory snapshot cache after clearing storage. */
@@ -60,6 +92,7 @@ export function saveAnswers(answers: Record<string, string>) {
   invalidateSnapshotCache();
   cachedRaw = window.sessionStorage.getItem(SESSION_ANSWERS_KEY);
   cachedSnapshot = answers;
+  notifyAnswersListeners();
 }
 
 export function loadAnswers(): Record<string, string> {
@@ -72,6 +105,7 @@ export function clearAnswers() {
   invalidateSnapshotCache();
   cachedRaw = null;
   cachedSnapshot = EMPTY_ANSWERS as Record<string, string>;
+  notifyAnswersListeners();
 }
 
 /** Count answers that match a known item id. */
@@ -112,4 +146,13 @@ export function hasPartialProgress(
 ): boolean {
   const n = countValidAnswers(items, answers);
   return n > 0 && n < items.length;
+}
+
+/** True when every catalog item has a valid choice answer. */
+export function isAssessmentComplete(
+  items: AssessmentItem[],
+  answers: Record<string, string>,
+): boolean {
+  if (!items.length) return false;
+  return countValidAnswers(items, answers) >= items.length;
 }

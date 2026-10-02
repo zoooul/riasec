@@ -54,8 +54,10 @@ describe("soft · DaisyUI skillster theme", () => {
     expect(css).toMatch(/--text-hero:\s*clamp\(2\.75rem/);
 
     expect(landing).toContain("landing-hero-figure");
+    expect(landing).toContain("LandingCta");
     expect(landing).toContain("lg:grid-cols-");
     expect(landing).toContain("So funktioniert’s");
+    expect(landing).not.toContain("card overflow-hidden");
     expect(landing).not.toContain("z-[2]");
     expect(landing).not.toContain("absolute inset-0");
     expect(landing).not.toContain("absolute inset-[8%]");

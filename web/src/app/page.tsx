@@ -1,13 +1,16 @@
+import { LandingCta } from "@/components/LandingCta";
 import { SiteHeader } from "@/components/SiteHeader";
-import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
+import { getMvpItems } from "@/lib/items.server";
 
 /**
- * Landing — classical DaisyUI hero (Context7 / daisyui.com hero + card patterns).
- * First viewport: brand, one headline, one sentence, one CTA (+ optional media plane).
- * Feature cards sit clearly below the fold.
+ * Landing — classical DaisyUI hero (Context7 / daisyui.com hero patterns).
+ * First viewport: brand, one headline, one sentence, one CTA (+ media plane).
+ * Feature section sits clearly below the fold (no hero cards).
  */
 export default function HomePage() {
+  const items = getMvpItems();
+
   return (
     <main className="flex min-w-0 flex-1 flex-col overflow-x-hidden">
       <SiteHeader
@@ -40,25 +43,8 @@ export default function HomePage() {
             >
               Tippen. Erkennen. Klarheit für den Berufsweg.
             </p>
-            <div
-              className="animate-rise mx-auto flex w-full max-w-sm flex-col gap-2 pt-2 lg:mx-0"
-              style={{ animationDelay: "240ms" }}
-            >
-              <Button
-                href="/assessment"
-                variant="primary"
-                size="lg"
-                className="w-full"
-              >
-                Zu den Aufgaben
-              </Button>
-              <p className="meta-label flex flex-wrap items-center justify-center gap-1.5 normal-case tracking-[0.04em] text-base-content/45 lg:justify-start">
-                <span>Privat · mobil · Zwischenspeicher</span>
-                <span className="inline-flex items-center gap-0.5" aria-hidden>
-                  <kbd className="kbd kbd-xs">1</kbd>
-                  <kbd className="kbd kbd-xs">2</kbd>
-                </span>
-              </p>
+            <div className="animate-rise" style={{ animationDelay: "240ms" }}>
+              <LandingCta items={items} />
             </div>
           </div>
 
@@ -67,31 +53,29 @@ export default function HomePage() {
             style={{ animationDelay: "100ms" }}
             aria-hidden
           >
-            <div className="card overflow-hidden border border-base-300 bg-base-100 shadow-md">
-              <figure className="landing-hero-figure aspect-[5/4] bg-gradient-to-br from-primary/12 via-base-100 to-secondary/10">
-                <div className="grid h-full w-full place-items-center p-8">
-                  <div className="stack w-full max-w-[15rem] gap-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="badge badge-soft badge-primary badge-sm">
-                        Station 1
-                      </span>
-                      <span className="inline-flex gap-0.5">
-                        <kbd className="kbd kbd-xs">1</kbd>
-                        <kbd className="kbd kbd-xs">2</kbd>
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="aspect-[5/3] rounded-box border border-base-300 bg-base-200/80" />
-                      <div className="aspect-[5/3] rounded-box border border-primary/25 bg-primary/10" />
-                    </div>
-                    <progress
-                      className="progress progress-primary w-full"
-                      value={40}
-                      max={100}
-                    />
+            <div className="landing-hero-figure aspect-[5/4] overflow-hidden rounded-box border border-base-300 bg-gradient-to-br from-primary/12 via-base-100 to-secondary/10 shadow-sm">
+              <div className="grid h-full w-full place-items-center p-8">
+                <div className="stack w-full max-w-[15rem] gap-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="badge badge-soft badge-primary badge-sm">
+                      Station 1
+                    </span>
+                    <span className="inline-flex gap-0.5">
+                      <kbd className="kbd kbd-xs">1</kbd>
+                      <kbd className="kbd kbd-xs">2</kbd>
+                    </span>
                   </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="aspect-[5/3] rounded-box border border-base-300 bg-base-200/80" />
+                    <div className="aspect-[5/3] rounded-box border border-primary/25 bg-primary/10" />
+                  </div>
+                  <progress
+                    className="progress progress-primary w-full"
+                    value={40}
+                    max={100}
+                  />
                 </div>
-              </figure>
+              </div>
             </div>
           </div>
         </div>
@@ -107,7 +91,7 @@ export default function HomePage() {
               Kurze Bildaufgaben statt Fragebogen — lokal im Browser.
             </p>
           </div>
-          <div className="grid gap-5 sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-3 sm:gap-6">
             {[
               {
                 n: "01",
@@ -124,22 +108,17 @@ export default function HomePage() {
                 title: "Orientierung",
                 body: "HOW & WHAT fürs Coaching — keine Diagnose.",
               },
-            ].map((card) => (
-              <article
-                key={card.title}
-                className="card border border-base-300 bg-base-100 shadow-sm"
-              >
-                <div className="card-body gap-2 p-6">
-                  <span className="badge badge-ghost badge-sm w-fit font-mono">
-                    {card.n}
-                  </span>
-                  <h3 className="display-title text-lg text-base-content">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-base-content/60">
-                    {card.body}
-                  </p>
-                </div>
+            ].map((step) => (
+              <article key={step.title} className="stack-sm min-w-0">
+                <span className="badge badge-ghost badge-sm w-fit font-mono">
+                  {step.n}
+                </span>
+                <h3 className="display-title text-lg text-base-content">
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-base-content/60">
+                  {step.body}
+                </p>
               </article>
             ))}
           </div>

@@ -42,4 +42,18 @@ describe("API score contract (mirrors POST /api/score)", () => {
     expect(result.isIncomplete).toBe(true);
     expect(result.answeredCount).toBe(2);
   });
+
+  it("documents hardened answer sanitization expectations", () => {
+    const items = loadMvpItems();
+    const profiles = loadAllProfiles();
+    const occupations = loadOccupationSeeds();
+    // Empty / non-matching values must not inflate answeredCount
+    const dirty = {
+      [items[0]!.id]: "",
+      [items[1]!.id]: items[1]!.choices[0]!.id,
+      unknown_item: "x",
+    };
+    const result = scoreAssessment(items, dirty, profiles, occupations);
+    expect(result.answeredCount).toBe(1);
+  });
 });

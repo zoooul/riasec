@@ -22,7 +22,7 @@ export function AppShell({ children, className = "" }: Props) {
               privat · lokal · Orientierung
             </span>
           </p>
-          <nav className="flex flex-wrap justify-center gap-5 text-sm">
+          <nav className="flex flex-wrap justify-center gap-5 text-sm" aria-label="Footer">
             <Link href="/assessment" className="link link-hover">
               Aufgaben
             </Link>

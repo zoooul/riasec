@@ -8,6 +8,10 @@ type ScoreBody = {
   answers?: Record<string, string>;
 };
 
+const MAX_ANSWER_ENTRIES = 256;
+const MAX_KEY_LEN = 128;
+const MAX_VALUE_LEN = 128;
+
 /**
  * Server-side scoring for clearer FE/BE separation and testability.
  * The Ergebnis UI still scores client-side (offline + no round-trip);
@@ -31,9 +35,21 @@ export async function POST(request: Request) {
     );
   }
 
+  const entries = Object.entries(body.answers);
+  if (entries.length > MAX_ANSWER_ENTRIES) {
+    return NextResponse.json(
+      { error: `Too many answers (max ${MAX_ANSWER_ENTRIES}).` },
+      { status: 400 },
+    );
+  }
+
   const answers: Record<string, string> = {};
-  for (const [key, value] of Object.entries(body.answers)) {
-    if (typeof value === "string") answers[key] = value;
+  for (const [key, value] of entries) {
+    if (typeof key !== "string" || !key || key.length > MAX_KEY_LEN) continue;
+    if (typeof value !== "string" || !value || value.length > MAX_VALUE_LEN) {
+      continue;
+    }
+    answers[key] = value;
   }
 
   const items = getMvpItems();
@@ -41,5 +57,20 @@ export async function POST(request: Request) {
   const occupations = getOccupationSeeds();
   const result = scoreAssessment(items, answers, profiles, occupations);
 
-  return NextResponse.json({ result });
+  return NextResponse.json({
+    result,
+    meta: {
+      acceptedAnswers: Object.keys(answers).length,
+      itemCount: items.length,
+      answeredCount: result.answeredCount,
+      isIncomplete: result.isIncomplete,
+    },
+  });
+}
+
+export async function GET() {
+  return NextResponse.json(
+    { error: "Method not allowed. Use POST with { answers }." },
+    { status: 405, headers: { Allow: "POST" } },
+  );
 }

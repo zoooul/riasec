@@ -22,6 +22,7 @@ import {
   clearAnswers,
   getAnswersSnapshot,
   getServerAnswersSnapshot,
+  subscribeAnswers,
 } from "@/lib/session";
 import type { AssessmentItem, QualityLabel, VistProfile } from "@/lib/types";
 
@@ -57,10 +58,6 @@ function copySummary(text: string): Promise<void> {
   return Promise.reject(new Error("clipboard unavailable"));
 }
 
-function subscribeNoop() {
-  return () => {};
-}
-
 /**
  * Ergebnis scores client-side via `scoreAssessment` (offline, no round-trip).
  * Server mirror: POST /api/score — same pure function for API/tests.
@@ -73,7 +70,7 @@ export function ErgebnisClient({
 }: Props) {
   const reduceMotion = useReducedMotion();
   const answers = useSyncExternalStore(
-    subscribeNoop,
+    subscribeAnswers,
     getAnswersSnapshot,
     getServerAnswersSnapshot,
   );
@@ -82,20 +79,15 @@ export function ErgebnisClient({
   const [pdfBusy, setPdfBusy] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState<string | null>(null);
   const [confirmRestart, setConfirmRestart] = useState(false);
-  const [localAnswers, setLocalAnswers] = useState<Record<
-    string,
-    string
-  > | null>(null);
-
-  const effectiveAnswers = localAnswers ?? answers;
 
   const result = useMemo(() => {
-    if (!effectiveAnswers) return null;
-    return scoreAssessment(items, effectiveAnswers, profiles, occupations);
-  }, [effectiveAnswers, items, profiles, occupations]);
+    if (!answers) return null;
+    return scoreAssessment(items, answers, profiles, occupations);
+  }, [answers, items, profiles, occupations]);
 
-  if (answers === null && localAnswers === null) {
+  if (answers === null) {
     return (
       <main className="flex flex-1 flex-col">
         <SiteHeader />
@@ -109,16 +101,26 @@ export function ErgebnisClient({
   if (!result || !result.answeredCount) {
     return (
       <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
-        <SiteHeader />
+        <SiteHeader
+          right={
+            <Chip href="/assessment" className="badge-ghost">
+              Zum Test
+            </Chip>
+          }
+        />
         <div className="page-shell flex flex-1 flex-col items-center justify-center gap-4 text-center">
           <h1 className="display-title text-2xl text-base-content">
             Noch kein Ergebnis
           </h1>
-          <p className="text-base-content/60">
-            Starte den Bild-Test — danach erscheint hier dein Muster.
+          <p className="max-w-md text-base-content/60">
+            Starte den Bild-Test — danach erscheint hier dein Muster. Antworten
+            bleiben nur lokal im Browser.
           </p>
-          <Button href="/assessment" variant="secondary" className="w-full max-w-xs">
+          <Button href="/assessment" variant="primary" className="w-full max-w-xs">
             Aufgaben starten
+          </Button>
+          <Button href="/profile" variant="ghost" size="sm">
+            Profile durchstöbern
           </Button>
         </div>
       </main>
@@ -128,16 +130,29 @@ export function ErgebnisClient({
   if (result.isIncomplete) {
     return (
       <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
-        <SiteHeader />
+        <SiteHeader
+          right={
+            <Chip href="/assessment" className="badge-secondary">
+              Weiter
+            </Chip>
+          }
+        />
         <div className="page-shell flex flex-1 flex-col items-center justify-center gap-4 text-center">
           <Chip className="badge-accent">Nur Orientierung</Chip>
           <h1 className="display-title text-2xl text-base-content">
             Noch nicht fertig
           </h1>
-          <p className="text-base-content/60">
-            {result.coverageHint}. Mach weiter, damit das Ergebnis stabiler
-            wird. Bis dahin ist alles nur eine grobe Orientierung.
+          <p className="max-w-md text-base-content/60">
+            {result.coverageHint}. Beantwortet: {result.answeredCount}/
+            {result.itemCount}. Mach weiter, damit das Ergebnis stabiler wird.
+            Bis dahin ist alles nur eine grobe Orientierung.
           </p>
+          <progress
+            className="progress progress-primary w-full max-w-xs"
+            value={result.answeredCount}
+            max={result.itemCount}
+            aria-label={`Fortschritt ${result.answeredCount} von ${result.itemCount}`}
+          />
           <Button href="/assessment" className="w-full max-w-xs">
             Weiter in den Aufgaben
           </Button>
@@ -157,16 +172,15 @@ export function ErgebnisClient({
             cancelLabel="Abbrechen"
             onConfirm={() => {
               clearAnswers();
-              setLocalAnswers({});
               setConfirmRestart(false);
             }}
           >
             Dein Zwischenspeicher wird geleert.
           </ConfirmDialog>
           {(result.exclusions?.length ?? 0) > 0 ? (
-            <div className="card bg-base-100 border border-base-300 w-full shadow-sm">
+            <div className="card w-full border border-base-300 bg-base-100 shadow-sm">
               <div className="card-body gap-2 p-4 text-left">
-                <h2 className="display-title text-base text-base-content">
+                <h2 className="card-title display-title text-base text-base-content">
                   Was wir nicht messen
                 </h2>
                 <ul className="space-y-1 text-sm text-base-content/60">
@@ -229,12 +243,14 @@ export function ErgebnisClient({
   }
 
   async function onCopy() {
+    setCopyError(null);
     try {
       await copySummary(summaryText);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);
+      setCopyError("Kopieren nicht möglich — Text manuell markieren.");
     }
   }
 
@@ -273,7 +289,7 @@ export function ErgebnisClient({
         >
           <div className="card-body gap-4 p-5 md:gap-5 md:p-7">
           <Chip className={cn("badge-soft", chip.className)}>{chip.text}</Chip>
-          <h1 className="card-title display-title text-3xl text-base-content md:text-[2.75rem]">
+          <h1 className="card-title display-title mb-0 text-3xl text-base-content md:text-[2.75rem]">
             {plain.roleLabel}
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-base-content/80 md:text-lg">
@@ -320,6 +336,11 @@ export function ErgebnisClient({
           {pdfError ? (
             <div role="alert" className="alert alert-error alert-soft text-sm no-print">
               {pdfError}
+            </div>
+          ) : null}
+          {copyError ? (
+            <div role="alert" className="alert alert-warning alert-soft text-sm no-print">
+              {copyError}
             </div>
           ) : null}
           </div>

@@ -20,10 +20,13 @@ import {
   getAnswersSnapshot,
   getServerAnswersSnapshot,
   hasPartialProgress,
+  isAssessmentComplete,
   resumeIndex,
   saveAnswers,
+  subscribeAnswers,
 } from "@/lib/session";
 import type { AssessmentItem, ModuleId } from "@/lib/types";
+import { Button } from "@/components/ui/button";
 import { Chip } from "@/components/ui/chip";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { VisualCard } from "./VisualCard";
@@ -39,15 +42,11 @@ type FlowState = {
 
 const CHOICE_LOCK_MS = 420;
 
-function subscribeNoop() {
-  return () => {};
-}
-
 export function AssessmentFlow({ items }: Props) {
   const router = useRouter();
   const reduceMotion = useReducedMotion();
   const stored = useSyncExternalStore(
-    subscribeNoop,
+    subscribeAnswers,
     getAnswersSnapshot,
     getServerAnswersSnapshot,
   );
@@ -70,6 +69,7 @@ export function AssessmentFlow({ items }: Props) {
   const ready = stored !== null;
   const { answers, index } = active;
   const item = items[index];
+  const complete = isAssessmentComplete(items, answers);
 
   const progress = useMemo(
     () => computeProgress(items, answers, index),
@@ -108,6 +108,8 @@ export function AssessmentFlow({ items }: Props) {
     setShowResumeHint(false);
 
     const nextAnswers = { ...answers, [item.id]: choiceId };
+    // Keep index stable during lock so store notify cannot jump ahead early.
+    setFlow({ answers: nextAnswers, index });
     saveAnswers(nextAnswers);
 
     window.setTimeout(() => {
@@ -170,7 +172,8 @@ export function AssessmentFlow({ items }: Props) {
     stageFlash || index === progress.stage.startIndex
       ? MODULE_INTROS[item.module]
       : null;
-  const showStatusStrip = showResumeHint || Boolean(stageFlash);
+  const showStatusStrip =
+    showResumeHint || Boolean(stageFlash) || complete;
   const currentModuleIdx = MODULE_ORDER.indexOf(item.module);
 
   return (
@@ -203,6 +206,16 @@ export function AssessmentFlow({ items }: Props) {
                 >
                   {progress.questionNumber}/{progress.itemCount}
                 </span>
+                {complete ? (
+                  <Button
+                    href="/ergebnis"
+                    variant="secondary"
+                    size="sm"
+                    className="btn-xs h-8 min-h-8 px-2"
+                  >
+                    Ergebnis
+                  </Button>
+                ) : null}
                 {index > 0 ? (
                   <button
                     type="button"
@@ -216,7 +229,7 @@ export function AssessmentFlow({ items }: Props) {
                     Zurück
                   </button>
                 ) : null}
-                {partial ? (
+                {partial || complete ? (
                   <button
                     type="button"
                     className="btn btn-ghost btn-xs h-8 min-h-8 gap-1 px-2 text-accent"
@@ -279,7 +292,33 @@ export function AssessmentFlow({ items }: Props) {
             aria-live="polite"
           >
             <AnimatePresence>
-              {showResumeHint ? (
+              {complete ? (
+                <motion.div
+                  key="complete-hint"
+                  initial={reduceMotion ? false : { opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="w-fit max-w-full"
+                >
+                  <div
+                    role="status"
+                    className="alert alert-success alert-soft flex-row flex-wrap items-center gap-2 py-1 text-xs sm:text-sm"
+                  >
+                    <span>Alle Aufgaben beantwortet.</span>
+                    <Button
+                      href="/ergebnis"
+                      variant="ghost"
+                      size="sm"
+                      className="btn-xs h-7 min-h-7 px-2"
+                    >
+                      Zum Ergebnis
+                    </Button>
+                  </div>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+            <AnimatePresence>
+              {showResumeHint && !complete ? (
                 <motion.div
                   key="resume-hint"
                   initial={reduceMotion ? false : { opacity: 0, y: -4 }}
@@ -297,7 +336,7 @@ export function AssessmentFlow({ items }: Props) {
               ) : null}
             </AnimatePresence>
             <AnimatePresence>
-              {stageFlash ? (
+              {stageFlash && !complete ? (
                 <motion.div
                   key={stageFlash}
                   initial={reduceMotion ? false : { opacity: 0, y: -4 }}
