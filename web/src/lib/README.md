@@ -7,6 +7,9 @@
 | `types.ts` | Shared domain types |
 | `constants.ts` | Axis/RIASEC IDs, labels, thresholds |
 | `scoring.ts` | Pure `scoreAssessment` (nested weights) |
+| `bias.ts` | Response-pattern heuristics + Ergebnis guards (not psychometrics) |
+| `plainLanguage.ts` | Layperson Ergebnis copy without letter-code jargon |
+| `profilePdf.ts` | Client-side PDF export (jsPDF) |
 | `session.ts` | `sessionStorage` save/load |
 | `occupations.ts` | Pure cosine matching (no fs) |
 | `stimuli.ts` | Stimulus types + pure resolution |

@@ -89,7 +89,6 @@ export interface OccupationMatch {
   why: string;
 }
 
-
 export type ConfidenceLevel = "high" | "medium" | "low";
 export type QualityLabel = "ok" | "unsicher" | "orientierung";
 
@@ -112,6 +111,13 @@ export interface PlainProfile {
 export interface AssessmentResult {
   answeredCount: number;
   itemCount: number;
+  /** answeredCount / itemCount, 0–1 */
+  coverageRatio: number;
+  /** Plain German: "Basierend auf X von Y Fragen" */
+  coverageHint: string;
+  confidence: ConfidenceLevel;
+  /** True when some answers exist but the run is incomplete. */
+  isIncomplete: boolean;
   axes: AxisScore[];
   bigFive: Record<BigFiveId, number>;
   riasec: Record<RiasecId, number>;
@@ -125,10 +131,6 @@ export interface AssessmentResult {
   blendBullets: string[];
   occupations: OccupationMatch[];
   biasFlags?: BiasFlags;
-  confidence?: ConfidenceLevel;
   qualityLabel?: QualityLabel;
   exclusions?: string[];
-  coverageHint?: string;
-  isIncomplete?: boolean;
 }
-

@@ -7,6 +7,9 @@ export {
   loadAnswers,
   saveAnswers,
   clearAnswers,
+  countValidAnswers,
+  resumeIndex,
+  hasPartialProgress,
   SESSION_ANSWERS_KEY,
 } from "../session";
 export { matchOccupations, type OccupationSeed } from "../occupations";

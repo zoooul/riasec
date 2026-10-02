@@ -111,7 +111,7 @@ function pickTip(id: AxisId, value: number): string {
 }
 
 function shortenBullet(raw: string, maxLen = 110): string {
-  let text = raw
+  const text = raw
     .replace(/\s+/g, " ")
     .replace(/^Sie\s+/i, "Du ")
     .replace(/\bIhnen\b/g, "dir")

@@ -232,6 +232,18 @@ export function applyBiasGuards(
     tips: sanitizeLines(result.plainProfile.tips),
   };
 
+  const rank: Record<ConfidenceLevel, number> = {
+    high: 2,
+    medium: 1,
+    low: 0,
+  };
+  const mergedConfidence: ConfidenceLevel =
+    result.confidence == null
+      ? confidence
+      : rank[confidence] < rank[result.confidence]
+        ? confidence
+        : result.confidence;
+
   return {
     ...result,
     plainSummary,
@@ -240,14 +252,16 @@ export function applyBiasGuards(
     blendBullets,
     occupations,
     biasFlags: flags,
-    confidence,
+    confidence: mergedConfidence,
     qualityLabel,
     exclusions: [...TRAIT_EXCLUSIONS],
+    coverageRatio: analysis.coverageRatio,
     coverageHint:
-      qualityLabel === "orientierung"
+      result.coverageHint ??
+      (qualityLabel === "orientierung"
         ? `Nur ${analysis.answeredCount} von ${analysis.itemCount} Fragen beantwortet`
-        : undefined,
-    isIncomplete: flags.lowCoverage,
+        : `Basierend auf ${analysis.answeredCount} von ${analysis.itemCount} Fragen`),
+    isIncomplete: Boolean(result.isIncomplete) || flags.lowCoverage,
   };
 }
 

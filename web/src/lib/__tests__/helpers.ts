@@ -51,7 +51,7 @@ export function firstChoiceAnswers(items: AssessmentItem[]): Record<string, stri
   );
 }
 
-/** Pick last choice for every item (deterministic alternate answer set). */
+/** Pick last choice for every item (opposite of firstChoiceAnswers). */
 export function lastChoiceAnswers(items: AssessmentItem[]): Record<string, string> {
   return Object.fromEntries(
     items.map((item) => [item.id, item.choices[item.choices.length - 1]!.id]),

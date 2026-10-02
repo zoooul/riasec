@@ -6,6 +6,10 @@ export const RIASEC_IDS: RiasecId[] = ["R", "I", "A", "S", "E", "C"];
 
 export const ZWISCHEN_THRESHOLD = 18;
 
+/** Soft-score dampening when coverage is thin. */
+export const COVERAGE_SOFT_HIGH = 0.75;
+export const COVERAGE_SOFT_MID = 0.4;
+
 export const MODULE_ORDER: ModuleId[] = [
   "personality",
   "interests",

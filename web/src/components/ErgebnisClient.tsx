@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { RIASEC_IDS, RIASEC_LABELS } from "@/lib/constants";
 import type { OccupationSeed } from "@/lib/occupations";
@@ -35,29 +35,35 @@ function qualityChip(label: QualityLabel | undefined): {
   return { text: "Dein Ergebnis", className: "text-[var(--neon-cyan)]" };
 }
 
+function subscribeNoop() {
+  return () => {};
+}
+
+function getServerAnswers(): Record<string, string> | null {
+  return null;
+}
+
 export function ErgebnisClient({
   items,
   profiles,
   occupations,
   attribution = [],
 }: Props) {
-  const [ready, setReady] = useState(false);
-  const [answers, setAnswers] = useState<Record<string, string> | null>(null);
+  const answers = useSyncExternalStore(
+    subscribeNoop,
+    loadAnswers,
+    getServerAnswers,
+  );
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [pdfBusy, setPdfBusy] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
-
-  useEffect(() => {
-    setAnswers(loadAnswers());
-    setReady(true);
-  }, []);
 
   const result = useMemo(() => {
     if (!answers) return null;
     return scoreAssessment(items, answers, profiles, occupations);
   }, [answers, items, profiles, occupations]);
 
-  if (!ready) {
+  if (answers === null) {
     return (
       <main className="flex flex-1 flex-col">
         <SiteHeader />
@@ -68,7 +74,7 @@ export function ErgebnisClient({
     );
   }
 
-  if (!answers || !result || !result.answeredCount) {
+  if (!result || !result.answeredCount) {
     return (
       <main className="flex flex-1 flex-col">
         <SiteHeader />
@@ -96,7 +102,7 @@ export function ErgebnisClient({
   );
   const maxRiasec = Math.max(...RIASEC_IDS.map((id) => result.riasec[id]), 1);
 
-  async function onSavePdf() {
+  function onSavePdf() {
     setPdfBusy(true);
     setPdfError(null);
     try {
@@ -112,7 +118,10 @@ export function ErgebnisClient({
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <Link href="/assessment" className="glass-chip text-[var(--neon-cyan)] no-print">
+          <Link
+            href="/assessment"
+            className="glass-chip text-[var(--neon-cyan)] no-print"
+          >
             Nochmal
           </Link>
         }
@@ -186,7 +195,9 @@ export function ErgebnisClient({
               <p className="text-sm text-[var(--muted)]">Beispiele:</p>
               {jobFields.map((job) => (
                 <div key={job.id} className="rounded-xl bg-white/5 px-3 py-2">
-                  <div className="font-semibold text-[var(--ink)]">{job.titleDe}</div>
+                  <div className="font-semibold text-[var(--ink)]">
+                    {job.titleDe}
+                  </div>
                   <p className="text-sm text-[var(--muted)]">{job.why}</p>
                 </div>
               ))}
@@ -225,7 +236,9 @@ export function ErgebnisClient({
           id="details"
           className="glass-panel p-4 md:p-5 no-print"
           open={detailsOpen}
-          onToggle={(e) => setDetailsOpen((e.target as HTMLDetailsElement).open)}
+          onToggle={(e) =>
+            setDetailsOpen((e.target as HTMLDetailsElement).open)
+          }
         >
           <summary className="cursor-pointer font-[family-name:var(--font-display)] text-lg text-[var(--ink)]">
             Details (Codes & Diagramme)
@@ -282,7 +295,9 @@ export function ErgebnisClient({
                       <span className="text-[var(--muted)]">({cluster.code})</span>
                     </div>
                     {cluster.isZwischen ? (
-                      <div className="text-xs text-[var(--neon-mint)]">Zwischenprofil</div>
+                      <div className="text-xs text-[var(--neon-mint)]">
+                        Zwischenprofil
+                      </div>
                     ) : null}
                   </div>
                   <div className="text-sm font-semibold text-[var(--neon-cyan)]">

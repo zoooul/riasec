@@ -1,7 +1,7 @@
 {
   "version": 4,
   "validationStatus": "unvalidated",
-  "notes": "Expanded pictorial MVP (~30 items). Nested weights { axes, bigFive, riasec } avoid Big-Five E vs RIASEC E collision. Own constructions inspired by VIST dimensions + Holland RIASEC. Marked unvalidated until norming.",
+  "notes": "Expanded pictorial MVP. Nested weights { axes, bigFive, riasec }. Balance pass: +tf_04 (T/F), +a_03 (Artistic). Unvalidated until norming.",
   "items": [
     {
       "id": "ei_01",
@@ -483,6 +483,54 @@
       }
     },
     {
+      "id": "tf_04",
+      "module": "personality",
+      "prompt": "Bei einem Team-Konflikt zählst du eher…",
+      "choices": [
+        {
+          "id": "tf_04_a",
+          "label": "Was stimmt sachlich",
+          "hint": "Fakten klären, dann entscheiden.",
+          "visual": {
+            "kind": "pattern",
+            "motif": "logic-blocks"
+          },
+          "weights": {
+            "axes": {
+              "T_F": -30
+            },
+            "bigFive": {
+              "C": 8
+            }
+          }
+        },
+        {
+          "id": "tf_04_b",
+          "label": "Wie sich alle fühlen",
+          "hint": "Beziehungen und Fairness zuerst.",
+          "visual": {
+            "kind": "scene",
+            "motif": "warm-team"
+          },
+          "weights": {
+            "axes": {
+              "T_F": 30
+            },
+            "bigFive": {
+              "A": 14
+            }
+          }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
       "id": "jp_01",
       "module": "personality",
       "prompt": "Wie magst du arbeiten?",
@@ -881,6 +929,54 @@
             },
             "bigFive": {
               "A": 12
+            }
+          }
+        }
+      ],
+      "source": {
+        "sourceId": "own-pictorial",
+        "license": "own_construction",
+        "layer": "core",
+        "changeStatus": "own_construction",
+        "validationStatus": "unvalidated"
+      }
+    },
+    {
+      "id": "a_03",
+      "module": "interests",
+      "prompt": "Welches Projekt reizt dich mehr?",
+      "choices": [
+        {
+          "id": "a_03_a",
+          "label": "Visuell gestalten",
+          "hint": "Farben, Form, Ausdruck.",
+          "visual": {
+            "kind": "scene",
+            "motif": "create-canvas"
+          },
+          "weights": {
+            "riasec": {
+              "A": 40
+            },
+            "bigFive": {
+              "O": 14
+            }
+          }
+        },
+        {
+          "id": "a_03_b",
+          "label": "Systeme ordnen",
+          "hint": "Abläufe, Struktur, Übersicht.",
+          "visual": {
+            "kind": "scene",
+            "motif": "office-order"
+          },
+          "weights": {
+            "riasec": {
+              "C": 36
+            },
+            "bigFive": {
+              "C": 12
             }
           }
         }

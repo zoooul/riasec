@@ -80,13 +80,8 @@ describe("full assessment integration", () => {
   it("all-A vs all-B answers do not share the same primary cluster", () => {
     const items = loadMvpItems();
     const profiles = loadAllProfiles();
-    const allA = scoreAssessment(
-      items,
-      firstChoiceAnswers(items),
-      profiles,
-    );
+    const allA = scoreAssessment(items, firstChoiceAnswers(items), profiles);
     const allB = scoreAssessment(items, lastChoiceAnswers(items), profiles);
-
     expect(allA.primaryCode).not.toBe(allB.primaryCode);
   });
 
@@ -105,9 +100,7 @@ describe("full assessment integration", () => {
     expect(result.qualityLabel).toBe("orientierung");
     expect(result.confidence).toBe("low");
     expect(result.biasFlags?.lowCoverage).toBe(true);
-    expect(
-      result.plainSummary.some((l) => /Orientierung/i.test(l)),
-    ).toBe(true);
+    expect(result.occupations.length).toBeLessThanOrEqual(2);
+    expect(result.plainSummary.some((l) => /Orientierung/i.test(l))).toBe(true);
   });
 });
-

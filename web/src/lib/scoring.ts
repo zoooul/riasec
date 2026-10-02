@@ -2,6 +2,8 @@ import {
   AXIS_IDS,
   AXIS_PLAIN,
   BIG_FIVE_IDS,
+  COVERAGE_SOFT_HIGH,
+  COVERAGE_SOFT_MID,
   HOW_SECTIONS,
   RIASEC_IDS,
   RIASEC_LABELS,
@@ -26,6 +28,7 @@ import type {
   BigFiveId,
   ChoiceWeights,
   ClusterMatch,
+  ConfidenceLevel,
   RiasecId,
   VistProfile,
 } from "./types";
@@ -72,7 +75,6 @@ function normalizeBucket<T extends string>(
     ids.map((id) => {
       const n = counts[id] || 0;
       const avg = n > 0 ? raw[id] / n : 0;
-      // Average of ±35-style weights; clamp keeps UI bars bounded.
       return [id, clamp(avg)];
     }),
   ) as Record<T, number>;
@@ -119,6 +121,42 @@ function softMaxWeights(distances: number[], temperature = 28): number[] {
   return inv.map((v) => v / total);
 }
 
+/** Soften axis/RIASEC magnitudes when few questions were answered. */
+export function coverageSoftFactor(answered: number, total: number): number {
+  if (total <= 0 || answered <= 0) return 0;
+  const ratio = answered / total;
+  if (ratio >= COVERAGE_SOFT_HIGH) return 1;
+  if (ratio >= COVERAGE_SOFT_MID) return 0.75;
+  return 0.5;
+}
+
+export function confidenceFromCoverage(
+  answered: number,
+  total: number,
+): ConfidenceLevel {
+  if (total <= 0 || answered <= 0) return "low";
+  const ratio = answered / total;
+  if (ratio >= COVERAGE_SOFT_HIGH) return "high";
+  if (ratio >= COVERAGE_SOFT_MID) return "medium";
+  return "low";
+}
+
+export function coverageHintText(answered: number, total: number): string {
+  return `Basierend auf ${answered} von ${total} Fragen`;
+}
+
+function scaleBucket<T extends string>(
+  bucket: Record<T, number>,
+  ids: readonly T[],
+  factor: number,
+): Record<T, number> {
+  if (factor >= 1) return bucket;
+  return Object.fromEntries(
+    ids.map((id) => [id, clamp(bucket[id] * factor)]),
+  ) as Record<T, number>;
+}
+
+/** Plain-German Zwischenprofile — no lone E/I letters. */
 function zwischenLabels(axes: Record<AxisId, number>): string[] {
   return zwischenLabelsInWords(axes);
 }
@@ -173,9 +211,8 @@ function buildBlendBullets(
       profile.sections.rolle_im_team?.[0] ??
       profile.sections.eigenschaften?.[0];
     if (!snippet) continue;
-    lines.push(
-      `Auch vom Muster „${profile.role}“ (${Math.round(cluster.weight * 100)}%): ${snippet}`,
-    );
+    const pct = Math.round(cluster.weight * 100);
+    lines.push(`Vom Muster „${profile.role}“ (${pct}%): ${snippet}`);
   }
   return lines.slice(0, 3);
 }
@@ -185,6 +222,8 @@ function plainSummary(
   clusters: ClusterMatch[],
   zwischen: string[],
   riasecTop: string[],
+  coverageHint: string,
+  confidence: ConfidenceLevel,
 ): string[] {
   const lines = [
     `Dein Hauptmuster liegt bei „${primary.role}“.`,
@@ -205,6 +244,16 @@ function plainSummary(
   if (riasecTop.length) {
     lines.push(
       `Bei der Arbeit ziehen dich vor allem diese Felder an: ${riasecTop.join(", ")}.`,
+    );
+  }
+  lines.push(`${coverageHint}.`);
+  if (confidence === "low") {
+    lines.push(
+      "Wenige Antworten — das Ergebnis ist nur eine grobe Richtung.",
+    );
+  } else if (confidence === "medium") {
+    lines.push(
+      "Noch nicht alle Fragen beantwortet — die Richtung kann sich noch verschieben.",
     );
   }
   lines.push(
@@ -248,9 +297,22 @@ export function scoreAssessment(
     );
   }
 
-  const axes = normalizeBucket(axesRaw, axesCounts, AXIS_IDS);
-  const bigFive = normalizeBucket(bigFiveRaw, bigFiveCounts, BIG_FIVE_IDS);
-  const riasec = normalizeBucket(riasecRaw, riasecCounts, RIASEC_IDS);
+  const soft = coverageSoftFactor(answeredCount, items.length);
+  const axes = scaleBucket(
+    normalizeBucket(axesRaw, axesCounts, AXIS_IDS),
+    AXIS_IDS,
+    soft,
+  );
+  const bigFive = scaleBucket(
+    normalizeBucket(bigFiveRaw, bigFiveCounts, BIG_FIVE_IDS),
+    BIG_FIVE_IDS,
+    soft,
+  );
+  const riasec = scaleBucket(
+    normalizeBucket(riasecRaw, riasecCounts, RIASEC_IDS),
+    RIASEC_IDS,
+    soft,
+  );
 
   const distances = profiles.map((p) => distance(axes, typeVector(p)));
   const weights = softMaxWeights(distances);
@@ -290,8 +352,14 @@ export function scoreAssessment(
     isZwischen: false,
   };
 
+  const itemCount = items.length;
+  const coverageRatio = itemCount > 0 ? answeredCount / itemCount : 0;
+  const coverageHint = coverageHintText(answeredCount, itemCount);
+  const coverageConfidence = confidenceFromCoverage(answeredCount, itemCount);
+  const isIncomplete = answeredCount > 0 && answeredCount < itemCount;
+
   const axisScores = toAxisScores(axes);
-  const occupations = matchOccupations(riasec, occupationSeeds);
+  const occupations = matchOccupations(riasec, occupationSeeds, 3);
   const plainProfile = buildPlainProfile({
     primary: primaryCluster,
     clusters: topClusters,
@@ -304,7 +372,11 @@ export function scoreAssessment(
 
   const base: AssessmentResult = {
     answeredCount,
-    itemCount: items.length,
+    itemCount,
+    coverageRatio,
+    coverageHint,
+    confidence: coverageConfidence,
+    isIncomplete,
     axes: axisScores,
     bigFive,
     riasec,
@@ -317,6 +389,8 @@ export function scoreAssessment(
       topClusters,
       zwischen,
       riasecTop,
+      coverageHint,
+      coverageConfidence,
     ),
     plainProfile,
     howBullets: primaryProfile ? buildHowBullets(primaryProfile) : [],
@@ -328,8 +402,12 @@ export function scoreAssessment(
   const flags = buildBiasFlags(analysis);
   const guarded = applyBiasGuards(base, flags, analysis);
   // Keep plainProfile primary lines jargon-free even after bias prefaces.
+  // Re-assert UX coverage fields so bias heuristics do not wipe them.
   return {
     ...guarded,
+    coverageRatio,
+    coverageHint,
+    isIncomplete,
     plainProfile: {
       ...guarded.plainProfile,
       oneLine: guarded.plainProfile.oneLine,
