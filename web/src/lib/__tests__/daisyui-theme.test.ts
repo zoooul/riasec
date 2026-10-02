@@ -39,4 +39,32 @@ describe("soft · DaisyUI skillster theme", () => {
     expect(pkg).toContain('"daisyui"');
     expect(pkg).not.toMatch(/@mantine\//);
   });
+
+  it("keeps classical layout: clamped stimuli, no hero text/media z-fight", () => {
+    const css = read("app/globals.css");
+    const landing = read("app/page.tsx");
+    const flow = read("components/AssessmentFlow.tsx");
+    const visual = read("components/VisualCard.tsx");
+
+    expect(css).toContain("assessment-choice-visual");
+    expect(css).toContain("max-height: min(22vh, 9.5rem)");
+    expect(css).toContain(".assessment-progress");
+    expect(css).toContain(".assessment-steps");
+    expect(css).toMatch(/--text-hero:\s*clamp\(2\.75rem/);
+
+    expect(landing).toContain("landing-hero-figure");
+    expect(landing).toContain("lg:grid-cols-");
+    expect(landing).not.toContain("z-[2]");
+    expect(landing).not.toContain("absolute inset-0");
+    expect(landing).not.toContain("absolute inset-[8%]");
+
+    expect(flow).toContain("assessment-choice-figure");
+    expect(flow).toContain("card-body");
+    expect(flow).toContain("assessment-status-strip");
+    expect(flow).not.toContain("relative z-[1]");
+
+    expect(visual).toContain("assessment-choice-visual");
+    expect(visual).toContain("aspect-[5/3]");
+    expect(visual).not.toContain("min-h-0 flex-1");
+  });
 });

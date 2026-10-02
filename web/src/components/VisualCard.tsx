@@ -22,10 +22,10 @@ export function VisualCard({ motif, kind, imageUrl, compact = false }: MotifProp
 
   return (
     <div
-      className={`visual-card relative w-full overflow-hidden rounded-[clamp(0.75rem,1.6vh,1.15rem)] bg-gradient-to-br ${KIND_TINT[kind]} ${
+      className={`visual-card relative w-full shrink-0 overflow-hidden bg-gradient-to-br ${KIND_TINT[kind]} ${
         compact
-          ? "min-h-0 flex-1"
-          : "aspect-[5/3]"
+          ? "assessment-choice-visual aspect-[5/3]"
+          : "aspect-[5/3] rounded-[clamp(0.75rem,1.6vh,1.15rem)]"
       }`}
       aria-hidden
     >
@@ -37,7 +37,7 @@ export function VisualCard({ motif, kind, imageUrl, compact = false }: MotifProp
           src={imageUrl}
           alt=""
           className={`relative h-full w-full object-center ${
-            compact ? "object-contain" : "object-cover"
+            compact ? "object-contain p-1" : "object-cover"
           }`}
         />
       ) : (

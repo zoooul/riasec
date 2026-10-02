@@ -33,11 +33,13 @@ export default function ProfileIndexPage() {
             <Link
               key={p.code}
               href={`/profile/${p.code.toLowerCase()}`}
-              className="card bg-base-100 border border-base-300 px-5 py-4 shadow-sm transition-colors hover:border-primary/40"
+              className="card bg-base-100 border border-base-300 shadow-sm transition-colors hover:border-primary/40"
             >
-              <div className="text-sm text-primary">{p.code}</div>
-              <div className="display-title text-2xl text-base-content">
-                {p.role}
+              <div className="card-body gap-1 px-5 py-4">
+                <div className="text-sm text-primary">{p.code}</div>
+                <div className="display-title text-2xl text-base-content">
+                  {p.role}
+                </div>
               </div>
             </Link>
           ))}

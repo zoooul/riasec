@@ -164,15 +164,17 @@ export function ErgebnisClient({
             Dein Zwischenspeicher wird geleert.
           </ConfirmDialog>
           {(result.exclusions?.length ?? 0) > 0 ? (
-            <div className="card bg-base-100 border border-base-300 w-full space-y-2 p-4 text-left shadow-sm">
-              <h2 className="display-title text-base text-base-content">
-                Was wir nicht messen
-              </h2>
-              <ul className="space-y-1 text-sm text-base-content/60">
-                {result.exclusions!.slice(0, 4).map((line) => (
-                  <li key={line}>· {line}</li>
-                ))}
-              </ul>
+            <div className="card bg-base-100 border border-base-300 w-full shadow-sm">
+              <div className="card-body gap-2 p-4 text-left">
+                <h2 className="display-title text-base text-base-content">
+                  Was wir nicht messen
+                </h2>
+                <ul className="space-y-1 text-sm text-base-content/60">
+                  {result.exclusions!.slice(0, 4).map((line) => (
+                    <li key={line}>· {line}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ) : null}
         </div>
@@ -267,8 +269,9 @@ export function ErgebnisClient({
       >
         <section
           id="zusammenfassung"
-          className="card bg-base-100 border border-base-300 shadow-sm space-y-4 p-5 md:p-7"
+          className="card bg-base-100 border border-base-300 shadow-sm"
         >
+          <div className="card-body gap-4 p-5 md:gap-5 md:p-7">
           <Chip className={chip.className}>{chip.text}</Chip>
           <h1 className="display-title text-3xl text-base-content md:text-[2.75rem]">
             {plain.roleLabel}
@@ -285,7 +288,7 @@ export function ErgebnisClient({
             </div>
           ) : null}
 
-          <div className="actions-row pt-1 no-print">
+          <div className="actions-row flex-wrap gap-2 pt-1 no-print">
             <Button
               type="button"
               size="sm"
@@ -319,6 +322,7 @@ export function ErgebnisClient({
               {pdfError}
             </div>
           ) : null}
+          </div>
         </section>
 
         <section id="so-arbeitest-du" className="stack-sm px-1 py-1 md:px-2">
@@ -356,12 +360,14 @@ export function ErgebnisClient({
                 {jobFields.map((job) => (
                   <div
                     key={job.id}
-                    className="card bg-base-100 border border-base-300 p-4 shadow-sm"
+                    className="card bg-base-100 border border-base-300 shadow-sm"
                   >
-                    <div className="font-semibold text-base-content">
-                      {job.titleDe}
+                    <div className="card-body gap-1.5 p-4">
+                      <div className="font-semibold text-base-content">
+                        {job.titleDe}
+                      </div>
+                      <p className="text-sm text-base-content/60">{job.why}</p>
                     </div>
-                    <p className="mt-1 text-sm text-base-content/60">{job.why}</p>
                   </div>
                 ))}
               </div>
@@ -413,33 +419,37 @@ export function ErgebnisClient({
                 {result.howBullets.map((block) => (
                   <div
                     key={block.title}
-                    className="card bg-base-100 border border-base-300 space-y-2 p-4 shadow-sm md:p-5"
+                    className="card bg-base-100 border border-base-300 shadow-sm"
                   >
-                    <h3 className="font-semibold text-base-content">
-                      {block.title}
-                    </h3>
-                    <ul className="space-y-2 text-sm leading-relaxed text-base-content/60 md:text-base">
-                      {block.bullets.map((b) => (
-                        <li
-                          key={b}
-                          className="rounded-lg bg-base-200 px-3 py-2"
-                        >
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="card-body gap-2 p-4 md:p-5">
+                      <h3 className="font-semibold text-base-content">
+                        {block.title}
+                      </h3>
+                      <ul className="space-y-2 text-sm leading-relaxed text-base-content/60 md:text-base">
+                        {block.bullets.map((b) => (
+                          <li
+                            key={b}
+                            className="rounded-lg bg-base-200 px-3 py-2"
+                          >
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 ))}
                 {result.blendBullets.length ? (
-                  <div className="card border border-accent/30 bg-base-100 space-y-2 p-4 shadow-sm md:p-5">
-                    <h3 className="font-semibold text-accent">
-                      Auch aus benachbarten Mustern
-                    </h3>
-                    <ul className="space-y-2 text-sm text-base-content/60 md:text-base">
-                      {result.blendBullets.map((b) => (
-                        <li key={b}>{b}</li>
-                      ))}
-                    </ul>
+                  <div className="card border border-accent/30 bg-base-100 shadow-sm">
+                    <div className="card-body gap-2 p-4 md:p-5">
+                      <h3 className="font-semibold text-accent">
+                        Auch aus benachbarten Mustern
+                      </h3>
+                      <ul className="space-y-2 text-sm text-base-content/60 md:text-base">
+                        {result.blendBullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 ) : null}
               </div>
@@ -448,15 +458,17 @@ export function ErgebnisClient({
         ) : null}
 
         {(result.exclusions?.length ?? 0) > 0 ? (
-          <section className="card bg-base-100 border border-base-300 space-y-2 p-4 shadow-sm md:p-5">
-            <h2 className="display-title text-lg text-base-content">
-              Was wir nicht messen
-            </h2>
-            <ul className="grid gap-1 text-sm text-base-content/60 sm:grid-cols-2">
-              {result.exclusions!.map((line) => (
-                <li key={line}>· {line}</li>
-              ))}
-            </ul>
+          <section className="card bg-base-100 border border-base-300 shadow-sm">
+            <div className="card-body gap-2 p-4 md:p-5">
+              <h2 className="display-title text-lg text-base-content">
+                Was wir nicht messen
+              </h2>
+              <ul className="grid gap-1 text-sm text-base-content/60 sm:grid-cols-2">
+                {result.exclusions!.map((line) => (
+                  <li key={line}>· {line}</li>
+                ))}
+              </ul>
+            </div>
           </section>
         ) : null}
 

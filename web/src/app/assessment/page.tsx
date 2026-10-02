@@ -7,7 +7,7 @@ export default function AssessmentPage() {
   const items = getMvpItems();
 
   return (
-    <main className="assessment-viewport relative z-[1] flex max-h-dvh min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
+    <main className="assessment-viewport flex max-h-dvh min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
       <SiteHeader
         sticky={false}
         right={<Chip className="badge-secondary">Bildaufgaben</Chip>}

@@ -19,11 +19,11 @@ export function SiteHeader({ right, sticky = true, className }: Props) {
         className,
       )}
     >
-      <div className="site-header-inner navbar mx-auto min-h-12 w-full max-w-5xl px-3 py-1 sm:px-4">
+      <div className="site-header-inner navbar mx-auto min-h-11 w-full max-w-5xl px-3 py-0.5 sm:min-h-12 sm:px-4">
         <div className="navbar-start">
           <Link
             href="/"
-            className="brand-mark text-lg text-base-content focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-xl md:text-2xl"
+            className="brand-mark text-base text-base-content focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-lg md:text-xl"
           >
             Skill<span className="brand-accent">ster</span>
           </Link>

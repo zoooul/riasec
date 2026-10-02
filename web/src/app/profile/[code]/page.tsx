@@ -26,37 +26,41 @@ export default async function ProfileDetailPage({ params }: Props) {
       <SiteHeader right={<Chip href="/profile">Alle Profile</Chip>} />
 
       <div className="page-shell stack-lg py-8 md:py-10">
-        <div className="card bg-base-100 border border-base-300 space-y-2 p-5 shadow-sm md:p-7">
-          <h1 className="display-title text-3xl text-base-content md:text-5xl">
-            {profile.role}
-          </h1>
-          <p className="text-primary">
-            {profile.code} · {profile.dimensions.E_I}
-            {profile.dimensions.S_N}
-            {profile.dimensions.T_F}
-            {profile.dimensions.J_P}
-          </p>
+        <div className="card bg-base-100 border border-base-300 shadow-sm">
+          <div className="card-body gap-2 p-5 md:p-7">
+            <h1 className="display-title text-3xl text-base-content md:text-5xl">
+              {profile.role}
+            </h1>
+            <p className="text-primary">
+              {profile.code} · {profile.dimensions.E_I}
+              {profile.dimensions.S_N}
+              {profile.dimensions.T_F}
+              {profile.dimensions.J_P}
+            </p>
+          </div>
         </div>
 
         <div className="stack">
           {Object.entries(profile.sections).map(([key, bullets]) => (
             <section
               key={key}
-              className="card bg-base-100 border border-base-300 p-4 shadow-sm md:p-5"
+              className="card bg-base-100 border border-base-300 shadow-sm"
             >
-              <h2 className="mb-3 text-lg font-semibold text-base-content">
-                {SECTION_LABELS[key] ?? key}
-              </h2>
-              <ul className="space-y-2">
-                {bullets.slice(0, 8).map((b) => (
-                  <li
-                    key={b}
-                    className="rounded-lg bg-base-200 px-3 py-2 text-sm leading-relaxed text-base-content/70 md:text-base"
-                  >
-                    {b}
-                  </li>
-                ))}
-              </ul>
+              <div className="card-body gap-3 p-4 md:p-5">
+                <h2 className="text-lg font-semibold text-base-content">
+                  {SECTION_LABELS[key] ?? key}
+                </h2>
+                <ul className="space-y-2">
+                  {bullets.slice(0, 8).map((b) => (
+                    <li
+                      key={b}
+                      className="rounded-lg bg-base-200 px-3 py-2 text-sm leading-relaxed text-base-content/70 md:text-base"
+                    >
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </section>
           ))}
         </div>

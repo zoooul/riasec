@@ -4,19 +4,19 @@ import { Chip } from "@/components/ui/chip";
 /**
  * Landing — classical DaisyUI hero (template: navbar elsewhere, hero + CTA).
  * First viewport: brand, one headline, one sentence, one CTA.
- * Chips stay in-flow (no absolute overlays over brand/copy).
+ * Media sits in its own grid plane (never stacked over brand/copy).
  */
 export default function HomePage() {
   return (
-    <main className="relative flex min-w-0 flex-1 flex-col overflow-x-hidden">
+    <main className="flex min-w-0 flex-1 flex-col overflow-x-hidden">
       <section className="hero min-h-[calc(100dvh-5.5rem)]">
-        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-6 py-[max(1.5rem,var(--safe-top))] pb-[max(1.5rem,var(--safe-bottom))] lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:py-12">
-          <div className="relative z-[2] flex w-full items-center justify-between gap-3 lg:col-span-2">
+        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-8 py-[max(1.5rem,var(--safe-top))] pb-[max(1.5rem,var(--safe-bottom))] lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:py-14">
+          <div className="flex w-full items-center justify-between gap-3 lg:col-span-2">
             <Chip>Coaching · Orientierung</Chip>
             <Chip href="/profile">Profile</Chip>
           </div>
 
-          <div className="stack-sm relative z-10 max-w-xl min-w-0 flex-1 text-center lg:text-left">
+          <div className="stack-sm max-w-xl min-w-0 text-center lg:text-left">
             <p
               className="animate-rise brand-mark text-base-content"
               style={{ animationDelay: "40ms", fontSize: "var(--text-hero)" }}
@@ -36,7 +36,7 @@ export default function HomePage() {
               Tippen. Erkennen. Klarheit für den Berufsweg.
             </p>
             <div
-              className="animate-rise mx-auto flex w-full max-w-md flex-col gap-3 pt-4 lg:mx-0 lg:max-w-sm"
+              className="animate-rise mx-auto flex w-full max-w-md flex-col gap-3 pt-5 lg:mx-0 lg:max-w-sm"
               style={{ animationDelay: "240ms" }}
             >
               <Button href="/assessment" variant="primary" size="lg" className="w-full">
@@ -49,23 +49,22 @@ export default function HomePage() {
           </div>
 
           <div
-            className="animate-rise relative z-[1] mx-auto hidden aspect-[5/4] w-full max-w-lg min-w-0 flex-1 lg:block"
+            className="animate-rise mx-auto hidden w-full max-w-lg min-w-0 lg:block"
             style={{ animationDelay: "100ms" }}
             aria-hidden
           >
-            <div className="card bg-base-100 absolute inset-[8%] rotate-[-3deg] scale-[0.98] border border-base-300 opacity-50 shadow-sm" />
-            <div className="card bg-base-100 absolute inset-0 overflow-hidden border border-base-300 shadow-md">
-              <div className="absolute -left-10 top-10 h-44 w-44 rounded-full bg-primary/15 blur-2xl" />
-              <div className="absolute bottom-4 right-4 h-48 w-48 rounded-full bg-accent/10 blur-2xl" />
-              <div className="absolute inset-0 grid place-items-center">
-                <div className="h-28 w-28 rounded-full border border-base-300 bg-base-200 md:h-36 md:w-36" />
-              </div>
+            <div className="card bg-base-100 border border-base-300 shadow-md">
+              <figure className="landing-hero-figure aspect-[5/4] bg-gradient-to-br from-primary/10 via-base-200 to-secondary/10">
+                <div className="grid h-full w-full place-items-center">
+                  <div className="h-28 w-28 rounded-full border border-base-300 bg-base-100 md:h-36 md:w-36" />
+                </div>
+              </figure>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="page-shell page-shell-wide pb-12 pt-2">
+      <section className="page-shell page-shell-wide pb-14 pt-4">
         <div className="grid gap-4 sm:grid-cols-3">
           {[
             {
@@ -83,14 +82,16 @@ export default function HomePage() {
           ].map((card) => (
             <article
               key={card.title}
-              className="card bg-base-100 border border-base-300 p-5 shadow-sm"
+              className="card bg-base-100 border border-base-300 shadow-sm"
             >
-              <h2 className="display-title text-lg text-base-content">
-                {card.title}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-base-content/60">
-                {card.body}
-              </p>
+              <div className="card-body gap-2 p-5">
+                <h2 className="display-title text-lg text-base-content">
+                  {card.title}
+                </h2>
+                <p className="text-sm leading-relaxed text-base-content/60">
+                  {card.body}
+                </p>
+              </div>
             </article>
           ))}
         </div>
