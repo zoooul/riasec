@@ -1,4502 +1,4050 @@
 {
   "version": 2,
-  "meta": {
-    "count": 280,
-    "onetVersionHint": "db_29_2_text",
-    "licenses": [
-      {
-        "id": "onet-database",
-        "license": "CC BY 4.0",
-        "attribution": "This product uses the O*NET Database developed by the U.S. Department of Labor."
-      },
-      {
-        "id": "esco",
-        "license": "EU reuse 2011/833/EU",
-        "attribution": "This service uses the ESCO classification of the European Commission."
-      }
-    ],
-    "notes": "Trimmed DE-facing set for Skillster matching. Re-run script to refresh full/larger sets."
-  },
+  "notes": "Merged seed (DE) + trimmed O*NET Career Interest Types (CC BY 4.0). titleDe for O*NET rows is currently English until ESCO DE titles are linked. This service uses information from the O*NET 31.0 Database by the U.S. Department of Labor, Employment and Training Administration (USDOL/ETA). Used under the CC BY 4.0 license. O*NET® is a trademark of USDOL/ETA.",
+  "count": 311,
   "occupations": [
     {
-      "id": "onet_11-1011_00",
-      "onetSoc": "11-1011.00",
-      "titleEn": "Chief Executives",
-      "titleDe": "Geschäftsführung / Vorstand",
-      "riasec": "ECS",
-      "vector": {
-        "R": 5.0,
-        "I": 37.3,
-        "A": 18.0,
-        "S": 42.0,
-        "E": 98.0,
-        "C": 66.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-1021_00",
-      "onetSoc": "11-1021.00",
-      "titleEn": "General and Operations Managers",
-      "titleDe": "Betriebsleitung / Operations Manager",
-      "riasec": "ECS",
-      "vector": {
-        "R": 20.3,
-        "I": 23.2,
-        "A": 5.2,
-        "S": 39.5,
-        "E": 99.3,
-        "C": 72.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-2021_00",
-      "onetSoc": "11-2021.00",
-      "titleEn": "Marketing Managers",
-      "titleDe": "Marketing-Leitung",
-      "riasec": "ECI",
-      "vector": {
-        "R": 0.0,
-        "I": 31.7,
-        "A": 24.2,
-        "S": 30.3,
-        "E": 100.0,
-        "C": 61.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-2022_00",
-      "onetSoc": "11-2022.00",
-      "titleEn": "Sales Managers",
-      "titleDe": "Vertriebsleitung",
-      "riasec": "ECS",
-      "vector": {
-        "R": 8.2,
-        "I": 11.0,
-        "A": 5.2,
-        "S": 38.2,
-        "E": 100.0,
-        "C": 76.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-3121_00",
-      "onetSoc": "11-3121.00",
-      "titleEn": "Human Resources Managers",
-      "titleDe": "Personalleitung / HR Manager",
-      "riasec": "ECS",
-      "vector": {
-        "R": 1.5,
-        "I": 28.0,
-        "A": 11.8,
-        "S": 48.0,
-        "E": 100.0,
-        "C": 69.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-3021_00",
-      "onetSoc": "11-3021.00",
-      "titleEn": "Computer and Information Systems Managers",
-      "titleDe": "IT-Leitung",
-      "riasec": "CEI",
-      "vector": {
-        "R": 26.0,
-        "I": 57.0,
-        "A": 8.3,
-        "S": 23.5,
-        "E": 68.2,
-        "C": 78.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-3031_00",
-      "onetSoc": "11-3031.00",
-      "titleEn": "Financial Managers",
-      "titleDe": "Finanzleitung / CFO-Bereich",
-      "riasec": "ECS",
-      "vector": {
-        "R": 3.7,
-        "I": 24.2,
-        "A": 9.0,
-        "S": 32.2,
-        "E": 100.0,
-        "C": 78.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-3051_00",
-      "onetSoc": "11-3051.00",
-      "titleEn": "Industrial Production Managers",
-      "titleDe": "Produktionsleitung",
-      "riasec": "ECR",
-      "vector": {
-        "R": 53.8,
-        "I": 32.3,
-        "A": 5.5,
-        "S": 13.8,
-        "E": 82.0,
-        "C": 71.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-9021_00",
-      "onetSoc": "11-9021.00",
-      "titleEn": "Construction Managers",
-      "titleDe": "Bauleitung / Projektleitung Bau",
-      "riasec": "ECR",
-      "vector": {
-        "R": 61.5,
-        "I": 34.7,
-        "A": 12.2,
-        "S": 22.3,
-        "E": 79.0,
-        "C": 63.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-9032_00",
-      "onetSoc": "11-9032.00",
-      "titleEn": "Education Administrators, Kindergarten through Secondary",
-      "titleDe": "Schulleitung",
-      "riasec": "SEC",
-      "vector": {
-        "R": 3.0,
-        "I": 38.7,
-        "A": 32.5,
-        "S": 81.2,
-        "E": 69.5,
-        "C": 58.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-9041_00",
-      "onetSoc": "11-9041.00",
-      "titleEn": "Architectural and Engineering Managers",
-      "titleDe": "Technische Leitung / Engineering Manager",
-      "riasec": "ECI",
-      "vector": {
-        "R": 36.2,
-        "I": 57.7,
-        "A": 27.7,
-        "S": 30.7,
-        "E": 89.7,
-        "C": 59.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-9111_00",
-      "onetSoc": "11-9111.00",
-      "titleEn": "Medical and Health Services Managers",
-      "titleDe": "Klinik- / Gesundheitsmanagement",
-      "riasec": "ECS",
-      "vector": {
-        "R": 19.2,
-        "I": 47.5,
-        "A": 5.3,
-        "S": 54.0,
-        "E": 77.5,
-        "C": 77.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-9151_00",
-      "onetSoc": "11-9151.00",
-      "titleEn": "Social and Community Service Managers",
-      "titleDe": "Leitung Sozialer Dienste",
-      "riasec": "ESC",
-      "vector": {
-        "R": 0.0,
-        "I": 19.2,
-        "A": 22.3,
-        "S": 72.5,
-        "E": 100.0,
-        "C": 59.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_13-2011_00",
-      "onetSoc": "13-2011.00",
-      "titleEn": "Accountants and Auditors",
-      "titleDe": "Buchhaltung / Wirtschaftsprüfung",
-      "riasec": "CEI",
-      "vector": {
-        "R": 2.3,
-        "I": 42.8,
-        "A": 1.5,
-        "S": 18.8,
-        "E": 47.7,
-        "C": 100.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_13-1111_00",
-      "onetSoc": "13-1111.00",
-      "titleEn": "Management Analysts",
-      "titleDe": "Unternehmensberatung / Organisationsentwicklung",
-      "riasec": "CIE",
-      "vector": {
-        "R": 9.7,
-        "I": 74.3,
-        "A": 9.7,
-        "S": 29.5,
-        "E": 62.7,
-        "C": 85.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_13-1161_00",
-      "onetSoc": "13-1161.00",
-      "titleEn": "Market Research Analysts and Marketing Specialists",
-      "titleDe": "Marktforschung / Marketing-Analyse",
-      "riasec": "ECI",
-      "vector": {
-        "R": 1.2,
-        "I": 60.0,
-        "A": 26.0,
-        "S": 24.7,
-        "E": 75.3,
-        "C": 60.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1252_00",
-      "onetSoc": "15-1252.00",
-      "titleEn": "Software Developers",
-      "titleDe": "Softwareentwicklung",
-      "riasec": "ICR",
-      "vector": {
-        "R": 48.8,
-        "I": 81.0,
-        "A": 21.0,
-        "S": 14.7,
-        "E": 14.5,
-        "C": 74.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1254_00",
-      "onetSoc": "15-1254.00",
-      "titleEn": "Web Developers",
-      "titleDe": "Webentwicklung",
-      "riasec": "CIA",
-      "vector": {
-        "R": 32.5,
-        "I": 67.7,
-        "A": 34.5,
-        "S": 20.7,
-        "E": 31.5,
-        "C": 68.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1211_00",
-      "onetSoc": "15-1211.00",
-      "titleEn": "Computer Systems Analysts",
-      "titleDe": "IT-Systemanalyse",
-      "riasec": "ICR",
-      "vector": {
-        "R": 39.0,
-        "I": 89.3,
-        "A": 16.3,
-        "S": 14.8,
-        "E": 21.0,
-        "C": 81.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1212_00",
-      "onetSoc": "15-1212.00",
-      "titleEn": "Information Security Analysts",
-      "titleDe": "IT-Sicherheit / Cybersecurity",
-      "riasec": "CIR",
-      "vector": {
-        "R": 43.5,
-        "I": 73.8,
-        "A": 5.3,
-        "S": 17.2,
-        "E": 30.3,
-        "C": 86.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-2051_00",
-      "onetSoc": "15-2051.00",
-      "titleEn": "Data Scientists",
-      "titleDe": "Data Science / Datenanalyse",
-      "riasec": "ICA",
-      "vector": {
-        "R": 19.3,
-        "I": 99.8,
-        "A": 26.5,
-        "S": 11.0,
-        "E": 11.8,
-        "C": 73.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1242_00",
-      "onetSoc": "15-1242.00",
-      "titleEn": "Database Administrators",
-      "titleDe": "Datenbankadministration",
-      "riasec": "CIE",
-      "vector": {
-        "R": 28.3,
-        "I": 62.7,
-        "A": 5.0,
-        "S": 21.3,
-        "E": 31.0,
-        "C": 92.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1244_00",
-      "onetSoc": "15-1244.00",
-      "titleEn": "Network and Computer Systems Administrators",
-      "titleDe": "System- / Netzadministration",
-      "riasec": "CRI",
-      "vector": {
-        "R": 53.3,
-        "I": 50.8,
-        "A": 0.0,
-        "S": 20.3,
-        "E": 41.2,
-        "C": 86.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1241_00",
-      "onetSoc": "15-1241.00",
-      "titleEn": "Computer Network Architects",
-      "titleDe": "Netzwerkarchitektur",
-      "riasec": "ICR",
-      "vector": {
-        "R": 51.0,
-        "I": 72.2,
-        "A": 20.7,
-        "S": 19.8,
-        "E": 36.2,
-        "C": 67.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1251_00",
-      "onetSoc": "15-1251.00",
-      "titleEn": "Computer Programmers",
-      "titleDe": "Programmierung",
-      "riasec": "CIR",
-      "vector": {
-        "R": 38.5,
-        "I": 69.7,
-        "A": 27.0,
-        "S": 16.8,
-        "E": 17.3,
-        "C": 80.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1253_00",
-      "onetSoc": "15-1253.00",
-      "titleEn": "Software Quality Assurance Analysts and Testers",
-      "titleDe": "Software-Qualitätssicherung / Testing",
-      "riasec": "ICR",
-      "vector": {
-        "R": 46.7,
-        "I": 79.3,
-        "A": 11.5,
-        "S": 8.8,
-        "E": 9.5,
-        "C": 78.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2051_00",
-      "onetSoc": "17-2051.00",
-      "titleEn": "Civil Engineers",
-      "titleDe": "Bauingenieurwesen",
+      "id": "seed_handwerk",
+      "titleDe": "Handwerk / Technik vor Ort",
       "riasec": "RIC",
       "vector": {
-        "R": 89.3,
-        "I": 68.5,
-        "A": 19.2,
-        "S": 13.2,
-        "E": 31.7,
-        "C": 60.5
-      },
-      "source": "onet+curated-de"
+        "R": 90,
+        "I": 40,
+        "A": 10,
+        "S": 20,
+        "E": 25,
+        "C": 45
+      }
     },
     {
-      "id": "onet_17-2141_00",
-      "onetSoc": "17-2141.00",
-      "titleEn": "Mechanical Engineers",
-      "titleDe": "Maschinenbau",
-      "riasec": "RIC",
-      "vector": {
-        "R": 93.3,
-        "I": 71.7,
-        "A": 20.0,
-        "S": 1.7,
-        "E": 12.7,
-        "C": 60.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2071_00",
-      "onetSoc": "17-2071.00",
-      "titleEn": "Electrical Engineers",
-      "titleDe": "Elektrotechnik / Elektroingenieurwesen",
-      "riasec": "RIC",
-      "vector": {
-        "R": 89.2,
-        "I": 71.8,
-        "A": 16.8,
-        "S": 9.5,
-        "E": 21.8,
-        "C": 66.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2112_00",
-      "onetSoc": "17-2112.00",
-      "titleEn": "Industrial Engineers",
-      "titleDe": "Wirtschaftsingenieurwesen / Industrial Engineering",
-      "riasec": "CIR",
-      "vector": {
-        "R": 61.7,
-        "I": 64.7,
-        "A": 10.8,
-        "S": 6.7,
-        "E": 42.0,
-        "C": 73.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2041_00",
-      "onetSoc": "17-2041.00",
-      "titleEn": "Chemical Engineers",
-      "titleDe": "Chemieingenieurwesen",
-      "riasec": "RIC",
-      "vector": {
-        "R": 88.0,
-        "I": 78.8,
-        "A": 12.7,
-        "S": 1.0,
-        "E": 13.8,
-        "C": 60.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2081_00",
-      "onetSoc": "17-2081.00",
-      "titleEn": "Environmental Engineers",
-      "titleDe": "Umweltingenieurwesen",
+      "id": "seed_analyse",
+      "titleDe": "Analyse / Forschung / IT",
       "riasec": "IRC",
       "vector": {
-        "R": 69.2,
-        "I": 85.2,
-        "A": 17.3,
-        "S": 20.2,
-        "E": 35.0,
-        "C": 54.8
-      },
-      "source": "onet+curated-de"
+        "R": 30,
+        "I": 95,
+        "A": 25,
+        "S": 15,
+        "E": 20,
+        "C": 55
+      }
     },
     {
-      "id": "onet_17-1011_00",
-      "onetSoc": "17-1011.00",
-      "titleEn": "Architects, Except Landscape and Naval",
-      "titleDe": "Architektur",
-      "riasec": "RAI",
+      "id": "seed_gestaltung",
+      "titleDe": "Gestaltung / Medien / Design",
+      "riasec": "AIR",
       "vector": {
-        "R": 70.2,
-        "I": 53.0,
-        "A": 59.2,
-        "S": 25.2,
-        "E": 40.8,
-        "C": 52.0
-      },
-      "source": "onet+curated-de"
+        "R": 25,
+        "I": 35,
+        "A": 95,
+        "S": 30,
+        "E": 40,
+        "C": 15
+      }
     },
     {
-      "id": "onet_17-1012_00",
-      "onetSoc": "17-1012.00",
-      "titleEn": "Landscape Architects",
-      "titleDe": "Landschaftsarchitektur",
-      "riasec": "RIA",
+      "id": "seed_sozial",
+      "titleDe": "Beratung / Pflege / Bildung",
+      "riasec": "SAE",
       "vector": {
-        "R": 73.7,
-        "I": 61.5,
-        "A": 59.5,
-        "S": 27.2,
-        "E": 44.3,
-        "C": 45.2
-      },
-      "source": "onet+curated-de"
+        "R": 15,
+        "I": 30,
+        "A": 40,
+        "S": 95,
+        "E": 35,
+        "C": 25
+      }
     },
     {
-      "id": "onet_27-1024_00",
-      "onetSoc": "27-1024.00",
-      "titleEn": "Graphic Designers",
-      "titleDe": "Grafikdesign",
-      "riasec": "ACE",
+      "id": "seed_vertrieb",
+      "titleDe": "Vertrieb / Projektleitung / Gründung",
+      "riasec": "ESA",
       "vector": {
-        "R": 36.7,
-        "I": 30.5,
-        "A": 100.0,
-        "S": 21.8,
-        "E": 43.5,
-        "C": 46.3
-      },
-      "source": "onet+curated-de"
+        "R": 20,
+        "I": 25,
+        "A": 35,
+        "S": 55,
+        "E": 95,
+        "C": 30
+      }
     },
     {
-      "id": "onet_27-1025_00",
-      "onetSoc": "27-1025.00",
-      "titleEn": "Interior Designers",
-      "titleDe": "Innenarchitektur / Interior Design",
-      "riasec": "ARC",
-      "vector": {
-        "R": 57.2,
-        "I": 36.3,
-        "A": 77.8,
-        "S": 29.8,
-        "E": 39.0,
-        "C": 45.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-1022_00",
-      "onetSoc": "27-1022.00",
-      "titleEn": "Fashion Designers",
-      "titleDe": "Modedesign",
-      "riasec": "ARE",
-      "vector": {
-        "R": 55.3,
-        "I": 19.5,
-        "A": 100.0,
-        "S": 22.2,
-        "E": 49.5,
-        "C": 31.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-4021_00",
-      "onetSoc": "27-4021.00",
-      "titleEn": "Photographers",
-      "titleDe": "Fotografie",
-      "riasec": "RAC",
-      "vector": {
-        "R": 74.8,
-        "I": 21.5,
-        "A": 69.7,
-        "S": 14.2,
-        "E": 21.7,
-        "C": 40.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-3043_00",
-      "onetSoc": "27-3043.00",
-      "titleEn": "Writers and Authors",
-      "titleDe": "Schreiben / Autorenschaft",
-      "riasec": "AEI",
-      "vector": {
-        "R": 0.0,
-        "I": 37.7,
-        "A": 98.8,
-        "S": 30.7,
-        "E": 63.3,
-        "C": 36.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-3041_00",
-      "onetSoc": "27-3041.00",
-      "titleEn": "Editors",
-      "titleDe": "Redaktion / Lektorat",
-      "riasec": "ACE",
-      "vector": {
-        "R": 0.0,
-        "I": 35.2,
-        "A": 69.3,
-        "S": 25.2,
-        "E": 50.5,
-        "C": 64.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-3042_00",
-      "onetSoc": "27-3042.00",
-      "titleEn": "Technical Writers",
-      "titleDe": "Technische Redaktion",
-      "riasec": "CAI",
-      "vector": {
-        "R": 30.2,
-        "I": 45.0,
-        "A": 53.7,
-        "S": 16.7,
-        "E": 16.5,
-        "C": 72.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-3091_00",
-      "onetSoc": "27-3091.00",
-      "titleEn": "Interpreters and Translators",
-      "titleDe": "Dolmetschen / Übersetzen",
-      "riasec": "CAS",
-      "vector": {
-        "R": 14.8,
-        "I": 36.0,
-        "A": 56.7,
-        "S": 41.8,
-        "E": 14.7,
-        "C": 60.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-3031_00",
-      "onetSoc": "27-3031.00",
-      "titleEn": "Public Relations Specialists",
-      "titleDe": "Öffentlichkeitsarbeit / PR",
-      "riasec": "EAS",
-      "vector": {
-        "R": 0.0,
-        "I": 29.8,
-        "A": 62.0,
-        "S": 49.0,
-        "E": 80.2,
-        "C": 41.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_41-3011_00",
-      "onetSoc": "41-3011.00",
-      "titleEn": "Advertising Sales Agents",
-      "titleDe": "Werbevertrieb",
-      "riasec": "ECA",
-      "vector": {
-        "R": 1.0,
-        "I": 7.8,
-        "A": 42.3,
-        "S": 31.5,
-        "E": 95.2,
-        "C": 62.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_41-2031_00",
-      "onetSoc": "41-2031.00",
-      "titleEn": "Retail Salespersons",
-      "titleDe": "Einzelhandelsverkauf",
-      "riasec": "ECR",
-      "vector": {
-        "R": 38.3,
-        "I": 0.0,
-        "A": 18.2,
-        "S": 33.0,
-        "E": 84.7,
-        "C": 67.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_41-9022_00",
-      "onetSoc": "41-9022.00",
-      "titleEn": "Real Estate Sales Agents",
-      "titleDe": "Immobilienvertrieb",
-      "riasec": "ECS",
-      "vector": {
-        "R": 17.0,
-        "I": 7.7,
-        "A": 15.5,
-        "S": 41.7,
-        "E": 90.5,
-        "C": 68.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_41-3021_00",
-      "onetSoc": "41-3021.00",
-      "titleEn": "Insurance Sales Agents",
-      "titleDe": "Versicherungsvertrieb",
-      "riasec": "ECS",
-      "vector": {
-        "R": 1.7,
-        "I": 21.5,
-        "A": 3.0,
-        "S": 44.8,
-        "E": 80.7,
-        "C": 71.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_41-3031_00",
-      "onetSoc": "41-3031.00",
-      "titleEn": "Securities, Commodities, and Financial Services Sales Agents",
-      "titleDe": "Finanzvertrieb / Wertpapierberatung",
-      "riasec": "ECS",
-      "vector": {
-        "R": 4.2,
-        "I": 25.5,
-        "A": 4.8,
-        "S": 34.7,
-        "E": 84.7,
-        "C": 71.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_43-4051_00",
-      "onetSoc": "43-4051.00",
-      "titleEn": "Customer Service Representatives",
-      "titleDe": "Kundenservice",
-      "riasec": "CES",
-      "vector": {
-        "R": 17.5,
-        "I": 10.3,
-        "A": 0.0,
-        "S": 47.3,
-        "E": 68.5,
-        "C": 86.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_43-4171_00",
-      "onetSoc": "43-4171.00",
-      "titleEn": "Receptionists and Information Clerks",
-      "titleDe": "Empfang / Auskunft",
-      "riasec": "CES",
-      "vector": {
-        "R": 14.5,
-        "I": 15.3,
-        "A": 0.0,
-        "S": 43.8,
-        "E": 53.8,
-        "C": 87.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_43-9061_00",
-      "onetSoc": "43-9061.00",
-      "titleEn": "Office Clerks, General",
-      "titleDe": "Büroorganisation / Sachbearbeitung",
-      "riasec": "CES",
-      "vector": {
-        "R": 32.0,
-        "I": 14.2,
-        "A": 0.0,
-        "S": 34.5,
-        "E": 36.5,
-        "C": 97.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_43-3031_00",
-      "onetSoc": "43-3031.00",
-      "titleEn": "Bookkeeping, Accounting, and Auditing Clerks",
-      "titleDe": "Buchhaltung (Sachbearbeitung)",
+      "id": "seed_verwaltung",
+      "titleDe": "Verwaltung / Qualität / Organisation",
       "riasec": "CEI",
       "vector": {
-        "R": 10.8,
-        "I": 19.5,
-        "A": 0.0,
-        "S": 7.8,
-        "E": 31.5,
-        "C": 100.0
-      },
-      "source": "onet+curated-de"
+        "R": 20,
+        "I": 40,
+        "A": 10,
+        "S": 30,
+        "E": 35,
+        "C": 95
+      }
     },
     {
-      "id": "onet_43-3051_00",
-      "onetSoc": "43-3051.00",
-      "titleEn": "Payroll and Timekeeping Clerks",
-      "titleDe": "Lohnbuchhaltung",
-      "riasec": "CES",
+      "id": "seed_labor",
+      "titleDe": "Labor / Qualitätsprüfung",
+      "riasec": "IRC",
       "vector": {
-        "R": 9.7,
-        "I": 0.0,
-        "A": 0.0,
-        "S": 17.5,
-        "E": 40.0,
-        "C": 100.0
-      },
-      "source": "onet+curated-de"
+        "R": 55,
+        "I": 85,
+        "A": 10,
+        "S": 15,
+        "E": 15,
+        "C": 70
+      }
     },
     {
-      "id": "onet_13-1071_00",
-      "onetSoc": "13-1071.00",
-      "titleEn": "Human Resources Specialists",
-      "titleDe": "Personalwesen / HR Fachkraft",
-      "riasec": "ECS",
+      "id": "seed_coaching",
+      "titleDe": "Coaching / HR / Teamentwicklung",
+      "riasec": "SAE",
       "vector": {
-        "R": 1.2,
-        "I": 24.8,
-        "A": 7.3,
-        "S": 46.3,
-        "E": 79.2,
-        "C": 75.0
-      },
-      "source": "onet+curated-de"
+        "R": 10,
+        "I": 35,
+        "A": 45,
+        "S": 90,
+        "E": 50,
+        "C": 30
+      }
     },
     {
-      "id": "onet_13-1151_00",
-      "onetSoc": "13-1151.00",
-      "titleEn": "Training and Development Specialists",
-      "titleDe": "Personalentwicklung / Training",
-      "riasec": "SCI",
+      "id": "onet_17-3024.00",
+      "titleDe": "Electro-Mechanical and Mechatronics Technologists and Technicians",
+      "riasec": "RCI",
       "vector": {
-        "R": 16.2,
-        "I": 48.7,
-        "A": 34.8,
-        "S": 77.7,
-        "E": 46.0,
-        "C": 48.8
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 62.57,
+        "A": 19.71,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 65.43
+      }
     },
     {
-      "id": "onet_23-1011_00",
-      "onetSoc": "23-1011.00",
-      "titleEn": "Lawyers",
-      "titleDe": "Rechtsanwalt / Rechtsanwältin",
-      "riasec": "ECI",
+      "id": "onet_17-3027.01",
+      "titleDe": "Automotive Engineering Technicians",
+      "riasec": "RIC",
       "vector": {
-        "R": 2.8,
-        "I": 58.7,
-        "A": 22.0,
-        "S": 40.8,
-        "E": 75.7,
-        "C": 59.0
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 76.71,
+        "A": 20.14,
+        "S": 14.29,
+        "E": 17.86,
+        "C": 63.57
+      }
     },
     {
-      "id": "onet_23-2011_00",
-      "onetSoc": "23-2011.00",
-      "titleEn": "Paralegals and Legal Assistants",
-      "titleDe": "Rechtsanwaltsfachangestellte",
-      "riasec": "CIE",
+      "id": "onet_17-3029.08",
+      "titleDe": "Photonics Technicians",
+      "riasec": "RCI",
       "vector": {
-        "R": 11.8,
-        "I": 59.3,
-        "A": 17.3,
-        "S": 38.0,
-        "E": 53.5,
-        "C": 74.8
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 59.71,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 78.0
+      }
     },
     {
-      "id": "onet_23-1023_00",
-      "onetSoc": "23-1023.00",
-      "titleEn": "Judges, Magistrate Judges, and Magistrates",
-      "titleDe": "Richteramt",
-      "riasec": "ECS",
-      "vector": {
-        "R": 22.8,
-        "I": 45.8,
-        "A": 20.2,
-        "S": 50.0,
-        "E": 70.8,
-        "C": 51.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_33-3051_00",
-      "onetSoc": "33-3051.00",
-      "titleEn": "Police and Sheriff's Patrol Officers",
-      "titleDe": "Polizeidienst",
-      "riasec": "RCE",
-      "vector": {
-        "R": 72.8,
-        "I": 29.2,
-        "A": 1.2,
-        "S": 40.5,
-        "E": 51.5,
-        "C": 55.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_33-2011_00",
-      "onetSoc": "33-2011.00",
-      "titleEn": "Firefighters",
-      "titleDe": "Feuerwehr",
+      "id": "onet_35-9021.00",
+      "titleDe": "Dishwashers",
       "riasec": "RCS",
       "vector": {
-        "R": 92.0,
-        "I": 31.8,
-        "A": 5.0,
-        "S": 40.0,
-        "E": 33.5,
-        "C": 41.0
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 14.29,
+        "A": 14.29,
+        "S": 26.14,
+        "E": 20.57,
+        "C": 63.57
+      }
     },
     {
-      "id": "onet_33-9032_00",
-      "onetSoc": "33-9032.00",
-      "titleEn": "Security Guards",
-      "titleDe": "Sicherheitsdienst",
-      "riasec": "RCE",
-      "vector": {
-        "R": 86.7,
-        "I": 20.0,
-        "A": 0.0,
-        "S": 29.7,
-        "E": 32.5,
-        "C": 64.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1141_00",
-      "onetSoc": "29-1141.00",
-      "titleEn": "Registered Nurses",
-      "titleDe": "Krankenpflege (examinierte Pflege)",
-      "riasec": "SIC",
-      "vector": {
-        "R": 44.3,
-        "I": 63.7,
-        "A": 5.2,
-        "S": 77.0,
-        "E": 21.3,
-        "C": 59.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-2061_00",
-      "onetSoc": "29-2061.00",
-      "titleEn": "Licensed Practical and Licensed Vocational Nurses",
-      "titleDe": "Pflegefachkraft",
-      "riasec": "SRC",
-      "vector": {
-        "R": 59.7,
-        "I": 44.5,
-        "A": 1.2,
-        "S": 75.2,
-        "E": 18.8,
-        "C": 59.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1171_00",
-      "onetSoc": "29-1171.00",
-      "titleEn": "Nurse Practitioners",
-      "titleDe": "Advanced Nursing / Pflegeexpert:in",
-      "riasec": "ISC",
-      "vector": {
-        "R": 44.5,
-        "I": 75.3,
-        "A": 5.2,
-        "S": 72.7,
-        "E": 18.8,
-        "C": 54.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1215_00",
-      "onetSoc": "29-1215.00",
-      "titleEn": "Family Medicine Physicians",
-      "titleDe": "Hausarzt / Allgemeinmedizin",
-      "riasec": "SIC",
-      "vector": {
-        "R": 45.8,
-        "I": 84.7,
-        "A": 7.5,
-        "S": 86.8,
-        "E": 22.3,
-        "C": 49.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1021_00",
-      "onetSoc": "29-1021.00",
-      "titleEn": "Dentists, General",
-      "titleDe": "Zahnmedizin",
-      "riasec": "IRS",
-      "vector": {
-        "R": 71.8,
-        "I": 73.3,
-        "A": 2.5,
-        "S": 54.5,
-        "E": 15.8,
-        "C": 47.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1051_00",
-      "onetSoc": "29-1051.00",
-      "titleEn": "Pharmacists",
-      "titleDe": "Apotheke / Pharmazie",
-      "riasec": "ISC",
-      "vector": {
-        "R": 31.3,
-        "I": 77.5,
-        "A": 8.0,
-        "S": 63.5,
-        "E": 25.5,
-        "C": 61.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1123_00",
-      "onetSoc": "29-1123.00",
-      "titleEn": "Physical Therapists",
-      "titleDe": "Physiotherapie",
-      "riasec": "SIR",
-      "vector": {
-        "R": 55.7,
-        "I": 64.5,
-        "A": 19.5,
-        "S": 81.8,
-        "E": 24.8,
-        "C": 34.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1122_00",
-      "onetSoc": "29-1122.00",
-      "titleEn": "Occupational Therapists",
-      "titleDe": "Ergotherapie",
-      "riasec": "SIR",
-      "vector": {
-        "R": 41.3,
-        "I": 55.7,
-        "A": 34.2,
-        "S": 85.5,
-        "E": 13.5,
-        "C": 34.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1127_00",
-      "onetSoc": "29-1127.00",
-      "titleEn": "Speech-Language Pathologists",
-      "titleDe": "Logopädie",
-      "riasec": "SIC",
-      "vector": {
-        "R": 28.2,
-        "I": 77.2,
-        "A": 32.8,
-        "S": 81.8,
-        "E": 7.2,
-        "C": 50.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-3033_00",
-      "onetSoc": "19-3033.00",
-      "titleEn": "Clinical and Counseling Psychologists",
-      "titleDe": "Klinische Psychologie / Beratung",
-      "riasec": "SIC",
-      "vector": {
-        "R": 1.2,
-        "I": 75.0,
-        "A": 33.7,
-        "S": 92.8,
-        "E": 27.8,
-        "C": 42.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_21-1021_00",
-      "onetSoc": "21-1021.00",
-      "titleEn": "Child, Family, and School Social Workers",
-      "titleDe": "Sozialarbeit (Familie / Schule)",
-      "riasec": "SCI",
-      "vector": {
-        "R": 11.7,
-        "I": 38.7,
-        "A": 31.7,
-        "S": 97.5,
-        "E": 32.2,
-        "C": 42.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_21-1014_00",
-      "onetSoc": "21-1014.00",
-      "titleEn": "Mental Health Counselors",
-      "titleDe": "Psychologische Beratung",
-      "riasec": "SIC",
-      "vector": {
-        "R": 5.3,
-        "I": 57.3,
-        "A": 34.3,
-        "S": 96.0,
-        "E": 31.8,
-        "C": 40.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_21-1011_00",
-      "onetSoc": "21-1011.00",
-      "titleEn": "Substance Abuse and Behavioral Disorder Counselors",
-      "titleDe": "Sucht-/Verhaltensberatung",
-      "riasec": "SIC",
-      "vector": {
-        "R": 10.3,
-        "I": 46.7,
-        "A": 22.8,
-        "S": 94.2,
-        "E": 28.8,
-        "C": 44.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_21-1013_00",
-      "onetSoc": "21-1013.00",
-      "titleEn": "Marriage and Family Therapists",
-      "titleDe": "Paar- und Familientherapie",
-      "riasec": "SIA",
-      "vector": {
-        "R": 8.2,
-        "I": 70.8,
-        "A": 43.0,
-        "S": 88.7,
-        "E": 14.3,
-        "C": 30.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-2021_00",
-      "onetSoc": "25-2021.00",
-      "titleEn": "Elementary School Teachers, Except Special Education",
-      "titleDe": "Grundschullehrkraft",
-      "riasec": "SAC",
-      "vector": {
-        "R": 25.8,
-        "I": 39.7,
-        "A": 49.8,
-        "S": 100.0,
-        "E": 26.2,
-        "C": 42.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-2031_00",
-      "onetSoc": "25-2031.00",
-      "titleEn": "Secondary School Teachers, Except Special and Career/Technical Education",
-      "titleDe": "Lehrkraft Sekundarstufe",
-      "riasec": "SAC",
-      "vector": {
-        "R": 30.8,
-        "I": 37.2,
-        "A": 45.2,
-        "S": 100.0,
-        "E": 29.2,
-        "C": 43.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-2058_00",
-      "onetSoc": "25-2058.00",
-      "titleEn": "Special Education Teachers, Secondary School",
-      "titleDe": "Förderschullehrkraft",
-      "riasec": "SIA",
-      "vector": {
-        "R": 26.8,
-        "I": 47.7,
-        "A": 45.8,
-        "S": 100.0,
-        "E": 15.8,
-        "C": 37.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-2011_00",
-      "onetSoc": "25-2011.00",
-      "titleEn": "Preschool Teachers, Except Special Education",
-      "titleDe": "Erzieher:in / Kita",
-      "riasec": "SAC",
-      "vector": {
-        "R": 28.5,
-        "I": 29.5,
-        "A": 51.0,
-        "S": 100.0,
-        "E": 27.2,
-        "C": 43.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-9031_00",
-      "onetSoc": "25-9031.00",
-      "titleEn": "Instructional Coordinators",
-      "titleDe": "Unterrichtsentwicklung / Didaktik",
-      "riasec": "SEC",
-      "vector": {
-        "R": 11.5,
-        "I": 49.7,
-        "A": 41.3,
-        "S": 86.0,
-        "E": 54.2,
-        "C": 50.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-4022_00",
-      "onetSoc": "25-4022.00",
-      "titleEn": "Librarians and Media Collections Specialists",
-      "titleDe": "Bibliothekswesen",
-      "riasec": "CSI",
-      "vector": {
-        "R": 22.2,
-        "I": 43.7,
-        "A": 27.5,
-        "S": 50.7,
-        "E": 29.3,
-        "C": 80.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_35-1011_00",
-      "onetSoc": "35-1011.00",
-      "titleEn": "Chefs and Head Cooks",
-      "titleDe": "Küchenleitung / Chefkoch",
-      "riasec": "ERC",
-      "vector": {
-        "R": 64.5,
-        "I": 10.2,
-        "A": 28.8,
-        "S": 32.5,
-        "E": 69.3,
-        "C": 57.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_35-2014_00",
-      "onetSoc": "35-2014.00",
-      "titleEn": "Cooks, Restaurant",
-      "titleDe": "Koch / Köchin",
-      "riasec": "RCE",
-      "vector": {
-        "R": 80.0,
-        "I": 6.7,
-        "A": 24.2,
-        "S": 29.7,
-        "E": 47.3,
-        "C": 54.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_51-3011_00",
-      "onetSoc": "51-3011.00",
-      "titleEn": "Bakers",
-      "titleDe": "Bäckerei",
+      "id": "onet_37-3011.00",
+      "titleDe": "Landscaping and Groundskeeping Workers",
       "riasec": "RCA",
       "vector": {
-        "R": 89.5,
-        "I": 11.2,
-        "A": 20.5,
-        "S": 12.5,
-        "E": 18.3,
-        "C": 57.0
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 23.14,
+        "A": 27.14,
+        "S": 20.71,
+        "E": 25.86,
+        "C": 47.86
+      }
     },
     {
-      "id": "onet_35-3031_00",
-      "onetSoc": "35-3031.00",
-      "titleEn": "Waiters and Waitresses",
-      "titleDe": "Service / Gastronomie",
-      "riasec": "SCE",
+      "id": "onet_37-3013.00",
+      "titleDe": "Tree Trimmers and Pruners",
+      "riasec": "RCI",
       "vector": {
-        "R": 51.2,
-        "I": 0.0,
-        "A": 15.5,
-        "S": 63.7,
-        "E": 52.5,
-        "C": 58.8
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 30.43,
+        "A": 14.29,
+        "S": 25.57,
+        "E": 17.43,
+        "C": 44.14
+      }
     },
     {
-      "id": "onet_35-3011_00",
-      "onetSoc": "35-3011.00",
-      "titleEn": "Bartenders",
-      "titleDe": "Bar / Mixology",
+      "id": "onet_45-2091.00",
+      "titleDe": "Agricultural Equipment Operators",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 35.71,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 19.14,
+        "C": 52.43
+      }
+    },
+    {
+      "id": "onet_45-2092.00",
+      "titleDe": "Farmworkers and Laborers, Crop, Nursery, and Greenhouse",
       "riasec": "RCE",
       "vector": {
-        "R": 66.3,
-        "I": 0.0,
-        "A": 23.2,
-        "S": 42.2,
-        "E": 46.5,
-        "C": 56.5
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 33.14,
+        "A": 18.29,
+        "S": 26.57,
+        "E": 33.86,
+        "C": 48.0
+      }
     },
     {
-      "id": "onet_43-4081_00",
-      "onetSoc": "43-4081.00",
-      "titleEn": "Hotel, Motel, and Resort Desk Clerks",
-      "titleDe": "Hotelrezeption",
-      "riasec": "CSE",
-      "vector": {
-        "R": 27.0,
-        "I": 0.0,
-        "A": 5.5,
-        "S": 58.0,
-        "E": 46.8,
-        "C": 78.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_41-3041_00",
-      "onetSoc": "41-3041.00",
-      "titleEn": "Travel Agents",
-      "titleDe": "Reiseberatung",
-      "riasec": "ECS",
-      "vector": {
-        "R": 3.8,
-        "I": 8.0,
-        "A": 15.5,
-        "S": 55.3,
-        "E": 79.5,
-        "C": 78.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_53-2031_00",
-      "onetSoc": "53-2031.00",
-      "titleEn": "Flight Attendants",
-      "titleDe": "Kabinenpersonal",
-      "riasec": "CRS",
-      "vector": {
-        "R": 54.8,
-        "I": 17.0,
-        "A": 1.3,
-        "S": 51.7,
-        "E": 41.2,
-        "C": 59.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_53-2011_00",
-      "onetSoc": "53-2011.00",
-      "titleEn": "Airline Pilots, Copilots, and Flight Engineers",
-      "titleDe": "Piloten / Flugzeugführung",
-      "riasec": "RCE",
-      "vector": {
-        "R": 62.3,
-        "I": 36.2,
-        "A": 7.2,
-        "S": 24.8,
-        "E": 46.5,
-        "C": 61.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_49-3023_00",
-      "onetSoc": "49-3023.00",
-      "titleEn": "Automotive Service Technicians and Mechanics",
-      "titleDe": "Kfz-Mechatronik",
+      "id": "onet_45-3031.00",
+      "titleDe": "Fishing and Hunting Workers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 42.8,
-        "A": 0.0,
-        "S": 7.3,
-        "E": 9.8,
-        "C": 55.5
-      },
-      "source": "onet+curated-de"
+        "I": 32.43,
+        "A": 15.14,
+        "S": 14.71,
+        "E": 28.43,
+        "C": 47.0
+      }
     },
     {
-      "id": "onet_49-3011_00",
-      "onetSoc": "49-3011.00",
-      "titleEn": "Aircraft Mechanics and Service Technicians",
-      "titleDe": "Fluggerätmechanik",
-      "riasec": "RCI",
-      "vector": {
-        "R": 97.5,
-        "I": 45.7,
-        "A": 0.0,
-        "S": 5.0,
-        "E": 13.8,
-        "C": 61.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-2111_00",
-      "onetSoc": "47-2111.00",
-      "titleEn": "Electricians",
-      "titleDe": "Elektroinstallation",
+      "id": "onet_45-4011.00",
+      "titleDe": "Forest and Conservation Workers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 27.8,
-        "A": 4.7,
-        "S": 4.3,
-        "E": 14.2,
-        "C": 53.7
-      },
-      "source": "onet+curated-de"
+        "I": 47.57,
+        "A": 14.29,
+        "S": 38.71,
+        "E": 43.29,
+        "C": 58.14
+      }
     },
     {
-      "id": "onet_47-2152_00",
-      "onetSoc": "47-2152.00",
-      "titleEn": "Plumbers, Pipefitters, and Steamfitters",
-      "titleDe": "Sanitär / Rohrleitungsbau",
+      "id": "onet_45-4021.00",
+      "titleDe": "Fallers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 20.5,
-        "A": 0.0,
-        "S": 4.5,
-        "E": 0.0,
-        "C": 47.7
-      },
-      "source": "onet+curated-de"
+        "I": 35.43,
+        "A": 16.14,
+        "S": 27.43,
+        "E": 22.43,
+        "C": 47.43
+      }
     },
     {
-      "id": "onet_47-2031_00",
-      "onetSoc": "47-2031.00",
-      "titleEn": "Carpenters",
-      "titleDe": "Zimmerei / Tischlerei",
-      "riasec": "RCA",
-      "vector": {
-        "R": 95.7,
-        "I": 15.0,
-        "A": 19.8,
-        "S": 15.0,
-        "E": 13.2,
-        "C": 41.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-2061_00",
-      "onetSoc": "47-2061.00",
-      "titleEn": "Construction Laborers",
-      "titleDe": "Bauhelfer / Hochbau",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 28.0,
-        "A": 6.3,
-        "S": 3.8,
-        "E": 5.8,
-        "C": 43.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_51-4121_00",
-      "onetSoc": "51-4121.00",
-      "titleEn": "Welders, Cutters, Solderers, and Brazers",
-      "titleDe": "Schweißtechnik",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 19.5,
-        "A": 8.3,
-        "S": 1.7,
-        "E": 10.5,
-        "C": 46.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_51-4041_00",
-      "onetSoc": "51-4041.00",
-      "titleEn": "Machinists",
-      "titleDe": "Zerspanungsmechanik",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 45.0,
-        "A": 15.5,
-        "S": 2.7,
-        "E": 3.8,
-        "C": 57.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_49-9041_00",
-      "onetSoc": "49-9041.00",
-      "titleEn": "Industrial Machinery Mechanics",
-      "titleDe": "Industriemechanik",
+      "id": "onet_47-2011.00",
+      "titleDe": "Boilermakers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
         "I": 33.0,
-        "A": 0.0,
-        "S": 0.0,
-        "E": 2.7,
-        "C": 56.3
-      },
-      "source": "onet+curated-de"
+        "A": 14.29,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 53.14
+      }
     },
     {
-      "id": "onet_49-9071_00",
-      "onetSoc": "49-9071.00",
-      "titleEn": "Maintenance and Repair Workers, General",
-      "titleDe": "Instandhaltung / Facility",
-      "riasec": "RCI",
+      "id": "onet_47-2022.00",
+      "titleDe": "Stonemasons",
+      "riasec": "RCA",
       "vector": {
         "R": 100.0,
-        "I": 25.2,
-        "A": 3.5,
-        "S": 13.0,
-        "E": 8.8,
-        "C": 52.7
-      },
-      "source": "onet+curated-de"
+        "I": 30.57,
+        "A": 41.43,
+        "S": 26.57,
+        "E": 18.43,
+        "C": 42.86
+      }
     },
     {
-      "id": "onet_49-9021_00",
-      "onetSoc": "49-9021.00",
-      "titleEn": "Heating, Air Conditioning, and Refrigeration Mechanics and Installers",
-      "titleDe": "SHK / Klimatechnik",
-      "riasec": "RCI",
+      "id": "onet_47-2041.00",
+      "titleDe": "Carpet Installers",
+      "riasec": "RCA",
       "vector": {
-        "R": 98.7,
-        "I": 29.0,
-        "A": 0.0,
-        "S": 8.3,
-        "E": 5.8,
-        "C": 58.0
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 16.14,
+        "A": 27.71,
+        "S": 18.43,
+        "E": 14.29,
+        "C": 50.0
+      }
     },
     {
-      "id": "onet_11-9013_00",
-      "onetSoc": "11-9013.00",
-      "titleEn": "Farmers, Ranchers, and Other Agricultural Managers",
-      "titleDe": "Landwirtschaft / Agrarmanagement",
-      "riasec": "ERC",
+      "id": "onet_47-2042.00",
+      "titleDe": "Floor Layers, Except Carpet, Wood, and Hard Tiles",
+      "riasec": "RCA",
       "vector": {
-        "R": 69.3,
-        "I": 29.5,
-        "A": 0.7,
-        "S": 27.2,
-        "E": 75.7,
-        "C": 58.5
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 19.86,
+        "A": 26.14,
+        "S": 22.29,
+        "E": 14.29,
+        "C": 52.57
+      }
     },
     {
-      "id": "onet_31-9096_00",
-      "onetSoc": "31-9096.00",
-      "titleEn": "Veterinary Assistants and Laboratory Animal Caretakers",
-      "titleDe": "Tiermedizinische Assistenz",
-      "riasec": "RIC",
-      "vector": {
-        "R": 88.5,
-        "I": 54.0,
-        "A": 0.0,
-        "S": 41.5,
-        "E": 0.0,
-        "C": 49.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1131_00",
-      "onetSoc": "29-1131.00",
-      "titleEn": "Veterinarians",
-      "titleDe": "Tiermedizin",
-      "riasec": "RIC",
-      "vector": {
-        "R": 82.8,
-        "I": 82.3,
-        "A": 0.0,
-        "S": 40.5,
-        "E": 11.8,
-        "C": 42.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-1023_00",
-      "onetSoc": "19-1023.00",
-      "titleEn": "Zoologists and Wildlife Biologists",
-      "titleDe": "Zoologie / Wildbiologie",
-      "riasec": "IRC",
-      "vector": {
-        "R": 72.0,
-        "I": 100.0,
-        "A": 20.7,
-        "S": 26.2,
-        "E": 24.7,
-        "C": 44.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-2031_00",
-      "onetSoc": "19-2031.00",
-      "titleEn": "Chemists",
-      "titleDe": "Chemie",
-      "riasec": "IRC",
-      "vector": {
-        "R": 77.7,
-        "I": 94.3,
-        "A": 8.3,
-        "S": 2.5,
-        "E": 10.0,
-        "C": 65.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-2032_00",
-      "onetSoc": "19-2032.00",
-      "titleEn": "Materials Scientists",
-      "titleDe": "Materialwissenschaft",
-      "riasec": "IRC",
-      "vector": {
-        "R": 79.5,
-        "I": 93.5,
-        "A": 19.7,
-        "S": 5.8,
-        "E": 15.0,
-        "C": 52.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-2012_00",
-      "onetSoc": "19-2012.00",
-      "titleEn": "Physicists",
-      "titleDe": "Physik",
-      "riasec": "IRC",
-      "vector": {
-        "R": 65.8,
-        "I": 100.0,
-        "A": 29.3,
-        "S": 18.5,
-        "E": 13.7,
-        "C": 64.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-2011_00",
-      "onetSoc": "19-2011.00",
-      "titleEn": "Astronomers",
-      "titleDe": "Astronomie",
-      "riasec": "IRC",
-      "vector": {
-        "R": 64.2,
-        "I": 100.0,
-        "A": 37.3,
-        "S": 30.2,
-        "E": 16.5,
-        "C": 49.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-2042_00",
-      "onetSoc": "19-2042.00",
-      "titleEn": "Geoscientists, Except Hydrologists and Geographers",
-      "titleDe": "Geowissenschaften",
-      "riasec": "IRC",
-      "vector": {
-        "R": 77.7,
-        "I": 100.0,
-        "A": 28.3,
-        "S": 20.5,
-        "E": 11.2,
-        "C": 52.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-2041_00",
-      "onetSoc": "19-2041.00",
-      "titleEn": "Environmental Scientists and Specialists, Including Health",
-      "titleDe": "Umweltwissenschaft",
-      "riasec": "IRC",
-      "vector": {
-        "R": 61.7,
-        "I": 100.0,
-        "A": 13.2,
-        "S": 27.0,
-        "E": 26.3,
-        "C": 57.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-2041_00",
-      "onetSoc": "15-2041.00",
-      "titleEn": "Statisticians",
-      "titleDe": "Statistik",
-      "riasec": "ICR",
-      "vector": {
-        "R": 17.8,
-        "I": 93.8,
-        "A": 12.7,
-        "S": 11.5,
-        "E": 13.7,
-        "C": 82.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-2021_00",
-      "onetSoc": "15-2021.00",
-      "titleEn": "Mathematicians",
-      "titleDe": "Mathematik",
-      "riasec": "ICA",
-      "vector": {
-        "R": 33.3,
-        "I": 100.0,
-        "A": 37.2,
-        "S": 16.2,
-        "E": 2.7,
-        "C": 71.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-2031_00",
-      "onetSoc": "15-2031.00",
-      "titleEn": "Operations Research Analysts",
-      "titleDe": "Operations Research / Analytics",
-      "riasec": "ICE",
-      "vector": {
-        "R": 15.3,
-        "I": 87.7,
-        "A": 19.0,
-        "S": 17.3,
-        "E": 35.3,
-        "C": 79.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-3011_00",
-      "onetSoc": "19-3011.00",
-      "titleEn": "Economists",
-      "titleDe": "Volkswirtschaft / Ökonomie",
-      "riasec": "ICE",
-      "vector": {
-        "R": 9.0,
-        "I": 100.0,
-        "A": 24.8,
-        "S": 20.3,
-        "E": 46.7,
-        "C": 55.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-3041_00",
-      "onetSoc": "19-3041.00",
-      "titleEn": "Sociologists",
-      "titleDe": "Soziologie",
-      "riasec": "ISA",
-      "vector": {
-        "R": 10.2,
-        "I": 90.5,
-        "A": 49.3,
-        "S": 57.0,
-        "E": 34.7,
-        "C": 42.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-3091_00",
-      "onetSoc": "19-3091.00",
-      "titleEn": "Anthropologists and Archeologists",
-      "titleDe": "Anthropologie / Archäologie",
-      "riasec": "IRA",
-      "vector": {
-        "R": 59.2,
-        "I": 95.7,
-        "A": 48.2,
-        "S": 38.7,
-        "E": 9.3,
-        "C": 42.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-3093_00",
-      "onetSoc": "19-3093.00",
-      "titleEn": "Historians",
-      "titleDe": "Geschichtswissenschaft",
-      "riasec": "ICA",
-      "vector": {
-        "R": 23.7,
-        "I": 69.8,
-        "A": 43.5,
-        "S": 36.8,
-        "E": 23.3,
-        "C": 66.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-3094_00",
-      "onetSoc": "19-3094.00",
-      "titleEn": "Political Scientists",
-      "titleDe": "Politikwissenschaft",
-      "riasec": "IAE",
-      "vector": {
-        "R": 0.0,
-        "I": 93.7,
-        "A": 46.3,
-        "S": 41.2,
-        "E": 45.0,
-        "C": 43.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-3051_00",
-      "onetSoc": "19-3051.00",
-      "titleEn": "Urban and Regional Planners",
-      "titleDe": "Stadt- / Raumplanung",
-      "riasec": "IEC",
-      "vector": {
-        "R": 36.0,
-        "I": 73.0,
-        "A": 32.7,
-        "S": 33.3,
-        "E": 58.8,
-        "C": 49.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-3011_00",
-      "onetSoc": "27-3011.00",
-      "titleEn": "Broadcast Announcers and Radio Disc Jockeys",
-      "titleDe": "Moderation / Rundfunk",
-      "riasec": "AES",
-      "vector": {
-        "R": 12.0,
-        "I": 16.3,
-        "A": 75.8,
-        "S": 41.7,
-        "E": 58.0,
-        "C": 35.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-2012_00",
-      "onetSoc": "27-2012.00",
-      "titleEn": "Producers and Directors",
-      "titleDe": "Film- / Fernsehproduktion",
-      "riasec": "AEC",
-      "vector": {
-        "R": 19.0,
-        "I": 20.5,
-        "A": 85.8,
-        "S": 35.5,
-        "E": 79.7,
-        "C": 42.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-2011_00",
-      "onetSoc": "27-2011.00",
-      "titleEn": "Actors",
-      "titleDe": "Schauspiel",
-      "riasec": "ASE",
-      "vector": {
-        "R": 21.8,
-        "I": 18.8,
-        "A": 100.0,
-        "S": 51.7,
-        "E": 50.0,
-        "C": 11.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-2042_00",
-      "onetSoc": "27-2042.00",
-      "titleEn": "Musicians and Singers",
-      "titleDe": "Musik / Gesang",
-      "riasec": "AES",
-      "vector": {
-        "R": 31.2,
-        "I": 8.8,
-        "A": 94.3,
-        "S": 40.0,
-        "E": 40.2,
-        "C": 19.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-2031_00",
-      "onetSoc": "27-2031.00",
-      "titleEn": "Dancers",
-      "titleDe": "Tanz",
-      "riasec": "ARS",
-      "vector": {
-        "R": 63.0,
-        "I": 6.7,
-        "A": 88.7,
-        "S": 44.7,
-        "E": 37.5,
-        "C": 11.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-2022_00",
-      "onetSoc": "27-2022.00",
-      "titleEn": "Coaches and Scouts",
-      "titleDe": "Coaching / Sportscouting",
-      "riasec": "SER",
-      "vector": {
-        "R": 54.3,
-        "I": 19.2,
-        "A": 23.8,
-        "S": 71.8,
-        "E": 68.8,
-        "C": 40.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-9091_00",
-      "onetSoc": "29-9091.00",
-      "titleEn": "Athletic Trainers",
-      "titleDe": "Athletiktraining",
-      "riasec": "SRI",
-      "vector": {
-        "R": 75.7,
-        "I": 56.5,
-        "A": 1.5,
-        "S": 78.3,
-        "E": 21.2,
-        "C": 38.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_39-9032_00",
-      "onetSoc": "39-9032.00",
-      "titleEn": "Recreation Workers",
-      "titleDe": "Freizeitpädagogik",
-      "riasec": "SER",
-      "vector": {
-        "R": 45.8,
-        "I": 16.3,
-        "A": 34.2,
-        "S": 65.0,
-        "E": 58.5,
-        "C": 40.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_39-9011_00",
-      "onetSoc": "39-9011.00",
-      "titleEn": "Childcare Workers",
-      "titleDe": "Kinderbetreuung",
-      "riasec": "SCA",
-      "vector": {
-        "R": 39.2,
-        "I": 5.0,
-        "A": 42.0,
-        "S": 82.3,
-        "E": 32.0,
-        "C": 43.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_31-1122_00",
-      "onetSoc": "31-1122.00",
-      "titleEn": "Personal Care Aides",
-      "titleDe": "Alltagsbegleitung / Pflegeassistenz",
-      "riasec": "SCR",
-      "vector": {
-        "R": 43.7,
-        "I": 13.7,
-        "A": 13.3,
-        "S": 86.8,
-        "E": 26.0,
-        "C": 47.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_31-1121_00",
-      "onetSoc": "31-1121.00",
-      "titleEn": "Home Health Aides",
-      "titleDe": "Ambulante Pflegehilfe",
-      "riasec": "SRC",
-      "vector": {
-        "R": 53.5,
-        "I": 36.3,
-        "A": 8.2,
-        "S": 88.8,
-        "E": 12.7,
-        "C": 42.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_39-5012_00",
-      "onetSoc": "39-5012.00",
-      "titleEn": "Hairdressers, Hairstylists, and Cosmetologists",
-      "titleDe": "Friseur / Kosmetik",
-      "riasec": "RCS",
-      "vector": {
-        "R": 73.5,
-        "I": 8.8,
-        "A": 37.2,
-        "S": 45.2,
-        "E": 37.5,
-        "C": 49.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_39-5011_00",
-      "onetSoc": "39-5011.00",
-      "titleEn": "Barbers",
-      "titleDe": "Barbier / Herrenfriseur",
+      "id": "onet_47-2043.00",
+      "titleDe": "Floor Sanders and Finishers",
       "riasec": "RCE",
       "vector": {
-        "R": 72.7,
-        "I": 0.0,
-        "A": 28.7,
-        "S": 43.5,
-        "E": 43.7,
-        "C": 48.3
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 19.86,
+        "A": 19.57,
+        "S": 20.43,
+        "E": 22.0,
+        "C": 47.57
+      }
     },
     {
-      "id": "onet_39-5092_00",
-      "onetSoc": "39-5092.00",
-      "titleEn": "Manicurists and Pedicurists",
-      "titleDe": "Nagelpflege / Pediküre",
-      "riasec": "RCS",
+      "id": "onet_47-2044.00",
+      "titleDe": "Tile and Stone Setters",
+      "riasec": "RCA",
       "vector": {
-        "R": 78.7,
-        "I": 5.3,
-        "A": 21.7,
-        "S": 32.7,
-        "E": 21.5,
-        "C": 44.7
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 21.0,
+        "A": 36.14,
+        "S": 19.14,
+        "E": 14.29,
+        "C": 52.29
+      }
     },
     {
-      "id": "onet_31-9011_00",
-      "onetSoc": "31-9011.00",
-      "titleEn": "Massage Therapists",
-      "titleDe": "Massage / Wellness",
-      "riasec": "SRI",
-      "vector": {
-        "R": 62.8,
-        "I": 47.7,
-        "A": 21.0,
-        "S": 79.2,
-        "E": 17.8,
-        "C": 27.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_39-4021_00",
-      "onetSoc": "39-4021.00",
-      "titleEn": "Funeral Attendants",
-      "titleDe": "Bestattungswesen",
-      "riasec": "RSC",
-      "vector": {
-        "R": 60.8,
-        "I": 0.2,
-        "A": 17.0,
-        "S": 52.8,
-        "E": 38.7,
-        "C": 52.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_21-2011_00",
-      "onetSoc": "21-2011.00",
-      "titleEn": "Clergy",
-      "titleDe": "Seelsorge / Pfarramt",
-      "riasec": "SEA",
-      "vector": {
-        "R": 18.5,
-        "I": 19.0,
-        "A": 41.3,
-        "S": 81.3,
-        "E": 53.0,
-        "C": 30.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_21-2021_00",
-      "onetSoc": "21-2021.00",
-      "titleEn": "Directors, Religious Activities and Education",
-      "titleDe": "Gemeindepädagogik",
-      "riasec": "SEA",
-      "vector": {
-        "R": 0.0,
-        "I": 30.7,
-        "A": 40.5,
-        "S": 99.7,
-        "E": 84.2,
-        "C": 37.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_13-1081_00",
-      "onetSoc": "13-1081.00",
-      "titleEn": "Logisticians",
-      "titleDe": "Logistikplanung",
-      "riasec": "CEI",
-      "vector": {
-        "R": 23.2,
-        "I": 47.2,
-        "A": 0.8,
-        "S": 22.5,
-        "E": 68.3,
-        "C": 76.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-3071_00",
-      "onetSoc": "11-3071.00",
-      "titleEn": "Transportation, Storage, and Distribution Managers",
-      "titleDe": "Logistikleitung",
-      "riasec": "ECR",
-      "vector": {
-        "R": 43.3,
-        "I": 27.3,
-        "A": 0.0,
-        "S": 23.2,
-        "E": 83.3,
-        "C": 79.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_11-3061_00",
-      "onetSoc": "11-3061.00",
-      "titleEn": "Purchasing Managers",
-      "titleDe": "Einkaufsleitung",
-      "riasec": "ECS",
-      "vector": {
-        "R": 17.3,
-        "I": 16.8,
-        "A": 6.7,
-        "S": 29.5,
-        "E": 100.0,
-        "C": 75.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_13-1041_00",
-      "onetSoc": "13-1041.00",
-      "titleEn": "Compliance Officers",
-      "titleDe": "Compliance / Regelkonformität",
-      "riasec": "CEI",
-      "vector": {
-        "R": 26.3,
-        "I": 34.2,
-        "A": 0.0,
-        "S": 32.5,
-        "E": 51.0,
-        "C": 88.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_13-1082_00",
-      "onetSoc": "13-1082.00",
-      "titleEn": "Project Management Specialists",
-      "titleDe": "Projektmanagement",
-      "riasec": "ECS",
-      "vector": {
-        "R": 7.7,
-        "I": 29.3,
-        "A": 9.7,
-        "S": 39.2,
-        "E": 89.3,
-        "C": 76.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-3032_00",
-      "onetSoc": "19-3032.00",
-      "titleEn": "Industrial-Organizational Psychologists",
-      "titleDe": "Wirtschaftspsychologie",
-      "riasec": "IES",
-      "vector": {
-        "R": 1.8,
-        "I": 72.0,
-        "A": 37.7,
-        "S": 53.0,
-        "E": 60.8,
-        "C": 50.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1255_00",
-      "onetSoc": "15-1255.00",
-      "titleEn": "Web and Digital Interface Designers",
-      "titleDe": "UI-/Interface-Design",
-      "riasec": "IAC",
-      "vector": {
-        "R": 26.2,
-        "I": 64.5,
-        "A": 58.2,
-        "S": 20.2,
-        "E": 35.7,
-        "C": 56.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_15-1255_01",
-      "onetSoc": "15-1255.01",
-      "titleEn": "Video Game Designers",
-      "titleDe": "Game Design",
-      "riasec": "AIE",
-      "vector": {
-        "R": 28.0,
-        "I": 51.7,
-        "A": 90.3,
-        "S": 22.5,
-        "E": 50.3,
-        "C": 47.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2199_08",
-      "onetSoc": "17-2199.08",
-      "titleEn": "Robotics Engineers",
-      "titleDe": "Robotik-Engineering",
-      "riasec": "RIC",
-      "vector": {
-        "R": 85.0,
-        "I": 79.8,
-        "A": 13.5,
-        "S": 7.2,
-        "E": 12.3,
-        "C": 59.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2199_05",
-      "onetSoc": "17-2199.05",
-      "titleEn": "Mechatronics Engineers",
-      "titleDe": "Mechatronik-Engineering",
-      "riasec": "RIC",
-      "vector": {
-        "R": 81.0,
-        "I": 77.8,
-        "A": 23.7,
-        "S": 7.7,
-        "E": 10.0,
-        "C": 65.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2031_00",
-      "onetSoc": "17-2031.00",
-      "titleEn": "Bioengineers and Biomedical Engineers",
-      "titleDe": "Biomedizintechnik",
-      "riasec": "IRC",
-      "vector": {
-        "R": 76.2,
-        "I": 100.0,
-        "A": 21.7,
-        "S": 31.8,
-        "E": 9.7,
-        "C": 46.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-1042_00",
-      "onetSoc": "19-1042.00",
-      "titleEn": "Medical Scientists, Except Epidemiologists",
-      "titleDe": "Medizinische Forschung",
-      "riasec": "IRC",
-      "vector": {
-        "R": 57.2,
-        "I": 100.0,
-        "A": 21.7,
-        "S": 37.3,
-        "E": 20.5,
-        "C": 49.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-1041_00",
-      "onetSoc": "19-1041.00",
-      "titleEn": "Epidemiologists",
-      "titleDe": "Epidemiologie",
-      "riasec": "ISC",
-      "vector": {
-        "R": 36.3,
-        "I": 100.0,
-        "A": 17.0,
-        "S": 50.5,
-        "E": 24.7,
-        "C": 44.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1031_00",
-      "onetSoc": "29-1031.00",
-      "titleEn": "Dietitians and Nutritionists",
-      "titleDe": "Ernährungsberatung / Diätetik",
-      "riasec": "SIE",
-      "vector": {
-        "R": 33.8,
-        "I": 63.3,
-        "A": 23.3,
-        "S": 75.0,
-        "E": 40.3,
-        "C": 39.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-1292_00",
-      "onetSoc": "29-1292.00",
-      "titleEn": "Dental Hygienists",
-      "titleDe": "Dentalhygiene",
-      "riasec": "SRI",
-      "vector": {
-        "R": 69.0,
-        "I": 61.3,
-        "A": 3.0,
-        "S": 74.3,
-        "E": 11.2,
-        "C": 54.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-2034_00",
-      "onetSoc": "29-2034.00",
-      "titleEn": "Radiologic Technologists and Technicians",
-      "titleDe": "Radiologie-Assistenz",
-      "riasec": "RCI",
-      "vector": {
-        "R": 87.5,
-        "I": 60.5,
-        "A": 0.0,
-        "S": 43.0,
-        "E": 0.0,
-        "C": 64.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-2055_00",
-      "onetSoc": "29-2055.00",
-      "titleEn": "Surgical Technologists",
-      "titleDe": "OP-Assistenz",
-      "riasec": "RCS",
-      "vector": {
-        "R": 87.7,
-        "I": 37.0,
-        "A": 0.0,
-        "S": 47.0,
-        "E": 10.2,
-        "C": 64.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-2042_00",
-      "onetSoc": "29-2042.00",
-      "titleEn": "Emergency Medical Technicians",
-      "titleDe": "Rettungsdienst / Notfallsanitäter",
-      "riasec": "SRI",
-      "vector": {
-        "R": 74.2,
-        "I": 59.2,
-        "A": 0.0,
-        "S": 76.5,
-        "E": 9.0,
-        "C": 47.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-2043_00",
-      "onetSoc": "29-2043.00",
-      "titleEn": "Paramedics",
-      "titleDe": "Notfallsanitäter / Paramedic",
-      "riasec": "SRI",
-      "vector": {
-        "R": 70.7,
-        "I": 67.3,
-        "A": 0.0,
-        "S": 74.5,
-        "E": 14.2,
-        "C": 40.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-2052_00",
-      "onetSoc": "29-2052.00",
-      "titleEn": "Pharmacy Technicians",
-      "titleDe": "Pharmazeutisch-technische Assistenz",
-      "riasec": "CRS",
-      "vector": {
-        "R": 51.0,
-        "I": 35.5,
-        "A": 0.0,
-        "S": 39.3,
-        "E": 25.8,
-        "C": 100.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_29-2056_00",
-      "onetSoc": "29-2056.00",
-      "titleEn": "Veterinary Technologists and Technicians",
-      "titleDe": "Tiermedizinische Fachkraft",
-      "riasec": "RIC",
-      "vector": {
-        "R": 95.2,
-        "I": 71.0,
-        "A": 0.0,
-        "S": 33.7,
-        "E": 0.0,
-        "C": 59.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2021_00",
-      "onetSoc": "17-2021.00",
-      "titleEn": "Agricultural Engineers",
-      "titleDe": "Agrartechnik",
-      "riasec": "IRC",
-      "vector": {
-        "R": 86.2,
-        "I": 88.0,
-        "A": 20.0,
-        "S": 12.0,
-        "E": 26.5,
-        "C": 48.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2151_00",
-      "onetSoc": "17-2151.00",
-      "titleEn": "Mining and Geological Engineers, Including Mining Safety Engineers",
-      "titleDe": "Bergbau- / Geotechnik",
-      "riasec": "RIC",
-      "vector": {
-        "R": 84.5,
-        "I": 76.7,
-        "A": 8.8,
-        "S": 14.2,
-        "E": 29.2,
-        "C": 60.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2171_00",
-      "onetSoc": "17-2171.00",
-      "titleEn": "Petroleum Engineers",
-      "titleDe": "Erdöl-/Energietechnik",
-      "riasec": "RIC",
-      "vector": {
-        "R": 74.2,
-        "I": 70.8,
-        "A": 15.2,
-        "S": 13.3,
-        "E": 31.7,
-        "C": 56.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2161_00",
-      "onetSoc": "17-2161.00",
-      "titleEn": "Nuclear Engineers",
-      "titleDe": "Kerntechnik",
-      "riasec": "IRC",
-      "vector": {
-        "R": 66.7,
-        "I": 88.5,
-        "A": 17.8,
-        "S": 16.2,
-        "E": 26.3,
-        "C": 57.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2011_00",
-      "onetSoc": "17-2011.00",
-      "titleEn": "Aerospace Engineers",
-      "titleDe": "Luft- und Raumfahrttechnik",
-      "riasec": "IRC",
-      "vector": {
-        "R": 72.8,
-        "I": 85.7,
-        "A": 24.2,
-        "S": 4.7,
-        "E": 26.3,
-        "C": 60.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-2121_00",
-      "onetSoc": "17-2121.00",
-      "titleEn": "Marine Engineers and Naval Architects",
-      "titleDe": "Schiffbau / Marine Engineering",
-      "riasec": "RIC",
-      "vector": {
-        "R": 78.7,
-        "I": 74.7,
-        "A": 22.3,
-        "S": 7.2,
-        "E": 40.5,
-        "C": 57.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-1022_00",
-      "onetSoc": "17-1022.00",
-      "titleEn": "Surveyors",
-      "titleDe": "Vermessungswesen",
-      "riasec": "CRI",
-      "vector": {
-        "R": 69.0,
-        "I": 63.7,
-        "A": 12.8,
-        "S": 10.8,
-        "E": 15.5,
-        "C": 74.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_17-1021_00",
-      "onetSoc": "17-1021.00",
-      "titleEn": "Cartographers and Photogrammetrists",
-      "titleDe": "Kartografie",
-      "riasec": "CIR",
-      "vector": {
-        "R": 60.2,
-        "I": 69.2,
-        "A": 42.7,
-        "S": 12.8,
-        "E": 10.5,
-        "C": 72.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_45-4011_00",
-      "onetSoc": "45-4011.00",
-      "titleEn": "Forest and Conservation Workers",
-      "titleDe": "Forstwirtschaft",
-      "riasec": "RCI",
-      "vector": {
-        "R": 99.3,
-        "I": 42.2,
-        "A": 0.5,
-        "S": 26.5,
-        "E": 30.5,
-        "C": 55.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_33-3031_00",
-      "onetSoc": "33-3031.00",
-      "titleEn": "Fish and Game Wardens",
-      "titleDe": "Wildhüter / Fischereiaufsicht",
-      "riasec": "RCI",
-      "vector": {
-        "R": 89.3,
-        "I": 48.3,
-        "A": 0.0,
-        "S": 22.2,
-        "E": 33.7,
-        "C": 56.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_39-2021_00",
-      "onetSoc": "39-2021.00",
-      "titleEn": "Animal Caretakers",
-      "titleDe": "Tierpflege",
-      "riasec": "RSC",
-      "vector": {
-        "R": 86.2,
-        "I": 29.3,
-        "A": 10.5,
-        "S": 45.8,
-        "E": 8.7,
-        "C": 37.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_39-2011_00",
-      "onetSoc": "39-2011.00",
-      "titleEn": "Animal Trainers",
-      "titleDe": "Tiertraining",
-      "riasec": "RSC",
-      "vector": {
-        "R": 90.8,
-        "I": 20.8,
-        "A": 12.8,
-        "S": 43.3,
-        "E": 19.2,
-        "C": 33.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_51-3021_00",
-      "onetSoc": "51-3021.00",
-      "titleEn": "Butchers and Meat Cutters",
-      "titleDe": "Fleischerei",
-      "riasec": "RCE",
-      "vector": {
-        "R": 88.3,
-        "I": 7.3,
-        "A": 12.8,
-        "S": 14.0,
-        "E": 29.3,
-        "C": 47.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-1012_00",
-      "onetSoc": "19-1012.00",
-      "titleEn": "Food Scientists and Technologists",
-      "titleDe": "Lebensmitteltechnologie",
-      "riasec": "IRC",
-      "vector": {
-        "R": 68.2,
-        "I": 78.2,
-        "A": 24.3,
-        "S": 19.0,
-        "E": 25.7,
-        "C": 49.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_19-4099_01",
-      "onetSoc": "19-4099.01",
-      "titleEn": "Quality Control Analysts",
-      "titleDe": "Qualitätskontrolle / QA",
-      "riasec": "CIR",
-      "vector": {
-        "R": 51.0,
-        "I": 66.0,
-        "A": 2.0,
-        "S": 3.2,
-        "E": 23.7,
-        "C": 80.5
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_51-9061_00",
-      "onetSoc": "51-9061.00",
-      "titleEn": "Inspectors, Testers, Sorters, Samplers, and Weighers",
-      "titleDe": "Prüftechnik / Qualitätsprüfung",
-      "riasec": "RCI",
-      "vector": {
-        "R": 78.8,
-        "I": 40.3,
-        "A": 0.0,
-        "S": 0.0,
-        "E": 6.3,
-        "C": 72.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_43-5061_00",
-      "onetSoc": "43-5061.00",
-      "titleEn": "Production, Planning, and Expediting Clerks",
-      "titleDe": "Arbeitsvorbereitung / Disposition",
-      "riasec": "CER",
-      "vector": {
-        "R": 35.2,
-        "I": 3.3,
-        "A": 2.5,
-        "S": 18.3,
-        "E": 65.0,
-        "C": 82.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_43-5071_00",
-      "onetSoc": "43-5071.00",
-      "titleEn": "Shipping, Receiving, and Inventory Clerks",
-      "titleDe": "Warenannahme / Lagerverwaltung",
-      "riasec": "CRE",
-      "vector": {
-        "R": 47.2,
-        "I": 4.3,
-        "A": 0.0,
-        "S": 7.5,
-        "E": 36.0,
-        "C": 100.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_53-7065_00",
-      "onetSoc": "53-7065.00",
-      "titleEn": "Stockers and Order Fillers",
-      "titleDe": "Kommissionierung / Lager",
-      "riasec": "CRE",
-      "vector": {
-        "R": 59.7,
-        "I": 0.0,
-        "A": 0.0,
-        "S": 15.7,
-        "E": 38.3,
-        "C": 89.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_53-7051_00",
-      "onetSoc": "53-7051.00",
-      "titleEn": "Industrial Truck and Tractor Operators",
-      "titleDe": "Stapler / Flurförderzeuge",
+      "id": "onet_47-2051.00",
+      "titleDe": "Cement Masons and Concrete Finishers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 12.5,
-        "A": 0.0,
-        "S": 2.3,
-        "E": 3.2,
-        "C": 45.5
-      },
-      "source": "onet+curated-de"
+        "I": 32.71,
+        "A": 23.71,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 46.71
+      }
     },
     {
-      "id": "onet_53-3032_00",
-      "onetSoc": "53-3032.00",
-      "titleEn": "Heavy and Tractor-Trailer Truck Drivers",
-      "titleDe": "LKW-Transport",
+      "id": "onet_47-2053.00",
+      "titleDe": "Terrazzo Workers and Finishers",
+      "riasec": "RCA",
+      "vector": {
+        "R": 100.0,
+        "I": 25.71,
+        "A": 27.57,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 46.86
+      }
+    },
+    {
+      "id": "onet_47-2061.00",
+      "titleDe": "Construction Laborers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 15.5,
-        "A": 0.0,
-        "S": 5.3,
-        "E": 5.5,
-        "C": 56.2
-      },
-      "source": "onet+curated-de"
+        "I": 38.29,
+        "A": 19.71,
+        "S": 17.57,
+        "E": 19.29,
+        "C": 51.57
+      }
     },
     {
-      "id": "onet_53-3052_00",
-      "onetSoc": "53-3052.00",
-      "titleEn": "Bus Drivers, Transit and Intercity",
-      "titleDe": "Busverkehr",
-      "riasec": "RCS",
+      "id": "onet_47-2071.00",
+      "titleDe": "Paving, Surfacing, and Tamping Equipment Operators",
+      "riasec": "RCI",
       "vector": {
-        "R": 81.5,
-        "I": 0.0,
-        "A": 0.0,
-        "S": 44.3,
-        "E": 30.8,
-        "C": 57.2
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 24.57,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 52.71
+      }
     },
     {
-      "id": "onet_53-3054_00",
-      "onetSoc": "53-3054.00",
-      "titleEn": "Taxi Drivers",
-      "titleDe": "Taxi / Personenbeförderung",
-      "riasec": "RCS",
+      "id": "onet_47-2072.00",
+      "titleDe": "Pile Driver Operators",
+      "riasec": "RCI",
       "vector": {
-        "R": 79.2,
-        "I": 2.0,
-        "A": 0.0,
-        "S": 29.7,
-        "E": 24.7,
-        "C": 63.5
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 27.71,
+        "A": 14.29,
+        "S": 14.57,
+        "E": 16.43,
+        "C": 51.57
+      }
     },
     {
-      "id": "onet_43-5052_00",
-      "onetSoc": "43-5052.00",
-      "titleEn": "Postal Service Mail Carriers",
-      "titleDe": "Zustelldienst",
-      "riasec": "CRE",
+      "id": "onet_47-2073.00",
+      "titleDe": "Operating Engineers and Other Construction Equipment Operators",
+      "riasec": "RCI",
       "vector": {
-        "R": 42.8,
-        "I": 0.0,
-        "A": 0.0,
-        "S": 27.3,
-        "E": 31.0,
-        "C": 90.0
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 41.86,
+        "A": 14.29,
+        "S": 16.29,
+        "E": 18.0,
+        "C": 55.43
+      }
     },
     {
-      "id": "onet_37-2011_00",
-      "onetSoc": "37-2011.00",
-      "titleEn": "Janitors and Cleaners, Except Maids and Housekeeping Cleaners",
-      "titleDe": "Gebäudereinigung",
-      "riasec": "RCS",
+      "id": "onet_47-2081.00",
+      "titleDe": "Drywall and Ceiling Tile Installers",
+      "riasec": "RCA",
       "vector": {
-        "R": 96.0,
-        "I": 1.5,
-        "A": 0.0,
+        "R": 100.0,
+        "I": 28.0,
+        "A": 32.86,
+        "S": 16.86,
+        "E": 14.29,
+        "C": 44.86
+      }
+    },
+    {
+      "id": "onet_47-2111.00",
+      "titleDe": "Electricians",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 38.57,
+        "A": 17.71,
+        "S": 18.86,
+        "E": 25.86,
+        "C": 58.43
+      }
+    },
+    {
+      "id": "onet_47-2141.00",
+      "titleDe": "Painters, Construction and Maintenance",
+      "riasec": "RCA",
+      "vector": {
+        "R": 100.0,
+        "I": 21.0,
+        "A": 35.86,
         "S": 18.0,
-        "E": 10.0,
-        "C": 58.7
-      },
-      "source": "onet+curated-de"
+        "E": 14.29,
+        "C": 50.0
+      }
     },
     {
-      "id": "onet_37-2012_00",
-      "onetSoc": "37-2012.00",
-      "titleEn": "Maids and Housekeeping Cleaners",
-      "titleDe": "Housekeeping / Reinigung",
-      "riasec": "RCS",
-      "vector": {
-        "R": 84.2,
-        "I": 0.0,
-        "A": 6.8,
-        "S": 24.7,
-        "E": 9.5,
-        "C": 59.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_37-3011_00",
-      "onetSoc": "37-3011.00",
-      "titleEn": "Landscaping and Groundskeeping Workers",
-      "titleDe": "Garten- / Landschaftspflege",
-      "riasec": "RCA",
-      "vector": {
-        "R": 100.0,
-        "I": 10.3,
-        "A": 15.0,
-        "S": 7.5,
-        "E": 13.3,
-        "C": 39.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_37-3013_00",
-      "onetSoc": "37-3013.00",
-      "titleEn": "Tree Trimmers and Pruners",
-      "titleDe": "Baumpflege",
+      "id": "onet_47-2151.00",
+      "titleDe": "Pipelayers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 19.2,
-        "A": 0.0,
-        "S": 13.0,
-        "E": 4.3,
-        "C": 34.8
-      },
-      "source": "onet+curated-de"
+        "I": 34.71,
+        "A": 14.29,
+        "S": 18.57,
+        "E": 16.29,
+        "C": 50.57
+      }
     },
     {
-      "id": "onet_37-2021_00",
-      "onetSoc": "37-2021.00",
-      "titleEn": "Pest Control Workers",
-      "titleDe": "Schädlingsbekämpfung",
+      "id": "onet_47-2152.00",
+      "titleDe": "Plumbers, Pipefitters, and Steamfitters",
       "riasec": "RCI",
       "vector": {
-        "R": 92.3,
-        "I": 35.0,
-        "A": 0.0,
-        "S": 13.3,
-        "E": 22.2,
-        "C": 53.0
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 31.43,
+        "A": 14.29,
+        "S": 16.57,
+        "E": 14.29,
+        "C": 53.14
+      }
     },
     {
-      "id": "onet_51-6031_00",
-      "onetSoc": "51-6031.00",
-      "titleEn": "Sewing Machine Operators",
-      "titleDe": "Textilfertigung",
-      "riasec": "RCA",
+      "id": "onet_47-2152.04",
+      "titleDe": "Solar Thermal Installers and Technicians",
+      "riasec": "RCI",
       "vector": {
-        "R": 95.7,
-        "I": 6.3,
-        "A": 11.8,
-        "S": 3.2,
-        "E": 2.8,
-        "C": 48.7
-      },
-      "source": "onet+curated-de"
+        "R": 100.0,
+        "I": 38.43,
+        "A": 16.14,
+        "S": 24.29,
+        "E": 22.86,
+        "C": 52.29
+      }
     },
     {
-      "id": "onet_51-6052_00",
-      "onetSoc": "51-6052.00",
-      "titleEn": "Tailors, Dressmakers, and Custom Sewers",
-      "titleDe": "Schneiderei",
-      "riasec": "RAC",
-      "vector": {
-        "R": 85.2,
-        "I": 1.2,
-        "A": 50.0,
-        "S": 16.2,
-        "E": 19.8,
-        "C": 33.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_51-9071_00",
-      "onetSoc": "51-9071.00",
-      "titleEn": "Jewelers and Precious Stone and Metal Workers",
-      "titleDe": "Goldschmiede / Schmuck",
-      "riasec": "RAC",
-      "vector": {
-        "R": 92.3,
-        "I": 26.3,
-        "A": 46.8,
-        "S": 0.7,
-        "E": 10.0,
-        "C": 38.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_51-7011_00",
-      "onetSoc": "51-7011.00",
-      "titleEn": "Cabinetmakers and Bench Carpenters",
-      "titleDe": "Möbeltischlerei",
+      "id": "onet_47-2161.00",
+      "titleDe": "Plasterers and Stucco Masons",
       "riasec": "RCA",
       "vector": {
         "R": 100.0,
-        "I": 17.8,
-        "A": 23.8,
-        "S": 2.3,
-        "E": 3.5,
-        "C": 42.7
-      },
-      "source": "onet+curated-de"
+        "I": 22.29,
+        "A": 36.57,
+        "S": 19.71,
+        "E": 15.0,
+        "C": 47.14
+      }
     },
     {
-      "id": "onet_47-2141_00",
-      "onetSoc": "47-2141.00",
-      "titleEn": "Painters, Construction and Maintenance",
-      "titleDe": "Maler / Lackierer",
-      "riasec": "RCA",
+      "id": "onet_47-2171.00",
+      "titleDe": "Reinforcing Iron and Rebar Workers",
+      "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 9.0,
-        "A": 29.0,
-        "S": 4.3,
-        "E": 0.0,
-        "C": 39.2
-      },
-      "source": "onet+curated-de"
+        "I": 31.14,
+        "A": 16.0,
+        "S": 17.14,
+        "E": 19.0,
+        "C": 50.0
+      }
     },
     {
-      "id": "onet_47-2181_00",
-      "onetSoc": "47-2181.00",
-      "titleEn": "Roofers",
-      "titleDe": "Dachdeckerei",
+      "id": "onet_47-2181.00",
+      "titleDe": "Roofers",
       "riasec": "RCE",
       "vector": {
         "R": 100.0,
-        "I": 3.3,
-        "A": 4.0,
-        "S": 8.0,
-        "E": 9.2,
-        "C": 40.2
-      },
-      "source": "onet+curated-de"
+        "I": 18.57,
+        "A": 17.29,
+        "S": 21.14,
+        "E": 22.71,
+        "C": 50.57
+      }
     },
     {
-      "id": "onet_47-2211_00",
-      "onetSoc": "47-2211.00",
-      "titleEn": "Sheet Metal Workers",
-      "titleDe": "Klempnerei / Blechbearbeitung",
+      "id": "onet_47-2211.00",
+      "titleDe": "Sheet Metal Workers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 17.7,
-        "A": 10.7,
-        "S": 0.0,
-        "E": 0.0,
-        "C": 42.8
-      },
-      "source": "onet+curated-de"
+        "I": 29.57,
+        "A": 22.14,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 51.14
+      }
     },
     {
-      "id": "onet_47-2221_00",
-      "onetSoc": "47-2221.00",
-      "titleEn": "Structural Iron and Steel Workers",
-      "titleDe": "Stahlbau",
+      "id": "onet_47-2221.00",
+      "titleDe": "Structural Iron and Steel Workers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 30.0,
-        "A": 7.5,
-        "S": 3.0,
-        "E": 4.3,
-        "C": 42.5
-      },
-      "source": "onet+curated-de"
+        "I": 39.86,
+        "A": 20.14,
+        "S": 16.71,
+        "E": 17.71,
+        "C": 53.29
+      }
     },
     {
-      "id": "onet_47-2021_00",
-      "onetSoc": "47-2021.00",
-      "titleEn": "Brickmasons and Blockmasons",
-      "titleDe": "Maurerhandwerk",
-      "riasec": "RCI",
-      "vector": {
-        "R": 97.3,
-        "I": 17.7,
-        "A": 10.7,
-        "S": 2.7,
-        "E": 4.0,
-        "C": 49.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-2044_00",
-      "onetSoc": "47-2044.00",
-      "titleEn": "Tile and Stone Setters",
-      "titleDe": "Fliesenlegehandwerk",
-      "riasec": "RCA",
-      "vector": {
-        "R": 100.0,
-        "I": 6.5,
-        "A": 26.2,
-        "S": 4.8,
-        "E": 0.0,
-        "C": 42.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-2121_00",
-      "onetSoc": "47-2121.00",
-      "titleEn": "Glaziers",
-      "titleDe": "Glaserei",
-      "riasec": "RCA",
-      "vector": {
-        "R": 92.5,
-        "I": 16.7,
-        "A": 20.0,
-        "S": 10.5,
-        "E": 9.7,
-        "C": 38.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-2081_00",
-      "onetSoc": "47-2081.00",
-      "titleEn": "Drywall and Ceiling Tile Installers",
-      "titleDe": "Trockenbau",
-      "riasec": "RCA",
-      "vector": {
-        "R": 100.0,
-        "I": 15.8,
-        "A": 21.7,
-        "S": 3.0,
-        "E": 0.0,
-        "C": 35.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-2042_00",
-      "onetSoc": "47-2042.00",
-      "titleEn": "Floor Layers, Except Carpet, Wood, and Hard Tiles",
-      "titleDe": "Bodenleger",
-      "riasec": "RCA",
-      "vector": {
-        "R": 100.0,
-        "I": 6.5,
-        "A": 13.8,
-        "S": 9.5,
-        "E": 0.0,
-        "C": 44.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-2041_00",
-      "onetSoc": "47-2041.00",
-      "titleEn": "Carpet Installers",
-      "titleDe": "Teppichleger",
-      "riasec": "RCA",
-      "vector": {
-        "R": 100.0,
-        "I": 5.7,
-        "A": 12.0,
-        "S": 5.0,
-        "E": 0.0,
-        "C": 45.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-2051_00",
-      "onetSoc": "47-2051.00",
-      "titleEn": "Cement Masons and Concrete Finishers",
-      "titleDe": "Betonbau / Estrich",
+      "id": "onet_47-2231.00",
+      "titleDe": "Solar Photovoltaic Installers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 21.3,
-        "A": 11.3,
-        "S": 0.0,
-        "E": 0.0,
-        "C": 37.5
-      },
-      "source": "onet+curated-de"
+        "I": 37.86,
+        "A": 19.86,
+        "S": 17.0,
+        "E": 24.71,
+        "C": 58.29
+      }
     },
     {
-      "id": "onet_47-2073_00",
-      "onetSoc": "47-2073.00",
-      "titleEn": "Operating Engineers and Other Construction Equipment Operators",
-      "titleDe": "Baumaschinenführung",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 32.2,
-        "A": 0.0,
-        "S": 2.3,
-        "E": 4.2,
-        "C": 48.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_53-7021_00",
-      "onetSoc": "53-7021.00",
-      "titleEn": "Crane and Tower Operators",
-      "titleDe": "Kranführung",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 20.3,
-        "A": 0.0,
-        "S": 3.3,
-        "E": 5.2,
-        "C": 49.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_47-4021_00",
-      "onetSoc": "47-4021.00",
-      "titleEn": "Elevator and Escalator Installers and Repairers",
-      "titleDe": "Aufzugstechnik",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 23.7,
-        "A": 1.0,
-        "S": 6.3,
-        "E": 2.8,
-        "C": 46.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-4011_00",
-      "onetSoc": "27-4011.00",
-      "titleEn": "Audio and Video Technicians",
-      "titleDe": "AV-Technik",
-      "riasec": "RCA",
-      "vector": {
-        "R": 69.5,
-        "I": 29.2,
-        "A": 37.5,
-        "S": 16.3,
-        "E": 14.7,
-        "C": 59.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-4012_00",
-      "onetSoc": "27-4012.00",
-      "titleEn": "Broadcast Technicians",
-      "titleDe": "Sendetechnik",
-      "riasec": "CRI",
-      "vector": {
-        "R": 65.7,
-        "I": 35.0,
-        "A": 29.8,
-        "S": 19.0,
-        "E": 24.0,
-        "C": 66.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-4014_00",
-      "onetSoc": "27-4014.00",
-      "titleEn": "Sound Engineering Technicians",
-      "titleDe": "Tontechnik",
-      "riasec": "RAC",
-      "vector": {
-        "R": 67.3,
-        "I": 26.7,
-        "A": 57.3,
-        "S": 13.2,
-        "E": 15.3,
-        "C": 54.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-4031_00",
-      "onetSoc": "27-4031.00",
-      "titleEn": "Camera Operators, Television, Video, and Film",
-      "titleDe": "Kameraführung",
-      "riasec": "ARC",
-      "vector": {
-        "R": 62.8,
-        "I": 16.2,
-        "A": 70.8,
-        "S": 14.0,
-        "E": 22.3,
-        "C": 41.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-4032_00",
-      "onetSoc": "27-4032.00",
-      "titleEn": "Film and Video Editors",
-      "titleDe": "Filmschnitt",
-      "riasec": "ACR",
-      "vector": {
-        "R": 37.8,
-        "I": 16.2,
-        "A": 74.2,
-        "S": 14.5,
-        "E": 33.0,
-        "C": 49.8
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-4015_00",
-      "onetSoc": "27-4015.00",
-      "titleEn": "Lighting Technicians",
-      "titleDe": "Beleuchtungstechnik",
-      "riasec": "RCA",
-      "vector": {
-        "R": 99.8,
-        "I": 17.0,
-        "A": 23.2,
-        "S": 3.0,
-        "E": 15.2,
-        "C": 51.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_27-1027_00",
-      "onetSoc": "27-1027.00",
-      "titleEn": "Set and Exhibit Designers",
-      "titleDe": "Bühnen- / Ausstellungsdesign",
-      "riasec": "AER",
-      "vector": {
-        "R": 42.7,
-        "I": 30.8,
-        "A": 100.0,
-        "S": 34.7,
-        "E": 48.5,
-        "C": 38.0
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-4013_00",
-      "onetSoc": "25-4013.00",
-      "titleEn": "Museum Technicians and Conservators",
-      "titleDe": "Museumstechnik / Restaurierung",
-      "riasec": "RCI",
-      "vector": {
-        "R": 77.8,
-        "I": 36.8,
-        "A": 35.7,
-        "S": 27.3,
-        "E": 8.5,
-        "C": 59.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-4011_00",
-      "onetSoc": "25-4011.00",
-      "titleEn": "Archivists",
-      "titleDe": "Archivwesen",
-      "riasec": "CIS",
-      "vector": {
-        "R": 29.7,
-        "I": 59.7,
-        "A": 32.5,
-        "S": 35.0,
-        "E": 15.3,
-        "C": 83.7
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_25-4012_00",
-      "onetSoc": "25-4012.00",
-      "titleEn": "Curators",
-      "titleDe": "Kuratierung / Museum",
-      "riasec": "CES",
-      "vector": {
-        "R": 28.0,
-        "I": 40.5,
-        "A": 40.5,
-        "S": 44.7,
-        "E": 47.5,
-        "C": 63.3
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_39-7011_00",
-      "onetSoc": "39-7011.00",
-      "titleEn": "Tour Guides and Escorts",
-      "titleDe": "Reiseleitung / Gästeführung",
-      "riasec": "SER",
-      "vector": {
-        "R": 39.2,
-        "I": 23.0,
-        "A": 38.3,
-        "S": 69.0,
-        "E": 44.7,
-        "C": 33.2
-      },
-      "source": "onet+curated-de"
-    },
-    {
-      "id": "onet_49-2094_00",
-      "onetSoc": "49-2094.00",
-      "titleEn": "Electrical and Electronics Repairers, Commercial and Industrial Equipment",
-      "titleDe": "Electrical / Electronics Repairers, Commercial / Industrial Equipment",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 50.5,
-        "A": 0.0,
-        "S": 0.0,
-        "E": 1.8,
-        "C": 72.3
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_49-9062_00",
-      "onetSoc": "49-9062.00",
-      "titleEn": "Medical Equipment Repairers",
-      "titleDe": "Medical Equipment Repairers",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 59.8,
-        "A": 0.0,
-        "S": 13.5,
-        "E": 0.0,
-        "C": 70.0
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_53-7063_00",
-      "onetSoc": "53-7063.00",
-      "titleEn": "Machine Feeders and Offbearers",
-      "titleDe": "Machine Feeders / Offbearers",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 17.3,
-        "A": 0.0,
-        "S": 0.0,
-        "E": 0.0,
-        "C": 60.0
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_17-3024_00",
-      "onetSoc": "17-3024.00",
-      "titleEn": "Electro-Mechanical and Mechatronics Technologists and Technicians",
-      "titleDe": "Electro-Mechanical / Mechatronics Technologists / Technicians",
-      "riasec": "RCI",
-      "vector": {
-        "R": 100.0,
-        "I": 56.3,
-        "A": 6.3,
-        "S": 0.0,
-        "E": 0.0,
-        "C": 59.7
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_53-7061_00",
-      "onetSoc": "53-7061.00",
-      "titleEn": "Cleaners of Vehicles and Equipment",
-      "titleDe": "Cleaners of Vehicles / Equipment",
+      "id": "onet_47-3011.00",
+      "titleDe": "Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters",
       "riasec": "RCS",
       "vector": {
         "R": 100.0,
-        "I": 1.2,
-        "A": 0.0,
-        "S": 3.0,
-        "E": 0.0,
-        "C": 47.7
-      },
-      "source": "onet"
+        "I": 19.29,
+        "A": 22.43,
+        "S": 26.86,
+        "E": 14.29,
+        "C": 47.57
+      }
     },
     {
-      "id": "onet_51-2023_00",
-      "onetSoc": "51-2023.00",
-      "titleEn": "Electromechanical Equipment Assemblers",
-      "titleDe": "Electromechanical Equipment Assemblers",
+      "id": "onet_47-3013.00",
+      "titleDe": "Helpers--Electricians",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 39.2,
-        "A": 6.8,
-        "S": 1.0,
-        "E": 0.0,
-        "C": 66.3
-      },
-      "source": "onet"
+        "I": 31.57,
+        "A": 14.29,
+        "S": 29.29,
+        "E": 14.29,
+        "C": 56.29
+      }
     },
     {
-      "id": "onet_47-4061_00",
-      "onetSoc": "47-4061.00",
-      "titleEn": "Rail-Track Laying and Maintenance Equipment Operators",
-      "titleDe": "Rail-Track Laying / Maintenance Equipment Operators",
+      "id": "onet_47-4021.00",
+      "titleDe": "Elevator and Escalator Installers and Repairers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 11.7,
-        "A": 0.0,
-        "S": 0.0,
-        "E": 0.0,
-        "C": 51.8
-      },
-      "source": "onet"
+        "I": 34.86,
+        "A": 14.29,
+        "S": 19.71,
+        "E": 17.43,
+        "C": 56.0
+      }
     },
     {
-      "id": "onet_49-2091_00",
-      "onetSoc": "49-2091.00",
-      "titleEn": "Avionics Technicians",
+      "id": "onet_47-4031.00",
+      "titleDe": "Fence Erectors",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 29.71,
+        "A": 19.29,
+        "S": 19.29,
+        "E": 14.29,
+        "C": 52.57
+      }
+    },
+    {
+      "id": "onet_47-4041.00",
+      "titleDe": "Hazardous Materials Removal Workers",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 36.71,
+        "A": 14.29,
+        "S": 21.14,
+        "E": 17.0,
+        "C": 62.29
+      }
+    },
+    {
+      "id": "onet_47-4051.00",
+      "titleDe": "Highway Maintenance Workers",
+      "riasec": "RCS",
+      "vector": {
+        "R": 100.0,
+        "I": 24.29,
+        "A": 14.86,
+        "S": 25.29,
+        "E": 21.0,
+        "C": 50.29
+      }
+    },
+    {
+      "id": "onet_47-4061.00",
+      "titleDe": "Rail-Track Laying and Maintenance Equipment Operators",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 24.29,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 58.71
+      }
+    },
+    {
+      "id": "onet_47-4071.00",
+      "titleDe": "Septic Tank Servicers and Sewer Pipe Cleaners",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 29.57,
+        "A": 14.29,
+        "S": 20.71,
+        "E": 17.0,
+        "C": 60.86
+      }
+    },
+    {
+      "id": "onet_47-5011.00",
+      "titleDe": "Derrick Operators, Oil and Gas",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 36.29,
+        "A": 14.29,
+        "S": 14.43,
+        "E": 23.43,
+        "C": 52.0
+      }
+    },
+    {
+      "id": "onet_47-5012.00",
+      "titleDe": "Rotary Drill Operators, Oil and Gas",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 43.43,
+        "A": 14.29,
+        "S": 16.57,
+        "E": 31.43,
+        "C": 54.0
+      }
+    },
+    {
+      "id": "onet_47-5013.00",
+      "titleDe": "Service Unit Operators, Oil and Gas",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 36.86,
+        "A": 14.29,
+        "S": 17.14,
+        "E": 26.0,
+        "C": 58.14
+      }
+    },
+    {
+      "id": "onet_47-5022.00",
+      "titleDe": "Excavating and Loading Machine and Dragline Operators, Surface Mining",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 34.29,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 50.71
+      }
+    },
+    {
+      "id": "onet_47-5023.00",
+      "titleDe": "Earth Drillers, Except Oil and Gas",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 52.14,
+        "A": 16.29,
+        "S": 17.43,
+        "E": 24.29,
+        "C": 52.43
+      }
+    },
+    {
+      "id": "onet_47-5043.00",
+      "titleDe": "Roof Bolters, Mining",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 35.14,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 14.43,
+        "C": 47.71
+      }
+    },
+    {
+      "id": "onet_47-5044.00",
+      "titleDe": "Loading and Moving Machine Operators, Underground Mining",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 30.71,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 52.86
+      }
+    },
+    {
+      "id": "onet_47-5071.00",
+      "titleDe": "Roustabouts, Oil and Gas",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 25.57,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 14.29,
+        "C": 47.0
+      }
+    },
+    {
+      "id": "onet_47-5081.00",
+      "titleDe": "Helpers--Extraction Workers",
+      "riasec": "RCI",
+      "vector": {
+        "R": 100.0,
+        "I": 30.57,
+        "A": 14.29,
+        "S": 25.57,
+        "E": 22.57,
+        "C": 52.71
+      }
+    },
+    {
+      "id": "onet_49-2091.00",
       "titleDe": "Avionics Technicians",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 52.7,
-        "A": 4.0,
-        "S": 5.7,
-        "E": 0.0,
-        "C": 61.5
-      },
-      "source": "onet"
+        "I": 61.57,
+        "A": 16.57,
+        "S": 19.71,
+        "E": 15.14,
+        "C": 63.0
+      }
     },
     {
-      "id": "onet_51-8021_00",
-      "onetSoc": "51-8021.00",
-      "titleEn": "Stationary Engineers and Boiler Operators",
-      "titleDe": "Stationary Engineers / Boiler Operators",
+      "id": "onet_49-2092.00",
+      "titleDe": "Electric Motor, Power Tool, and Related Repairers",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 37.3,
-        "A": 0.0,
-        "S": 1.5,
-        "E": 4.2,
-        "C": 60.8
-      },
-      "source": "onet"
+        "I": 39.0,
+        "A": 14.29,
+        "S": 17.0,
+        "E": 14.43,
+        "C": 60.71
+      }
     },
     {
-      "id": "onet_49-2093_00",
-      "onetSoc": "49-2093.00",
-      "titleEn": "Electrical and Electronics Installers and Repairers, Transportation Equipment",
-      "titleDe": "Electrical / Electronics Installers / Repairers, Transportation Equipment",
+      "id": "onet_49-2093.00",
+      "titleDe": "Electrical and Electronics Installers and Repairers, Transportation Equipment",
       "riasec": "RCI",
       "vector": {
         "R": 100.0,
-        "I": 39.5,
-        "A": 0.0,
-        "S": 2.7,
-        "E": 0.3,
-        "C": 63.5
-      },
-      "source": "onet"
+        "I": 48.29,
+        "A": 14.29,
+        "S": 16.43,
+        "E": 14.57,
+        "C": 69.0
+      }
     },
     {
-      "id": "onet_19-1022_00",
-      "onetSoc": "19-1022.00",
-      "titleEn": "Microbiologists",
+      "id": "onet_15-1221.00",
+      "titleDe": "Computer and Information Research Scientists",
+      "riasec": "ICR",
+      "vector": {
+        "R": 53.43,
+        "I": 100.0,
+        "A": 42.14,
+        "S": 28.57,
+        "E": 35.57,
+        "C": 68.57
+      }
+    },
+    {
+      "id": "onet_15-2021.00",
+      "titleDe": "Mathematicians",
+      "riasec": "ICA",
+      "vector": {
+        "R": 46.0,
+        "I": 100.0,
+        "A": 46.14,
+        "S": 27.86,
+        "E": 15.86,
+        "C": 71.86
+      }
+    },
+    {
+      "id": "onet_15-2041.01",
+      "titleDe": "Biostatisticians",
+      "riasec": "ICS",
+      "vector": {
+        "R": 34.71,
+        "I": 100.0,
+        "A": 40.0,
+        "S": 44.43,
+        "E": 28.29,
+        "C": 62.86
+      }
+    },
+    {
+      "id": "onet_19-1021.00",
+      "titleDe": "Biochemists and Biophysicists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 73.0,
+        "I": 100.0,
+        "A": 37.29,
+        "S": 30.71,
+        "E": 26.14,
+        "C": 52.0
+      }
+    },
+    {
+      "id": "onet_19-1022.00",
       "titleDe": "Microbiologists",
       "riasec": "IRC",
       "vector": {
-        "R": 72.3,
+        "R": 75.57,
         "I": 100.0,
-        "A": 14.0,
-        "S": 18.7,
-        "E": 3.2,
-        "C": 48.3
-      },
-      "source": "onet"
+        "A": 27.43,
+        "S": 28.29,
+        "E": 15.29,
+        "C": 55.0
+      }
     },
     {
-      "id": "onet_29-1222_00",
-      "onetSoc": "29-1222.00",
-      "titleEn": "Physicians, Pathologists",
-      "titleDe": "Physicians, Pathologists",
-      "riasec": "IRC",
-      "vector": {
-        "R": 72.7,
-        "I": 100.0,
-        "A": 3.3,
-        "S": 41.0,
-        "E": 6.7,
-        "C": 59.5
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_19-1013_00",
-      "onetSoc": "19-1013.00",
-      "titleEn": "Soil and Plant Scientists",
-      "titleDe": "Soil / Plant Scientists",
-      "riasec": "IRC",
-      "vector": {
-        "R": 90.5,
-        "I": 95.3,
-        "A": 18.5,
-        "S": 11.3,
-        "E": 12.0,
-        "C": 40.2
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_19-1021_00",
-      "onetSoc": "19-1021.00",
-      "titleEn": "Biochemists and Biophysicists",
-      "titleDe": "Biochemists / Biophysicists",
-      "riasec": "IRC",
-      "vector": {
-        "R": 68.3,
-        "I": 100.0,
-        "A": 26.8,
-        "S": 19.3,
-        "E": 13.7,
-        "C": 43.5
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_19-1011_00",
-      "onetSoc": "19-1011.00",
-      "titleEn": "Animal Scientists",
-      "titleDe": "Animal Scientists",
-      "riasec": "IRC",
-      "vector": {
-        "R": 70.8,
-        "I": 99.2,
-        "A": 17.5,
-        "S": 17.7,
-        "E": 20.3,
-        "C": 39.0
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_29-1216_00",
-      "onetSoc": "29-1216.00",
-      "titleEn": "General Internal Medicine Physicians",
-      "titleDe": "General Internal Medicine Physicians",
-      "riasec": "ISR",
-      "vector": {
-        "R": 56.3,
-        "I": 97.2,
-        "A": 7.0,
-        "S": 85.5,
-        "E": 18.5,
-        "C": 44.3
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_29-1212_00",
-      "onetSoc": "29-1212.00",
-      "titleEn": "Cardiologists",
-      "titleDe": "Cardiologists",
-      "riasec": "IRS",
-      "vector": {
-        "R": 66.2,
-        "I": 97.7,
-        "A": 2.7,
-        "S": 62.2,
-        "E": 21.7,
-        "C": 50.2
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_15-1221_00",
-      "onetSoc": "15-1221.00",
-      "titleEn": "Computer and Information Research Scientists",
-      "titleDe": "Computer / Information Research Scientists",
-      "riasec": "ICR",
-      "vector": {
-        "R": 49.0,
-        "I": 100.0,
-        "A": 31.0,
-        "S": 17.3,
-        "E": 23.7,
-        "C": 63.3
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_29-1217_00",
-      "onetSoc": "29-1217.00",
-      "titleEn": "Neurologists",
-      "titleDe": "Neurologists",
-      "riasec": "ISR",
-      "vector": {
-        "R": 48.5,
-        "I": 100.0,
-        "A": 18.2,
-        "S": 72.0,
-        "E": 23.7,
-        "C": 43.8
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_19-1029_01",
-      "onetSoc": "19-1029.01",
-      "titleEn": "Bioinformatics Scientists",
+      "id": "onet_19-1029.01",
       "titleDe": "Bioinformatics Scientists",
       "riasec": "ICR",
       "vector": {
-        "R": 45.7,
+        "R": 54.43,
         "I": 100.0,
-        "A": 26.0,
-        "S": 10.5,
-        "E": 4.5,
-        "C": 67.2
-      },
-      "source": "onet"
+        "A": 35.86,
+        "S": 23.43,
+        "E": 18.0,
+        "C": 72.0
+      }
     },
     {
-      "id": "onet_41-9012_00",
-      "onetSoc": "41-9012.00",
-      "titleEn": "Models",
-      "titleDe": "Models",
-      "riasec": "ARE",
+      "id": "onet_19-1029.03",
+      "titleDe": "Geneticists",
+      "riasec": "ICR",
       "vector": {
-        "R": 63.3,
-        "I": 0.0,
-        "A": 100.0,
-        "S": 28.5,
+        "R": 57.86,
+        "I": 100.0,
+        "A": 42.14,
+        "S": 41.57,
+        "E": 23.0,
+        "C": 68.29
+      }
+    },
+    {
+      "id": "onet_19-1029.04",
+      "titleDe": "Biologists",
+      "riasec": "ICR",
+      "vector": {
+        "R": 58.71,
+        "I": 100.0,
+        "A": 34.29,
+        "S": 37.43,
+        "E": 39.43,
+        "C": 63.57
+      }
+    },
+    {
+      "id": "onet_19-1041.00",
+      "titleDe": "Epidemiologists",
+      "riasec": "ISC",
+      "vector": {
+        "R": 40.29,
+        "I": 100.0,
+        "A": 31.29,
+        "S": 58.71,
+        "E": 33.86,
+        "C": 51.86
+      }
+    },
+    {
+      "id": "onet_19-1042.00",
+      "titleDe": "Medical Scientists, Except Epidemiologists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 61.0,
+        "I": 100.0,
+        "A": 34.57,
+        "S": 47.0,
+        "E": 31.71,
+        "C": 52.86
+      }
+    },
+    {
+      "id": "onet_19-2011.00",
+      "titleDe": "Astronomers",
+      "riasec": "IRC",
+      "vector": {
+        "R": 72.43,
+        "I": 100.0,
+        "A": 46.86,
+        "S": 38.71,
+        "E": 26.71,
+        "C": 57.71
+      }
+    },
+    {
+      "id": "onet_19-2012.00",
+      "titleDe": "Physicists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 70.57,
+        "I": 100.0,
+        "A": 39.29,
+        "S": 30.29,
+        "E": 25.29,
+        "C": 68.57
+      }
+    },
+    {
+      "id": "onet_19-2041.00",
+      "titleDe": "Environmental Scientists and Specialists, Including Health",
+      "riasec": "IRC",
+      "vector": {
+        "R": 68.0,
+        "I": 100.0,
+        "A": 26.71,
+        "S": 39.29,
+        "E": 36.57,
+        "C": 61.71
+      }
+    },
+    {
+      "id": "onet_19-2041.03",
+      "titleDe": "Industrial Ecologists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 66.0,
+        "I": 100.0,
+        "A": 30.57,
+        "S": 27.86,
+        "E": 43.43,
+        "C": 56.86
+      }
+    },
+    {
+      "id": "onet_19-2042.00",
+      "titleDe": "Geoscientists, Except Hydrologists and Geographers",
+      "riasec": "IRC",
+      "vector": {
+        "R": 79.86,
+        "I": 100.0,
+        "A": 38.86,
+        "S": 32.0,
+        "E": 23.57,
+        "C": 59.43
+      }
+    },
+    {
+      "id": "onet_19-3011.00",
+      "titleDe": "Economists",
+      "riasec": "ICE",
+      "vector": {
+        "R": 19.29,
+        "I": 100.0,
+        "A": 34.71,
+        "S": 34.29,
+        "E": 56.14,
+        "C": 64.71
+      }
+    },
+    {
+      "id": "onet_19-3011.01",
+      "titleDe": "Environmental Economists",
+      "riasec": "IEC",
+      "vector": {
+        "R": 39.14,
+        "I": 100.0,
+        "A": 36.14,
+        "S": 32.57,
+        "E": 58.71,
+        "C": 58.29
+      }
+    },
+    {
+      "id": "onet_19-3039.02",
+      "titleDe": "Neuropsychologists",
+      "riasec": "ISC",
+      "vector": {
+        "R": 37.57,
+        "I": 100.0,
+        "A": 46.86,
+        "S": 75.57,
+        "E": 24.14,
+        "C": 47.43
+      }
+    },
+    {
+      "id": "onet_19-3039.03",
+      "titleDe": "Clinical Neuropsychologists",
+      "riasec": "ISC",
+      "vector": {
+        "R": 40.29,
+        "I": 100.0,
+        "A": 34.29,
+        "S": 81.29,
+        "E": 29.57,
+        "C": 49.86
+      }
+    },
+    {
+      "id": "onet_29-1217.00",
+      "titleDe": "Neurologists",
+      "riasec": "ISR",
+      "vector": {
+        "R": 58.57,
+        "I": 100.0,
+        "A": 29.71,
+        "S": 71.71,
+        "E": 34.14,
+        "C": 52.71
+      }
+    },
+    {
+      "id": "onet_29-1222.00",
+      "titleDe": "Physicians, Pathologists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 69.43,
+        "I": 100.0,
+        "A": 19.43,
+        "S": 51.43,
+        "E": 25.14,
+        "C": 67.43
+      }
+    },
+    {
+      "id": "onet_19-1023.00",
+      "titleDe": "Zoologists and Wildlife Biologists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 77.57,
+        "I": 99.86,
+        "A": 33.0,
+        "S": 36.43,
+        "E": 33.29,
+        "C": 52.86
+      }
+    },
+    {
+      "id": "onet_15-2051.00",
+      "titleDe": "Data Scientists",
+      "riasec": "ICA",
+      "vector": {
+        "R": 31.0,
+        "I": 99.71,
+        "A": 37.29,
+        "S": 23.71,
+        "E": 24.43,
+        "C": 77.0
+      }
+    },
+    {
+      "id": "onet_29-1229.01",
+      "titleDe": "Allergists and Immunologists",
+      "riasec": "ISR",
+      "vector": {
+        "R": 54.86,
+        "I": 99.29,
+        "A": 26.43,
+        "S": 75.71,
+        "E": 31.43,
+        "C": 52.43
+      }
+    },
+    {
+      "id": "onet_19-1011.00",
+      "titleDe": "Animal Scientists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 74.86,
+        "I": 99.0,
+        "A": 28.0,
+        "S": 28.14,
+        "E": 34.29,
+        "C": 48.0
+      }
+    },
+    {
+      "id": "onet_29-1212.00",
+      "titleDe": "Cardiologists",
+      "riasec": "IRS",
+      "vector": {
+        "R": 70.86,
+        "I": 98.14,
+        "A": 16.43,
+        "S": 67.57,
+        "E": 32.57,
+        "C": 57.14
+      }
+    },
+    {
+      "id": "onet_29-1229.03",
+      "titleDe": "Urologists",
+      "riasec": "ISR",
+      "vector": {
+        "R": 69.29,
+        "I": 97.86,
+        "A": 18.71,
+        "S": 77.86,
+        "E": 31.71,
+        "C": 49.0
+      }
+    },
+    {
+      "id": "onet_19-3091.00",
+      "titleDe": "Anthropologists and Archeologists",
+      "riasec": "IAR",
+      "vector": {
+        "R": 57.0,
+        "I": 97.71,
+        "A": 60.14,
+        "S": 52.43,
+        "E": 23.29,
+        "C": 45.57
+      }
+    },
+    {
+      "id": "onet_29-1216.00",
+      "titleDe": "General Internal Medicine Physicians",
+      "riasec": "ISR",
+      "vector": {
+        "R": 63.29,
+        "I": 97.29,
+        "A": 20.57,
+        "S": 86.86,
+        "E": 30.0,
+        "C": 51.86
+      }
+    },
+    {
+      "id": "onet_17-2031.00",
+      "titleDe": "Bioengineers and Biomedical Engineers",
+      "riasec": "IRC",
+      "vector": {
+        "R": 77.71,
+        "I": 96.43,
+        "A": 30.14,
+        "S": 35.0,
+        "E": 26.29,
+        "C": 64.0
+      }
+    },
+    {
+      "id": "onet_19-3092.00",
+      "titleDe": "Geographers",
+      "riasec": "IRA",
+      "vector": {
+        "R": 73.0,
+        "I": 96.29,
+        "A": 52.71,
+        "S": 38.86,
+        "E": 30.0,
+        "C": 52.71
+      }
+    },
+    {
+      "id": "onet_19-2041.01",
+      "titleDe": "Climate Change Policy Analysts",
+      "riasec": "IEC",
+      "vector": {
+        "R": 19.57,
+        "I": 96.14,
+        "A": 44.43,
+        "S": 45.29,
+        "E": 67.0,
+        "C": 58.0
+      }
+    },
+    {
+      "id": "onet_19-1013.00",
+      "titleDe": "Soil and Plant Scientists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 91.86,
+        "I": 95.86,
+        "A": 30.14,
+        "S": 23.86,
+        "E": 24.43,
+        "C": 48.71
+      }
+    },
+    {
+      "id": "onet_19-2031.00",
+      "titleDe": "Chemists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 81.0,
+        "I": 95.86,
+        "A": 21.71,
+        "S": 16.29,
+        "E": 22.86,
+        "C": 68.71
+      }
+    },
+    {
+      "id": "onet_19-3094.00",
+      "titleDe": "Political Scientists",
+      "riasec": "IAE",
+      "vector": {
+        "R": 14.29,
+        "I": 95.86,
+        "A": 55.29,
+        "S": 48.86,
+        "E": 51.57,
+        "C": 50.29
+      }
+    },
+    {
+      "id": "onet_29-1229.05",
+      "titleDe": "Preventive Medicine Physicians",
+      "riasec": "ISC",
+      "vector": {
+        "R": 48.14,
+        "I": 95.71,
+        "A": 26.86,
+        "S": 77.57,
+        "E": 33.86,
+        "C": 48.43
+      }
+    },
+    {
+      "id": "onet_13-2099.01",
+      "titleDe": "Financial Quantitative Analysts",
+      "riasec": "ICE",
+      "vector": {
+        "R": 23.29,
+        "I": 95.29,
+        "A": 26.43,
+        "S": 22.57,
+        "E": 49.29,
+        "C": 82.71
+      }
+    },
+    {
+      "id": "onet_19-1029.02",
+      "titleDe": "Molecular and Cellular Biologists",
+      "riasec": "ICR",
+      "vector": {
+        "R": 71.86,
+        "I": 95.14,
+        "A": 27.86,
+        "S": 32.43,
+        "E": 36.86,
+        "C": 72.86
+      }
+    },
+    {
+      "id": "onet_29-1224.00",
+      "titleDe": "Radiologists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 69.86,
+        "I": 94.57,
+        "A": 19.57,
+        "S": 55.0,
+        "E": 31.0,
+        "C": 63.86
+      }
+    },
+    {
+      "id": "onet_19-2032.00",
+      "titleDe": "Materials Scientists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 83.14,
+        "I": 94.14,
+        "A": 31.0,
+        "S": 19.86,
+        "E": 26.57,
+        "C": 59.29
+      }
+    },
+    {
+      "id": "onet_29-1223.00",
+      "titleDe": "Psychiatrists",
+      "riasec": "ISC",
+      "vector": {
+        "R": 32.86,
+        "I": 94.14,
+        "A": 37.86,
+        "S": 83.29,
+        "E": 27.86,
+        "C": 51.43
+      }
+    },
+    {
+      "id": "onet_15-2041.00",
+      "titleDe": "Statisticians",
+      "riasec": "ICR",
+      "vector": {
+        "R": 30.57,
+        "I": 94.0,
+        "A": 25.29,
+        "S": 24.43,
+        "E": 26.0,
+        "C": 86.14
+      }
+    },
+    {
+      "id": "onet_29-2011.04",
+      "titleDe": "Histotechnologists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 81.71,
+        "I": 93.71,
+        "A": 18.71,
+        "S": 41.29,
+        "E": 15.0,
+        "C": 73.71
+      }
+    },
+    {
+      "id": "onet_29-1243.00",
+      "titleDe": "Pediatric Surgeons",
+      "riasec": "ISR",
+      "vector": {
+        "R": 70.71,
+        "I": 93.14,
+        "A": 22.14,
+        "S": 71.29,
+        "E": 34.71,
+        "C": 55.86
+      }
+    },
+    {
+      "id": "onet_19-3041.00",
+      "titleDe": "Sociologists",
+      "riasec": "ISA",
+      "vector": {
+        "R": 22.29,
+        "I": 92.86,
+        "A": 57.0,
+        "S": 62.29,
         "E": 44.0,
-        "C": 17.3
-      },
-      "source": "onet"
+        "C": 51.43
+      }
     },
     {
-      "id": "onet_27-2041_00",
-      "onetSoc": "27-2041.00",
-      "titleEn": "Music Directors and Composers",
-      "titleDe": "Music Directors / Composers",
-      "riasec": "AES",
+      "id": "onet_29-1242.00",
+      "titleDe": "Orthopedic Surgeons, Except Pediatric",
+      "riasec": "IRS",
       "vector": {
-        "R": 17.3,
-        "I": 21.3,
-        "A": 100.0,
-        "S": 34.3,
-        "E": 62.8,
-        "C": 26.5
-      },
-      "source": "onet"
+        "R": 72.57,
+        "I": 92.86,
+        "A": 21.14,
+        "S": 68.86,
+        "E": 33.71,
+        "C": 55.86
+      }
     },
     {
-      "id": "onet_27-2032_00",
-      "onetSoc": "27-2032.00",
-      "titleEn": "Choreographers",
-      "titleDe": "Choreographers",
-      "riasec": "ASE",
+      "id": "onet_17-2161.00",
+      "titleDe": "Nuclear Engineers",
+      "riasec": "IRC",
       "vector": {
-        "R": 44.5,
-        "I": 18.0,
-        "A": 100.0,
-        "S": 51.3,
-        "E": 46.7,
-        "C": 14.7
-      },
-      "source": "onet"
+        "R": 70.29,
+        "I": 92.0,
+        "A": 29.29,
+        "S": 27.0,
+        "E": 36.14,
+        "C": 64.0
+      }
     },
     {
-      "id": "onet_27-1014_00",
-      "onetSoc": "27-1014.00",
-      "titleEn": "Special Effects Artists and Animators",
-      "titleDe": "Special Effects Artists / Animators",
-      "riasec": "ARC",
+      "id": "onet_29-1213.00",
+      "titleDe": "Dermatologists",
+      "riasec": "IRS",
       "vector": {
-        "R": 45.3,
-        "I": 30.0,
-        "A": 100.0,
-        "S": 18.5,
-        "E": 28.5,
-        "C": 37.0
-      },
-      "source": "onet"
+        "R": 68.71,
+        "I": 92.0,
+        "A": 26.71,
+        "S": 66.43,
+        "E": 25.29,
+        "C": 54.71
+      }
     },
     {
-      "id": "onet_27-1011_00",
-      "onetSoc": "27-1011.00",
-      "titleEn": "Art Directors",
+      "id": "onet_15-2099.01",
+      "titleDe": "Bioinformatics Technicians",
+      "riasec": "ICR",
+      "vector": {
+        "R": 54.43,
+        "I": 91.71,
+        "A": 22.57,
+        "S": 24.14,
+        "E": 14.29,
+        "C": 86.29
+      }
+    },
+    {
+      "id": "onet_19-2043.00",
+      "titleDe": "Hydrologists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 83.43,
+        "I": 91.57,
+        "A": 23.29,
+        "S": 30.57,
+        "E": 32.71,
+        "C": 61.57
+      }
+    },
+    {
+      "id": "onet_15-1211.00",
+      "titleDe": "Computer Systems Analysts",
+      "riasec": "ICR",
+      "vector": {
+        "R": 46.71,
+        "I": 91.29,
+        "A": 28.29,
+        "S": 27.29,
+        "E": 31.86,
+        "C": 84.71
+      }
+    },
+    {
+      "id": "onet_25-1053.00",
+      "titleDe": "Environmental Science Teachers, Postsecondary",
+      "riasec": "ISR",
+      "vector": {
+        "R": 53.0,
+        "I": 90.57,
+        "A": 48.14,
+        "S": 89.29,
+        "E": 35.57,
+        "C": 48.86
+      }
+    },
+    {
+      "id": "onet_15-1211.01",
+      "titleDe": "Health Informatics Specialists",
+      "riasec": "ICS",
+      "vector": {
+        "R": 40.57,
+        "I": 89.86,
+        "A": 28.43,
+        "S": 64.57,
+        "E": 29.71,
+        "C": 67.29
+      }
+    },
+    {
+      "id": "onet_15-2031.00",
+      "titleDe": "Operations Research Analysts",
+      "riasec": "ICE",
+      "vector": {
+        "R": 27.14,
+        "I": 89.43,
+        "A": 31.14,
+        "S": 28.86,
+        "E": 44.86,
+        "C": 82.29
+      }
+    },
+    {
+      "id": "onet_19-2021.00",
+      "titleDe": "Atmospheric and Space Scientists",
+      "riasec": "IRC",
+      "vector": {
+        "R": 68.14,
+        "I": 89.43,
+        "A": 38.86,
+        "S": 35.57,
+        "E": 38.29,
+        "C": 63.57
+      }
+    },
+    {
+      "id": "onet_27-1011.00",
       "titleDe": "Art Directors",
       "riasec": "AEC",
       "vector": {
-        "R": 33.7,
-        "I": 28.3,
+        "R": 42.14,
+        "I": 38.43,
         "A": 100.0,
-        "S": 30.0,
-        "E": 71.8,
-        "C": 47.0
-      },
-      "source": "onet"
+        "S": 41.14,
+        "E": 74.86,
+        "C": 51.43
+      }
     },
     {
-      "id": "onet_27-1013_00",
-      "onetSoc": "27-1013.00",
-      "titleEn": "Fine Artists, Including Painters, Sculptors, and Illustrators",
-      "titleDe": "Fine Artists, Including Painters, Sculptors, / Illustrators",
+      "id": "onet_27-1013.00",
+      "titleDe": "Fine Artists, Including Painters, Sculptors, and Illustrators",
       "riasec": "ARI",
       "vector": {
-        "R": 51.0,
-        "I": 28.0,
+        "R": 57.86,
+        "I": 38.29,
         "A": 100.0,
-        "S": 21.2,
-        "E": 22.8,
-        "C": 22.3
-      },
-      "source": "onet"
+        "S": 32.57,
+        "E": 33.86,
+        "C": 33.43
+      }
     },
     {
-      "id": "onet_39-5091_00",
-      "onetSoc": "39-5091.00",
-      "titleEn": "Makeup Artists, Theatrical and Performance",
-      "titleDe": "Makeup Artists, Theatrical / Performance",
-      "riasec": "ARS",
+      "id": "onet_27-1014.00",
+      "titleDe": "Special Effects Artists and Animators",
+      "riasec": "ARC",
       "vector": {
-        "R": 56.5,
-        "I": 8.2,
-        "A": 97.3,
-        "S": 34.0,
-        "E": 32.7,
-        "C": 28.2
-      },
-      "source": "onet"
+        "R": 53.0,
+        "I": 39.57,
+        "A": 100.0,
+        "S": 31.14,
+        "E": 37.43,
+        "C": 44.71
+      }
     },
     {
-      "id": "onet_27-3043_05",
-      "onetSoc": "27-3043.05",
-      "titleEn": "Poets, Lyricists and Creative Writers",
-      "titleDe": "Poets, Lyricists / Creative Writers",
+      "id": "onet_27-1022.00",
+      "titleDe": "Fashion Designers",
+      "riasec": "ARE",
+      "vector": {
+        "R": 62.0,
+        "I": 31.0,
+        "A": 100.0,
+        "S": 33.57,
+        "E": 56.57,
+        "C": 42.0
+      }
+    },
+    {
+      "id": "onet_27-1024.00",
+      "titleDe": "Graphic Designers",
+      "riasec": "ACE",
+      "vector": {
+        "R": 48.29,
+        "I": 40.86,
+        "A": 100.0,
+        "S": 30.86,
+        "E": 49.0,
+        "C": 56.0
+      }
+    },
+    {
+      "id": "onet_27-2011.00",
+      "titleDe": "Actors",
+      "riasec": "ASE",
+      "vector": {
+        "R": 32.71,
+        "I": 30.86,
+        "A": 100.0,
+        "S": 58.29,
+        "E": 57.14,
+        "C": 25.86
+      }
+    },
+    {
+      "id": "onet_27-2032.00",
+      "titleDe": "Choreographers",
+      "riasec": "ASE",
+      "vector": {
+        "R": 51.86,
+        "I": 31.71,
+        "A": 100.0,
+        "S": 56.57,
+        "E": 53.86,
+        "C": 30.43
+      }
+    },
+    {
+      "id": "onet_27-2041.00",
+      "titleDe": "Music Directors and Composers",
+      "riasec": "AES",
+      "vector": {
+        "R": 29.57,
+        "I": 32.57,
+        "A": 100.0,
+        "S": 43.43,
+        "E": 68.86,
+        "C": 37.57
+      }
+    },
+    {
+      "id": "onet_27-3043.05",
+      "titleDe": "Poets, Lyricists and Creative Writers",
       "riasec": "AIE",
       "vector": {
-        "R": 6.2,
-        "I": 47.2,
+        "R": 16.71,
+        "I": 51.14,
         "A": 100.0,
-        "S": 29.2,
-        "E": 34.8,
-        "C": 30.7
-      },
-      "source": "onet"
+        "S": 40.43,
+        "E": 45.29,
+        "C": 41.14
+      }
     },
     {
-      "id": "onet_27-1012_00",
-      "onetSoc": "27-1012.00",
-      "titleEn": "Craft Artists",
+      "id": "onet_41-9012.00",
+      "titleDe": "Models",
+      "riasec": "ARE",
+      "vector": {
+        "R": 71.57,
+        "I": 15.57,
+        "A": 98.71,
+        "S": 35.57,
+        "E": 53.0,
+        "C": 32.29
+      }
+    },
+    {
+      "id": "onet_39-5091.00",
+      "titleDe": "Makeup Artists, Theatrical and Performance",
+      "riasec": "ARE",
+      "vector": {
+        "R": 61.86,
+        "I": 19.57,
+        "A": 96.0,
+        "S": 42.86,
+        "E": 44.0,
+        "C": 43.0
+      }
+    },
+    {
+      "id": "onet_27-1027.00",
+      "titleDe": "Set and Exhibit Designers",
+      "riasec": "AER",
+      "vector": {
+        "R": 52.86,
+        "I": 39.29,
+        "A": 95.57,
+        "S": 43.43,
+        "E": 56.14,
+        "C": 46.71
+      }
+    },
+    {
+      "id": "onet_27-3043.00",
+      "titleDe": "Writers and Authors",
+      "riasec": "AEC",
+      "vector": {
+        "R": 14.29,
+        "I": 46.43,
+        "A": 95.43,
+        "S": 40.86,
+        "E": 67.86,
+        "C": 47.71
+      }
+    },
+    {
+      "id": "onet_27-2042.00",
+      "titleDe": "Musicians and Singers",
+      "riasec": "AES",
+      "vector": {
+        "R": 41.0,
+        "I": 21.86,
+        "A": 95.14,
+        "S": 48.71,
+        "E": 48.86,
+        "C": 31.0
+      }
+    },
+    {
+      "id": "onet_27-2031.00",
+      "titleDe": "Dancers",
+      "riasec": "ARS",
+      "vector": {
+        "R": 69.0,
+        "I": 20.43,
+        "A": 91.29,
+        "S": 52.14,
+        "E": 45.43,
+        "C": 23.0
+      }
+    },
+    {
+      "id": "onet_15-1255.01",
+      "titleDe": "Video Game Designers",
+      "riasec": "AIE",
+      "vector": {
+        "R": 39.57,
+        "I": 59.29,
+        "A": 91.14,
+        "S": 32.86,
+        "E": 56.0,
+        "C": 55.0
+      }
+    },
+    {
+      "id": "onet_27-2012.00",
+      "titleDe": "Producers and Directors",
+      "riasec": "AEC",
+      "vector": {
+        "R": 30.43,
+        "I": 32.0,
+        "A": 87.71,
+        "S": 44.57,
+        "E": 82.57,
+        "C": 50.86
+      }
+    },
+    {
+      "id": "onet_27-1012.00",
       "titleDe": "Craft Artists",
       "riasec": "ARE",
       "vector": {
-        "R": 81.0,
-        "I": 14.7,
-        "A": 83.3,
-        "S": 12.0,
-        "E": 31.7,
-        "C": 25.8
-      },
-      "source": "onet"
+        "R": 84.14,
+        "I": 26.43,
+        "A": 84.71,
+        "S": 24.0,
+        "E": 40.86,
+        "C": 38.0
+      }
     },
     {
-      "id": "onet_39-3092_00",
-      "onetSoc": "39-3092.00",
-      "titleEn": "Costume Attendants",
+      "id": "onet_27-3011.00",
+      "titleDe": "Broadcast Announcers and Radio Disc Jockeys",
+      "riasec": "AES",
+      "vector": {
+        "R": 23.71,
+        "I": 28.71,
+        "A": 81.14,
+        "S": 50.57,
+        "E": 62.57,
+        "C": 44.43
+      }
+    },
+    {
+      "id": "onet_27-4032.00",
+      "titleDe": "Film and Video Editors",
+      "riasec": "ACR",
+      "vector": {
+        "R": 44.86,
+        "I": 27.29,
+        "A": 80.14,
+        "S": 28.0,
+        "E": 44.0,
+        "C": 53.57
+      }
+    },
+    {
+      "id": "onet_39-3092.00",
       "titleDe": "Costume Attendants",
       "riasec": "ACR",
       "vector": {
-        "R": 42.8,
-        "I": 0.0,
-        "A": 81.5,
-        "S": 40.8,
-        "E": 34.5,
-        "C": 47.5
-      },
-      "source": "onet"
+        "R": 55.43,
+        "I": 14.29,
+        "A": 80.14,
+        "S": 46.57,
+        "E": 40.57,
+        "C": 61.0
+      }
     },
     {
-      "id": "onet_25-1066_00",
-      "onetSoc": "25-1066.00",
-      "titleEn": "Psychology Teachers, Postsecondary",
+      "id": "onet_27-1025.00",
+      "titleDe": "Interior Designers",
+      "riasec": "ARC",
+      "vector": {
+        "R": 58.86,
+        "I": 43.86,
+        "A": 79.43,
+        "S": 38.29,
+        "E": 52.86,
+        "C": 54.57
+      }
+    },
+    {
+      "id": "onet_27-1021.00",
+      "titleDe": "Commercial and Industrial Designers",
+      "riasec": "ARI",
+      "vector": {
+        "R": 66.0,
+        "I": 58.0,
+        "A": 79.14,
+        "S": 26.29,
+        "E": 52.86,
+        "C": 49.57
+      }
+    },
+    {
+      "id": "onet_27-3041.00",
+      "titleDe": "Editors",
+      "riasec": "ACE",
+      "vector": {
+        "R": 14.71,
+        "I": 41.43,
+        "A": 77.0,
+        "S": 36.57,
+        "E": 59.0,
+        "C": 66.86
+      }
+    },
+    {
+      "id": "onet_27-3023.00",
+      "titleDe": "News Analysts, Reporters, and Journalists",
+      "riasec": "AIE",
+      "vector": {
+        "R": 21.0,
+        "I": 59.43,
+        "A": 72.71,
+        "S": 40.0,
+        "E": 56.43,
+        "C": 52.0
+      }
+    },
+    {
+      "id": "onet_27-4031.00",
+      "titleDe": "Camera Operators, Television, Video, and Film",
+      "riasec": "ARC",
+      "vector": {
+        "R": 69.86,
+        "I": 28.57,
+        "A": 72.0,
+        "S": 25.71,
+        "E": 32.57,
+        "C": 52.14
+      }
+    },
+    {
+      "id": "onet_27-2091.00",
+      "titleDe": "Disc Jockeys, Except Radio",
+      "riasec": "AEC",
+      "vector": {
+        "R": 42.86,
+        "I": 22.14,
+        "A": 68.86,
+        "S": 41.86,
+        "E": 50.71,
+        "C": 50.0
+      }
+    },
+    {
+      "id": "onet_27-1026.00",
+      "titleDe": "Merchandise Displayers and Window Trimmers",
+      "riasec": "ARE",
+      "vector": {
+        "R": 63.57,
+        "I": 21.57,
+        "A": 67.14,
+        "S": 31.29,
+        "E": 61.14,
+        "C": 44.14
+      }
+    },
+    {
+      "id": "onet_21-1012.00",
+      "titleDe": "Educational, Guidance, and Career Counselors and Advisors",
+      "riasec": "SCE",
+      "vector": {
+        "R": 14.29,
+        "I": 47.14,
+        "A": 44.71,
+        "S": 100.0,
+        "E": 56.0,
+        "C": 58.43
+      }
+    },
+    {
+      "id": "onet_21-2021.00",
+      "titleDe": "Directors, Religious Activities and Education",
+      "riasec": "SEA",
+      "vector": {
+        "R": 14.29,
+        "I": 38.71,
+        "A": 48.29,
+        "S": 100.0,
+        "E": 88.0,
+        "C": 45.14
+      }
+    },
+    {
+      "id": "onet_25-1066.00",
       "titleDe": "Psychology Teachers, Postsecondary",
       "riasec": "SIA",
       "vector": {
-        "R": 18.8,
-        "I": 76.0,
-        "A": 47.5,
+        "R": 30.43,
+        "I": 79.86,
+        "A": 55.14,
         "S": 100.0,
-        "E": 22.8,
-        "C": 37.7
-      },
-      "source": "onet"
+        "E": 33.14,
+        "C": 47.14
+      }
     },
     {
-      "id": "onet_21-1023_00",
-      "onetSoc": "21-1023.00",
-      "titleEn": "Mental Health and Substance Abuse Social Workers",
-      "titleDe": "Mental Health / Substance Abuse Social Workers",
-      "riasec": "SIC",
-      "vector": {
-        "R": 12.0,
-        "I": 51.3,
-        "A": 29.7,
-        "S": 99.3,
-        "E": 23.7,
-        "C": 34.2
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_21-1012_00",
-      "onetSoc": "21-1012.00",
-      "titleEn": "Educational, Guidance, and Career Counselors and Advisors",
-      "titleDe": "Educational, Guidance, / Career Counselors / Advisors",
-      "riasec": "SEA",
-      "vector": {
-        "R": 0.0,
-        "I": 38.5,
-        "A": 40.3,
-        "S": 100.0,
-        "E": 53.5,
-        "C": 39.7
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_21-1022_00",
-      "onetSoc": "21-1022.00",
-      "titleEn": "Healthcare Social Workers",
-      "titleDe": "Healthcare Social Workers",
-      "riasec": "SIC",
-      "vector": {
-        "R": 16.2,
-        "I": 54.0,
-        "A": 22.2,
-        "S": 98.7,
-        "E": 25.5,
-        "C": 34.3
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_25-2051_00",
-      "onetSoc": "25-2051.00",
-      "titleEn": "Special Education Teachers, Preschool",
-      "titleDe": "Special Education Teachers, Preschool",
-      "riasec": "SAI",
-      "vector": {
-        "R": 23.7,
-        "I": 44.3,
-        "A": 47.5,
-        "S": 100.0,
-        "E": 12.0,
-        "C": 38.0
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_25-2056_00",
-      "onetSoc": "25-2056.00",
-      "titleEn": "Special Education Teachers, Elementary School",
-      "titleDe": "Special Education Teachers, Elementary School",
-      "riasec": "SIA",
-      "vector": {
-        "R": 22.3,
-        "I": 49.2,
-        "A": 43.7,
-        "S": 100.0,
-        "E": 13.2,
-        "C": 41.0
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_25-1071_00",
-      "onetSoc": "25-1071.00",
-      "titleEn": "Health Specialties Teachers, Postsecondary",
+      "id": "onet_25-1071.00",
       "titleDe": "Health Specialties Teachers, Postsecondary",
       "riasec": "SIC",
       "vector": {
-        "R": 41.3,
-        "I": 74.8,
-        "A": 32.2,
-        "S": 99.5,
-        "E": 14.5,
-        "C": 45.2
-      },
-      "source": "onet"
+        "R": 46.71,
+        "I": 77.57,
+        "A": 42.86,
+        "S": 100.0,
+        "E": 28.43,
+        "C": 50.29
+      }
     },
     {
-      "id": "onet_25-2057_00",
-      "onetSoc": "25-2057.00",
-      "titleEn": "Special Education Teachers, Middle School",
-      "titleDe": "Special Education Teachers, Middle School",
+      "id": "onet_25-1072.00",
+      "titleDe": "Nursing Instructors and Teachers, Postsecondary",
       "riasec": "SIA",
       "vector": {
-        "R": 23.8,
-        "I": 48.2,
-        "A": 48.0,
+        "R": 42.0,
+        "I": 70.14,
+        "A": 47.0,
         "S": 100.0,
-        "E": 13.3,
-        "C": 39.5
-      },
-      "source": "onet"
+        "E": 30.43,
+        "C": 45.0
+      }
     },
     {
-      "id": "onet_25-2055_00",
-      "onetSoc": "25-2055.00",
-      "titleEn": "Special Education Teachers, Kindergarten",
+      "id": "onet_25-1081.00",
+      "titleDe": "Education Teachers, Postsecondary",
+      "riasec": "SIC",
+      "vector": {
+        "R": 38.14,
+        "I": 68.14,
+        "A": 49.57,
+        "S": 100.0,
+        "E": 38.29,
+        "C": 51.57
+      }
+    },
+    {
+      "id": "onet_25-1113.00",
+      "titleDe": "Social Work Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 31.43,
+        "I": 71.86,
+        "A": 55.14,
+        "S": 100.0,
+        "E": 40.71,
+        "C": 43.14
+      }
+    },
+    {
+      "id": "onet_25-1123.00",
+      "titleDe": "English Language and Literature Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 32.57,
+        "I": 68.29,
+        "A": 59.86,
+        "S": 100.0,
+        "E": 34.71,
+        "C": 49.86
+      }
+    },
+    {
+      "id": "onet_25-1124.00",
+      "titleDe": "Foreign Language and Literature Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 30.14,
+        "I": 64.57,
+        "A": 58.0,
+        "S": 100.0,
+        "E": 36.0,
+        "C": 50.43
+      }
+    },
+    {
+      "id": "onet_25-1126.00",
+      "titleDe": "Philosophy and Religion Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 35.14,
+        "I": 73.43,
+        "A": 53.71,
+        "S": 100.0,
+        "E": 39.57,
+        "C": 49.71
+      }
+    },
+    {
+      "id": "onet_25-1192.00",
+      "titleDe": "Family and Consumer Sciences Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 41.86,
+        "I": 69.29,
+        "A": 49.71,
+        "S": 100.0,
+        "E": 39.86,
+        "C": 48.14
+      }
+    },
+    {
+      "id": "onet_25-1193.00",
+      "titleDe": "Recreation and Fitness Studies Teachers, Postsecondary",
+      "riasec": "SIC",
+      "vector": {
+        "R": 45.57,
+        "I": 67.0,
+        "A": 48.0,
+        "S": 100.0,
+        "E": 36.43,
+        "C": 52.43
+      }
+    },
+    {
+      "id": "onet_25-2011.00",
+      "titleDe": "Preschool Teachers, Except Special Education",
+      "riasec": "SAC",
+      "vector": {
+        "R": 42.0,
+        "I": 39.43,
+        "A": 56.86,
+        "S": 100.0,
+        "E": 35.57,
+        "C": 51.57
+      }
+    },
+    {
+      "id": "onet_25-2012.00",
+      "titleDe": "Kindergarten Teachers, Except Special Education",
+      "riasec": "SAC",
+      "vector": {
+        "R": 38.29,
+        "I": 44.43,
+        "A": 57.0,
+        "S": 100.0,
+        "E": 35.43,
+        "C": 54.29
+      }
+    },
+    {
+      "id": "onet_25-2021.00",
+      "titleDe": "Elementary School Teachers, Except Special Education",
+      "riasec": "SAC",
+      "vector": {
+        "R": 37.71,
+        "I": 47.86,
+        "A": 55.29,
+        "S": 100.0,
+        "E": 36.71,
+        "C": 54.0
+      }
+    },
+    {
+      "id": "onet_25-2022.00",
+      "titleDe": "Middle School Teachers, Except Special and Career/Technical Education",
+      "riasec": "SAC",
+      "vector": {
+        "R": 37.0,
+        "I": 47.29,
+        "A": 58.57,
+        "S": 100.0,
+        "E": 38.0,
+        "C": 50.86
+      }
+    },
+    {
+      "id": "onet_25-2023.00",
+      "titleDe": "Career/Technical Education Teachers, Middle School",
+      "riasec": "SCA",
+      "vector": {
+        "R": 46.86,
+        "I": 47.29,
+        "A": 48.29,
+        "S": 100.0,
+        "E": 32.43,
+        "C": 54.57
+      }
+    },
+    {
+      "id": "onet_25-2031.00",
+      "titleDe": "Secondary School Teachers, Except Special and Career/Technical Education",
+      "riasec": "SAC",
+      "vector": {
+        "R": 39.0,
+        "I": 45.57,
+        "A": 53.86,
+        "S": 100.0,
+        "E": 41.43,
+        "C": 51.57
+      }
+    },
+    {
+      "id": "onet_25-2032.00",
+      "titleDe": "Career/Technical Education Teachers, Secondary School",
+      "riasec": "SCA",
+      "vector": {
+        "R": 40.86,
+        "I": 48.29,
+        "A": 49.43,
+        "S": 100.0,
+        "E": 36.0,
+        "C": 56.0
+      }
+    },
+    {
+      "id": "onet_25-2051.00",
+      "titleDe": "Special Education Teachers, Preschool",
+      "riasec": "SAI",
+      "vector": {
+        "R": 38.57,
+        "I": 49.86,
+        "A": 56.86,
+        "S": 100.0,
+        "E": 24.29,
+        "C": 45.43
+      }
+    },
+    {
+      "id": "onet_25-2055.00",
       "titleDe": "Special Education Teachers, Kindergarten",
       "riasec": "SIC",
       "vector": {
-        "R": 25.8,
-        "I": 46.7,
-        "A": 44.0,
+        "R": 36.43,
+        "I": 54.29,
+        "A": 52.14,
         "S": 100.0,
-        "E": 12.5,
-        "C": 44.8
-      },
-      "source": "onet"
+        "E": 24.71,
+        "C": 52.43
+      }
     },
     {
-      "id": "onet_19-3034_00",
-      "onetSoc": "19-3034.00",
-      "titleEn": "School Psychologists",
+      "id": "onet_25-2056.00",
+      "titleDe": "Special Education Teachers, Elementary School",
+      "riasec": "SIA",
+      "vector": {
+        "R": 32.43,
+        "I": 56.29,
+        "A": 52.14,
+        "S": 100.0,
+        "E": 25.29,
+        "C": 49.71
+      }
+    },
+    {
+      "id": "onet_25-2057.00",
+      "titleDe": "Special Education Teachers, Middle School",
+      "riasec": "SAI",
+      "vector": {
+        "R": 33.14,
+        "I": 56.0,
+        "A": 56.57,
+        "S": 100.0,
+        "E": 25.71,
+        "C": 47.14
+      }
+    },
+    {
+      "id": "onet_25-2058.00",
+      "titleDe": "Special Education Teachers, Secondary School",
+      "riasec": "SIA",
+      "vector": {
+        "R": 34.14,
+        "I": 54.43,
+        "A": 53.71,
+        "S": 100.0,
+        "E": 27.57,
+        "C": 50.29
+      }
+    },
+    {
+      "id": "onet_25-2059.01",
+      "titleDe": "Adapted Physical Education Specialists",
+      "riasec": "SCR",
+      "vector": {
+        "R": 58.86,
+        "I": 52.14,
+        "A": 35.14,
+        "S": 100.0,
+        "E": 26.86,
+        "C": 59.57
+      }
+    },
+    {
+      "id": "onet_25-3011.00",
+      "titleDe": "Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors",
+      "riasec": "SAC",
+      "vector": {
+        "R": 33.14,
+        "I": 44.86,
+        "A": 55.86,
+        "S": 100.0,
+        "E": 40.71,
+        "C": 48.29
+      }
+    },
+    {
+      "id": "onet_25-3021.00",
+      "titleDe": "Self-Enrichment Teachers",
+      "riasec": "SAE",
+      "vector": {
+        "R": 35.86,
+        "I": 42.43,
+        "A": 59.71,
+        "S": 100.0,
+        "E": 45.71,
+        "C": 44.0
+      }
+    },
+    {
+      "id": "onet_25-9043.00",
+      "titleDe": "Teaching Assistants, Special Education",
+      "riasec": "SCA",
+      "vector": {
+        "R": 28.29,
+        "I": 47.0,
+        "A": 47.71,
+        "S": 100.0,
+        "E": 30.57,
+        "C": 51.0
+      }
+    },
+    {
+      "id": "onet_25-1121.00",
+      "titleDe": "Art, Drama, and Music Teachers, Postsecondary",
+      "riasec": "SAI",
+      "vector": {
+        "R": 43.29,
+        "I": 59.14,
+        "A": 81.86,
+        "S": 99.86,
+        "E": 30.29,
+        "C": 37.29
+      }
+    },
+    {
+      "id": "onet_21-1023.00",
+      "titleDe": "Mental Health and Substance Abuse Social Workers",
+      "riasec": "SIC",
+      "vector": {
+        "R": 24.43,
+        "I": 58.29,
+        "A": 39.71,
+        "S": 99.57,
+        "E": 35.14,
+        "C": 44.57
+      }
+    },
+    {
+      "id": "onet_25-1122.00",
+      "titleDe": "Communications Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 31.14,
+        "I": 66.0,
+        "A": 54.57,
+        "S": 99.29,
+        "E": 44.71,
+        "C": 51.14
+      }
+    },
+    {
+      "id": "onet_25-1125.00",
+      "titleDe": "History Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 40.14,
+        "I": 77.29,
+        "A": 56.43,
+        "S": 99.29,
+        "E": 37.14,
+        "C": 49.29
+      }
+    },
+    {
+      "id": "onet_29-2053.00",
+      "titleDe": "Psychiatric Technicians",
+      "riasec": "SIC",
+      "vector": {
+        "R": 47.0,
+        "I": 65.29,
+        "A": 30.29,
+        "S": 99.0,
+        "E": 20.86,
+        "C": 49.43
+      }
+    },
+    {
+      "id": "onet_21-1022.00",
+      "titleDe": "Healthcare Social Workers",
+      "riasec": "SIC",
+      "vector": {
+        "R": 28.0,
+        "I": 60.57,
+        "A": 33.43,
+        "S": 98.86,
+        "E": 36.43,
+        "C": 43.86
+      }
+    },
+    {
+      "id": "onet_25-1062.00",
+      "titleDe": "Area, Ethnic, and Cultural Studies Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 43.57,
+        "I": 75.86,
+        "A": 54.86,
+        "S": 98.86,
+        "E": 42.86,
+        "C": 43.29
+      }
+    },
+    {
+      "id": "onet_25-1065.00",
+      "titleDe": "Political Science Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 27.86,
+        "I": 78.14,
+        "A": 53.14,
+        "S": 98.14,
+        "E": 46.43,
+        "C": 43.14
+      }
+    },
+    {
+      "id": "onet_21-1021.00",
+      "titleDe": "Child, Family, and School Social Workers",
+      "riasec": "SCI",
+      "vector": {
+        "R": 24.29,
+        "I": 47.43,
+        "A": 41.43,
+        "S": 97.86,
+        "E": 42.0,
+        "C": 51.0
+      }
+    },
+    {
+      "id": "onet_25-1111.00",
+      "titleDe": "Criminal Justice and Law Enforcement Teachers, Postsecondary",
+      "riasec": "SIC",
+      "vector": {
+        "R": 34.29,
+        "I": 69.71,
+        "A": 47.57,
+        "S": 97.86,
+        "E": 48.14,
+        "C": 50.86
+      }
+    },
+    {
+      "id": "onet_29-1125.00",
+      "titleDe": "Recreational Therapists",
+      "riasec": "SIR",
+      "vector": {
+        "R": 52.71,
+        "I": 61.71,
+        "A": 41.0,
+        "S": 97.43,
+        "E": 35.86,
+        "C": 38.14
+      }
+    },
+    {
+      "id": "onet_31-1133.00",
+      "titleDe": "Psychiatric Aides",
+      "riasec": "SIC",
+      "vector": {
+        "R": 49.14,
+        "I": 57.71,
+        "A": 26.14,
+        "S": 97.29,
+        "E": 24.0,
+        "C": 53.43
+      }
+    },
+    {
+      "id": "onet_21-1015.00",
+      "titleDe": "Rehabilitation Counselors",
+      "riasec": "SEI",
+      "vector": {
+        "R": 17.57,
+        "I": 46.71,
+        "A": 42.57,
+        "S": 97.14,
+        "E": 50.86,
+        "C": 46.57
+      }
+    },
+    {
+      "id": "onet_21-1014.00",
+      "titleDe": "Mental Health Counselors",
+      "riasec": "SIC",
+      "vector": {
+        "R": 18.71,
+        "I": 63.14,
+        "A": 43.71,
+        "S": 97.0,
+        "E": 42.29,
+        "C": 49.0
+      }
+    },
+    {
+      "id": "onet_19-3034.00",
       "titleDe": "School Psychologists",
       "riasec": "SIC",
       "vector": {
-        "R": 0.0,
-        "I": 66.7,
-        "A": 38.5,
-        "S": 96.2,
-        "E": 30.3,
-        "C": 50.2
-      },
-      "source": "onet"
+        "R": 14.29,
+        "I": 71.43,
+        "A": 47.29,
+        "S": 96.71,
+        "E": 40.29,
+        "C": 57.29
+      }
     },
     {
-      "id": "onet_41-1012_00",
-      "onetSoc": "41-1012.00",
-      "titleEn": "First-Line Supervisors of Non-Retail Sales Workers",
-      "titleDe": "First-Line Supervisors of Non-Retail Sales Workers",
-      "riasec": "ECS",
+      "id": "onet_25-1031.00",
+      "titleDe": "Architecture Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 49.0,
+        "I": 73.29,
+        "A": 64.0,
+        "S": 96.71,
+        "E": 35.14,
+        "C": 45.71
+      }
+    },
+    {
+      "id": "onet_25-1064.00",
+      "titleDe": "Geography Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 46.29,
+        "I": 80.71,
+        "A": 52.71,
+        "S": 96.57,
+        "E": 37.29,
+        "C": 52.43
+      }
+    },
+    {
+      "id": "onet_25-1061.00",
+      "titleDe": "Anthropology and Archeology Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 49.43,
+        "I": 85.14,
+        "A": 51.0,
+        "S": 96.43,
+        "E": 35.29,
+        "C": 47.0
+      }
+    },
+    {
+      "id": "onet_25-3041.00",
+      "titleDe": "Tutors",
+      "riasec": "SCA",
+      "vector": {
+        "R": 32.57,
+        "I": 40.71,
+        "A": 43.86,
+        "S": 96.43,
+        "E": 24.86,
+        "C": 47.86
+      }
+    },
+    {
+      "id": "onet_25-3031.00",
+      "titleDe": "Substitute Teachers, Short-Term",
+      "riasec": "SCA",
+      "vector": {
+        "R": 31.29,
+        "I": 36.0,
+        "A": 49.0,
+        "S": 96.14,
+        "E": 35.0,
+        "C": 52.14
+      }
+    },
+    {
+      "id": "onet_25-1067.00",
+      "titleDe": "Sociology Teachers, Postsecondary",
+      "riasec": "SIA",
+      "vector": {
+        "R": 36.71,
+        "I": 81.57,
+        "A": 51.14,
+        "S": 95.71,
+        "E": 36.14,
+        "C": 46.71
+      }
+    },
+    {
+      "id": "onet_21-1011.00",
+      "titleDe": "Substance Abuse and Behavioral Disorder Counselors",
+      "riasec": "SIC",
+      "vector": {
+        "R": 22.71,
+        "I": 54.43,
+        "A": 37.0,
+        "S": 95.14,
+        "E": 38.71,
+        "C": 45.14
+      }
+    },
+    {
+      "id": "onet_29-1221.00",
+      "titleDe": "Pediatricians, General",
+      "riasec": "SIR",
+      "vector": {
+        "R": 52.0,
+        "I": 88.29,
+        "A": 26.86,
+        "S": 94.86,
+        "E": 36.29,
+        "C": 51.14
+      }
+    },
+    {
+      "id": "onet_29-2099.08",
+      "titleDe": "Patient Representatives",
+      "riasec": "SIC",
+      "vector": {
+        "R": 18.14,
+        "I": 58.0,
+        "A": 22.71,
+        "S": 94.57,
+        "E": 44.57,
+        "C": 54.71
+      }
+    },
+    {
+      "id": "onet_25-1194.00",
+      "titleDe": "Career/Technical Education Teachers, Postsecondary",
+      "riasec": "SIR",
+      "vector": {
+        "R": 53.57,
+        "I": 59.29,
+        "A": 45.0,
+        "S": 94.43,
+        "E": 30.14,
+        "C": 47.0
+      }
+    },
+    {
+      "id": "onet_21-1094.00",
+      "titleDe": "Community Health Workers",
+      "riasec": "SEI",
+      "vector": {
+        "R": 28.57,
+        "I": 49.86,
+        "A": 31.71,
+        "S": 94.0,
+        "E": 50.43,
+        "C": 48.29
+      }
+    },
+    {
+      "id": "onet_19-3033.00",
+      "titleDe": "Clinical and Counseling Psychologists",
+      "riasec": "SIC",
       "vector": {
         "R": 15.0,
-        "I": 0.5,
-        "A": 0.0,
-        "S": 50.8,
-        "E": 100.0,
-        "C": 72.2
-      },
-      "source": "onet"
+        "I": 79.71,
+        "A": 43.71,
+        "S": 93.86,
+        "E": 37.86,
+        "C": 49.86
+      }
     },
     {
-      "id": "onet_43-1011_00",
-      "onetSoc": "43-1011.00",
-      "titleEn": "First-Line Supervisors of Office and Administrative Support Workers",
-      "titleDe": "First-Line Supervisors of Office / Administrative Support Workers",
+      "id": "onet_11-1021.00",
+      "titleDe": "General and Operations Managers",
       "riasec": "ECS",
       "vector": {
-        "R": 10.2,
-        "I": 5.8,
-        "A": 0.0,
-        "S": 55.5,
-        "E": 99.3,
-        "C": 78.0
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_41-1011_00",
-      "onetSoc": "41-1011.00",
-      "titleEn": "First-Line Supervisors of Retail Sales Workers",
-      "titleDe": "First-Line Supervisors of Retail Sales Workers",
-      "riasec": "ECS",
-      "vector": {
-        "R": 29.2,
-        "I": 2.0,
-        "A": 0.0,
-        "S": 45.7,
+        "R": 31.43,
+        "I": 33.86,
+        "A": 18.43,
+        "S": 48.29,
         "E": 100.0,
-        "C": 75.7
-      },
-      "source": "onet"
+        "C": 76.29
+      }
     },
     {
-      "id": "onet_11-3111_00",
-      "onetSoc": "11-3111.00",
-      "titleEn": "Compensation and Benefits Managers",
-      "titleDe": "Compensation / Benefits Managers",
-      "riasec": "ECS",
-      "vector": {
-        "R": 0.0,
-        "I": 24.0,
-        "A": 8.2,
-        "S": 44.8,
-        "E": 100.0,
-        "C": 76.0
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_13-1121_00",
-      "onetSoc": "13-1121.00",
-      "titleEn": "Meeting, Convention, and Event Planners",
-      "titleDe": "Meeting, Convention, / Event Planners",
-      "riasec": "ECS",
-      "vector": {
-        "R": 0.0,
-        "I": 7.2,
-        "A": 24.0,
-        "S": 58.7,
-        "E": 100.0,
-        "C": 71.2
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_39-1014_00",
-      "onetSoc": "39-1014.00",
-      "titleEn": "First-Line Supervisors of Entertainment and Recreation Workers, Except Gambling Services",
-      "titleDe": "First-Line Supervisors of Entertainment / Recreation Workers",
-      "riasec": "ECS",
-      "vector": {
-        "R": 31.8,
-        "I": 0.3,
-        "A": 13.2,
-        "S": 56.3,
-        "E": 100.0,
-        "C": 62.2
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_11-2011_00",
-      "onetSoc": "11-2011.00",
-      "titleEn": "Advertising and Promotions Managers",
-      "titleDe": "Advertising / Promotions Managers",
+      "id": "onet_11-2011.00",
+      "titleDe": "Advertising and Promotions Managers",
       "riasec": "ECA",
       "vector": {
-        "R": 1.2,
-        "I": 11.8,
-        "A": 47.5,
-        "S": 35.7,
+        "R": 14.29,
+        "I": 24.14,
+        "A": 55.29,
+        "S": 44.86,
         "E": 100.0,
-        "C": 55.0
-      },
-      "source": "onet"
+        "C": 63.29
+      }
     },
     {
-      "id": "onet_33-1012_00",
-      "onetSoc": "33-1012.00",
-      "titleEn": "First-Line Supervisors of Police and Detectives",
-      "titleDe": "First-Line Supervisors of Police / Detectives",
+      "id": "onet_11-2021.00",
+      "titleDe": "Marketing Managers",
+      "riasec": "ECI",
+      "vector": {
+        "R": 14.29,
+        "I": 41.43,
+        "A": 35.0,
+        "S": 40.29,
+        "E": 100.0,
+        "C": 67.14
+      }
+    },
+    {
+      "id": "onet_11-2022.00",
+      "titleDe": "Sales Managers",
       "riasec": "ECS",
       "vector": {
-        "R": 38.5,
-        "I": 21.7,
-        "A": 1.7,
-        "S": 47.8,
+        "R": 21.29,
+        "I": 23.86,
+        "A": 19.43,
+        "S": 48.14,
         "E": 100.0,
-        "C": 69.5
-      },
-      "source": "onet"
+        "C": 79.0
+      }
     },
     {
-      "id": "onet_11-2033_00",
-      "onetSoc": "11-2033.00",
-      "titleEn": "Fundraising Managers",
-      "titleDe": "Fundraising Managers",
-      "riasec": "ECS",
-      "vector": {
-        "R": 0.0,
-        "I": 23.5,
-        "A": 27.8,
-        "S": 45.8,
-        "E": 100.0,
-        "C": 62.0
-      },
-      "source": "onet"
-    },
-    {
-      "id": "onet_11-2032_00",
-      "onetSoc": "11-2032.00",
-      "titleEn": "Public Relations Managers",
+      "id": "onet_11-2032.00",
       "titleDe": "Public Relations Managers",
       "riasec": "ECS",
       "vector": {
-        "R": 0.0,
-        "I": 22.5,
-        "A": 44.7,
-        "S": 52.3,
+        "R": 14.29,
+        "I": 33.43,
+        "A": 52.43,
+        "S": 59.71,
         "E": 100.0,
-        "C": 56.5
-      },
-      "source": "onet"
+        "C": 62.71
+      }
     },
     {
-      "id": "onet_43-9111_00",
-      "onetSoc": "43-9111.00",
-      "titleEn": "Statistical Assistants",
-      "titleDe": "Statistical Assistants",
-      "riasec": "CIR",
+      "id": "onet_11-2033.00",
+      "titleDe": "Fundraising Managers",
+      "riasec": "ECS",
       "vector": {
-        "R": 25.5,
-        "I": 58.8,
-        "A": 0.0,
-        "S": 6.0,
-        "E": 12.0,
-        "C": 100.0
-      },
-      "source": "onet"
+        "R": 14.29,
+        "I": 34.43,
+        "A": 37.29,
+        "S": 53.71,
+        "E": 100.0,
+        "C": 68.86
+      }
     },
     {
-      "id": "onet_43-3011_00",
-      "onetSoc": "43-3011.00",
-      "titleEn": "Bill and Account Collectors",
-      "titleDe": "Bill / Account Collectors",
-      "riasec": "CES",
+      "id": "onet_11-3031.00",
+      "titleDe": "Financial Managers",
+      "riasec": "ECS",
       "vector": {
-        "R": 17.3,
-        "I": 0.0,
-        "A": 0.0,
-        "S": 37.3,
-        "E": 56.3,
-        "C": 100.0
-      },
-      "source": "onet"
+        "R": 19.43,
+        "I": 35.14,
+        "A": 22.71,
+        "S": 43.43,
+        "E": 100.0,
+        "C": 79.43
+      }
     },
     {
-      "id": "onet_43-4151_00",
-      "onetSoc": "43-4151.00",
-      "titleEn": "Order Clerks",
-      "titleDe": "Order Clerks",
-      "riasec": "CER",
+      "id": "onet_11-3061.00",
+      "titleDe": "Purchasing Managers",
+      "riasec": "ECS",
       "vector": {
-        "R": 25.2,
-        "I": 0.0,
-        "A": 0.0,
-        "S": 25.2,
-        "E": 58.8,
-        "C": 100.0
-      },
-      "source": "onet"
+        "R": 35.57,
+        "I": 25.29,
+        "A": 17.14,
+        "S": 38.57,
+        "E": 100.0,
+        "C": 85.43
+      }
     },
     {
-      "id": "onet_43-4141_00",
-      "onetSoc": "43-4141.00",
-      "titleEn": "New Accounts Clerks",
-      "titleDe": "New Accounts Clerks",
-      "riasec": "CES",
+      "id": "onet_11-3111.00",
+      "titleDe": "Compensation and Benefits Managers",
+      "riasec": "ECS",
       "vector": {
-        "R": 9.0,
-        "I": 12.7,
-        "A": 0.0,
-        "S": 42.5,
-        "E": 61.0,
-        "C": 100.0
-      },
-      "source": "onet"
+        "R": 14.29,
+        "I": 31.14,
+        "A": 20.14,
+        "S": 54.43,
+        "E": 100.0,
+        "C": 80.86
+      }
     },
     {
-      "id": "onet_43-4011_00",
-      "onetSoc": "43-4011.00",
-      "titleEn": "Brokerage Clerks",
-      "titleDe": "Brokerage Clerks",
-      "riasec": "CES",
+      "id": "onet_11-3121.00",
+      "titleDe": "Human Resources Managers",
+      "riasec": "ECS",
       "vector": {
         "R": 18.0,
-        "I": 4.3,
-        "A": 0.0,
-        "S": 22.0,
-        "E": 58.5,
-        "C": 99.5
-      },
-      "source": "onet"
+        "I": 33.0,
+        "A": 21.43,
+        "S": 55.43,
+        "E": 100.0,
+        "C": 79.14
+      }
     },
     {
-      "id": "onet_43-3061_00",
-      "onetSoc": "43-3061.00",
-      "titleEn": "Procurement Clerks",
+      "id": "onet_11-9179.02",
+      "titleDe": "Spa Managers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 35.71,
+        "I": 18.71,
+        "A": 26.29,
+        "S": 59.86,
+        "E": 100.0,
+        "C": 70.14
+      }
+    },
+    {
+      "id": "onet_13-1121.00",
+      "titleDe": "Meeting, Convention, and Event Planners",
+      "riasec": "ECS",
+      "vector": {
+        "R": 14.29,
+        "I": 22.29,
+        "A": 35.57,
+        "S": 65.14,
+        "E": 100.0,
+        "C": 70.86
+      }
+    },
+    {
+      "id": "onet_39-1014.00",
+      "titleDe": "First-Line Supervisors of Entertainment and Recreation Workers, Except Gambling Services",
+      "riasec": "ECS",
+      "vector": {
+        "R": 41.43,
+        "I": 14.71,
+        "A": 25.57,
+        "S": 62.86,
+        "E": 100.0,
+        "C": 67.43
+      }
+    },
+    {
+      "id": "onet_41-1011.00",
+      "titleDe": "First-Line Supervisors of Retail Sales Workers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 39.29,
+        "I": 16.29,
+        "A": 14.29,
+        "S": 52.0,
+        "E": 100.0,
+        "C": 80.14
+      }
+    },
+    {
+      "id": "onet_41-1012.00",
+      "titleDe": "First-Line Supervisors of Non-Retail Sales Workers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 24.86,
+        "I": 15.86,
+        "A": 14.29,
+        "S": 58.29,
+        "E": 100.0,
+        "C": 75.86
+      }
+    },
+    {
+      "id": "onet_11-9151.00",
+      "titleDe": "Social and Community Service Managers",
+      "riasec": "ESC",
+      "vector": {
+        "R": 14.29,
+        "I": 31.0,
+        "A": 34.71,
+        "S": 77.57,
+        "E": 99.57,
+        "C": 60.14
+      }
+    },
+    {
+      "id": "onet_11-1011.00",
+      "titleDe": "Chief Executives",
+      "riasec": "ECS",
+      "vector": {
+        "R": 18.0,
+        "I": 43.57,
+        "A": 30.86,
+        "S": 50.57,
+        "E": 99.43,
+        "C": 71.0
+      }
+    },
+    {
+      "id": "onet_11-3031.03",
+      "titleDe": "Investment Fund Managers",
+      "riasec": "ECI",
+      "vector": {
+        "R": 21.14,
+        "I": 53.86,
+        "A": 23.57,
+        "S": 38.43,
+        "E": 99.29,
+        "C": 74.43
+      }
+    },
+    {
+      "id": "onet_43-1011.00",
+      "titleDe": "First-Line Supervisors of Office and Administrative Support Workers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 22.57,
+        "I": 19.71,
+        "A": 14.29,
+        "S": 61.86,
+        "E": 98.57,
+        "C": 81.43
+      }
+    },
+    {
+      "id": "onet_33-1012.00",
+      "titleDe": "First-Line Supervisors of Police and Detectives",
+      "riasec": "ECS",
+      "vector": {
+        "R": 49.29,
+        "I": 33.43,
+        "A": 14.43,
+        "S": 54.0,
+        "E": 98.29,
+        "C": 72.71
+      }
+    },
+    {
+      "id": "onet_39-1022.00",
+      "titleDe": "First-Line Supervisors of Personal Service Workers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 48.14,
+        "I": 15.71,
+        "A": 15.57,
+        "S": 56.86,
+        "E": 97.86,
+        "C": 73.0
+      }
+    },
+    {
+      "id": "onet_11-9071.00",
+      "titleDe": "Gambling Managers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 40.0,
+        "I": 19.29,
+        "A": 15.57,
+        "S": 40.86,
+        "E": 96.29,
+        "C": 78.0
+      }
+    },
+    {
+      "id": "onet_41-3091.00",
+      "titleDe": "Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel",
+      "riasec": "ECS",
+      "vector": {
+        "R": 15.29,
+        "I": 27.71,
+        "A": 20.71,
+        "S": 53.57,
+        "E": 96.14,
+        "C": 72.43
+      }
+    },
+    {
+      "id": "onet_11-9199.10",
+      "titleDe": "Wind Energy Development Managers",
+      "riasec": "ECI",
+      "vector": {
+        "R": 49.14,
+        "I": 55.14,
+        "A": 23.71,
+        "S": 34.0,
+        "E": 95.86,
+        "C": 68.86
+      }
+    },
+    {
+      "id": "onet_11-1011.03",
+      "titleDe": "Chief Sustainability Officers",
+      "riasec": "EIC",
+      "vector": {
+        "R": 29.14,
+        "I": 68.29,
+        "A": 35.43,
+        "S": 50.71,
+        "E": 95.43,
+        "C": 64.14
+      }
+    },
+    {
+      "id": "onet_11-9141.00",
+      "titleDe": "Property, Real Estate, and Community Association Managers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 46.86,
+        "I": 30.14,
+        "A": 24.14,
+        "S": 50.43,
+        "E": 95.29,
+        "C": 75.14
+      }
+    },
+    {
+      "id": "onet_41-3011.00",
+      "titleDe": "Advertising Sales Agents",
+      "riasec": "ECA",
+      "vector": {
+        "R": 16.86,
+        "I": 21.71,
+        "A": 52.0,
+        "S": 42.29,
+        "E": 95.0,
+        "C": 62.0
+      }
+    },
+    {
+      "id": "onet_11-9199.01",
+      "titleDe": "Regulatory Affairs Managers",
+      "riasec": "ECI",
+      "vector": {
+        "R": 27.57,
+        "I": 42.71,
+        "A": 19.14,
+        "S": 37.86,
+        "E": 93.57,
+        "C": 81.0
+      }
+    },
+    {
+      "id": "onet_27-2012.03",
+      "titleDe": "Media Programming Directors",
+      "riasec": "ECA",
+      "vector": {
+        "R": 20.43,
+        "I": 32.14,
+        "A": 58.43,
+        "S": 52.57,
+        "E": 93.57,
+        "C": 66.14
+      }
+    },
+    {
+      "id": "onet_53-1044.00",
+      "titleDe": "First-Line Supervisors of Passenger Attendants",
+      "riasec": "ECS",
+      "vector": {
+        "R": 37.14,
+        "I": 15.0,
+        "A": 14.29,
+        "S": 58.29,
+        "E": 93.14,
+        "C": 74.71
+      }
+    },
+    {
+      "id": "onet_13-1011.00",
+      "titleDe": "Agents and Business Managers of Artists, Performers, and Athletes",
+      "riasec": "ESC",
+      "vector": {
+        "R": 14.29,
+        "I": 25.14,
+        "A": 50.71,
+        "S": 59.14,
+        "E": 92.57,
+        "C": 53.29
+      }
+    },
+    {
+      "id": "onet_41-9021.00",
+      "titleDe": "Real Estate Brokers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 38.71,
+        "I": 21.71,
+        "A": 14.29,
+        "S": 41.43,
+        "E": 92.57,
+        "C": 82.29
+      }
+    },
+    {
+      "id": "onet_11-3012.00",
+      "titleDe": "Administrative Services Managers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 20.29,
+        "I": 30.29,
+        "A": 15.86,
+        "S": 53.43,
+        "E": 92.43,
+        "C": 89.57
+      }
+    },
+    {
+      "id": "onet_11-9199.09",
+      "titleDe": "Wind Energy Operations Managers",
+      "riasec": "ECR",
+      "vector": {
+        "R": 59.43,
+        "I": 43.43,
+        "A": 14.29,
+        "S": 33.43,
+        "E": 92.43,
+        "C": 74.86
+      }
+    },
+    {
+      "id": "onet_41-9022.00",
+      "titleDe": "Real Estate Sales Agents",
+      "riasec": "ECS",
+      "vector": {
+        "R": 30.29,
+        "I": 21.0,
+        "A": 27.43,
+        "S": 50.29,
+        "E": 92.29,
+        "C": 70.57
+      }
+    },
+    {
+      "id": "onet_11-9041.00",
+      "titleDe": "Architectural and Engineering Managers",
+      "riasec": "EIC",
+      "vector": {
+        "R": 42.71,
+        "I": 65.14,
+        "A": 37.71,
+        "S": 42.14,
+        "E": 91.43,
+        "C": 63.29
+      }
+    },
+    {
+      "id": "onet_11-9171.00",
+      "titleDe": "Funeral Home Managers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 40.14,
+        "I": 33.14,
+        "A": 27.0,
+        "S": 62.14,
+        "E": 91.14,
+        "C": 65.14
+      }
+    },
+    {
+      "id": "onet_35-1012.00",
+      "titleDe": "First-Line Supervisors of Food Preparation and Serving Workers",
+      "riasec": "ECR",
+      "vector": {
+        "R": 65.71,
+        "I": 19.71,
+        "A": 17.86,
+        "S": 48.14,
+        "E": 90.86,
+        "C": 67.43
+      }
+    },
+    {
+      "id": "onet_11-3131.00",
+      "titleDe": "Training and Development Managers",
+      "riasec": "ESC",
+      "vector": {
+        "R": 27.14,
+        "I": 43.43,
+        "A": 36.71,
+        "S": 79.14,
+        "E": 90.71,
+        "C": 57.71
+      }
+    },
+    {
+      "id": "onet_33-1011.00",
+      "titleDe": "First-Line Supervisors of Correctional Officers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 51.14,
+        "I": 25.71,
+        "A": 14.29,
+        "S": 64.86,
+        "E": 90.29,
+        "C": 72.29
+      }
+    },
+    {
+      "id": "onet_13-1082.00",
+      "titleDe": "Project Management Specialists",
+      "riasec": "ECS",
+      "vector": {
+        "R": 21.14,
+        "I": 39.29,
+        "A": 22.43,
+        "S": 47.43,
+        "E": 90.0,
+        "C": 79.29
+      }
+    },
+    {
+      "id": "onet_51-1011.00",
+      "titleDe": "First-Line Supervisors of Production and Operating Workers",
+      "riasec": "ECR",
+      "vector": {
+        "R": 61.43,
+        "I": 22.57,
+        "A": 14.29,
+        "S": 41.0,
+        "E": 90.0,
+        "C": 72.14
+      }
+    },
+    {
+      "id": "onet_11-9072.00",
+      "titleDe": "Entertainment and Recreation Managers, Except Gambling",
+      "riasec": "ECS",
+      "vector": {
+        "R": 47.86,
+        "I": 28.0,
+        "A": 28.29,
+        "S": 56.14,
+        "E": 89.29,
+        "C": 72.0
+      }
+    },
+    {
+      "id": "onet_11-3071.04",
+      "titleDe": "Supply Chain Managers",
+      "riasec": "ECR",
+      "vector": {
+        "R": 48.43,
+        "I": 35.14,
+        "A": 14.29,
+        "S": 29.14,
+        "E": 89.14,
+        "C": 75.0
+      }
+    },
+    {
+      "id": "onet_11-9081.00",
+      "titleDe": "Lodging Managers",
+      "riasec": "ECS",
+      "vector": {
+        "R": 38.43,
+        "I": 15.71,
+        "A": 20.43,
+        "S": 61.57,
+        "E": 88.71,
+        "C": 74.57
+      }
+    },
+    {
+      "id": "onet_53-1042.00",
+      "titleDe": "First-Line Supervisors of Helpers, Laborers, and Material Movers, Hand",
+      "riasec": "ECS",
+      "vector": {
+        "R": 48.29,
+        "I": 16.14,
+        "A": 15.86,
+        "S": 53.29,
+        "E": 88.0,
+        "C": 69.71
+      }
+    },
+    {
+      "id": "onet_33-1021.00",
+      "titleDe": "First-Line Supervisors of Firefighting and Prevention Workers",
+      "riasec": "ERC",
+      "vector": {
+        "R": 73.43,
+        "I": 32.29,
+        "A": 14.29,
+        "S": 53.14,
+        "E": 87.86,
+        "C": 66.57
+      }
+    },
+    {
+      "id": "onet_41-2031.00",
+      "titleDe": "Retail Salespersons",
+      "riasec": "ECR",
+      "vector": {
+        "R": 45.71,
+        "I": 14.29,
+        "A": 28.29,
+        "S": 42.29,
+        "E": 87.57,
+        "C": 73.86
+      }
+    },
+    {
+      "id": "onet_41-4012.00",
+      "titleDe": "Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products",
+      "riasec": "ECS",
+      "vector": {
+        "R": 37.57,
+        "I": 32.0,
+        "A": 23.57,
+        "S": 38.43,
+        "E": 87.43,
+        "C": 70.29
+      }
+    },
+    {
+      "id": "onet_37-1012.00",
+      "titleDe": "First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers",
+      "riasec": "ECR",
+      "vector": {
+        "R": 65.0,
+        "I": 25.29,
+        "A": 14.71,
+        "S": 43.0,
+        "E": 87.29,
+        "C": 74.86
+      }
+    },
+    {
+      "id": "onet_41-3031.00",
+      "titleDe": "Securities, Commodities, and Financial Services Sales Agents",
+      "riasec": "ECS",
+      "vector": {
+        "R": 18.0,
+        "I": 36.14,
+        "A": 18.43,
+        "S": 43.86,
+        "E": 86.86,
+        "C": 75.29
+      }
+    },
+    {
+      "id": "onet_11-3051.00",
+      "titleDe": "Industrial Production Managers",
+      "riasec": "ECR",
+      "vector": {
+        "R": 57.14,
+        "I": 41.71,
+        "A": 20.0,
+        "S": 26.43,
+        "E": 86.14,
+        "C": 74.43
+      }
+    },
+    {
+      "id": "onet_13-1131.00",
+      "titleDe": "Fundraisers",
+      "riasec": "ESC",
+      "vector": {
+        "R": 14.29,
+        "I": 28.86,
+        "A": 46.0,
+        "S": 60.43,
+        "E": 86.14,
+        "C": 58.14
+      }
+    },
+    {
+      "id": "onet_45-1011.00",
+      "titleDe": "First-Line Supervisors of Farming, Fishing, and Forestry Workers",
+      "riasec": "ERC",
+      "vector": {
+        "R": 79.0,
+        "I": 31.86,
+        "A": 14.29,
+        "S": 41.29,
+        "E": 85.86,
+        "C": 66.57
+      }
+    },
+    {
+      "id": "onet_11-9131.00",
+      "titleDe": "Postmasters and Mail Superintendents",
+      "riasec": "ECS",
+      "vector": {
+        "R": 30.57,
+        "I": 18.57,
+        "A": 16.71,
+        "S": 47.86,
+        "E": 85.71,
+        "C": 81.29
+      }
+    },
+    {
+      "id": "onet_13-2011.00",
+      "titleDe": "Accountants and Auditors",
+      "riasec": "CEI",
+      "vector": {
+        "R": 16.29,
+        "I": 51.0,
+        "A": 15.43,
+        "S": 30.43,
+        "E": 55.29,
+        "C": 100.0
+      }
+    },
+    {
+      "id": "onet_13-2031.00",
+      "titleDe": "Budget Analysts",
+      "riasec": "CEI",
+      "vector": {
+        "R": 14.29,
+        "I": 53.14,
+        "A": 22.57,
+        "S": 32.14,
+        "E": 70.14,
+        "C": 100.0
+      }
+    },
+    {
+      "id": "onet_29-2052.00",
+      "titleDe": "Pharmacy Technicians",
+      "riasec": "CRS",
+      "vector": {
+        "R": 60.14,
+        "I": 42.71,
+        "A": 14.29,
+        "S": 47.43,
+        "E": 36.0,
+        "C": 100.0
+      }
+    },
+    {
+      "id": "onet_43-3011.00",
+      "titleDe": "Bill and Account Collectors",
+      "riasec": "CES",
+      "vector": {
+        "R": 29.71,
+        "I": 14.29,
+        "A": 14.29,
+        "S": 46.57,
+        "E": 62.29,
+        "C": 100.0
+      }
+    },
+    {
+      "id": "onet_43-3021.00",
+      "titleDe": "Billing and Posting Clerks",
+      "riasec": "CRE",
+      "vector": {
+        "R": 40.43,
+        "I": 22.71,
+        "A": 14.29,
+        "S": 21.0,
+        "E": 39.43,
+        "C": 100.0
+      }
+    },
+    {
+      "id": "onet_43-3031.00",
+      "titleDe": "Bookkeeping, Accounting, and Auditing Clerks",
+      "riasec": "CEI",
+      "vector": {
+        "R": 23.29,
+        "I": 31.14,
+        "A": 14.29,
+        "S": 21.29,
+        "E": 41.0,
+        "C": 100.0
+      }
+    },
+    {
+      "id": "onet_43-3051.00",
+      "titleDe": "Payroll and Timekeeping Clerks",
+      "riasec": "CES",
+      "vector": {
+        "R": 26.43,
+        "I": 15.0,
+        "A": 14.29,
+        "S": 27.29,
+        "E": 47.43,
+        "C": 100.0
+      }
+    },
+    {
+      "id": "onet_43-3061.00",
       "titleDe": "Procurement Clerks",
       "riasec": "CER",
       "vector": {
-        "R": 33.5,
-        "I": 10.5,
-        "A": 0.0,
-        "S": 11.0,
-        "E": 55.2,
+        "R": 45.29,
+        "I": 24.43,
+        "A": 14.29,
+        "S": 23.29,
+        "E": 59.0,
         "C": 100.0
-      },
-      "source": "onet"
+      }
     },
     {
-      "id": "onet_43-4131_00",
-      "onetSoc": "43-4131.00",
-      "titleEn": "Loan Interviewers and Clerks",
-      "titleDe": "Loan Interviewers / Clerks",
+      "id": "onet_43-4041.00",
+      "titleDe": "Credit Authorizers, Checkers, and Clerks",
       "riasec": "CES",
       "vector": {
-        "R": 0.0,
-        "I": 19.3,
-        "A": 0.0,
-        "S": 40.0,
-        "E": 60.2,
-        "C": 98.8
-      },
-      "source": "onet"
+        "R": 14.29,
+        "I": 26.71,
+        "A": 14.29,
+        "S": 48.43,
+        "E": 64.0,
+        "C": 100.0
+      }
     },
     {
-      "id": "onet_43-9041_00",
-      "onetSoc": "43-9041.00",
-      "titleEn": "Insurance Claims and Policy Processing Clerks",
-      "titleDe": "Insurance Claims / Policy Processing Clerks",
+      "id": "onet_43-4071.00",
+      "titleDe": "File Clerks",
+      "riasec": "CRS",
+      "vector": {
+        "R": 34.43,
+        "I": 18.29,
+        "A": 14.43,
+        "S": 29.29,
+        "E": 25.14,
+        "C": 100.0
+      }
+    },
+    {
+      "id": "onet_43-4161.00",
+      "titleDe": "Human Resources Assistants, Except Payroll and Timekeeping",
       "riasec": "CES",
       "vector": {
-        "R": 2.7,
-        "I": 23.7,
-        "A": 0.0,
-        "S": 26.3,
-        "E": 47.5,
+        "R": 20.43,
+        "I": 19.29,
+        "A": 14.29,
+        "S": 46.29,
+        "E": 55.86,
         "C": 100.0
-      },
-      "source": "onet"
+      }
     },
     {
-      "id": "onet_43-4041_00",
-      "onetSoc": "43-4041.00",
-      "titleEn": "Credit Authorizers, Checkers, and Clerks",
-      "titleDe": "Credit Authorizers, Checkers, / Clerks",
-      "riasec": "CES",
+      "id": "onet_43-5071.00",
+      "titleDe": "Shipping, Receiving, and Inventory Clerks",
+      "riasec": "CRE",
       "vector": {
-        "R": 0.0,
-        "I": 14.2,
-        "A": 0.0,
-        "S": 39.8,
-        "E": 57.8,
+        "R": 56.86,
+        "I": 17.71,
+        "A": 14.29,
+        "S": 19.57,
+        "E": 44.43,
         "C": 100.0
-      },
-      "source": "onet"
+      }
     },
     {
-      "id": "onet_43-9021_00",
-      "onetSoc": "43-9021.00",
-      "titleEn": "Data Entry Keyers",
+      "id": "onet_43-9021.00",
       "titleDe": "Data Entry Keyers",
       "riasec": "CRI",
       "vector": {
-        "R": 32.0,
-        "I": 22.3,
-        "A": 0.0,
-        "S": 3.8,
-        "E": 13.3,
+        "R": 43.57,
+        "I": 33.0,
+        "A": 14.29,
+        "S": 17.0,
+        "E": 23.86,
         "C": 100.0
-      },
-      "source": "onet"
+      }
     },
     {
-      "id": "onet_35-9021_00",
-      "onetSoc": "35-9021.00",
-      "titleEn": "Dishwashers",
-      "titleDe": "Dishwashers",
-      "riasec": "RCS",
+      "id": "onet_43-9041.00",
+      "titleDe": "Insurance Claims and Policy Processing Clerks",
+      "riasec": "CES",
       "vector": {
-        "R": 99.7,
-        "I": 0.0,
-        "A": 0.0,
-        "S": 14.0,
-        "E": 7.0,
-        "C": 57.5
-      },
-      "source": "onet"
+        "R": 17.71,
+        "I": 34.71,
+        "A": 14.29,
+        "S": 36.57,
+        "E": 55.14,
+        "C": 100.0
+      }
     },
     {
-      "id": "onet_29-1224_00",
-      "onetSoc": "29-1224.00",
-      "titleEn": "Radiologists",
-      "titleDe": "Radiologists",
-      "riasec": "ICR",
+      "id": "onet_43-9111.00",
+      "titleDe": "Statistical Assistants",
+      "riasec": "CIR",
       "vector": {
-        "R": 62.7,
-        "I": 93.3,
-        "A": 3.2,
-        "S": 48.5,
-        "E": 19.0,
-        "C": 63.3
-      },
-      "source": "onet"
+        "R": 33.86,
+        "I": 64.0,
+        "A": 14.29,
+        "S": 20.0,
+        "E": 24.86,
+        "C": 100.0
+      }
     },
     {
-      "id": "onet_27-1021_00",
-      "onetSoc": "27-1021.00",
-      "titleEn": "Commercial and Industrial Designers",
-      "titleDe": "Commercial / Industrial Designers",
-      "riasec": "ARI",
+      "id": "onet_43-4151.00",
+      "titleDe": "Order Clerks",
+      "riasec": "CER",
       "vector": {
-        "R": 60.7,
-        "I": 50.8,
-        "A": 75.8,
-        "S": 14.0,
-        "E": 44.8,
-        "C": 41.3
-      },
-      "source": "onet"
+        "R": 36.71,
+        "I": 14.29,
+        "A": 14.29,
+        "S": 36.0,
+        "E": 64.86,
+        "C": 99.57
+      }
+    },
+    {
+      "id": "onet_43-4011.00",
+      "titleDe": "Brokerage Clerks",
+      "riasec": "CES",
+      "vector": {
+        "R": 30.0,
+        "I": 18.14,
+        "A": 14.29,
+        "S": 33.14,
+        "E": 64.43,
+        "C": 99.43
+      }
+    },
+    {
+      "id": "onet_29-2072.00",
+      "titleDe": "Medical Records Specialists",
+      "riasec": "CIS",
+      "vector": {
+        "R": 40.86,
+        "I": 61.86,
+        "A": 14.29,
+        "S": 48.71,
+        "E": 26.86,
+        "C": 99.29
+      }
+    },
+    {
+      "id": "onet_43-6014.00",
+      "titleDe": "Secretaries and Administrative Assistants, Except Legal, Medical, and Executive",
+      "riasec": "CES",
+      "vector": {
+        "R": 28.29,
+        "I": 19.57,
+        "A": 14.29,
+        "S": 51.57,
+        "E": 59.71,
+        "C": 99.29
+      }
+    },
+    {
+      "id": "onet_43-4131.00",
+      "titleDe": "Loan Interviewers and Clerks",
+      "riasec": "CES",
+      "vector": {
+        "R": 14.29,
+        "I": 31.14,
+        "A": 14.29,
+        "S": 48.57,
+        "E": 65.86,
+        "C": 98.86
+      }
+    },
+    {
+      "id": "onet_43-4121.00",
+      "titleDe": "Library Assistants, Clerical",
+      "riasec": "CSR",
+      "vector": {
+        "R": 41.57,
+        "I": 28.57,
+        "A": 18.43,
+        "S": 53.86,
+        "E": 31.14,
+        "C": 98.43
+      }
+    },
+    {
+      "id": "onet_43-3071.00",
+      "titleDe": "Tellers",
+      "riasec": "CES",
+      "vector": {
+        "R": 32.43,
+        "I": 20.29,
+        "A": 14.29,
+        "S": 34.86,
+        "E": 59.86,
+        "C": 98.29
+      }
+    },
+    {
+      "id": "onet_43-4021.00",
+      "titleDe": "Correspondence Clerks",
+      "riasec": "CES",
+      "vector": {
+        "R": 18.86,
+        "I": 36.0,
+        "A": 22.43,
+        "S": 38.57,
+        "E": 49.0,
+        "C": 98.0
+      }
+    },
+    {
+      "id": "onet_43-4141.00",
+      "titleDe": "New Accounts Clerks",
+      "riasec": "CES",
+      "vector": {
+        "R": 19.57,
+        "I": 27.29,
+        "A": 14.29,
+        "S": 52.29,
+        "E": 66.43,
+        "C": 98.0
+      }
+    },
+    {
+      "id": "onet_13-2041.00",
+      "titleDe": "Credit Analysts",
+      "riasec": "CEI",
+      "vector": {
+        "R": 14.29,
+        "I": 54.14,
+        "A": 14.29,
+        "S": 34.43,
+        "E": 65.0,
+        "C": 97.86
+      }
+    },
+    {
+      "id": "onet_13-2081.00",
+      "titleDe": "Tax Examiners and Collectors, and Revenue Agents",
+      "riasec": "CES",
+      "vector": {
+        "R": 17.29,
+        "I": 35.29,
+        "A": 14.29,
+        "S": 45.0,
+        "E": 62.57,
+        "C": 97.86
+      }
+    },
+    {
+      "id": "onet_43-9061.00",
+      "titleDe": "Office Clerks, General",
+      "riasec": "CES",
+      "vector": {
+        "R": 41.71,
+        "I": 26.43,
+        "A": 14.29,
+        "S": 43.71,
+        "E": 45.71,
+        "C": 97.71
+      }
+    },
+    {
+      "id": "onet_13-1081.02",
+      "titleDe": "Logistics Analysts",
+      "riasec": "CEI",
+      "vector": {
+        "R": 41.14,
+        "I": 57.71,
+        "A": 14.29,
+        "S": 21.71,
+        "E": 63.86,
+        "C": 97.0
+      }
+    },
+    {
+      "id": "onet_13-2082.00",
+      "titleDe": "Tax Preparers",
+      "riasec": "CEI",
+      "vector": {
+        "R": 31.0,
+        "I": 34.0,
+        "A": 14.29,
+        "S": 32.29,
+        "E": 48.29,
+        "C": 97.0
+      }
+    },
+    {
+      "id": "onet_31-9095.00",
+      "titleDe": "Pharmacy Aides",
+      "riasec": "CER",
+      "vector": {
+        "R": 53.57,
+        "I": 22.43,
+        "A": 14.29,
+        "S": 44.43,
+        "E": 54.86,
+        "C": 97.0
+      }
+    },
+    {
+      "id": "onet_15-1299.03",
+      "titleDe": "Document Management Specialists",
+      "riasec": "CIE",
+      "vector": {
+        "R": 25.0,
+        "I": 55.57,
+        "A": 25.86,
+        "S": 32.71,
+        "E": 41.86,
+        "C": 96.29
+      }
+    },
+    {
+      "id": "onet_23-2093.00",
+      "titleDe": "Title Examiners, Abstractors, and Searchers",
+      "riasec": "CEI",
+      "vector": {
+        "R": 34.86,
+        "I": 37.57,
+        "A": 15.86,
+        "S": 33.43,
+        "E": 49.14,
+        "C": 96.29
+      }
+    },
+    {
+      "id": "onet_43-6012.00",
+      "titleDe": "Legal Secretaries and Administrative Assistants",
+      "riasec": "CES",
+      "vector": {
+        "R": 20.14,
+        "I": 41.57,
+        "A": 22.14,
+        "S": 45.29,
+        "E": 63.14,
+        "C": 95.57
+      }
+    },
+    {
+      "id": "onet_43-6013.00",
+      "titleDe": "Medical Secretaries and Administrative Assistants",
+      "riasec": "CSE",
+      "vector": {
+        "R": 32.71,
+        "I": 43.14,
+        "A": 14.29,
+        "S": 59.0,
+        "E": 45.29,
+        "C": 95.29
+      }
+    },
+    {
+      "id": "onet_15-1242.00",
+      "titleDe": "Database Administrators",
+      "riasec": "CIE",
+      "vector": {
+        "R": 40.43,
+        "I": 69.0,
+        "A": 17.14,
+        "S": 32.71,
+        "E": 42.0,
+        "C": 94.43
+      }
+    },
+    {
+      "id": "onet_43-9022.00",
+      "titleDe": "Word Processors and Typists",
+      "riasec": "CRA",
+      "vector": {
+        "R": 41.0,
+        "I": 27.71,
+        "A": 32.29,
+        "S": 31.86,
+        "E": 26.57,
+        "C": 94.14
+      }
+    },
+    {
+      "id": "onet_15-2051.02",
+      "titleDe": "Clinical Data Managers",
+      "riasec": "CIE",
+      "vector": {
+        "R": 17.86,
+        "I": 80.86,
+        "A": 18.14,
+        "S": 40.29,
+        "E": 47.14,
+        "C": 94.0
+      }
+    },
+    {
+      "id": "onet_43-5041.00",
+      "titleDe": "Meter Readers, Utilities",
+      "riasec": "CRI",
+      "vector": {
+        "R": 70.14,
+        "I": 36.14,
+        "A": 14.29,
+        "S": 30.71,
+        "E": 18.29,
+        "C": 94.0
+      }
+    },
+    {
+      "id": "onet_43-9071.00",
+      "titleDe": "Office Machine Operators, Except Computer",
+      "riasec": "CRI",
+      "vector": {
+        "R": 65.0,
+        "I": 30.43,
+        "A": 16.57,
+        "S": 24.0,
+        "E": 29.43,
+        "C": 93.86
+      }
+    },
+    {
+      "id": "onet_43-5051.00",
+      "titleDe": "Postal Service Clerks",
+      "riasec": "CRE",
+      "vector": {
+        "R": 45.86,
+        "I": 14.29,
+        "A": 14.29,
+        "S": 36.71,
+        "E": 38.71,
+        "C": 93.57
+      }
+    },
+    {
+      "id": "onet_25-4031.00",
+      "titleDe": "Library Technicians",
+      "riasec": "CSR",
+      "vector": {
+        "R": 44.0,
+        "I": 38.57,
+        "A": 22.71,
+        "S": 58.14,
+        "E": 26.86,
+        "C": 93.14
+      }
+    },
+    {
+      "id": "onet_43-9051.00",
+      "titleDe": "Mail Clerks and Mail Machine Operators, Except Postal Service",
+      "riasec": "CRE",
+      "vector": {
+        "R": 57.29,
+        "I": 14.29,
+        "A": 14.29,
+        "S": 28.71,
+        "E": 30.57,
+        "C": 92.29
+      }
+    },
+    {
+      "id": "onet_11-3031.01",
+      "titleDe": "Treasurers and Controllers",
+      "riasec": "CES",
+      "vector": {
+        "R": 14.29,
+        "I": 31.43,
+        "A": 16.71,
+        "S": 38.29,
+        "E": 87.86,
+        "C": 92.0
+      }
+    },
+    {
+      "id": "onet_13-1051.00",
+      "titleDe": "Cost Estimators",
+      "riasec": "CEI",
+      "vector": {
+        "R": 43.0,
+        "I": 45.43,
+        "A": 16.0,
+        "S": 23.71,
+        "E": 66.43,
+        "C": 92.0
+      }
+    },
+    {
+      "id": "onet_43-6011.00",
+      "titleDe": "Executive Secretaries and Executive Administrative Assistants",
+      "riasec": "CES",
+      "vector": {
+        "R": 18.86,
+        "I": 27.71,
+        "A": 19.29,
+        "S": 56.29,
+        "E": 78.71,
+        "C": 91.57
+      }
+    },
+    {
+      "id": "onet_13-2061.00",
+      "titleDe": "Financial Examiners",
+      "riasec": "CEI",
+      "vector": {
+        "R": 19.14,
+        "I": 51.43,
+        "A": 14.29,
+        "S": 35.71,
+        "E": 66.14,
+        "C": 91.43
+      }
+    },
+    {
+      "id": "onet_15-1243.01",
+      "titleDe": "Data Warehousing Specialists",
+      "riasec": "CIE",
+      "vector": {
+        "R": 41.86,
+        "I": 68.43,
+        "A": 23.14,
+        "S": 29.0,
+        "E": 43.57,
+        "C": 91.14
+      }
+    },
+    {
+      "id": "onet_43-5111.00",
+      "titleDe": "Weighers, Measurers, Checkers, and Samplers, Recordkeeping",
+      "riasec": "CRI",
+      "vector": {
+        "R": 75.86,
+        "I": 33.86,
+        "A": 14.29,
+        "S": 14.29,
+        "E": 25.14,
+        "C": 91.0
+      }
+    },
+    {
+      "id": "onet_41-2012.00",
+      "titleDe": "Gambling Change Persons and Booth Cashiers",
+      "riasec": "CER",
+      "vector": {
+        "R": 43.86,
+        "I": 14.29,
+        "A": 15.14,
+        "S": 34.71,
+        "E": 59.86,
+        "C": 90.86
+      }
+    },
+    {
+      "id": "onet_13-1041.00",
+      "titleDe": "Compliance Officers",
+      "riasec": "CEI",
+      "vector": {
+        "R": 35.86,
+        "I": 43.86,
+        "A": 14.29,
+        "S": 42.43,
+        "E": 58.29,
+        "C": 90.43
+      }
+    },
+    {
+      "id": "onet_13-1041.07",
+      "titleDe": "Regulatory Affairs Specialists",
+      "riasec": "CEI",
+      "vector": {
+        "R": 20.0,
+        "I": 47.43,
+        "A": 14.29,
+        "S": 35.71,
+        "E": 63.71,
+        "C": 90.29
+      }
+    },
+    {
+      "id": "onet_43-4051.00",
+      "titleDe": "Customer Service Representatives",
+      "riasec": "CES",
+      "vector": {
+        "R": 28.14,
+        "I": 23.29,
+        "A": 14.29,
+        "S": 53.86,
+        "E": 72.57,
+        "C": 90.29
+      }
+    },
+    {
+      "id": "onet_43-4061.00",
+      "titleDe": "Eligibility Interviewers, Government Programs",
+      "riasec": "CSE",
+      "vector": {
+        "R": 14.29,
+        "I": 35.0,
+        "A": 14.29,
+        "S": 63.71,
+        "E": 56.0,
+        "C": 90.29
+      }
+    },
+    {
+      "id": "onet_43-5011.00",
+      "titleDe": "Cargo and Freight Agents",
+      "riasec": "CER",
+      "vector": {
+        "R": 45.0,
+        "I": 21.71,
+        "A": 14.29,
+        "S": 30.57,
+        "E": 69.0,
+        "C": 90.29
+      }
+    },
+    {
+      "id": "onet_45-4023.00",
+      "titleDe": "Log Graders and Scalers",
+      "riasec": "CRI",
+      "vector": {
+        "R": 71.14,
+        "I": 33.86,
+        "A": 14.29,
+        "S": 15.71,
+        "E": 25.14,
+        "C": 90.14
+      }
     }
   ]
 }

@@ -16,13 +16,15 @@ function readOccupationsFile(file: string): OccupationSeed[] {
 }
 
 /**
- * Prefer trimmed O*NET/ESCO set (`occupations.json`); fall back to `seed.json`.
+ * Prefer trimmed O*NET set (`occupations.json` from import script);
+ * fall back to `imported.json` then `seed.json`.
  */
 export function getOccupationSeeds(): OccupationSeed[] {
-  const primary = dataPath("occupations.json");
-  if (existsSync(primary)) {
-    const rows = readOccupationsFile(primary);
+  for (const name of ["occupations.json", "imported.json", "seed.json"]) {
+    const file = dataPath(name);
+    if (!existsSync(file)) continue;
+    const rows = readOccupationsFile(file);
     if (rows.length) return rows;
   }
-  return readOccupationsFile(dataPath("seed.json"));
+  return [];
 }

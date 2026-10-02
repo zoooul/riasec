@@ -25,10 +25,12 @@ npm test          # Vitest unit + integration
 npm run build     # Next.js production build
 ```
 
-Profile neu aus PDF extrahieren:
+Profile neu aus PDF extrahieren / Berufe aus O\*NET:
 
 ```bash
 python3 scripts/extract_profiles.py
+python3 scripts/import_occupations.py   # → web/data/occupations/occupations.json
+cd web && npm run import:occupations    # gleichwertig
 ```
 
 ## Architektur
@@ -39,7 +41,7 @@ flowchart TB
     Items[items/mvp-pictorial.json]
     Stimuli[stimuli/index.json]
     Profiles[profiles/*.json]
-    Occ[occupations/seed.json]
+    Occ[occupations/occupations.json]
     Lic[licenses/sources.json]
   end
 

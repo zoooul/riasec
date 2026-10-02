@@ -14,11 +14,18 @@ export function loadMvpItems(): AssessmentItem[] {
 }
 
 export function loadOccupationSeeds(): OccupationSeed[] {
-  const file = path.join(webRoot, "data", "occupations", "seed.json");
-  const data = JSON.parse(readFileSync(file, "utf8")) as {
-    occupations: OccupationSeed[];
-  };
-  return data.occupations;
+  for (const name of ["occupations.json", "imported.json", "seed.json"]) {
+    const file = path.join(webRoot, "data", "occupations", name);
+    try {
+      const data = JSON.parse(readFileSync(file, "utf8")) as {
+        occupations: OccupationSeed[];
+      };
+      if (data.occupations?.length) return data.occupations;
+    } catch {
+      /* try next */
+    }
+  }
+  return [];
 }
 
 export function loadStimulusIndex(): StimulusIndex {
