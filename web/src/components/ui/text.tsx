@@ -1,17 +1,16 @@
 "use client";
 
-import { Text as MantineText, Title, type TitleOrder } from "@mantine/core";
 import type { ReactElement, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type HeadingSize = "sm" | "md" | "lg" | "xl" | "hero";
 
-const headingOrder: Record<HeadingSize, TitleOrder> = {
-  sm: 3,
-  md: 2,
-  lg: 1,
-  xl: 3,
-  hero: 1,
+const headingTag: Record<HeadingSize, keyof HTMLElementTagNameMap> = {
+  sm: "h3",
+  md: "h2",
+  lg: "h1",
+  xl: "h3",
+  hero: "h1",
 };
 
 const headingSizeClass: Record<HeadingSize, string> = {
@@ -35,16 +34,11 @@ export function Heading({
   className,
   children,
 }: HeadingProps): ReactElement {
-  const order = as
-    ? (Number(as.replace("h", "")) as TitleOrder)
-    : headingOrder[size];
+  const Tag = (as ?? headingTag[size]) as "h1" | "h2" | "h3" | "h4";
   return (
-    <Title
-      order={order}
-      className={cn("text-display", headingSizeClass[size], className)}
-    >
+    <Tag className={cn("display-title", headingSizeClass[size], className)}>
       {children}
-    </Title>
+    </Tag>
   );
 }
 
@@ -52,8 +46,8 @@ type TextVariant = "body" | "body-strong" | "muted" | "label";
 
 const textVariantClass: Record<TextVariant, string> = {
   body: "text-body",
-  "body-strong": "text-body text-[var(--muted-strong)]",
-  muted: "text-body text-[var(--muted)]",
+  "body-strong": "text-body text-base-content/80",
+  muted: "text-body text-base-content/60",
   label: "text-label",
 };
 
@@ -66,16 +60,11 @@ type TextProps = {
 
 export function Text({
   variant = "body",
-  as = "p",
+  as: Tag = "p",
   className,
   children,
 }: TextProps): ReactElement {
   return (
-    <MantineText
-      component={as}
-      className={cn(textVariantClass[variant], className)}
-    >
-      {children}
-    </MantineText>
+    <Tag className={cn(textVariantClass[variant], className)}>{children}</Tag>
   );
 }

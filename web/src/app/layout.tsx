@@ -1,10 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { ColorSchemeScript, mantineHtmlProps } from "@mantine/core";
 import { Figtree, Fraunces } from "next/font/google";
-import { GlassShell } from "@/components/GlassShell";
-import { MantineRoot } from "@/components/providers/MantineRoot";
-import "@mantine/core/styles.css";
-import "@mantine/notifications/styles.css";
+import { AppShell } from "@/components/AppShell";
 import "./globals.css";
 
 const display = Fraunces({
@@ -23,7 +19,7 @@ export const metadata: Metadata = {
     "Privates, bildgestütztes Profiling für Orientierung im Jobcoaching.",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "default",
     title: "Skillster",
   },
 };
@@ -32,7 +28,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#07111c",
+  themeColor: "#eef2f6",
 };
 
 export default function RootLayout({
@@ -43,16 +39,11 @@ export default function RootLayout({
   return (
     <html
       lang="de"
+      data-theme="skillster"
       className={`${display.variable} ${body.variable} h-full`}
-      {...mantineHtmlProps}
     >
-      <head>
-        <ColorSchemeScript defaultColorScheme="dark" forceColorScheme="dark" />
-      </head>
       <body className="min-h-dvh min-h-svh antialiased">
-        <MantineRoot>
-          <GlassShell>{children}</GlassShell>
-        </MantineRoot>
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

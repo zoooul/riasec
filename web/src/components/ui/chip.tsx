@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge, UnstyledButton, type BadgeProps } from "@mantine/core";
 import Link from "next/link";
 import type { ReactElement, ReactNode } from "react";
 import { cn } from "@/lib/cn";
@@ -12,9 +11,10 @@ type ChipProps = {
   href?: string;
   /** @deprecated Prefer href/onClick */
   asChild?: boolean;
-} & Omit<BadgeProps, "className" | "children" | "component">;
+  "aria-live"?: "off" | "polite" | "assertive";
+};
 
-/** Soft glass status chip — Mantine Badge with Skillster tokens. */
+/** Soft DaisyUI badge / status chip. */
 export function Chip({
   className,
   children,
@@ -24,46 +24,27 @@ export function Chip({
   ...props
 }: ChipProps): ReactElement {
   void asChild;
-  const classes = cn("glass-chip", className);
+  const classes = cn("badge badge-soft badge-primary gap-1.5", className);
 
   if (href) {
     return (
-      <Badge
-        component={Link}
-        href={href}
-        className={classes}
-        variant="light"
-        color="cyan"
-        size="lg"
-        {...props}
-      >
+      <Link href={href} className={classes} {...props}>
         {children}
-      </Badge>
+      </Link>
     );
   }
 
   if (onClick) {
     return (
-      <UnstyledButton
-        type="button"
-        onClick={onClick}
-        className={classes}
-        style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-      >
+      <button type="button" onClick={onClick} className={classes} {...props}>
         {children}
-      </UnstyledButton>
+      </button>
     );
   }
 
   return (
-    <Badge
-      className={classes}
-      variant="light"
-      color="cyan"
-      size="lg"
-      {...props}
-    >
+    <span className={classes} {...props}>
       {children}
-    </Badge>
+    </span>
   );
 }

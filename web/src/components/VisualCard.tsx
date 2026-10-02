@@ -8,9 +8,9 @@ type MotifProps = {
 };
 
 const KIND_TINT: Record<MotifProps["kind"], string> = {
-  pattern: "from-[rgba(94,200,214,0.16)] via-transparent to-[rgba(111,190,154,0.08)]",
-  affect: "from-[rgba(216,137,154,0.16)] via-transparent to-[rgba(201,168,106,0.1)]",
-  scene: "from-[rgba(94,200,214,0.12)] via-transparent to-[rgba(216,137,154,0.08)]",
+  pattern: "from-primary/15 via-transparent to-secondary/10",
+  affect: "from-accent/15 via-transparent to-warning/10",
+  scene: "from-primary/12 via-transparent to-accent/8",
 };
 
 /** Refined motif tiles — soft geometry, limited palette, catalog image preferred. */
@@ -22,21 +22,21 @@ export function VisualCard({ motif, kind, imageUrl, compact = false }: MotifProp
 
   return (
     <div
-      className={`visual-card relative w-full overflow-hidden rounded-[clamp(0.75rem,1.6vh,1.15rem)] border border-white/18 bg-gradient-to-br ${KIND_TINT[kind]} ${
+      className={`visual-card relative w-full overflow-hidden rounded-[clamp(0.75rem,1.6vh,1.15rem)] bg-gradient-to-br ${KIND_TINT[kind]} ${
         compact
           ? "min-h-0 flex-1"
           : "aspect-[5/3]"
       }`}
       aria-hidden
     >
-      <div className="glass-deco pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.16),transparent_48%)]" />
-      <div className="visual-card-grain glass-deco pointer-events-none absolute inset-0 z-0 opacity-60" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,color-mix(in_oklab,var(--color-base-100)_70%,transparent),transparent_48%)]" />
+      <div className="visual-card-grain pointer-events-none absolute inset-0" />
       {imageUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={imageUrl}
           alt=""
-          className={`relative z-[1] h-full w-full object-center ${
+          className={`relative h-full w-full object-center ${
             compact ? "object-contain" : "object-cover"
           }`}
         />
@@ -44,7 +44,7 @@ export function VisualCard({ motif, kind, imageUrl, compact = false }: MotifProp
         <svg
           viewBox="0 0 160 120"
           preserveAspectRatio="xMidYMid meet"
-          className="relative z-[1] h-full w-full"
+          className="relative h-full w-full"
         >
           {motif.includes("grid") && (
             <>

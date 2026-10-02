@@ -14,23 +14,21 @@ export function SiteHeader({ right, sticky = true, className }: Props) {
   return (
     <header
       className={cn(
-        "site-header shrink-0 px-3 pt-[max(0.35rem,var(--safe-top))] backdrop-blur-xl sm:px-4",
-        sticky ? "sticky top-0 z-[var(--z-chrome)]" : "relative z-[var(--z-chrome)]",
+        "site-header z-20 shrink-0 border-b border-base-300 bg-base-100/90 backdrop-blur-md",
+        sticky ? "sticky top-0" : "relative",
         className,
       )}
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(7,16,31,0.78), rgba(7,16,31,0.18))",
-      }}
     >
-      <div className="site-header-inner glass-panel glass-panel-strong relative z-[1] mx-auto flex w-full max-w-5xl min-w-0 items-center justify-between gap-3 px-3 py-[clamp(0.35rem,0.9vh,0.55rem)] sm:px-4">
-        <Link
-          href="/"
-          className="display-title relative z-[1] shrink-0 text-lg text-[var(--ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--neon-cyan)] sm:text-xl md:text-2xl"
-        >
-          Skill<span className="neon-text">ster</span>
-        </Link>
-        <div className="relative z-[1] flex min-w-0 shrink items-center justify-end gap-2">
+      <div className="site-header-inner navbar mx-auto min-h-12 w-full max-w-5xl px-3 py-1 sm:px-4">
+        <div className="navbar-start">
+          <Link
+            href="/"
+            className="brand-mark text-lg text-base-content focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:text-xl md:text-2xl"
+          >
+            Skill<span className="brand-accent">ster</span>
+          </Link>
+        </div>
+        <div className="navbar-end gap-2">
           {right ?? <Chip>privat · lokal</Chip>}
         </div>
       </div>

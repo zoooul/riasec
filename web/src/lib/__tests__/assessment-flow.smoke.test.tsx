@@ -12,7 +12,6 @@ import {
   orderAssessmentItems,
 } from "@/lib/assessmentStructure";
 import { loadMvpItems } from "./helpers";
-import { withMantine } from "./mantine";
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }),
@@ -32,6 +31,23 @@ vi.mock("@/lib/session", async (importOriginal) => {
 
 vi.mock("motion/react", async () => {
   const React = await import("react");
+  const stripMotion = (rest: Record<string, unknown>) => {
+    const out = { ...rest };
+    for (const key of Object.keys(out)) {
+      if (
+        key.startsWith("initial") ||
+        key.startsWith("animate") ||
+        key.startsWith("exit") ||
+        key.startsWith("transition") ||
+        key.startsWith("while") ||
+        key === "layout" ||
+        key === "layoutId"
+      ) {
+        delete out[key];
+      }
+    }
+    return out;
+  };
   const Pass = ({
     children,
     className,
@@ -39,8 +55,9 @@ vi.mock("motion/react", async () => {
   }: {
     children?: React.ReactNode;
     className?: string;
-  } & Record<string, unknown>) =>
+  }) =>
     React.createElement("div", { className, ...stripMotion(rest) }, children);
+
   const MotionBtn = ({
     children,
     className,
@@ -48,30 +65,13 @@ vi.mock("motion/react", async () => {
   }: {
     children?: React.ReactNode;
     className?: string;
-  } & Record<string, unknown>) =>
+  }) =>
     React.createElement(
       "button",
       { className, type: "button", ...stripMotion(rest) },
       children,
     );
-  function stripMotion(props: Record<string, unknown>) {
-    const out = { ...props };
-    for (const key of Object.keys(out)) {
-      if (
-        key === "initial" ||
-        key === "animate" ||
-        key === "exit" ||
-        key === "transition" ||
-        key === "whileTap" ||
-        key === "whileHover" ||
-        key === "layout" ||
-        key === "variants"
-      ) {
-        delete out[key];
-      }
-    }
-    return out;
-  }
+
   return {
     AnimatePresence: ({ children }: { children?: React.ReactNode }) =>
       React.createElement(React.Fragment, null, children),
@@ -87,9 +87,7 @@ describe("soft · AssessmentFlow smoke", () => {
   it("renders first item with stage chip, intro, and equal choice cards", () => {
     const items = orderAssessmentItems(loadMvpItems());
     const first = items[0]!;
-    const html = renderToStaticMarkup(
-      withMantine(<AssessmentFlow items={items} />),
-    );
+    const html = renderToStaticMarkup(<AssessmentFlow items={items} />);
 
     expect(html).toContain(MODULE_LABELS.warmup);
     expect(html).toContain(MODULE_INTROS.warmup);
@@ -101,18 +99,17 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).toContain("Reise");
     expect(html).toContain(first.choices[0]!.label);
     expect(html).toContain(first.choices[1]!.label);
-    expect(html).toContain("glass-choice");
     expect(html).toContain("solution-card");
     expect(html).toContain("Zwei Lösungspfade");
     expect(html).toContain("Weg A");
     expect(html).toContain("Weg B");
+    expect(html).toContain("steps");
+    expect(html).toContain("progress");
   });
 
   it("uses viewport-fit shell classes so the step can compress without page scroll", () => {
     const items = orderAssessmentItems(loadMvpItems());
-    const html = renderToStaticMarkup(
-      withMantine(<AssessmentFlow items={items} />),
-    );
+    const html = renderToStaticMarkup(<AssessmentFlow items={items} />);
 
     expect(html).toContain("assessment-flow");
     expect(html).toContain("assessment-rail");

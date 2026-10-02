@@ -1,9 +1,5 @@
 "use client";
 
-import {
-  Button as MantineButton,
-  type ButtonProps as MantineButtonProps,
-} from "@mantine/core";
 import Link from "next/link";
 import type { ReactElement, ReactNode } from "react";
 import { cn } from "@/lib/cn";
@@ -36,26 +32,20 @@ export type ButtonProps = SharedProps &
   );
 
 const variantClass: Record<ButtonVariant, string> = {
-  primary: "glass-btn-primary",
-  secondary: "glass-btn-secondary",
-  ghost: "glass-btn-ghost",
+  primary: "btn-primary",
+  secondary: "btn-outline",
+  ghost: "btn-ghost",
 };
 
 const sizeClass: Record<ButtonSize, string> = {
-  default: "glass-btn-md",
-  sm: "glass-btn-sm",
-  lg: "glass-btn-lg",
-};
-
-const sizeMap: Record<ButtonSize, MantineButtonProps["size"]> = {
-  default: "md",
-  sm: "sm",
-  lg: "lg",
+  default: "",
+  sm: "btn-sm",
+  lg: "btn-lg",
 };
 
 /**
- * Skillster button — Mantine Button + liquid-glass class tokens.
- * Use `href` for navigation (Link via Mantine `component`).
+ * Skillster button — DaisyUI `btn` tokens.
+ * Use `href` for Next.js Link navigation.
  */
 export function Button({
   className,
@@ -70,7 +60,7 @@ export function Button({
 }: ButtonProps): ReactElement {
   void asChild;
   const classes = cn(
-    "glass-btn",
+    "btn",
     variantClass[variant],
     sizeClass[size],
     className,
@@ -78,32 +68,27 @@ export function Button({
 
   if (href) {
     return (
-      <MantineButton
-        component={Link}
+      <Link
         href={href}
         className={classes}
-        size={sizeMap[size]}
-        variant="subtle"
-        disabled={disabled}
+        aria-disabled={disabled || undefined}
         onClick={
           onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>
         }
       >
         {children}
-      </MantineButton>
+      </Link>
     );
   }
 
   return (
-    <MantineButton
+    <button
       type={type}
       className={classes}
-      size={sizeMap[size]}
-      variant="subtle"
       disabled={disabled}
       onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
     >
       {children}
-    </MantineButton>
+    </button>
   );
 }

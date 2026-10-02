@@ -12,31 +12,31 @@ export default function ProfileIndexPage() {
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader
         right={
-          <Chip href="/assessment" className="text-[var(--neon-mint)]">
+          <Chip href="/assessment" className="badge-secondary">
             Zum Test
           </Chip>
         }
       />
 
-      <div className="page-shell page-shell-wide stack-lg min-w-0 py-8 md:py-10">
-        <div className="stack-sm relative z-[1]">
-          <h1 className="display-title text-3xl text-[var(--ink)] md:text-5xl">
+      <div className="page-shell page-shell-wide stack-lg py-8 md:py-10">
+        <div className="stack-sm">
+          <h1 className="display-title text-3xl text-base-content md:text-5xl">
             16 Profile
           </h1>
-          <p className="max-w-2xl text-[var(--muted)]">
+          <p className="max-w-2xl text-base-content/60">
             Ergebnisbausteine — später gemischt mit deinen Scores und Zwischenprofilen.
           </p>
         </div>
 
-        <div className="relative z-[1] grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {profiles.map((p) => (
             <Link
               key={p.code}
               href={`/profile/${p.code.toLowerCase()}`}
-              className="glass-panel glass-choice min-w-0 px-5 py-4"
+              className="card bg-base-100 border border-base-300 px-5 py-4 shadow-sm transition-colors hover:border-primary/40"
             >
-              <div className="relative z-[1] text-sm text-[var(--neon-cyan)]">{p.code}</div>
-              <div className="relative z-[1] display-title text-2xl text-[var(--ink)]">
+              <div className="text-sm text-primary">{p.code}</div>
+              <div className="display-title text-2xl text-base-content">
                 {p.role}
               </div>
             </Link>

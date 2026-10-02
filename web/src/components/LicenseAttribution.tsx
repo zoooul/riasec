@@ -14,7 +14,7 @@ type Props = {
 };
 
 /**
- * Compact license attribution footer for Ergebnis / About surfaces.
+ * Compact license attribution for Ergebnis / About surfaces.
  * Receives preloaded lines from a server page (licenses.server stays off client).
  */
 export function LicenseAttribution({ lines, className = "" }: Props) {
@@ -22,15 +22,15 @@ export function LicenseAttribution({ lines, className = "" }: Props) {
 
   return (
     <footer
-      className={`border-t border-white/10 px-4 py-6 text-center ${className}`}
+      className={`border-t border-base-300 bg-base-100/70 px-4 py-6 text-center ${className}`}
     >
-      <p className="mb-2 text-xs font-medium uppercase tracking-wide text-[var(--muted)]">
+      <p className="mb-2 text-xs font-medium uppercase tracking-wide text-base-content/55">
         Quellen & Lizenzen
       </p>
-      <ul className="mx-auto flex max-w-2xl flex-col gap-1.5 text-xs leading-relaxed text-[var(--muted)] md:text-sm">
+      <ul className="mx-auto flex max-w-2xl flex-col gap-1.5 text-xs leading-relaxed text-base-content/60 md:text-sm">
         {lines.map((line) => (
           <li key={line.id}>
-            <span className="text-[var(--ink)]">{line.name}</span>
+            <span className="text-base-content">{line.name}</span>
             {" · "}
             <span>{line.license}</span>
             {line.url.startsWith("http") ? (
@@ -40,7 +40,7 @@ export function LicenseAttribution({ lines, className = "" }: Props) {
                   href={line.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[var(--neon-cyan)] underline-offset-2 hover:underline"
+                  className="link link-primary"
                 >
                   Link
                 </a>
@@ -49,7 +49,7 @@ export function LicenseAttribution({ lines, className = "" }: Props) {
           </li>
         ))}
       </ul>
-      <p className="mt-3 text-[10px] text-[var(--muted)] md:text-xs">
+      <p className="mt-3 text-[10px] text-base-content/50 md:text-xs">
         Extra-Quellen (NC/Research) bleiben austauschbar und erscheinen hier nur
         bei Freigabe.
       </p>

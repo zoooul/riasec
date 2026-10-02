@@ -52,9 +52,19 @@ Lib-Doku: [`src/lib/README.md`](src/lib/README.md).
 
 ## UI
 
-- **Liquid-glass** Tokens in `src/app/globals.css`
-- **Mantine 9** via `MantineRoot` (`src/components/providers/MantineRoot.tsx`) + Theme (`src/theme/mantine.ts`); Tabler Icons; Modal/Progress/Collapse/Group für Assessment & Ergebnis
-- **Motion** für dezente Übergänge; Tailwind 4 für liquid-glass Klassen
+**Free template baseline:** [DaisyUI Next.js Landing Page Template (TS)](https://github.com/robbins23/landing-nextjs-ts-template) — **MIT**. Classical patterns (navbar, hero, cards, footer) adapted to Skillster; DaisyUI `steps` for the assessment wizard. DaisyUI library: [MIT](https://github.com/saadeghi/daisyui/blob/master/LICENSE). No paid themes.
+
+| Route | Template pattern |
+|-------|------------------|
+| `/` | Hero + CTA + feature card grid |
+| `/assessment` | Navbar + steps wizard + choice cards |
+| `/ergebnis` | Summary card + section cards + collapse details |
+| `/profile` | Card grid / detail cards |
+| Shell | `SiteHeader` navbar + `AppShell` footer |
+
+- **DaisyUI 5** (`@plugin "daisyui"`) + custom theme `skillster` in `src/app/globals.css`
+- Components: `btn` / `badge` / `card` / `progress` / `modal` / `collapse` / `steps` / `footer` / `hero`
+- **Motion** for light transitions; Tabler Icons; Tailwind CSS v4
 - Antworten nur in **`sessionStorage`** — keine URL-Payload
 
 Stimuli-Layer: [`data/stimuli/README.md`](data/stimuli/README.md).

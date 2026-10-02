@@ -88,7 +88,7 @@ Skillster/
 ├── docs/GUIDELINES.md          # Produkt- & Testregeln
 ├── scripts/                    # PDF-Profile, O*NET-Import
 ├── skillster_daten-komprimiert.pdf   # Quell-PDF (VIST)
-└── web/                        # Next.js App (App Router, liquid-glass UI)
+└── web/                        # Next.js App (App Router, DaisyUI classical UI)
     ├── data/
     │   ├── items/mvp-pictorial.json   # ~32 Bildfragen
     │   ├── profiles/                  # 16 Ergebnisprofile
@@ -99,9 +99,22 @@ Skillster/
     └── src/lib/                       # Scoring, Bias, PDF, Session
 ```
 
-Stack: Next.js 16, React 19, **Mantine 9** (core/hooks/notifications + Tabler icons), Tailwind 4 (liquid-glass tokens), Motion, Vitest.
+Stack: Next.js 16, React 19, **DaisyUI 5** + Tailwind 4 (theme `skillster`), Tabler icons, Motion, Vitest.
 
 Mehr zur Web-App: [`web/README.md`](web/README.md).
+
+### UI-Baseline (kostenloses DaisyUI-Template)
+
+| | |
+|--|--|
+| **Template** | DaisyUI Next.js Landing Page Template (TypeScript) |
+| **URL** | https://github.com/robbins23/landing-nextjs-ts-template |
+| **Lizenz** | MIT ([LICENSE](https://github.com/robbins23/landing-nextjs-ts-template/blob/main/LICENSE)) |
+| **Komponenten** | Offizielle DaisyUI-Klassen (MIT) — navbar, hero, card, footer, steps, progress, modal, collapse |
+
+**Seiten-Mapping:** Landing `/` → hero + feature cards · Assessment `/assessment` → steps-Wizard + choice cards · Ergebnis `/ergebnis` → summary/detail cards + collapse · Profile `/profile` → card grid · Shell → navbar (`SiteHeader`) + footer (`AppShell`).
+
+Kein Paid-Theme. DaisyUI selbst: [MIT](https://github.com/saadeghi/daisyui/blob/master/LICENSE).
 
 ### Design-MCP (kostenlos)
 
