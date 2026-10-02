@@ -206,7 +206,7 @@ describe("low coverage / missing module", () => {
     expect(guarded.confidence).toBe("low");
     expect(guarded.isIncomplete).toBe(true);
     expect(guarded.occupations.length).toBeLessThanOrEqual(2);
-    expect(guarded.occupations[0]?.why).toMatch(/Orientierung/);
+    expect(guarded.occupations[0]?.why).toMatch(/Orientierung|Könnte/i);
     expect(guarded.plainSummary.some((l) => /Orientierung/i.test(l))).toBe(
       true,
     );

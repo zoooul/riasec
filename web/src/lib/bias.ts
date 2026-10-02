@@ -16,8 +16,14 @@ export const CATALOG_BALANCE = {
   riasecHitMaxMinRatio: 3,
 } as const;
 
+/** Soft UX: primary HOW/tip lines should stay short. */
+export const PRIMARY_LINE_SOFT_MAX = 140;
+export const ONE_LINE_SOFT_MAX = 180;
+
 export const ACQUIESCENCE_SHARE = 0.8;
 export const LOW_COVERAGE_RATIO = 0.5;
+/** Under Orientierung, never claim more than this many jobs. */
+export const ORIENTIERUNG_JOB_LIMIT = 2;
 
 export const TRAIT_EXCLUSIONS: string[] = [
   "keine klinische Diagnose oder Störung",
@@ -27,6 +33,16 @@ export const TRAIT_EXCLUSIONS: string[] = [
   "keine Aussagen zu sexueller Orientierung",
   "keine medizinischen Befunde",
 ];
+
+/** Absolute words that the sanitizer must remove from result copy. */
+export const ABSOLUTE_WORDS = [
+  "immer",
+  "nie",
+  "niemals",
+  "perfekt",
+  "absolut",
+  "stets",
+] as const;
 
 const ABSOLUTE_PATTERNS: { re: RegExp; soft: string }[] = [
   { re: /\bimmer\b/gi, soft: "oft" },
@@ -173,6 +189,26 @@ function sanitizeLines(lines: string[]): string[] {
   return lines.map(sanitizeResultText);
 }
 
+/** Soften confident occupation matching language under weak quality. */
+export function softenOccupationWhy(why: string, quality: QualityLabel): string {
+  let out = sanitizeResultText(why);
+  if (quality === "ok") return out;
+  out = out
+    .replace(/^Passt zu deinem Hang zu\b/i, "Könnte zu deinem Hang zu")
+    .replace(/^Passt grob zum\b/i, "Könnte grob zum")
+    .replace(/^Passt zu\b/i, "Könnte passen zu")
+    .replace(/^Passt grob\b/i, "Könnte grob passen");
+  if (quality === "orientierung" && !/Orientierung|vorsichtig|vorläufig/i.test(out)) {
+    out = `Nur Orientierung — ${out}`;
+  } else if (
+    quality === "unsicher" &&
+    !/vorsichtig|unsicher|Orientierung/i.test(out)
+  ) {
+    out = `Eher vorsichtig: ${out}`;
+  }
+  return out;
+}
+
 export function applyBiasGuards(
   result: AssessmentResult,
   flags: BiasFlags,
@@ -189,7 +225,7 @@ export function applyBiasGuards(
   const blendBullets = sanitizeLines(result.blendBullets);
   let occupations = result.occupations.map((job) => ({
     ...job,
-    why: sanitizeResultText(job.why),
+    why: softenOccupationWhy(job.why, qualityLabel),
     titleDe: sanitizeResultText(job.titleDe),
   }));
 
@@ -204,10 +240,7 @@ export function applyBiasGuards(
         "Ein vorläufiges Muster deutet auf",
       ),
     );
-    occupations = occupations.slice(0, 2).map((job) => ({
-      ...job,
-      why: `Nur Orientierung — ${job.why}`,
-    }));
+    occupations = occupations.slice(0, ORIENTIERUNG_JOB_LIMIT);
   }
   if (flags.acquiescence || flags.lowDifferentiation) {
     preface.push(

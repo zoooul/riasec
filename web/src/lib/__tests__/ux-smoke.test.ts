@@ -28,13 +28,24 @@ describe("UX critical-path smoke (logical)", () => {
 
     expect(result.plainProfile.oneLine.length).toBeGreaterThan(10);
     expect(result.plainProfile.howYouWork.length).toBeGreaterThan(0);
+    expect(result.plainProfile.attractiveFields.length).toBeGreaterThan(0);
+    expect(result.plainProfile.tips.length).toBeGreaterThan(0);
+    expect(result.plainProfile.roleLabel.length).toBeGreaterThan(0);
     expect(result.occupations.length).toBeGreaterThan(0);
     expect(result.exclusions?.length).toBeGreaterThan(0);
+    expect(result.qualityLabel).toBeTruthy();
+    expect(result.plainSummary.some((l) => /Orientierung|Diagnose/i.test(l))).toBe(
+      true,
+    );
     expect(containsAxisCodeJargon(result.plainProfile.oneLine)).toBe(false);
 
     const doc = buildProfilePdf({
       plain: result.plainProfile,
       primaryCode: result.primaryCode,
+      qualityLabel: result.qualityLabel,
+      exclusions: result.exclusions,
+      coverageHint: result.coverageHint,
+      occupations: result.occupations,
     });
     expect(doc.getNumberOfPages()).toBeGreaterThanOrEqual(1);
   });

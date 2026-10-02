@@ -117,12 +117,15 @@ export function ErgebnisClient({
       <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
         <SiteHeader />
         <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 text-center">
+          <span className="glass-chip text-[var(--neon-coral)]">
+            Nur Orientierung
+          </span>
           <h1 className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
             Noch nicht fertig
           </h1>
           <p className="text-[var(--muted)]">
             {result.coverageHint}. Mach weiter, damit das Ergebnis stabiler
-            wird.
+            wird. Bis dahin ist alles nur eine grobe Orientierung.
           </p>
           <Link
             href="/assessment"
@@ -162,6 +165,18 @@ export function ErgebnisClient({
                   Abbrechen
                 </button>
               </div>
+            </div>
+          ) : null}
+          {(result.exclusions?.length ?? 0) > 0 ? (
+            <div className="glass-panel w-full space-y-2 p-4 text-left">
+              <h2 className="font-[family-name:var(--font-display)] text-base text-[var(--ink)]">
+                Was wir nicht messen
+              </h2>
+              <ul className="space-y-1 text-sm text-[var(--muted)]">
+                {result.exclusions!.slice(0, 4).map((line) => (
+                  <li key={line}>· {line}</li>
+                ))}
+              </ul>
             </div>
           ) : null}
         </div>
@@ -345,7 +360,13 @@ export function ErgebnisClient({
           </ul>
           {jobFields.length ? (
             <div className="space-y-2 pt-2">
-              <p className="text-sm text-[var(--muted)]">Beispiele:</p>
+              <p className="text-sm text-[var(--muted)]">
+                {result.qualityLabel === "orientierung"
+                  ? "Erste Berufsideen (nur Orientierung):"
+                  : result.qualityLabel === "unsicher"
+                    ? "Berufsideen — eher vorsichtig lesen:"
+                    : "Beispiele:"}
+              </p>
               {jobFields.map((job) => (
                 <div key={job.id} className="rounded-xl bg-white/5 px-3 py-2">
                   <div className="font-semibold text-[var(--ink)]">

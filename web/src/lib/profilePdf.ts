@@ -1,5 +1,10 @@
 import { jsPDF } from "jspdf";
-import type { AssessmentResult, PlainProfile } from "./types";
+import type {
+  AssessmentResult,
+  OccupationMatch,
+  PlainProfile,
+  QualityLabel,
+} from "./types";
 
 export type PdfAttribution = {
   id: string;
@@ -11,10 +16,20 @@ export type ProfilePdfInput = {
   plain: PlainProfile;
   primaryCode: string;
   attribution?: PdfAttribution[];
+  qualityLabel?: QualityLabel;
+  exclusions?: string[];
+  coverageHint?: string;
+  occupations?: Pick<OccupationMatch, "titleDe" | "why">[];
 };
 
 const DISCLAIMER =
   "Dies ist eine Orientierung für Jobcoaching — keine Diagnose, kein klinischer Befund und kein Eignungstest.";
+
+const QUALITY_LINE: Record<QualityLabel, string> = {
+  ok: "Qualität: Orientierungstest (nicht normiert).",
+  unsicher: "Qualität: Etwas unsicher — Antworten wirkten sehr ähnlich.",
+  orientierung: "Qualität: Nur grobe Orientierung — Abdeckung noch dünn.",
+};
 
 function slugPart(raw: string): string {
   return raw
@@ -41,6 +56,7 @@ function wrapLines(doc: jsPDF, text: string, maxWidth: number): string[] {
 
 /**
  * Builds a high-contrast, sectioned Skillster result PDF (client-side).
+ * Always includes disclaimer; quality + exclusions when provided.
  */
 export function buildProfilePdf(input: ProfilePdfInput): jsPDF {
   const doc = new jsPDF({ unit: "mm", format: "a4" });
@@ -107,6 +123,12 @@ export function buildProfilePdf(input: ProfilePdfInput): jsPDF {
 
   heading(1, "Zusammenfassung");
   body(input.plain.oneLine, 12);
+  if (input.coverageHint) {
+    body(input.coverageHint, 10);
+  }
+  if (input.qualityLabel) {
+    body(QUALITY_LINE[input.qualityLabel], 10);
+  }
 
   heading(2, "So arbeitest du");
   bullets(input.plain.howYouWork);
@@ -117,6 +139,12 @@ export function buildProfilePdf(input: ProfilePdfInput): jsPDF {
       ? input.plain.attractiveFields
       : ["Noch keine klaren Felder — mach den Test vollständig."],
   );
+  if (input.occupations?.length) {
+    body("Berufsideen (Orientierung):", 10);
+    bullets(
+      input.occupations.map((j) => `${j.titleDe} — ${j.why}`),
+    );
+  }
 
   heading(4, "Tipps");
   bullets(
@@ -127,6 +155,10 @@ export function buildProfilePdf(input: ProfilePdfInput): jsPDF {
 
   heading(5, "Hinweis");
   body(DISCLAIMER, 10);
+  if (input.exclusions?.length) {
+    body("Was wir nicht messen:", 10);
+    bullets(input.exclusions);
+  }
 
   y += 4;
   ensureSpace(24);
@@ -148,7 +180,15 @@ export function buildProfilePdf(input: ProfilePdfInput): jsPDF {
 
 /** Save helper used by the Ergebnis UI. */
 export function downloadProfilePdf(
-  result: Pick<AssessmentResult, "plainProfile" | "primaryCode">,
+  result: Pick<
+    AssessmentResult,
+    | "plainProfile"
+    | "primaryCode"
+    | "qualityLabel"
+    | "exclusions"
+    | "coverageHint"
+    | "occupations"
+  >,
   attribution?: PdfAttribution[],
 ): string {
   const filename = profilePdfFilename(
@@ -158,6 +198,10 @@ export function downloadProfilePdf(
     plain: result.plainProfile,
     primaryCode: result.primaryCode,
     attribution,
+    qualityLabel: result.qualityLabel,
+    exclusions: result.exclusions,
+    coverageHint: result.coverageHint,
+    occupations: result.occupations,
   });
   doc.save(filename);
   return filename;

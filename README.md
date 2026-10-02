@@ -2,6 +2,8 @@
 
 Privates, lokal laufendes Profiling-Tool für Jobcoaching-Orientierung.
 
+**Product guidelines:** [`docs/GUIDELINES.md`](docs/GUIDELINES.md) — HOW vs WHAT, license layers, bias/fairness, UX copy, Ergebnis/PDF rules, soft vs hard tests, backlog.
+
 - **Hinten:** VIST-Profile, pictorial Items, O\*NET/ESCO-Berufe, Stimuli, Lizenzen (PSE/OASIS extra)
 - **Vorne:** einfacher Bild-Flow für Laien (liquid-glass UI)
 - **Strategie:** Kernquellen frei/verkaufbar; Extra (NC) getrennt und austauschbar
@@ -20,9 +22,12 @@ npm run dev
 
 ```bash
 cd web
-npm test
+npm test            # soft + hard (Vitest)
+npm run test:hard   # hard assertions only
 npm run build
 ```
+
+See `docs/GUIDELINES.md` for what soft vs hard means.
 
 ## Daten aktualisieren
 
@@ -89,11 +94,13 @@ Curl route check (SSR): `/` CTA + Marke, `/assessment`, `/ergebnis`, `/profile`,
 
 ## Next milestones
 
-1. O\*NET / ESCO Occupation-Import (core layer) + Attribution
-2. CC0-Stimulus-Packs (Open Peeps/Humaaans) unter `stimuli/core/`
+Prioritized backlog lives in [`docs/GUIDELINES.md`](docs/GUIDELINES.md) §7. Top items:
+
+1. ESCO DE titles (curated German occupation labels)
+2. Extra-Layer-Toggle (PSE/OASIS) strikt hinter Feature-Flag
 3. Normierung / Validierung der eigenen Items (aktuell: unvalidated)
-4. Extra-Layer-Toggle (PSE/OASIS) strikt hinter Feature-Flag
-5. Optional: Playwright smoke CI für Start → Assessment → Ergebnis
+4. Playwright E2E smoke CI (logical smoke exists; see `web/e2e/README.md`)
+5. CC0-Stimulus-Packs (Open Peeps/Humaaans) unter `stimuli/core/`
 
 Alle eigenen Items sind als **unvalidiert** markiert. Bias-Guards in `web/src/lib/bias.ts` sind Heuristiken (Antwortmuster, Abdeckung, Text-Sanitizer, Ausschlussliste) — keine normierte Psychometrie.
 

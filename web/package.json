@@ -10,6 +10,7 @@
     "extract:profiles": "python3 ../scripts/extract_profiles.py",
     "import:occupations": "python3 ../scripts/import_occupations.py",
     "test": "vitest run",
+    "test:hard": "vitest run hard-guidelines",
     "test:watch": "vitest"
   },
   "dependencies": {
