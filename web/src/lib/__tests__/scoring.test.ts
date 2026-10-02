@@ -139,10 +139,16 @@ describe("Zwischenprofile thresholds", () => {
     const result = scoreAssessment(items, { z1: "z1_a" }, miniProfiles);
 
     expect(result.zwischenLabels).toEqual(
-      expect.arrayContaining(["zwischen E und I", "zwischen F und T"]),
+      expect.arrayContaining([
+        "teils für dich, teils mit anderen",
+        "teils Fakten, teils Menschen",
+      ]),
     );
     expect(result.zwischenLabels).not.toEqual(
-      expect.arrayContaining(["zwischen N und S", "zwischen P und J"]),
+      expect.arrayContaining([
+        "teils Details, teils große Ideen",
+        "teils planvoll, teils flexibel",
+      ]),
     );
   });
 });

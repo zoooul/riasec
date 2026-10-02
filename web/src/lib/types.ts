@@ -89,6 +89,26 @@ export interface OccupationMatch {
   why: string;
 }
 
+
+export type ConfidenceLevel = "high" | "medium" | "low";
+export type QualityLabel = "ok" | "unsicher" | "orientierung";
+
+export interface BiasFlags {
+  acquiescence: boolean;
+  lowDifferentiation: boolean;
+  lowCoverage: boolean;
+  missingModules: ModuleId[];
+}
+
+/** Primary-view copy for laypeople — no letter-code jargon. */
+export interface PlainProfile {
+  oneLine: string;
+  howYouWork: string[];
+  attractiveFields: string[];
+  tips: string[];
+  roleLabel: string;
+}
+
 export interface AssessmentResult {
   answeredCount: number;
   itemCount: number;
@@ -100,7 +120,15 @@ export interface AssessmentResult {
   primaryCode: string;
   zwischenLabels: string[];
   plainSummary: string[];
+  plainProfile: PlainProfile;
   howBullets: { title: string; bullets: string[] }[];
   blendBullets: string[];
   occupations: OccupationMatch[];
+  biasFlags?: BiasFlags;
+  confidence?: ConfidenceLevel;
+  qualityLabel?: QualityLabel;
+  exclusions?: string[];
+  coverageHint?: string;
+  isIncomplete?: boolean;
 }
+

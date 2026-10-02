@@ -17,6 +17,7 @@ export default function ErgebnisPage() {
         items={items}
         profiles={profiles}
         occupations={occupations}
+        attribution={attribution}
       />
       <LicenseAttribution lines={attribution} />
     </>

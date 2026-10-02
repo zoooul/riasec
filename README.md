@@ -68,3 +68,12 @@ Details: `web/data/occupations/README.md`, `web/data/stimuli/README.md`.
 - **OASIS** (`stimuli/extra/oasis/`): Affekt/Stress — NC/Research, vor Verkauf austauschen
 
 Alle eigenen Items sind als **unvalidiert** markiert.
+
+## Ergebnis & PDF
+
+Auf `/ergebnis` siehst du eine kurze Orientierung in Alltagssprache (kein Diagnosetest).
+
+- Button **PDF speichern** erzeugt clientseitig `skillster-profil-<rolle>.pdf` (jsPDF).
+- Alternativ: Browser-Druck — `@media print` bereitet die Seite auf.
+- Profiling-Texte sind **Orientierung** für Jobcoaching, keine klinische Aussage.
+

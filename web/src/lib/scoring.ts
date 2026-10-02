@@ -8,7 +8,16 @@ import {
   SECTION_LABELS,
   ZWISCHEN_THRESHOLD,
 } from "./constants";
+import {
+  analyzeResponsePattern,
+  applyBiasGuards,
+  buildBiasFlags,
+} from "./bias";
 import { matchOccupations, type OccupationSeed } from "./occupations";
+import {
+  buildPlainProfile,
+  zwischenLabelsInWords,
+} from "./plainLanguage";
 import type {
   AssessmentItem,
   AssessmentResult,
@@ -111,19 +120,7 @@ function softMaxWeights(distances: number[], temperature = 28): number[] {
 }
 
 function zwischenLabels(axes: Record<AxisId, number>): string[] {
-  const labels: string[] = [];
-  const pairs: [AxisId, string, string][] = [
-    ["E_I", "E", "I"],
-    ["S_N", "N", "S"],
-    ["T_F", "F", "T"],
-    ["J_P", "P", "J"],
-  ];
-  for (const [id, high, low] of pairs) {
-    if (Math.abs(axes[id]) < ZWISCHEN_THRESHOLD) {
-      labels.push(`zwischen ${high} und ${low}`);
-    }
-  }
-  return labels;
+  return zwischenLabelsInWords(axes);
 }
 
 function axisPlainLine(id: AxisId, value: number): string {
@@ -190,19 +187,19 @@ function plainSummary(
   riasecTop: string[],
 ): string[] {
   const lines = [
-    `Dein Hauptmuster liegt bei „${primary.role}“ (${primary.code}).`,
+    `Dein Hauptmuster liegt bei „${primary.role}“.`,
   ];
   const secondary = clusters.filter((c) => !c.isPrimary).slice(0, 2);
   if (secondary.length) {
     lines.push(
       `Dazu passen auch: ${secondary
-        .map((c) => `${c.role} (${Math.round(c.weight * 100)}%)`)
+        .map((c) => c.role)
         .join(", ")}.`,
     );
   }
   if (zwischen.length) {
     lines.push(
-      `Einige Bereiche sind gemischt (${zwischen.join(", ")}) — das ist normal und macht dein Profil lebendiger.`,
+      `Einige Bereiche sind gemischt (${zwischen.join(", ")}) — das ist normal.`,
     );
   }
   if (riasecTop.length) {
@@ -211,7 +208,7 @@ function plainSummary(
     );
   }
   lines.push(
-    "Hinweis: Dieses Ergebnis ist ein erster Orientierungstest und noch nicht normiert.",
+    "Hinweis: Das ist eine Orientierung — keine Diagnose.",
   );
   return lines;
 }
@@ -293,10 +290,22 @@ export function scoreAssessment(
     isZwischen: false,
   };
 
-  return {
+  const axisScores = toAxisScores(axes);
+  const occupations = matchOccupations(riasec, occupationSeeds);
+  const plainProfile = buildPlainProfile({
+    primary: primaryCluster,
+    clusters: topClusters,
+    axes: axisScores,
+    riasec,
+    occupations,
+    primaryProfile,
+    zwischenLabels: zwischen,
+  });
+
+  const base: AssessmentResult = {
     answeredCount,
     itemCount: items.length,
-    axes: toAxisScores(axes),
+    axes: axisScores,
     bigFive,
     riasec,
     riasecCode: riasecCodeFrom(riasec),
@@ -309,8 +318,24 @@ export function scoreAssessment(
       zwischen,
       riasecTop,
     ),
+    plainProfile,
     howBullets: primaryProfile ? buildHowBullets(primaryProfile) : [],
     blendBullets: buildBlendBullets(profiles, topClusters),
-    occupations: matchOccupations(riasec, occupationSeeds),
+    occupations,
+  };
+
+  const analysis = analyzeResponsePattern(items, answers);
+  const flags = buildBiasFlags(analysis);
+  const guarded = applyBiasGuards(base, flags, analysis);
+  // Keep plainProfile primary lines jargon-free even after bias prefaces.
+  return {
+    ...guarded,
+    plainProfile: {
+      ...guarded.plainProfile,
+      oneLine: guarded.plainProfile.oneLine,
+      howYouWork: guarded.plainProfile.howYouWork,
+      attractiveFields: guarded.plainProfile.attractiveFields,
+      tips: guarded.plainProfile.tips,
+    },
   };
 }

@@ -316,3 +316,53 @@ body {
     animation: none !important;
   }
 }
+
+
+/* Clean print / Save-as-PDF from the browser */
+@media print {
+  .glass-stage::before,
+  .glass-stage::after,
+  .glass-orb,
+  .glass-sheen::after,
+  .no-print,
+  header,
+  footer,
+  .site-header {
+    display: none !important;
+  }
+
+  body,
+  .glass-stage {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .glass-panel,
+  .glass-panel-strong {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    break-inside: avoid;
+  }
+
+  .print-root {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 12mm;
+  }
+
+  .print-root h1,
+  .print-root h2,
+  .print-root h3,
+  .print-root p,
+  .print-root li {
+    color: #111 !important;
+  }
+
+  a {
+    color: #111 !important;
+    text-decoration: none !important;
+  }
+}
