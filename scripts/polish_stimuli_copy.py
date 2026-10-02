@@ -135,7 +135,7 @@ COPY: dict[str, dict[str, dict[str, str]]] = {
     "a_03": {"a": {"label": "Visuell gestalten", "hint": "Layout, Ausdruck, Ästhetik."}, "b": {"label": "Struktur schaffen", "hint": "Abläufe, Übersicht, Regeln."}},
     "s_01": {"a": {"label": "Begleiten & fördern", "hint": "Menschen wachsen lassen."}, "b": {"label": "Denken & modellieren", "hint": "Systeme, Analyse, Whiteboard."}},
     "e_01": {"a": {"label": "Verkaufen & vernetzen", "hint": "Deals, Bühne, Überzeugen."}, "b": {"label": "Prozesse schärfen", "hint": "Qualität, Regeln, Zuverlässigkeit."}},
-    "e_02": {"a": {"label": "Führen & tempo", "hint": "Richtung, Entscheidungen."}, "b": {"label": "Story & Look", "hint": "Marke, Botschaft, Gestaltung."}},
+    "e_02": {"a": {"label": "Führen & Tempo", "hint": "Richtung, Entscheidungen."}, "b": {"label": "Story & Look", "hint": "Marke, Botschaft, Gestaltung."}},
     "c_01": {"a": {"label": "Daten exakt pflegen", "hint": "Genauigkeit, Nachvollziehbarkeit."}, "b": {"label": "Kunden gewinnen", "hint": "Gespräche, Deals, Überzeugung."}},
     "stress_01": {"a": {"label": "Plan schreiben", "hint": "Schritte festlegen, Klarheit."}, "b": {"label": "Erst pausieren", "hint": "Abstand, runterfahren, sortieren."}},
     "stress_02": {"a": {"label": "Fokus schärfen", "hint": "Wesentliches wählen, Rest parken."}, "b": {"label": "Kurz reden", "hint": "Entlastung durch Austausch."}},
