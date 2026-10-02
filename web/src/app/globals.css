@@ -290,7 +290,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 12.5rem;
+  min-height: 2.75rem;
   text-align: left;
   font-family: var(--font-body), "Segoe UI", sans-serif;
   transition:
@@ -298,6 +298,73 @@ body {
     border-color 0.2s ease,
     box-shadow 0.2s ease,
     background 0.2s ease;
+}
+
+/* Assessment step ≈ one viewport (phones ~667svh → large desktop). */
+.assessment-viewport {
+  height: 100svh;
+  max-height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@supports (height: 100dvh) {
+  .assessment-viewport {
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+}
+
+.assessment-flow {
+  min-height: 0;
+}
+
+.assessment-choice {
+  min-height: 0;
+  height: 100%;
+}
+
+.assessment-choice .visual-card {
+  max-height: min(28vh, 12rem);
+}
+
+.assessment-choice-hint {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+@media (max-height: 700px) {
+  .assessment-choice .visual-card {
+    max-height: min(22vh, 8.5rem);
+  }
+
+  .assessment-help {
+    display: none;
+  }
+
+  .assessment-choice-hint {
+    -webkit-line-clamp: 1;
+  }
+}
+
+@media (max-height: 620px) {
+  .assessment-stage-intro {
+    display: none;
+  }
+
+  .assessment-choice .visual-card {
+    max-height: min(18vh, 6.75rem);
+  }
+}
+
+@media (min-height: 900px) {
+  .assessment-choice .visual-card {
+    max-height: min(32vh, 14rem);
+  }
 }
 
 .glass-choice:hover {

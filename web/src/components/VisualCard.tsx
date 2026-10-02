@@ -3,6 +3,8 @@ type MotifProps = {
   kind: "pattern" | "scene" | "affect";
   /** Optional catalog asset URL; falls back to SVG motifs when missing. */
   imageUrl?: string | null;
+  /** Flex-grow stimulus that scales with remaining viewport (assessment step). */
+  compact?: boolean;
 };
 
 const KIND_TINT: Record<MotifProps["kind"], string> = {
@@ -12,7 +14,7 @@ const KIND_TINT: Record<MotifProps["kind"], string> = {
 };
 
 /** Refined motif tiles — soft geometry, limited palette, catalog image preferred. */
-export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
+export function VisualCard({ motif, kind, imageUrl, compact = false }: MotifProps) {
   const stroke = "#8aa4bc";
   const accent = kind === "affect" ? "#d8899a" : "#5ec8d6";
   const mint = "#6fbe9a";
@@ -20,7 +22,11 @@ export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
 
   return (
     <div
-      className={`visual-card relative aspect-[5/3] w-full overflow-hidden rounded-[1.15rem] border border-white/18 bg-gradient-to-br ${KIND_TINT[kind]}`}
+      className={`visual-card relative w-full overflow-hidden rounded-[clamp(0.75rem,1.6vh,1.15rem)] border border-white/18 bg-gradient-to-br ${KIND_TINT[kind]} ${
+        compact
+          ? "min-h-0 flex-1"
+          : "aspect-[5/3]"
+      }`}
       aria-hidden
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.16),transparent_48%)]" />
@@ -30,10 +36,16 @@ export function VisualCard({ motif, kind, imageUrl }: MotifProps) {
         <img
           src={imageUrl}
           alt=""
-          className="relative h-full w-full object-cover object-center"
+          className={`relative h-full w-full object-center ${
+            compact ? "object-contain" : "object-cover"
+          }`}
         />
       ) : (
-        <svg viewBox="0 0 160 120" className="relative h-full w-full">
+        <svg
+          viewBox="0 0 160 120"
+          preserveAspectRatio="xMidYMid meet"
+          className="relative h-full w-full"
+        >
           {motif.includes("grid") && (
             <>
               {[32, 52, 72, 92, 112, 132].map((x) => (

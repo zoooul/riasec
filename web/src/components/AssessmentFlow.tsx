@@ -99,7 +99,7 @@ export function AssessmentFlow({ items }: Props) {
 
   if (!ready || !item) {
     return (
-      <div className="mx-auto w-full max-w-3xl px-4 py-16 text-center text-[var(--muted)]">
+      <div className="mx-auto flex w-full max-w-3xl flex-1 items-center justify-center px-4 text-center text-[var(--muted)]">
         Wird geladen…
       </div>
     );
@@ -144,10 +144,10 @@ export function AssessmentFlow({ items }: Props) {
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 overflow-x-hidden px-4 py-5 pb-[max(1.5rem,var(--safe-bottom))] md:gap-7 md:py-10">
-      <div className="glass-panel sticky top-[calc(4.25rem+var(--safe-top))] z-10 space-y-3 p-3.5 md:p-4">
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex min-w-0 flex-wrap items-center gap-2">
+    <div className="assessment-flow mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col gap-[clamp(0.35rem,1.2vh,1.1rem)] overflow-x-hidden overflow-y-auto px-3 pb-[max(0.65rem,var(--safe-bottom))] pt-[clamp(0.35rem,1vh,0.75rem)] sm:px-4">
+      <div className="glass-panel shrink-0 space-y-[clamp(0.35rem,0.9vh,0.65rem)] p-[clamp(0.55rem,1.3vh,0.95rem)]">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-1.5">
             <Chip aria-live="polite">{MODULE_LABELS[item.module]}</Chip>
             <span className="meta-label normal-case tracking-[0.04em] text-[var(--muted)]">
               Teil {progress.stageIndex + 1}/{progress.stageCount}
@@ -177,7 +177,7 @@ export function AssessmentFlow({ items }: Props) {
             style={{ width: `${progressVisual}%` }}
           />
         </Progress.Root>
-        <div className="flex items-center justify-between gap-2 text-[0.7rem] text-[var(--muted)]">
+        <div className="flex items-center justify-between gap-2 text-[0.65rem] text-[var(--muted)] sm:text-[0.7rem]">
           <span>
             In diesem Teil: {progress.stageAnswered}/{progress.stage.count}
           </span>
@@ -194,7 +194,13 @@ export function AssessmentFlow({ items }: Props) {
               </Dialog.Trigger>
               <Dialog.Portal>
                 <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm" />
-                <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 outline-none">
+                <Dialog.Content
+                  className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 max-h-[min(85dvh,28rem)] w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 overflow-y-auto overscroll-contain p-5 outline-none"
+                  style={{
+                    marginTop: "max(0px, env(safe-area-inset-top, 0px))",
+                    marginBottom: "max(0px, env(safe-area-inset-bottom, 0px))",
+                  }}
+                >
                   <Dialog.Title className="text-display text-xl text-[var(--ink)]">
                     Test neu starten?
                   </Dialog.Title>
@@ -218,71 +224,71 @@ export function AssessmentFlow({ items }: Props) {
         </div>
       </div>
 
-      <AnimatePresence>
-        {showResumeHint ? (
-          <motion.div
-            key="resume-hint"
-            initial={reduceMotion ? false : { opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="mx-auto w-fit"
-            aria-live="polite"
-          >
-            <Chip className="text-[var(--neon-cyan)]">
-              Weiter von Frage {progress.questionNumber}
-            </Chip>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {stageFlash ? (
-          <motion.div
-            key={stageFlash}
-            initial={reduceMotion ? false : { opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="mx-auto w-fit"
-            aria-live="polite"
-          >
-            <Chip className="text-[var(--neon-mint)]">
-              Neuer Teil: {MODULE_LABELS[stageFlash]}
-            </Chip>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={item.id}
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={reduceMotion ? undefined : { opacity: 0, y: -10 }}
-          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-3 text-center"
-        >
-          {stageIntro ? (
-            <p className="mx-auto max-w-md text-sm leading-relaxed text-[var(--muted)]">
-              {stageIntro}
-            </p>
+      <div className="relative shrink-0">
+        <AnimatePresence>
+          {showResumeHint ? (
+            <motion.div
+              key="resume-hint"
+              initial={reduceMotion ? false : { opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="pointer-events-none absolute inset-x-0 -top-1 z-10 mx-auto w-fit"
+              aria-live="polite"
+            >
+              <Chip className="text-[var(--neon-cyan)] shadow-lg">
+                Weiter von Frage {progress.questionNumber}
+              </Chip>
+            </motion.div>
           ) : null}
-          <h1 className="display-title text-2xl text-[var(--ink)] sm:text-3xl md:text-[2.15rem]">
-            {item.prompt}
-          </h1>
-          {item.helpText ? (
-            <p className="mx-auto max-w-xl text-sm leading-relaxed text-[var(--muted)] md:text-base">
-              {item.helpText}
-            </p>
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {stageFlash ? (
+            <motion.div
+              key={stageFlash}
+              initial={reduceMotion ? false : { opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="pointer-events-none absolute inset-x-0 -top-1 z-10 mx-auto w-fit"
+              aria-live="polite"
+            >
+              <Chip className="text-[var(--neon-mint)] shadow-lg">
+                Neuer Teil: {MODULE_LABELS[stageFlash]}
+              </Chip>
+            </motion.div>
           ) : null}
-        </motion.div>
-      </AnimatePresence>
+        </AnimatePresence>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={item.id}
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-[clamp(0.2rem,0.7vh,0.5rem)] text-center"
+          >
+            {stageIntro ? (
+              <p className="assessment-stage-intro mx-auto max-w-md text-[clamp(0.72rem,1.6vh,0.875rem)] leading-snug text-[var(--muted)]">
+                {stageIntro}
+              </p>
+            ) : null}
+            <h1 className="display-title text-[clamp(1.15rem,3.6vh,2.05rem)] text-[var(--ink)]">
+              {item.prompt}
+            </h1>
+            {item.helpText ? (
+              <p className="assessment-help mx-auto max-w-xl text-[clamp(0.72rem,1.55vh,0.95rem)] leading-snug text-[var(--muted)]">
+                {item.helpText}
+              </p>
+            ) : null}
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       <div
         className={cn(
-          "grid gap-3 sm:gap-4",
-          item.choices.length <= 2
-            ? "md:grid-cols-2"
-            : "sm:grid-cols-2 md:grid-cols-2",
+          "assessment-choice-grid grid min-h-0 flex-1 gap-[clamp(0.35rem,1vh,0.75rem)] overflow-hidden",
+          "grid-cols-2",
         )}
         role="group"
         aria-label="Antwortmöglichkeiten"
@@ -297,7 +303,7 @@ export function AssessmentFlow({ items }: Props) {
               onClick={() => choose(choice.id)}
               disabled={locked && !isSelected}
               aria-pressed={isSelected}
-              initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 delay: reduceMotion ? 0 : 0.04 + i * 0.05,
@@ -305,21 +311,22 @@ export function AssessmentFlow({ items }: Props) {
               }}
               whileTap={reduceMotion ? undefined : { scale: 0.985 }}
               className={cn(
-                "glass-panel glass-choice h-full min-h-[12.5rem] p-2.5 sm:min-h-[14rem] sm:p-3",
+                "glass-panel glass-choice assessment-choice min-h-0 h-full overflow-hidden p-[clamp(0.35rem,0.9vh,0.65rem)]",
                 isSelected && "glass-choice-picked glass-choice-pop",
               )}
             >
-              <div className="relative z-[1] flex min-h-0 flex-1 flex-col">
+              <div className="relative z-[1] flex h-full min-h-0 flex-1 flex-col gap-[clamp(0.25rem,0.7vh,0.55rem)]">
                 <VisualCard
                   kind={choice.visual.kind}
                   motif={choice.visual.motif}
                   imageUrl={choice.visual.imageUrl}
+                  compact
                 />
-                <div className="mt-auto space-y-1 px-0.5 pt-2.5 sm:pt-3">
-                  <div className="text-[0.98rem] font-semibold leading-snug tracking-tight text-[var(--ink)] sm:text-lg">
+                <div className="mt-auto shrink-0 space-y-0.5 px-0.5">
+                  <div className="text-[clamp(0.82rem,1.9vh,1.05rem)] font-semibold leading-snug tracking-tight text-[var(--ink)]">
                     {choice.label}
                   </div>
-                  <p className="text-sm leading-relaxed text-[var(--muted)]">
+                  <p className="assessment-choice-hint text-[clamp(0.68rem,1.45vh,0.85rem)] leading-snug text-[var(--muted)]">
                     {choice.hint}
                   </p>
                 </div>
@@ -334,7 +341,7 @@ export function AssessmentFlow({ items }: Props) {
           type="button"
           variant="secondary"
           size="sm"
-          className="self-start"
+          className="shrink-0 self-start"
           disabled={locked}
           onClick={() => {
             if (locked) return;

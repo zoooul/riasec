@@ -38,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${display.variable} ${body.variable} h-full`}>
-      <body className="min-h-dvh antialiased">
+      <body className="min-h-dvh min-h-svh antialiased">
         <GlassShell>{children}</GlassShell>
       </body>
     </html>

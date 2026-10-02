@@ -98,4 +98,18 @@ describe("soft · AssessmentFlow smoke", () => {
     expect(html).toContain("glass-choice");
     expect(html).toContain("Antwortmöglichkeiten");
   });
+
+  it("uses viewport-fit shell classes so the step can compress without page scroll", () => {
+    const items = orderAssessmentItems(loadMvpItems());
+    const html = renderToStaticMarkup(<AssessmentFlow items={items} />);
+
+    expect(html).toContain("assessment-flow");
+    expect(html).toContain("assessment-choice-grid");
+    expect(html).toContain("assessment-choice");
+    expect(html).toContain("grid-cols-2");
+    expect(html).toContain("min-h-0");
+    expect(html).toContain("flex-1");
+    expect(html).not.toContain("min-h-[12.5rem]");
+    expect(html).not.toContain("sm:min-h-[14rem]");
+  });
 });
