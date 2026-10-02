@@ -55,7 +55,7 @@
       "Sie mögen es, eigenverantwortlich zu handeln.",
       "Lernen an konkreten Aufgaben mit messbaren und sichtbaren Ergebnissen macht Ihnen Freude.",
       "Klare Aufgabenstellungen, klare Strukturen und klare Ziele helfen Ihnen, schnell ins Handeln zu kommen; bei Aufgaben müssen Sie vorallem den Sinn verstehen.",
-      "Sie mögen Informationen, auch über den eigenen Aufgabenbereich hinaus. Diese geben Ihnen die Möglichkeit, einen Schritt weiter denken zu können und Abläufe zu optimieren",
+      "Sie mögen Informationen, auch über den eigenen Aufgabenbereich hinaus. Diese geben Ihnen die Möglichkeit, einen Schritt weiter denken zu können und Abläufe zu optimieren.",
       "Ehrlicher und regelmäßiger Ausdruck von Wertschätzung ist wie eine Energiequelle für Sie.",
       "Sie schätzen eine kooperative, offene und angenehme Atmosphäre.",
       "Sie haben einen hohen Anspruch an die Perfektion und Ästhetik dessen, was Sie produzieren. Es ist ein enormer Ansporn für Sie, wenn Sie mit Ihrer eigenen Arbeit zufrieden sind.",
@@ -63,7 +63,7 @@
       "Freiräume, in die Sie sich zurückziehen können, um das Vergangene zu reflektieren und sich auf das Wesentliche zu besinnen, geben Ihnen neue Kraft."
     ],
     "demotivation": [
-      "Es frustriert Sie, wenn Ihre Bemühungen • ignoriert werden.",
+      "Es frustriert Sie, wenn Ihre Bemühungen ignoriert werden.",
       "Sie mögen kein Machtgehabe, besonders wenn Sie Arbeitsanweisungen ohne Erklärungen erhalten.",
       "Wenn Sie ungerecht behandelt werden, sind Sie enttäuscht und nehmen dies schnell persönlich",
       "Sie ärgern sich über diejenigen, die sich nicht an die Ablaufpläne halten und sich auf Nebenkriegsschauplätzen tummeln, anstatt konzentriert an ihren Aufgaben zu arbeiten.",
@@ -74,7 +74,7 @@
       "Es macht Ihnen Probleme, wenn Sie gebeten werden „mal eben schnell“ abzuschätzen, was bei einer Sache wohl herauskommen wird oder wenn Sie ohne Vorankündigung ein Brainstorming durchführen sollen."
     ],
     "rollen_berufe": [
-      "Viele Berufe, zu denen sich Menschen • Ihres Persönlichkeitsprofils hingezogen fühlen, verlangen Genauigkeit, Ordnungssinn, eine Neigung zum Organisieren und einen ausgeprägten Sinn für Details.",
+      "Viele Berufe, zu denen sich Menschen Ihres Persönlichkeitsprofils hingezogen fühlen, verlangen Genauigkeit, Ordnungssinn, eine Neigung zum Organisieren und einen ausgeprägten Sinn für Details.",
       "Interessant für Sie könnten Bereiche sein, in denen eine Dienstleistung erbracht wird.",
       "Ihren Talenten entsprechen Aufgaben, die personen- und sachorientiert sind.",
       "Ideal für Sie sind Berufe, in denen Sie kontinuierlich lernen und systematisch kleine Probleme lösen können.",
@@ -94,25 +94,29 @@
       "Sie wirken als Stabilisator in Organisationen und Unternehmen.",
       "Sie sind praktisch veranlagt, zuverlässig, gewissenhaft und ausdauernd.",
       "Sie bringen Ruhe und System in die gemeinsame Arbeit.",
-      "Sie schaffen Bewusstsein dafür, dass es • wichtig ist, sich um Einzelheiten zu kümmern.",
-      "Sie unterstützen andere so, dass diese • im Sinne der Organisation erfolgreich sind.",
+      "Sie schaffen Bewusstsein dafür, dass es wichtig ist, sich um Einzelheiten zu kümmern.",
+      "Sie unterstützen andere so, dass diese im Sinne der Organisation erfolgreich sind.",
       "Sie sind eine Person, die zupackt und bringen stetig und gleichmäßig gute Leistung.",
       "Sie haben alles zur rechten Zeit am rechten Ort.",
-      "Bestehende Systeme, Abläufe und Zuständigkeiten respektieren Sie und passen sich daran an. Sie arbeiten beständig an der Umsetzung von Unternehmenszielen Sie sorgen für eine Atmosphäre der Zugehörigkeit und für ein gutes Wir- Gefühl."
+      "Bestehende Systeme, Abläufe und Zuständigkeiten respektieren Sie und passen sich daran an.",
+      "Sie arbeiten beständig an der Umsetzung von Unternehmenszielen",
+      "Sie sorgen für eine Atmosphäre der Zugehörigkeit und für ein gutes Wir- Gefühl."
     ],
     "konflikt_positiv": [
       "Sie behalten auch in schwierigen Situationen eine positive und optimistische Einstellung und handeln dementsprechend.",
       "Eine Ihrer besonderen Qualitäten ist es, sich in besonders schwierigen Phasen nicht unterkriegen zu lassen, sondern daran zu wachsen.",
-      "Um andere nicht mit Ihren Problemen zu • belasten, zeigen Sie negative Gefühle selten offen und wenn, nur guten Freunden",
+      "Um andere nicht mit Ihren Problemen zu belasten, zeigen Sie negative Gefühle selten offen und wenn, nur guten Freunden",
       "In Konfliktsituationen können Sie gut vermitteln. Sie sorgen dafür, dass übermäßige Emotionalität abgebaut wird und man auf die Fakten zurückkommt.",
-      "Sie wirken deeskalierend. Sie behalten die Ruhe und gehen das Problem mit überlegtem Handeln und Sorgfalt an. Sie sind ausdauernd und geduldig – sowohl in der Analyse und der Lösungsfindung als auch in der Umsetzung."
+      "Sie wirken deeskalierend. Sie behalten die Ruhe und gehen das Problem mit überlegtem Handeln und Sorgfalt an.",
+      "Sie sind ausdauernd und geduldig – sowohl in der Analyse und der Lösungsfindung als auch in der Umsetzung."
     ],
     "konflikt_negativ": [
-      "Es kann passieren, dass Sie sich zu sehr • an den Bedürfnissen anderer ausrichten. Sie werden dann leicht zu einem unfreiwilligen Dienstleister, der im Extremfall beginnt, für andere deren Leben zu meistern und sich selbst dabei viel zu sehr zurücknimmt.",
-      "Sie haben Schwierigkeiten mit der • direkten emotionalen Konfrontation.",
+      "Es kann passieren, dass Sie sich zu sehr an den Bedürfnissen anderer ausrichten. Sie werden dann leicht zu einem unfreiwilligen Dienstleister, der im Extremfall beginnt, für andere deren Leben zu meistern und sich selbst dabei viel zu sehr zurücknimmt.",
+      "Sie haben Schwierigkeiten mit der direkten emotionalen Konfrontation.",
       "Sie können gewachsene Beziehungen schlecht beenden.",
       "Statt konstruktiv-aggressiv zu sein, warten Sie lieber ab.",
-      "Sie zögern, anstatt energisch auf das Ziel zuzugehen. Man übersieht Sie, weil Sie oft bemüht sind, keine Schwierigkeiten zu machen und niemandem zur Last zu fallen",
+      "Sie zögern, anstatt energisch auf das Ziel zuzugehen.",
+      "Man übersieht Sie, weil Sie oft bemüht sind, keine Schwierigkeiten zu machen und niemandem zur Last zu fallen",
       "Manchmal ist es Ihnen wichtiger gemocht zu werden, als Ihre eigene Meinung zu vertreten.",
       "Sie reagieren gestresst auf Undankbarkeit und Nichtbeachtung."
     ],
@@ -142,27 +146,32 @@
       "Sie erwarten Lob, wenn Sie etwas gut gemacht haben.",
       "Der Ausdruck persönlicher Wertschätzung fördert Ihre Kommunikationsbereitschaft.",
       "Sie erwarten eine Erklärung dazu, was das Neue, das gerade kommuniziert wird, mit dem Altbekannten zu tun hat.",
-      "Sie bevorzugen Systematik und Ordnung • in der Argumentation.",
+      "Sie bevorzugen Systematik und Ordnung in der Argumentation.",
       "Sie prüfen die Sinnhaftigkeit des Erklärten.",
-      "Sie schätzen es, wenn nach genauer • Beschreibung der Einzelheiten Dinge im Zusammenhang dargestellt werden.",
-      "Man überzeugt Sie, wenn man den • praktischen Nutzen einer Sache aufzeigt.",
+      "Sie schätzen es, wenn nach genauer Beschreibung der Einzelheiten Dinge im Zusammenhang dargestellt werden.",
+      "Man überzeugt Sie, wenn man den praktischen Nutzen einer Sache aufzeigt.",
       "Sie möchten gern zu Entscheidungen gefragt werden, die Ihren Zuständigkeitsbereich betreffen. Sie möchten gern Ihr Votum dazu abgeben, ob gesetzte Ziele erreichbar sind.",
       "Sie bevorzugen tiefgehende, ruhige Gespräche.",
       "Vor wichtigen Entscheidungen benötigen Sie Zeit zum Nachdenken.",
       "Sie brauchen Zeit, um sich vorzubereiten.",
       "Ihr Gesprächspartner kann Sie erreichen, wenn er eine Sache Schritt für Schritt erklärt und detaillierte, präzise Beschreibungen abgibt.",
-      "Sie schätzen es, wenn Menschen einen persönlichen Bezug zu dem Gesagten vermitteln können, wenn sie mit „Herz“ bei der Sache sind. Sie konzentrieren sich gern auf eine Sache, anstatt an mehreren Dingen parallel zu arbeiten.",
-      "Die Erwartungen anderer an Sie sollten genau beschrieben werden Gern hören Sie zu, wenn persönlichen Erfahrungen weitergeben werden, die jemand mit einer Sache hat. Sie mögen beständiges, höfliches Feedback."
+      "Sie schätzen es, wenn Menschen einen persönlichen Bezug zu dem Gesagten vermitteln können, wenn sie mit „Herz“ bei der Sache sind.",
+      "Sie konzentrieren sich gern auf eine Sache, anstatt an mehreren Dingen parallel zu arbeiten.",
+      "Die Erwartungen anderer an Sie sollten genau beschrieben werden",
+      "Gern hören Sie zu, wenn persönlichen Erfahrungen weitergeben werden, die jemand mit einer Sache hat.",
+      "Sie mögen beständiges, höfliches Feedback."
     ],
     "kommunikation_vermeiden": [
       "Es erzeugt bei Ihnen einen inneren Widerstand, wenn jemand „von oben herab“ mit Ihnen kommuniziert.",
       "Dominantes, unhöfliches Verhalten lehnen Sie ab.",
       "Überkritische Beurteilung machen Sie unsicher.",
-      "Es entsteht das Gefühl von • Überforderung, wenn zu schnelle und ungeplante Änderungen oder Entscheidungen kommuniziert werden.",
-      "Ungenaue Beschreibungen verunsichern • Sie.",
+      "Es entsteht das Gefühl von Überforderung, wenn zu schnelle und ungeplante Änderungen oder Entscheidungen kommuniziert werden.",
+      "Ungenaue Beschreibungen verunsichern Sie.",
       "Es zerstört Ihr Vertrauen, wenn menschliche Belange missachtet werden.",
       "Sie beginnen zu zweifeln, wenn zu theoretische Konzepte präsentiert werden.",
-      "Es nimmt Ihnen Ihre Energie, wenn Ihre Leistungen oder Ihr persönliches Entgegenkommen als selbstverständlich hingenommen werden. Sie mögen es nicht, sich auf vage Ideen und schlecht durchdachte Konzepte einzulassen. Sie lehnen es ab, wenn andere schnelle, überhastete Entscheidungen einfordern."
+      "Es nimmt Ihnen Ihre Energie, wenn Ihre Leistungen oder Ihr persönliches Entgegenkommen als selbstverständlich hingenommen werden.",
+      "Sie mögen es nicht, sich auf vage Ideen und schlecht durchdachte Konzepte einzulassen.",
+      "Sie lehnen es ab, wenn andere schnelle, überhastete Entscheidungen einfordern."
     ],
     "stress": [
       "Sie neigen unter Stress dazu, Ihre Konzentration, statt auf die eigenen Bedürfnisse eher auf die Bedürfnisse von Einzelnen in Ihrem Umfeld zu richten. Damit geht der Bezug zu den eigenen Zielen, Wünschen und Absichten verloren.",
@@ -178,17 +187,19 @@
       "Routine, feste Zeiten und geregelte Lernabläufe beeinflussen den Lerneffekt positiv.",
       "Sie lernen geduldig und stetig. Sie haben eine positive Sturheit.",
       "Lernen ist für Sie eine Mischung aus Theorie und praktischem Erleben.",
-      "Sie lernen am besten, wenn • Auswendiglernen und Übungen gemischt werden.",
+      "Sie lernen am besten, wenn Auswendiglernen und Übungen gemischt werden.",
       "Es spornt Sie an, wenn die Ergebnisse Ihrer Übungen gemessen werden können.",
       "Sie lernen effektiv, wenn Sie sich mit Problemen beschäftigen, die klar umrissen und konkret sind.",
       "Theoretische Konzepte versuchen Sie immer wieder auf Ihren praktischen Nutzen zurückzuführen.",
-      "Sie arbeiten, um bei den Lehrenden positiv aufzufallen und liefern genau das, was verlangt wird. Ein positives Verhältnis zum Lehrer ist von elementarer Bedeutung."
+      "Sie arbeiten, um bei den Lehrenden positiv aufzufallen und liefern genau das, was verlangt wird.",
+      "Ein positives Verhältnis zum Lehrer ist von elementarer Bedeutung."
     ],
     "entwicklungspotential": [
       "Ihr hohes Sicherheitsbedürfnis wirkt sich negativ auf Ihr Bedürfnis nach Ihrer persönlichen Selbstentwicklung aus. Es beeinflusst Ihren Lebensstil und Ihre Erwartungen. Seien Sie sich dessen bewusst – und erlauben sich auch mal das (kontrollierte) Risiko.",
-      "Äußern Sie öfter Ihre Vorstellungen und • teilen Sie anderen mit, was Sie erreicht haben.",
+      "Äußern Sie öfter Ihre Vorstellungen und teilen Sie anderen mit, was Sie erreicht haben.",
       "Lernen Sie es, Ihrem eigenen Potenzial zu vertrauen. Ihre enorme Ausdauer, Ihre Leistungsfähigkeit und Ihre Gabe, Menschen zu helfen sind wertvolle Eigenschaften, derer Sie sich glücklich schätzen können!",
-      "Stellen Sie Ihr Licht nicht unter den Scheffel. Treten Sie bestimmter auf und zeigen Sie größere Gelassenheit, wenn es darum geht, die Führung zu übernehmen. Lernen Sie mehr Gelassenheit im direkten Umgang mit Konflikten."
+      "Stellen Sie Ihr Licht nicht unter den Scheffel. Treten Sie bestimmter auf und zeigen Sie größere Gelassenheit, wenn es darum geht, die Führung zu übernehmen.",
+      "Lernen Sie mehr Gelassenheit im direkten Umgang mit Konflikten."
     ]
   }
 }

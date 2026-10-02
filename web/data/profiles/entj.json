@@ -25,13 +25,15 @@
     "staerken": [
       "Ihre größte Stärke ist Ihr analytisches Entscheidungsvermögen, das Sie verwenden, um alle Dinge in den Griff zu bekommen.",
       "Sie sind neugierig und analysieren ständig.",
-      "Sie entwickeln Strategien, die weit in die • Zukunft hineinreichen und lassen sich von neuen Ideen, Theorien und Erkenntnissen inspirieren.",
-      "Komplexe Aufgabenstellungen sind für • Sie eine Herausforderung.",
+      "Sie entwickeln Strategien, die weit in die Zukunft hineinreichen und lassen sich von neuen Ideen, Theorien und Erkenntnissen inspirieren.",
+      "Komplexe Aufgabenstellungen sind für Sie eine Herausforderung.",
       "Entscheidungen treffen Sie logisch und folgerichtig.",
       "Dabei gehen Sie logisch, organisiert, strukturiert und schnell vor. Sie planen langfristige Abläufe und deren einzelne Schritte, um Ihr Ziel sicher und termingerecht zu erreichen.",
       "Sie sind unternehmerisch und risikobereit.",
       "Sie streben nach Objektivität, schematischer Klarheit und Logik innerhalb Ihres Systems. So entstehen in Ihrem Bewusstsein eigene Ordnungen, mit Ihren eigenen Regeln und Gesetzen.",
-      "Dabei schaffen Sie es, Zusammenhänge und langfristige Perspektiven zu erkennen. Sie sind eine sehr eigenständige Persönlichkeit, der das Anführen und Anleiten im Blut liegt. Sie besitzen eine hohe Entschlussfreude, hohe Einsatzbereitschaft und sind stark belastbar.",
+      "Dabei schaffen Sie es, Zusammenhänge und langfristige Perspektiven zu erkennen.",
+      "Sie sind eine sehr eigenständige Persönlichkeit, der das Anführen und Anleiten im Blut liegt.",
+      "Sie besitzen eine hohe Entschlussfreude, hohe Einsatzbereitschaft und sind stark belastbar.",
       "Was Sie auch machen, Sie wollen es schnell, effizient und effektiv erledigen.",
       "Menschen Ihres Typs sind häufig ausgesprochen erfolgsorientiert. Sie nehmen gern den ersten Platz ein oder gar keinen.",
       "Anderen gegenüber treten Sie direkt und entschlossen auf."
@@ -40,21 +42,24 @@
       "Weil Sie sich sehr auf Ihre Intuition verlassen können, die Sie fast immer zum Erfolg führt, haben Sie eine Tendenz, sich im Vorhinein manchmal zu selbstsicher zu fühlen und folglich nicht immer zu 100% vorbereitet zu sein.",
       "Manchmal urteilen Sie zu schnell.",
       "Sie achten dabei mitunter zu wenig auf die Bedürfnisse oder die Fähigkeiten Ihrer Mitmenschen.",
-      "Wenn Sie eine gewisse Reife noch • nicht erreicht haben, können Sie von Ihrem sozialen Umfeld als schwierig, extravagant und eigenwillig wahrgenommen werden.",
-      "Wenn Sie sich zu sehr auf eine • Aufgabe konzentrieren, laufen Sie Gefahr Ihre eigenen Gefühle zu ignorieren und zu unterdrücken.",
+      "Wenn Sie eine gewisse Reife noch nicht erreicht haben, können Sie von Ihrem sozialen Umfeld als schwierig, extravagant und eigenwillig wahrgenommen werden.",
+      "Wenn Sie sich zu sehr auf eine Aufgabe konzentrieren, laufen Sie Gefahr Ihre eigenen Gefühle zu ignorieren und zu unterdrücken.",
       "Sie sind voreingenommen, was sich dadurch zeigt, dass Sie sich nur mit den Dingen beschäftigen, die Sie wirklich interessieren. Auf Basis dieser Informationen konstruieren Sie sich Ihre „vollkommen schlüssige“, aber eigene Wirklichkeit.",
       "Sie können und wollen ungern Kompromisse eingehen. Sie haben einen Alles-oder-nichts- Aufmerksamkeitsstil, der dazu neigt, die Dinge extrem bzw. einseitig zu sehen.",
       "Andere haben oft Mühe, mit Ihrem hohen Tempo Schritt zu halten.",
-      "Unter Umständen ist Ihnen gar nicht bewusst, wie viel Detailarbeit Ihnen Ihre Kollegen und Mitarbeiter abnehmen, da Sie diese Arbeit ausblenden und nur das (größere) Ziel wahrnehmen. Es fällt Ihnen eher schwer, sensibel die Gefühle anderer, aber auch Ihre eigenen wahrzunehmen und entsprechend zu reagieren. Für Reflexion benötigen Sie eine entspannte Atmosphäre. Es kann passieren, dass Sie andere Menschen dann vor allem zur Umsetzung Ihrer eigenen Interessen nutzen."
+      "Unter Umständen ist Ihnen gar nicht bewusst, wie viel Detailarbeit Ihnen Ihre Kollegen und Mitarbeiter abnehmen, da Sie diese Arbeit ausblenden und nur das (größere) Ziel wahrnehmen.",
+      "Es fällt Ihnen eher schwer, sensibel die Gefühle anderer, aber auch Ihre eigenen wahrzunehmen und entsprechend zu reagieren. Für Reflexion benötigen Sie eine entspannte Atmosphäre.",
+      "Es kann passieren, dass Sie andere Menschen dann vor allem zur Umsetzung Ihrer eigenen Interessen nutzen."
     ],
     "motivation": [
-      "Sie suchen die Herausforderung und • den dauerhaften Erfolg.",
-      "Dabei suchen Sie sich am liebsten Ihre • eigenen Wege.",
+      "Sie suchen die Herausforderung und den dauerhaften Erfolg.",
+      "Dabei suchen Sie sich am liebsten Ihre eigenen Wege.",
       "Auf Ihrer Suche nach Klarheit orientieren Sie sich gern an betont entscheidungsfreudigen Personen.",
       "Entsprechend bevorzugen Sie ein Umfeld, dass effiziente Menschen und Systeme fördern.",
       "Sie lieben es, komplexe Probleme zu lösen.",
       "Sie genießen es, für Ihre “spektakulären“ Beiträge Anerkennung zu bekommen und wollen für Ihre spezielle Sachkenntnis, Leistung und Autorität respektiert werden.",
-      "Es motiviert Sie, zu führen, hohe Standards zu setzen, als Vorbild voranzugehen und Ratschläge zu erteilen. Sie mögen es, Ihre Welt zu strukturieren. Das gibt Ihnen ein Gefühl von Kontrolle und Ordnung.",
+      "Es motiviert Sie, zu führen, hohe Standards zu setzen, als Vorbild voranzugehen und Ratschläge zu erteilen.",
+      "Sie mögen es, Ihre Welt zu strukturieren. Das gibt Ihnen ein Gefühl von Kontrolle und Ordnung.",
       "Sie sind zielorientiert und arbeiten daher gern mit ergebnisorientierten Menschen zusammen.",
       "Ihre Selbstständigkeit und Unabhängigkeit sind Ihnen sehr wichtig.",
       "Die Freiheit, innovative Problemlösungen zu schaffen, treibt Sie zu Höchstleistungen an."
@@ -84,11 +89,12 @@
       "Im Zweifel suchen Sie in schwierigen Situationen den schwachen Punkt des anderen, um sich damit behaupten zu können."
     ],
     "rollen_berufe": [
-      "Ihre Stärken im Berufsalltag sind häufig • geprägt von Ihrem Drang, für Klarheit und Effizienz in Ihrem Umfeld zu sorgen.",
-      "Es motiviert Sie, an der Kontrolle über • systematische Abläufe beteiligt zu sein (Aufgaben, Zeitplan etc.).",
+      "Ihre Stärken im Berufsalltag sind häufig geprägt von Ihrem Drang, für Klarheit und Effizienz in Ihrem Umfeld zu sorgen.",
+      "Es motiviert Sie, an der Kontrolle über systematische Abläufe beteiligt zu sein (Aufgaben, Zeitplan etc.).",
       "Geht es um Ihre Arbeitsumgebung, suchen Sie nach Strukturen, die sowohl Ihre Autonomie als auch Ihre Kreativität befriedigen.",
       "Sie streben nach einer Struktur, die flexibel, offen und diskutierbar ist.",
-      "Sie schätzen Werte, die sich mit Individualität, Klarheit, Kompetenz und Eigenständigkeit verbinden lassen. Deshalb bevorzugen Sie Arbeiten und Teamkonstellationen, bei denen Sie möglichst unabhängig sind und Ihre kreativen Problemlösungen entwickeln können.",
+      "Sie schätzen Werte, die sich mit Individualität, Klarheit, Kompetenz und Eigenständigkeit verbinden lassen.",
+      "Deshalb bevorzugen Sie Arbeiten und Teamkonstellationen, bei denen Sie möglichst unabhängig sind und Ihre kreativen Problemlösungen entwickeln können.",
       "Sie brauchen ein Umfeld, in dem Sie Ihre intuitiven Fähigkeiten einsetzen können.",
       "Menschen Ihres Typs finden sich häufig in Positionen, wo Sie Menschen führen und anleiten können."
     ],
@@ -127,13 +133,14 @@
       "Ihr idealer Chef sollte ein Interaktionspartner sein, der kritische Fragen sach- und fachkundig auf hohem Niveau beantworten kann."
     ],
     "verhalten_als_chef": [
-      "Sie sind eine Führungspersönlichkeit. Sie • führen entschlossen mit Vernunft und Leistung.",
-      "In einer Führungsposition laufen Sie zur • Hochform auf, da Sie dort die Freiheit haben, Ihre Ideen nach Ihren Vorstellungen umzusetzen.",
+      "Sie sind eine Führungspersönlichkeit. Sie führen entschlossen mit Vernunft und Leistung.",
+      "In einer Führungsposition laufen Sie zur Hochform auf, da Sie dort die Freiheit haben, Ihre Ideen nach Ihren Vorstellungen umzusetzen.",
       "Sie fühlen sich besonders wohl und sicher, wenn Sie das Sagen haben.",
       "Dabei übernehmen Sie Verantwortung mit einem wohldurchdachten Plan.",
       "Dabei konzentrieren Sie sich ehrgeizig auf das Wesentliche.",
       "Sie bevorzugen konkrete Ziele und klare Entscheidungen. Diese gilt es auch zu kontrollieren inkl. der vorausgesetzten Normen und Regeln.",
-      "Sie mögen und es fällt Ihnen leicht, schnelle Entscheidungen zu treffen. Dabei verpassen Sie manchmal die Chance, durch Ihre Mitarbeiter neue Erkenntnisse zu gewinnen, weil Sie selbst bereits eine genaue Vorstellung entwickelt haben, wo es hingehen soll.",
+      "Sie mögen und es fällt Ihnen leicht, schnelle Entscheidungen zu treffen.",
+      "Dabei verpassen Sie manchmal die Chance, durch Ihre Mitarbeiter neue Erkenntnisse zu gewinnen, weil Sie selbst bereits eine genaue Vorstellung entwickelt haben, wo es hingehen soll.",
       "Sie geben gern Anweisungen und planen lieber langfristig.",
       "Ihre Aufmerksamkeit gilt vor allem der Arbeit und nicht so sehr den Menschen.",
       "Im Arbeitsalltag verlangen Sie viel von sich und anderen.",
@@ -177,10 +184,11 @@
       "Sie urteilen schnell und müssen darauf achten, sich vorher ein ausreichend umfassendes Bild von der Situation gemacht zu haben.",
       "Achten Sie darauf, alle Aspekte und Auswirkungen besser zu überdenken, bevor Sie entscheiden.",
       "Versuchen Sie, sich vorweg die Meinung der Menschen anzuhören, die von einer Entscheidung betroffen sind. Das wird Ihnen vielleicht schwerfallen. Wenn Sie sich jedoch zu wenig Zeit nehmen, entscheiden Sie möglicherweise voreilig und ohne die ausreichende Sachinformation oder genügend Rücksichtnahme auf die persönlichen Gefühle und Ansichten anderer Menschen.",
-      "Sie müssen „die Kunst, andere zu • V verstehen“ entwickeln, wenn Sie lernen, P die Leistungen und Ideen anderer s anzuerkennen - auch, wenn diese nicht L so schnell, so präzise und in Ihrem Sinne logisch handeln.",
+      "Sie müssen „die Kunst, andere zu verstehen“ entwickeln, wenn Sie lernen, P die Leistungen und Ideen anderer s anzuerkennen - auch, wenn diese nicht L so schnell, so präzise und in Ihrem Sinne logisch handeln.",
       "Wenn Sie lernen, persönliche Dinge und Gefühle von Menschen stärker mit einzubeziehen und diese in Ihrem Handeln zu berücksichtigen, reifen Sie auch persönlich.",
       "Sie müssen nicht stärker werden, sondern aufnahmebereiter. Stark sind Sie schon und das wissen Sie auch.",
-      "Versuchen Sie sich auch Ihre eigenen Gefühle zu vergegenwärtigen und Diskrepanzen zwischen tatsächlichen und angegebenen Gefühlen zu erkennen. Das hilft Ihnen aufnahmebereiter zu werden und sich der eigenen Sensibilität bewusst werden. ertrauen Sie auf Ihre eigenen otenziale, wie Ihren Weitblick, das trategische Denken und die hohe eistungsfähigkeit."
+      "Versuchen Sie sich auch Ihre eigenen Gefühle zu vergegenwärtigen und Diskrepanzen zwischen tatsächlichen und angegebenen Gefühlen zu erkennen. Das hilft Ihnen aufnahmebereiter zu werden und sich der eigenen Sensibilität bewusst werden.",
+      "Vertrauen Sie auf Ihre eigenen otenziale, wie Ihren Weitblick, das trategische Denken und die hohe eistungsfähigkeit."
     ]
   }
 }

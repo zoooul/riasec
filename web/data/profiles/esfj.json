@@ -75,15 +75,18 @@
       "Wenig Freude bereitet Ihnen die Beschäftigung mit abstrakten Theorien und Ideen.",
       "Ihnen liegen Aufgaben, bei denen Sie organisieren und den Zeitplan kontrollieren können.",
       "Sie zeichnen sich dadurch aus, dass Sie für Ihr Team da sind und mögen das Gefühl, gebraucht zu werden. Ihre Rolle im Team",
-      "Sie sind ein außerordentlicher • Teamplayer, der begeistert und gern positive Energie zeigt und spürt.",
-      "Im Umgang mit anderen sind Sie taktvoll • und freundlich und erscheinen sympathisch.",
-      "Die Wünsche und Bedürfnisse • Ihrer Teamkollegen finden bei Ihnen besondere Beachtung.",
+      "Sie sind ein außerordentlicher Teamplayer, der begeistert und gern positive Energie zeigt und spürt.",
+      "Im Umgang mit anderen sind Sie taktvoll und freundlich und erscheinen sympathisch.",
+      "Die Wünsche und Bedürfnisse Ihrer Teamkollegen finden bei Ihnen besondere Beachtung.",
       "Sie ordnen, organisieren und schaffen mit Ihrer verbindlichen, zuvorkommenden Art eine Atmosphäre, in der man sich willkommen fühlt.",
       "Sie arbeiten gern mit anderen zusammen und schätzen Tätigkeiten, in denen Sie persönliche Wärme, Trost und Fürsorge vermitteln.",
       "Sie mögen Abwechslung, können sich aber auch gut auf Routine einstellen.",
       "Ihnen übertragene Projekte setzen Sie detailliert und präzise um.",
       "Für Sie eignen sich Positionen, in denen Sie selbst für ein angenehmes soziales Umfeld sorgen können.",
-      "Sie sind ein guter Vermittler. Für Ihr Team engagieren Sie sich sehr und verfügen über ein hohes diplomatisches Geschick. Sie pflegen gruppenspezifische Traditionen. Sie glauben an die Kraft der Solidarität und der Gerechtigkeit. Sie fühlen sich wohl, wenn Sie in gut strukturierte Prozesse und Teams eingebunden sind."
+      "Sie sind ein guter Vermittler.",
+      "Für Ihr Team engagieren Sie sich sehr und verfügen über ein hohes diplomatisches Geschick.",
+      "Sie pflegen gruppenspezifische Traditionen. Sie glauben an die Kraft der Solidarität und der Gerechtigkeit.",
+      "Sie fühlen sich wohl, wenn Sie in gut strukturierte Prozesse und Teams eingebunden sind."
     ],
     "talente_organisation": [
       "Typen wie Sie bilden das Fundament so mancher Organisation.",
@@ -155,10 +158,12 @@
     "kommunikation_vermeiden": [
       "Widersprüche oder komplexe Situationen können bei Ihnen zu Irritationen führen. Dabei kann es vorkommen, dass Sie ein „Unstimmigkeitsexperte“ werden und vor lauter Details das große Ganze nicht mehr sehen.",
       "Sie mögen keine Diskussionen um uneffektive Dinge.",
-      "Mitunter neigen Sie dazu sich • auf eine anstrengende Art und Weise mitzuteilen: Sie dozieren, Sie vereinfachen oder setzen das eigene Modell absolut. Dies kann besonders dann passieren, wenn Sie sich selbst am meisten überzeugen müssen, dass Sie im Besitz besonders respektablen Wissens und Könnens sind. Andere sollten das also nicht direkt unterbinden.",
-      "Sie reagieren sensibel, wenn Sie auf • Gleichgültigkeit treffen.",
+      "Mitunter neigen Sie dazu sich auf eine anstrengende Art und Weise mitzuteilen: Sie dozieren, Sie vereinfachen oder setzen das eigene Modell absolut. Dies kann besonders dann passieren, wenn Sie sich selbst am meisten überzeugen müssen, dass Sie im Besitz besonders respektablen Wissens und Könnens sind. Andere sollten das also nicht direkt unterbinden.",
+      "Sie reagieren sensibel, wenn Sie auf Gleichgültigkeit treffen.",
       "Ideen und Einsichten, die auf intuitiven, zuweilen visionären Ideen ohne klare Faktenbasis beruhen, sind Ihnen eher suspekt.",
-      "Wenn Ihr Gegenüber zu abstrakt oder zu intellektuell wird, verlieren Sie schnell die Geduld. Kritik nehmen Sie schnell persönlich. Daher sollte sie wertschätzend formuliert werden. Harte Verhandlungen schätzen Sie wenig und machen Sie eher misstrauisch."
+      "Wenn Ihr Gegenüber zu abstrakt oder zu intellektuell wird, verlieren Sie schnell die Geduld.",
+      "Kritik nehmen Sie schnell persönlich. Daher sollte sie wertschätzend formuliert werden.",
+      "Harte Verhandlungen schätzen Sie wenig und machen Sie eher misstrauisch."
     ],
     "stress": [
       "Unter Stress reagieren Sie leicht übersensibel und es fällt Ihnen schwer, Ihre Emotionen in Worte zu fassen.",
@@ -172,20 +177,25 @@
       "Menschen Ihres Typs stellen gerne Fragen, sie eignen sich gern Wissen an.",
       "Um sich für ein Thema zu begeistern, brauchen Sie eine interessante, faszinierende, dynamisch wechselnde Präsentation, die Sie persönlich berührt und anregt.",
       "Reines Theorielernen schätzen Sie wenig, auch wenn Sie grundsätzlich über ein gutes Theorieverständnis verfügen.",
-      "Auch beim Lernen bauen Sie auf • erwiesene und glaubwürdige Fakten und glauben nur das, was für Sie realistisch ist.",
-      "In Ihrem Vorgehen sind Sie geduldig und • gründlich – neue Inhalte eignen Sie sich erst dann an, wenn das Bisherige in Ihrem Kopf verankert und verstanden ist.",
-      "Zum Lernen bevorzugen Sie eine ruhige • Atmosphäre. Sie lernen lieber allein.",
+      "Auch beim Lernen bauen Sie auf erwiesene und glaubwürdige Fakten und glauben nur das, was für Sie realistisch ist.",
+      "In Ihrem Vorgehen sind Sie geduldig und gründlich – neue Inhalte eignen Sie sich erst dann an, wenn das Bisherige in Ihrem Kopf verankert und verstanden ist.",
+      "Zum Lernen bevorzugen Sie eine ruhige Atmosphäre. Sie lernen lieber allein.",
       "Ist Ihr Interesse geweckt, besitzen Sie beim Lernen eine Faszination, mit der Sie sich auch komplexe Inhalte gut aneignen können.",
       "Sie lernen selbstregulativ und intrinsisch motiviert, möchten neue Lerninhalte in Ihren bisherigen Erfahrungsschatz aufnehmen.",
-      "Sie sind praktisch veranlagt; für Sie ist es gut, Dinge erstmal praktisch auszuprobieren und sich dann den theoretischen Hintergrund dazu anzueignen. Durch Ihre Detailorientierung übersehen Sie wenig. Dadurch lernen Sie strukturiert, eher langsam, in dem Sie Inhalte kategorisieren und wiederholen, bis Sie sich sicher fühlen. Sie brauchen geregelte Lernabläufe, am besten feste Zeiten und Routinen. Sie ruhen sich erst aus, wenn die Arbeit erledigt ist und das am liebsten möglichst pünktlich."
+      "Sie sind praktisch veranlagt; für Sie ist es gut, Dinge erstmal praktisch auszuprobieren und sich dann den theoretischen Hintergrund dazu anzueignen.",
+      "Durch Ihre Detailorientierung übersehen Sie wenig.",
+      "Dadurch lernen Sie strukturiert, eher langsam, in dem Sie Inhalte kategorisieren und wiederholen, bis Sie sich sicher fühlen.",
+      "Sie brauchen geregelte Lernabläufe, am besten feste Zeiten und Routinen. Sie ruhen sich erst aus, wenn die Arbeit erledigt ist und das am liebsten möglichst pünktlich."
     ],
     "entwicklungspotential": [
       "Für Sie ist es hilfreich, sich einen Gesamtüberblick zu verschaffen, bevor Entscheidungen getroffen werden.",
       "Die eigene Autorität zu entwickeln, die Fähigkeit zu steigern dort ein klares Nein zu sagen, wo Sie etwas eigentlich nicht wollen, gehört zu Ihren wichtigsten Entwicklungsaufgaben.",
-      "Hören Sie auf sich selbst und gehen Sie • Ihren Weg.",
-      "Die Frage, die Menschen dieses Typus • sich dafür stellen müssen, ist die nach ihren persönlichen Zielen, nach Ihren eigenen Gefühlen und Bedürfnissen. Eigene Ziele, Bedürfnisse und Gefühle müssen von denen unterschieden werden, die andere Menschen an Sie herantragen.",
+      "Hören Sie auf sich selbst und gehen Sie Ihren Weg.",
+      "Die Frage, die Menschen dieses Typus sich dafür stellen müssen, ist die nach ihren persönlichen Zielen, nach Ihren eigenen Gefühlen und Bedürfnissen. Eigene Ziele, Bedürfnisse und Gefühle müssen von denen unterschieden werden, die andere Menschen an Sie herantragen.",
       "Trauen Sie sich Konflikte und Schwierigkeiten auch und gerade dann anzugehen, wenn Ihnen die Personen sehr am Herzen liegen.",
-      "Auch wenn Sie eine unbewusste Angst haben, Ihre gewohnten Strukturen zu verlassen, sollten Sie doch hin und wieder in Ihrem Leben etwas verändern. Der neue Blickwinkel wird Ihnen gut tun. Speisen Sie nicht Ihr Selbstwertgefühl daraus, wie andere auf Sie reagieren. Versuchen Sie Ihrerseits, Kritik nicht zu persönlich zu nehmen und zu verdrängen, sondern die darin enthaltenen Aspekte wahrzunehmen, die für Ihre Entwicklung wichtig sind."
+      "Auch wenn Sie eine unbewusste Angst haben, Ihre gewohnten Strukturen zu verlassen, sollten Sie doch hin und wieder in Ihrem Leben etwas verändern. Der neue Blickwinkel wird Ihnen gut tun.",
+      "Speisen Sie nicht Ihr Selbstwertgefühl daraus, wie andere auf Sie reagieren.",
+      "Versuchen Sie Ihrerseits, Kritik nicht zu persönlich zu nehmen und zu verdrängen, sondern die darin enthaltenen Aspekte wahrzunehmen, die für Ihre Entwicklung wichtig sind."
     ]
   }
 }

@@ -76,10 +76,12 @@
     ],
     "konflikt_positiv": [
       "Sie sind in kritischen Situationen sehr kreativ und finden schnelle Lösungen.",
-      "Bei der Problemlösung gelingt es Ihnen, • komplexe Zusammenhänge zu erkennen und einfach darstellen zu können.",
-      "Sie können gut auf die Bedürfnisse • anderer reagieren.",
+      "Bei der Problemlösung gelingt es Ihnen, komplexe Zusammenhänge zu erkennen und einfach darstellen zu können.",
+      "Sie können gut auf die Bedürfnisse anderer reagieren.",
       "Sie sind sensibel und können Entwicklungen (z.B. Konflikte) schnell erkennen.",
-      "In Konfliktsituationen versuchen Sie, Ihr Handeln mit den eigenen Wertvorstellungen zu vereinen. Ihr Handeln in Notfällen ist schnell, unkonventionell und unbürokratisch. Sie fördern gewünschtes positives Verhalten, sehen die Chancen, statt Fehler direkt anzusprechen.",
+      "In Konfliktsituationen versuchen Sie, Ihr Handeln mit den eigenen Wertvorstellungen zu vereinen.",
+      "Ihr Handeln in Notfällen ist schnell, unkonventionell und unbürokratisch.",
+      "Sie fördern gewünschtes positives Verhalten, sehen die Chancen, statt Fehler direkt anzusprechen.",
       "Sie besitzen eine Bereitschaft, über eigene Schwächen nachzudenken und an diesen zu arbeiten."
     ],
     "konflikt_negativ": [
@@ -91,10 +93,12 @@
     "rolle_im_team": [
       "Sie führen und arbeiten gern im Team und agieren gern als Mentor.",
       "Sie verleihen einer Gemeinschaft oft Charme und Ausstrahlung.",
-      "Oft sind Menschen Ihres Typs • Vertrauenspersonen; schenken Anerkennung, Aufmerksamkeit und Wertschätzung.",
-      "Bestimmendes oder vereinnahmendes • Verhalten kann dann ein Zeichen des Aufbegehrens sein, z.B. bei fehlendem Selbstvertrauen oder bei Entscheidungen, die durch andere gefällt werden.",
+      "Oft sind Menschen Ihres Typs Vertrauenspersonen; schenken Anerkennung, Aufmerksamkeit und Wertschätzung.",
+      "Bestimmendes oder vereinnahmendes Verhalten kann dann ein Zeichen des Aufbegehrens sein, z.B. bei fehlendem Selbstvertrauen oder bei Entscheidungen, die durch andere gefällt werden.",
       "Sie sind ein Optimist und Enthusiast.",
-      "Sie fördern sowohl die Entwicklung, als auch das Werteverständnis anderer. In der Arbeit im Team sind Sie ausdauernd, gewissenhaft und loyal und erwarten von anderen dasselbe. Kritik nehmen Sie mitunter zu persönlich."
+      "Sie fördern sowohl die Entwicklung, als auch das Werteverständnis anderer.",
+      "In der Arbeit im Team sind Sie ausdauernd, gewissenhaft und loyal und erwarten von anderen dasselbe.",
+      "Kritik nehmen Sie mitunter zu persönlich."
     ],
     "talente_organisation": [
       "Sie haben ein hohes Verantwortungsbewusstsein.",
@@ -111,10 +115,11 @@
     "idealer_chef": [
       "Ihr idealer Chef liefert Ihnen stets neue Anreize.",
       "Er gibt Ihnen Freiheit, Freiraum und Selbstverantwortung.",
-      "Ihr idealer Chef sucht bei Ihnen das • fachkundige und persönliche Gespräch auf Augenhöhe.",
+      "Ihr idealer Chef sucht bei Ihnen das fachkundige und persönliche Gespräch auf Augenhöhe.",
       "Authentisches Verhalten Ihres Vorgesetzten ist für Sie ein wichtiges Kriterium, um ihn als Führungsperson zu akzeptieren.",
       "Ihr idealer Chef unterstützt Sie bei der Priorisierung und Zielfokussierung.",
-      "Er gibt Ihnen Vertrauen, die richtige Methode ausgewählt zu haben. Gleichzeitig fördert er Ihre Intuition und Kreativität und lobt Sie für Ihr Engagement."
+      "Er gibt Ihnen Vertrauen, die richtige Methode ausgewählt zu haben.",
+      "Gleichzeitig fördert er Ihre Intuition und Kreativität und lobt Sie für Ihr Engagement."
     ],
     "verhalten_als_chef": [
       "Als Chef agieren Sie ehrlich, direkt, gerecht, ehrgeizig und diszipliniert.",

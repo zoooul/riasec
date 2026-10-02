@@ -37,14 +37,15 @@
       "Ihre hohe Flexibilität und Anpassungsfähigkeit zeichnen Sie aus."
     ],
     "schwaechen": [
-      "Sie entscheiden erst, wenn alle • Informationen vorliegen. Daher neigen Sie dazu, Entscheidungen aufzuschieben bzw. sich nicht entscheiden zu können, weil es noch bessere Informationen geben könnte.",
+      "Sie entscheiden erst, wenn alle Informationen vorliegen. Daher neigen Sie dazu, Entscheidungen aufzuschieben bzw. sich nicht entscheiden zu können, weil es noch bessere Informationen geben könnte.",
       "Manchmal fällt es Ihnen schwer, Prioritäten zu setzen.",
       "Ein gutes Zeitmanagement einzuführen ist eine Herausforderung für Sie, weil Sie stets versuchen, alle Eventualitäten zu berücksichtigen und dann nicht einfach loslegen.",
-      "Wenn Sie zu tolerant sind und zu viel • zulassen, kann es auf andere orientierungslos und chaotisch wirken.",
+      "Wenn Sie zu tolerant sind und zu viel zulassen, kann es auf andere orientierungslos und chaotisch wirken.",
       "Der Wunsch nach Anerkennung durch andere ist bei Ihnen stark ausgeprägt. Es herrscht bei Ihnen daher eine gewisse Diskrepanz zwischen Ihrem Innenleben und dem, wie Sie sich nach Außen zeigen. Um anderen zu gefallen setzen Sie dann Masken auf, die Ihnen vielleicht nicht passen.",
       "Es kann Ihnen passieren, dass Sie einfach aus dem Gefühl heraus handeln, ohne vorher bewusste logische Überlegungen in Ihre Entscheidungsprozesse mit einbezogen zu haben.",
       "Harmonie ist Ihnen wichtig. Daher kann es passieren, dass Sie Geselligkeit auf Kosten der Zielerreichung ausleben.",
-      "In Ihren Entscheidungen lassen Sie sich teilweise von den sich bietenden Gelegenheiten mitreißen. Sie sind sehr empfänglich für „ansteckende Emotionalität“. Dabei laufen Sie Gefahr, nicht immer alles zu beenden, was sie anfangen, weil Sie sich leicht ablenken lassen.",
+      "In Ihren Entscheidungen lassen Sie sich teilweise von den sich bietenden Gelegenheiten mitreißen. Sie sind sehr empfänglich für „ansteckende Emotionalität“.",
+      "Dabei laufen Sie Gefahr, nicht immer alles zu beenden, was sie anfangen, weil Sie sich leicht ablenken lassen.",
       "Manchmal neigen Sie dazu, Ihre eigenen Bedürfnisse zu verdrängen. Sie versuchen dann mit allgemeinen Aktivitäten, Arbeit und Spaß Ihre persönlichen Baustellen zu überdecken."
     ],
     "motivation": [
@@ -53,14 +54,17 @@
       "Sie laufen zur Hochform auf, wenn Sie es mit konkreten Dingen sowie mit konkreten Aktionen zu tun haben.",
       "Sie sind eher an Menschen als an Dingen interessiert. Der direkte Kontakt zum Leben ist Ihnen wichtig.",
       "Sie verspüren ein großes Bedürfnis nach Harmonie.",
-      "Sie lieben es, wenn Ihre sozialen • Kompetenzen gefragt sind und Ihre Anpassungsfähigkeit gefordert wird.",
-      "Positive Rückmeldung motiviert Sie. Sie • geben Ihr Bestes, wenn man Sie viel lobt und Ihren Einsatz direkt anspricht.",
-      "Sie sind ein Genießertyp, mögen gutes • Essen, schöne Landschaften und Gegenstände. Reichtum ist für Sie weniger materiell als sinnlich.",
+      "Sie lieben es, wenn Ihre sozialen Kompetenzen gefragt sind und Ihre Anpassungsfähigkeit gefordert wird.",
+      "Positive Rückmeldung motiviert Sie. Sie geben Ihr Bestes, wenn man Sie viel lobt und Ihren Einsatz direkt anspricht.",
+      "Sie sind ein Genießertyp, mögen gutes Essen, schöne Landschaften und Gegenstände. Reichtum ist für Sie weniger materiell als sinnlich.",
       "Sie freuen sich über Abwechslung und lieben daher Überraschungen.",
       "Sie lieben es, Ihr Leben in einem vorgefertigten Rahmen bunt, reichhaltig und intensiv zu führen.",
       "Für Sie ist es wichtig, Richtung und Sinn für Ihr Leben zu finden.",
       "Ein Umfeld, das aus energiegeladenen, umgänglichen und gegenwartsbezogenen Menschen besteht, motiviert Sie.",
-      "Ihr soziales Umfeld sollte lebendig und harmonisch sein. Sie mögen eine Umgebung, die einen lockeren Umgang mit Menschen ermöglicht. Sie sind hoch selbstmotiviert etwas zu erreichen und an Ihrer eigenen Entwicklung interessiert. Dabei sind Sie auch selbstkritisch. Sie suchen die Autonomie. Selbstbestimmt entscheiden und handeln zu können ist Ihnen daher besonders wichtig."
+      "Ihr soziales Umfeld sollte lebendig und harmonisch sein.",
+      "Sie mögen eine Umgebung, die einen lockeren Umgang mit Menschen ermöglicht.",
+      "Sie sind hoch selbstmotiviert etwas zu erreichen und an Ihrer eigenen Entwicklung interessiert. Dabei sind Sie auch selbstkritisch.",
+      "Sie suchen die Autonomie. Selbstbestimmt entscheiden und handeln zu können ist Ihnen daher besonders wichtig."
     ],
     "demotivation": [
       "Tägliche Routine, Verpflichtungen und Abläufe werden von Ihnen ertragen, aber nicht sehr geschätzt.",
@@ -95,11 +99,13 @@
       "Sie vermitteln ein positives Bild vom Team und dem Unternehmen.",
       "Sie akzeptieren und behandeln die Menschen so, wie sie sind.",
       "Sie setzen Projekte detailliert und präzise um.",
-      "Durch Ihr Talent zu vermitteln sind Sie in • der Lage, tiefe „Gräben“ in Unternehmen zu. überbrücken, wie Ihnen dies im Kleinen bei Einzelpersonen gelingt.",
-      "Wenn sich einmal keine Grenzen • auflösen lassen, dann haben Sie einen guten Blick für die freien Räume innerhalb der Grenzen.",
+      "Durch Ihr Talent zu vermitteln sind Sie in der Lage, tiefe „Gräben“ in Unternehmen zu. überbrücken, wie Ihnen dies im Kleinen bei Einzelpersonen gelingt.",
+      "Wenn sich einmal keine Grenzen auflösen lassen, dann haben Sie einen guten Blick für die freien Räume innerhalb der Grenzen.",
       "Sie fördern den Enthusiasmus.",
       "Sie haben einen Sinn für unkonventionelle Lösungen.",
-      "In Krisensituationen bleiben Sie ruhig. Sie gehen unkonventionelle Wege. Denn oft sind es die verhärteten, etablierten Ordnungen, Regeln und Gesetze, die „überholt“ werden müssen, um mit einer Sache ans Ziel zu kommen. Ihr personenbezogenes Wertegefühl vermittelt Ihnen Takt, Sympathie und ein ehrliches Interesse für andere."
+      "In Krisensituationen bleiben Sie ruhig.",
+      "Sie gehen unkonventionelle Wege. Denn oft sind es die verhärteten, etablierten Ordnungen, Regeln und Gesetze, die „überholt“ werden müssen, um mit einer Sache ans Ziel zu kommen.",
+      "Ihr personenbezogenes Wertegefühl vermittelt Ihnen Takt, Sympathie und ein ehrliches Interesse für andere."
     ],
     "konflikt_positiv": [
       "Ihr Augenmerk richtet sich auf unmittelbar anstehende Probleme. Sie sind daher ein guter Problemlöser.",
@@ -142,9 +148,10 @@
     "kommunikation_sollten": [
       "Eine schnelle und direkte Kommunikation mit Ihren Mitmenschen ist Ihnen wichtig.",
       "Sie bevorzugen lustige und positiv knisternde Gespräche.",
-      "Kritik können Sie dann annehmen, wenn • Sie gleichzeitig merken, dass Ihr Gegenüber mit positivem Beispiel vorangeht.",
+      "Kritik können Sie dann annehmen, wenn Sie gleichzeitig merken, dass Ihr Gegenüber mit positivem Beispiel vorangeht.",
       "Sie mögen es, von Ihren Mitmenschen aufgemuntert zu werden. Ein positiver Satz und ein Kompliment wirken bei Ihnen emotionale Wunder.",
-      "Sie mögen das persönliche Gespräch, auch bei Auseinandersetzungen, mit allen Intensitäten und Ausschweifungen. Im Gespräch sind Sie offen für spontane Impulse, die Sie erhalten, wenn Sie mitten im Geschehen sind. Reflektion und Analyse liegen Ihnen weniger."
+      "Sie mögen das persönliche Gespräch, auch bei Auseinandersetzungen, mit allen Intensitäten und Ausschweifungen.",
+      "Im Gespräch sind Sie offen für spontane Impulse, die Sie erhalten, wenn Sie mitten im Geschehen sind. Reflektion und Analyse liegen Ihnen weniger."
     ],
     "kommunikation_vermeiden": [
       "Eine zu kühle und distanzierte Ansprache verunsichert Sie. Sie bevorzugen das persönlich wertschätzende Gespräch.",
@@ -153,12 +160,13 @@
       "Sie mögen keine Diskussionen um uneffektive Dinge."
     ],
     "stress": [
-      "Das Gefühl von Isolation kann dann • starke Ängste hervorrufen.",
-      "Sie neigen dazu, sich um andere zu • sorgen. Dabei tun Sie häufig mehr als nötig oder angemessen wäre.",
+      "Das Gefühl von Isolation kann dann starke Ängste hervorrufen.",
+      "Sie neigen dazu, sich um andere zu sorgen. Dabei tun Sie häufig mehr als nötig oder angemessen wäre.",
       "Unter Stress neigen Sie dazu, zufällige und nebensächliche Ereignisse überzuinterpretieren und sehen darin schlimme Vorzeichen, was die Zukunft “Dienens” als solcher wird wichtiger als betrifft.",
       "Wenn Sie gestresst sind, sinkt Ihr Selbstwertgefühl und Sie haben dann Probleme authentisch zu bleiben.",
       "Unter Stress werden Sie leicht pessimistisch, machen sich Sorgen und nehmen die Rückmeldung von anderen zu persönlich. Sie verlieren dann die Leichtigkeit Ihrer positiven Grundstimmung.",
-      "In stressigen Situationen suchen Sie sich Hilfe bei anderen. Stress verursacht, dass Sie sich unwohl fühlen, weil Sie zu viele Verpflichtungen, Aufgaben und Verantwortungen übernehmen.",
+      "In stressigen Situationen suchen Sie sich Hilfe bei anderen.",
+      "Stress verursacht, dass Sie sich unwohl fühlen, weil Sie zu viele Verpflichtungen, Aufgaben und Verantwortungen übernehmen.",
       "Unter Stress kann es passieren, dass Sie fürchten, nicht genug Akte der Freundlichkeit tun. Der Akt des das angestrebte Resultat oder Ergebnis.",
       "Sie haben dann unter Umständen Angst, dass nahe und gute Beziehungen in die Brüche gehen oder zumindest Schaden nehmen."
     ],

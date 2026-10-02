@@ -59,21 +59,23 @@
       "Sie suchen Stimulationen und Abwechslung und tauschen sich gern aus. Dabei sind Sie impulsiv, begeisternd und können sehr enthusiastisch werden.",
       "Ihr Wunsch nach Pragmatismus treibt Sie an. Sie nehmen gern die Dinge in die Hand. Planbare und vorhersagbare Aufgaben helfen Ihnen dabei, schnell ins Handeln zu kommen.",
       "Sie schätzen eine organisierte, strukturierte Umgebung, die technisch gut ausgerüstet ist.",
-      "Sie mögen Flexibilität bei der Arbeit u die Möglichkeit, auf aktuelle Bedürfnisse zu reagieren.",
+      "Sie mögen Flexibilität bei der Arbeit und die Möglichkeit, auf aktuelle Bedürfnisse zu reagieren.",
       "Sie beschäftigen sich gern mit Ihrer Außenwelt. Sie lassen sich durch Menschen wie durch Objekte anregen. Das gibt Ihnen Energie und Sie lieben die wechselnde Vielfalt des Lebens.",
       "Sie schätzen ein Umfeld, das aus lebensfrohen und zielorientierten Menschen besteht und Spaß ermöglicht.",
       "Sie zeichnen sich durch Eigenständigkeit im Denken und Handeln aus. Ihre Eigenständigkeit ermöglicht es Ihnen, freie Entscheidungen zu treffen. Dies ist Ihnen sehr wichtig und motiviert Sie positiv.",
-      "Trotz aller Struktur lieben Sie es, wenn Sie frei und auch aus dem Impuls heraus handeln können. nd • Sie reagieren sehr schnell auf kritische Situationen und handeln sehr effizient. In diesen Situationen fühlen Sie sich besonders wohl."
+      "Trotz aller Struktur lieben Sie es, wenn Sie frei und auch aus dem Impuls heraus handeln können.",
+      "Sie reagieren sehr schnell auf kritische Situationen und handeln sehr effizient. In diesen Situationen fühlen Sie sich besonders wohl."
     ],
     "demotivation": [
       "Aufgaben, die Sie zu erfüllen haben, müssen für Sie einen Nutzen ergeben. Wenn Sie nicht einsehen, wozu etwas getan werden soll, fällt ihnen die Ausführung schwer.",
       "Lange, bürokratische Wege werden von Ihnen wenig geschätzt.",
       "Sie besitzen eine gewisse Angst vor dem Unbegreiflichen, Dingen, die Sie nicht verstehen und vor unlogischen Vorgängen und Handlungen.",
-      "Mehrdeutige Situationen oder • Aufgabenstellungen frustrieren Sie.",
+      "Mehrdeutige Situationen oder Aufgabenstellungen frustrieren Sie.",
       "Sie sind fair und mögen keine Ungerechtigkeiten.",
       "Sie können zu einem Kritiker werden oder Regeln brechen, wenn diese Ihnen als unsinnig und ungerecht erscheinen, ohne dabei umstürzlerisch zu wirken.",
       "Das System anzugehen und es systematisch zu ändern liegt Ihnen nicht so sehr.",
-      "Widersprüche oder komplexe Situationen führen bei Ihnen zu Irritationen. Da kann es vorkommen, dass Sie vor lauter Details das große Ganze nicht mehr sehen. Störungen und Unterbrechungen, die die Effizienz in Prozess mindern, schätzen Sie wenig."
+      "Widersprüche oder komplexe Situationen führen bei Ihnen zu Irritationen. Da kann es vorkommen, dass Sie vor lauter Details das große Ganze nicht mehr sehen.",
+      "Störungen und Unterbrechungen, die die Effizienz in Prozess mindern, schätzen Sie wenig."
     ],
     "rollen_berufe": [
       "Sie laufen zur Höchstform auf, wenn Sie konkrete Dinge und Situationen vorfinden.",
@@ -104,7 +106,7 @@
       "Sie versuchen, Regeln nicht einfach durchzusetzen, sondern andere von Ihrer Idee zu überzeugen."
     ],
     "konflikt_positiv": [
-      "Sie sind ein begabter Problemlöser und • Krisenmanager, weil Sie sich bewusst auf die gegenwärtige Lage einstellen und realistisch mit Situationen umgehen können.",
+      "Sie sind ein begabter Problemlöser und Krisenmanager, weil Sie sich bewusst auf die gegenwärtige Lage einstellen und realistisch mit Situationen umgehen können.",
       "Ihre natürliche und pragmatische Art hilft Ihnen, Konflikte zu entschärfen und zerstrittene Parteien wieder an einen Tisch bringen.",
       "Sie können entscheiden, wie Fehler zu bewerten sind und wie man damit umgeht.",
       "In Stresssituationen beurteilen Sie die augenblickliche Lage analytisch und treffen logische Entscheidungen.",
@@ -124,11 +126,12 @@
       "Bei starken Diskrepanzen neigen Sie dazu, sich abzukoppeln und Ihren eigenen Weg zu gehen."
     ],
     "idealer_chef": [
-      "Ideal ist für Sie ein Vorgesetzter, der • klare Erwartungen kommuniziert und Ihnen Ordnung und Struktur gibt.",
-      "Es sollte sichergestellt sein, dass • in einem Gespräch mit Ihrem Vorgesetzten klare Absprachen möglich sind, Ziele gesetzt und Zeiten zur Umsetzung festgelegt werden.",
+      "Ideal ist für Sie ein Vorgesetzter, der klare Erwartungen kommuniziert und Ihnen Ordnung und Struktur gibt.",
+      "Es sollte sichergestellt sein, dass in einem Gespräch mit Ihrem Vorgesetzten klare Absprachen möglich sind, Ziele gesetzt und Zeiten zur Umsetzung festgelegt werden.",
       "Gleichzeitig brauchen Sie Raum für Freiheit, um Ihnen gestellte Aufgaben eigenständig zu erledigen. „Leben und leben lassen“ ist für Sie ein wichtiges Motto.",
       "Konstruktive Feedbackgespräche auf der fachlich-sachlichen Ebene stärken Sie und tun Ihnen gut.",
-      "Für eine engagierte Aufgabenumsetzung brauchen Sie eine klare Definition der Rollen. Aufgaben sollten realistisch sein und detailgenau beschrieben werden.",
+      "Für eine engagierte Aufgabenumsetzung brauchen Sie eine klare Definition der Rollen.",
+      "Aufgaben sollten realistisch sein und detailgenau beschrieben werden.",
       "Ihr Vorgesetzter sollte Sie im Vorfeld über neue Entwicklungen oder Erkenntnisse informieren, wie auch Sie ihm Informationen anbieten können. Er sollte offen für Ihre Anregungen sein und Sie als Berater nutzen.",
       "Ihr idealer Chef sollte auf einen fairen Umgang mit Ihnen achten."
     ],
@@ -149,14 +152,18 @@
       "Auch wenn Sie zuerst eher ruhig, reserviert und zurückhaltend scheinen, bei einem für Sie interessanten Thema blühen Sie auf.",
       "Sie sprechen lieber über Fakten als über den neuesten Tratsch.",
       "Beziehungen sind durchaus wichtig, dennoch muss bei Ihnen das Verhältnis von Aufwand und Nutzen ausgeglichen sein.",
-      "Vorgänge müssen für Sie faktisch • messbar und begreifbar sein.",
-      "Sie besitzen ein ausgeprägtes • Gerechtigkeitsgefühl.",
-      "Sie mögen es, wenn man Sie in • Stresssituationen über die Ansprache motiviert bzw. aufmuntert.",
-      "Als Denkertyp treffen Sie Ihre • Entscheidungen auf Basis strukturierter, logischer, sachlicher und objektiver Überlegungen. Sie analysieren nach bekannten und anerkannten Prinzipien. Sie beachten Ursache-Wirkungs- Zusammenhänge.",
+      "Vorgänge müssen für Sie faktisch messbar und begreifbar sein.",
+      "Sie besitzen ein ausgeprägtes Gerechtigkeitsgefühl.",
+      "Sie mögen es, wenn man Sie in Stresssituationen über die Ansprache motiviert bzw. aufmuntert.",
+      "Als Denkertyp treffen Sie Ihre Entscheidungen auf Basis strukturierter, logischer, sachlicher und objektiver Überlegungen. Sie analysieren nach bekannten und anerkannten Prinzipien. Sie beachten Ursache-Wirkungs- Zusammenhänge.",
       "Sie kommunizieren kurz und präzise und sind dabei offen und tolerant.",
       "Durch Gespräche gewinnen Sie neue Erkenntnisse und Ideen und können sich darüber austauschen.",
       "Mit ihrem Gegenüber sind Sie ehrlich und objektiv. Sie sagen, was Sie denken.",
-      "Dabei äußern Sie sich auch mal kritisch und stellen die Schlussfolgerungen anderer in Frage. Sie vertrauen nur Informationen, die Sie mit Ihren eigenen Sinnen erfasst haben. Sie schätzen Personen, die direkt und ehrlich kommunizieren. Daher kommunizieren Sie lieber auf der Sachebene und erst darauffolgend auf der Beziehungsebene. Sie mögen dynamische, schnelle Unterhaltung, gern mit Humor. Den Augenblick möchten Sie am liebsten so leben, als hätte er keine Vorgeschichte und keine Folgen."
+      "Dabei äußern Sie sich auch mal kritisch und stellen die Schlussfolgerungen anderer in Frage.",
+      "Sie vertrauen nur Informationen, die Sie mit Ihren eigenen Sinnen erfasst haben.",
+      "Sie schätzen Personen, die direkt und ehrlich kommunizieren.",
+      "Daher kommunizieren Sie lieber auf der Sachebene und erst darauffolgend auf der Beziehungsebene.",
+      "Sie mögen dynamische, schnelle Unterhaltung, gern mit Humor. Den Augenblick möchten Sie am liebsten so leben, als hätte er keine Vorgeschichte und keine Folgen."
     ],
     "kommunikation_vermeiden": [
       "Vereinfachungen und Verallgemeinerungen mögen Sie nicht. Sie bevorzugen eine komplexe Betrachtung und Denkweise, die auch Gegensätzliches zulässt. Sie betrachten sehr gern beide Seiten der Medaille.",

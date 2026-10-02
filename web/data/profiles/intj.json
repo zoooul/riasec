@@ -29,24 +29,27 @@
       "Sie sind ein Denkertyp. Entscheidungen treffen Sie auf Basis strukturierter, logischer, sachlicher und objektiver Überlegungen. Sie analysieren nach bekannten und anerkannten Prinzipien. Sie beachten Ursache-Wirkungs- Zusammenhänge",
       "Ihr Handeln ist geprägt von einer starken Entschlusskraft und einem guten Durchhaltevermögen. Wenn Sie einmal auf dem Weg sind, arbeiten Sie unermüdlich, bis das Ziel erreicht ist.",
       "Sie haben im Laufe Ihres Lebens gelernt, dass Sie sich auf Ihre Einsichten verlassen können.",
-      "Ihre Einsichten und Ihre • Analysefähigkeit lassen Sie in einem tiefen Sinne begreifen, was um Sie herum passiert.",
+      "Ihre Einsichten und Ihre Analysefähigkeit lassen Sie in einem tiefen Sinne begreifen, was um Sie herum passiert.",
       "Sie machen Ihre Meinung nicht von der Umwelt abhängig",
       "Es fällt Ihnen leicht Entscheidungen zu treffen. Dabei konzentrieren Sie sich ehrgeizig auf das Wesentliche. Sie mögen schnelle Entscheidungen.",
       "Dies äußert sich auch in einer hohen Durchsetzungsfähigkeit.",
       "Charakteristische Verhaltensweisen für Sie sind vorausschauendes Planen, analytische Entscheidungsfindung und bewusstes Handeln. Das rationale Ordnungssystem befähigt Sie, herausfordernde Ziele zu verfolgen.",
       "Mit Ihrer intuitiven Wahrnehmung sehen Sie Chancen, Verbindungsmöglichkeiten und Zusammenhänge.",
-      "Sie entwickeln Strategien zur Lösung von Problemen. Sie haben eine ausgeprägte Intuition, die Sie in einer Welt der Ideen, Konzepte und Theorien leben lässt."
+      "Sie entwickeln Strategien zur Lösung von Problemen.",
+      "Sie haben eine ausgeprägte Intuition, die Sie in einer Welt der Ideen, Konzepte und Theorien leben lässt."
     ],
     "schwaechen": [
       "Sie sind eine sehr unabhängige Person, die enormes Vertrauen in Ihre eigenen Kräfte setzt. Das lässt Sie manchmal eigensinnig erscheinen.",
       "Es fällt Ihnen manchmal schwer, sich unterzuordnen, da Sie ein ausgeprägter Individualist sind.",
       "Sie neigen zu der Überzeugung, alles selbst machen zu müssen, ohne darauf zu achten, wie die eigenen Ideen von anderen aufgenommen werden.",
-      "Viele Reize und Stimulation, z.B. bei • großen Gruppen, überfordern Sie leicht. Sie ziehen sich dann lieber zurück, als sich in die Menge zu stürzen.",
-      "Ihre stark ausgeprägten Ideale sorgen • für einen sehr hohen Maßstab, an dem Sie Ihre und die Leistung Ihrer Kollegen messen. Hierbei übertreiben Sie es jedoch manchmal und geben Ihren Kollegen zu wenig Freiräume, die diese zu Ihrer Entwicklung benötigen.",
+      "Viele Reize und Stimulation, z.B. bei großen Gruppen, überfordern Sie leicht. Sie ziehen sich dann lieber zurück, als sich in die Menge zu stürzen.",
+      "Ihre stark ausgeprägten Ideale sorgen für einen sehr hohen Maßstab, an dem Sie Ihre und die Leistung Ihrer Kollegen messen. Hierbei übertreiben Sie es jedoch manchmal und geben Ihren Kollegen zu wenig Freiräume, die diese zu Ihrer Entwicklung benötigen.",
       "Manchmal ist Ihre Zeit so sehr mit Aktivitäten und Gedanken, was Sie tun sollten ausgefüllt, dass Sie zu wenig auf Ihre Bedürfnisse hören. Sie verbringen dann einen guten Teil Ihrer Zeit damit, noch irgendetwas zu verbessern. Sie tun dies, ohne sich selbst in aller Ruhe zu befragen, ob dies wirklich der Weg ist, den Sie gehen wollen.",
       "Mitunter sind Sie sehr zurückhaltend, schweigsam und wenig kontaktfreudig, wenn Sie es mit Gruppen zu tun haben.",
       "Sie haben Schwierigkeiten, Ihr Herz an etwas zu hängen und die objektive Distanz zu verlieren.",
-      "Arbeiten Sie sehr konzentriert an einer Sache, kann es passieren, dass Sie den Informationsfluss zu anderen einschränken, wenig kommunizieren oder nur solche Punkte unterstützen und im Gespräch zulassen, die Sie für wichtig halten. Mitunter können Sie für andere unzugänglich erscheinen. Einige lassen sich davon vielleicht auch abschrecken oder gehen auf Distanz. Gleichzeitig vergleichen Sie sich oft kritisch mit anderen. Durch die Angst, Fehler zu machen, setzen Sie sich sehr unter Druck. Daraus resultiert, dass Sie Entscheidungen hinauszögern. Sie verlieren Ihren Pragmatismus und das Gefühl für die Verhältnismäßigkeit der eingesetzten Mittel, um ein Ziel zu erreichen."
+      "Arbeiten Sie sehr konzentriert an einer Sache, kann es passieren, dass Sie den Informationsfluss zu anderen einschränken, wenig kommunizieren oder nur solche Punkte unterstützen und im Gespräch zulassen, die Sie für wichtig halten.",
+      "Mitunter können Sie für andere unzugänglich erscheinen. Einige lassen sich davon vielleicht auch abschrecken oder gehen auf Distanz.",
+      "Gleichzeitig vergleichen Sie sich oft kritisch mit anderen. Durch die Angst, Fehler zu machen, setzen Sie sich sehr unter Druck. Daraus resultiert, dass Sie Entscheidungen hinauszögern. Sie verlieren Ihren Pragmatismus und das Gefühl für die Verhältnismäßigkeit der eingesetzten Mittel, um ein Ziel zu erreichen."
     ],
     "motivation": [
       "Sie sind immer wieder auf der Suche nach Dynamik, Veränderbarkeit, Flexibilität und Spontanität",
@@ -87,11 +90,12 @@
       "Sie müssen sich nicht regelmäßig mit anderen Menschen treffen oder austauschen, um Ideen zu entwickeln.",
       "Sie bevorzugen ein Team, in dem Kritik als konstruktiv angesehen wird.",
       "Sie können mit einem Team langfristig auf ein Ziel hinarbeiten. Die Hauptsache ist, dass alle engagiert beschäftigt sind.",
-      "Am liebsten orientieren Sie sich an Ihren • eigenen moralischen Maßstäben und nicht an den Maßstäben des Teams oder des Vorgesetzten.",
+      "Am liebsten orientieren Sie sich an Ihren eigenen moralischen Maßstäben und nicht an den Maßstäben des Teams oder des Vorgesetzten.",
       "Selbst kompetent zu sein und sich mit kompetenten Menschen auseinander zu setzen, ist für Sie sehr wichtig. Das Niveau innerhalb der (Klein-)Gruppe muss für Sie sehr hoch sein.",
       "Sie bevorzugen kleine Powerteams, in denen jeder für seine Aufgabe mit Einsatzwillen und Kompetenz verantwortlich ist.",
       "Sie mögen Teams mit klaren Zukunftsorientierungen",
-      "Sie haben Respekt vor der Individualität. Sie akzeptieren die Bedürfnisse und forcieren die Intelligenz Ihrer Teammitglieder. Unabhängig davon, welche Position oder welche Rolle Sie innerhalb des Teams bekleiden, beschäftigen Sie sich sehr mit Strategien und Konzepten."
+      "Sie haben Respekt vor der Individualität. Sie akzeptieren die Bedürfnisse und forcieren die Intelligenz Ihrer Teammitglieder.",
+      "Unabhängig davon, welche Position oder welche Rolle Sie innerhalb des Teams bekleiden, beschäftigen Sie sich sehr mit Strategien und Konzepten."
     ],
     "talente_organisation": [
       "Sie haben ein Talent in Geschäftsfragen.",
@@ -112,7 +116,7 @@
       "Sie suchen in Problemen die Systematik und was Sie konkret verändern können."
     ],
     "konflikt_negativ": [
-      "Es kann passieren, dass Sie kritisiert • werden, weil Sie das große Ganze zu viel verändern, nur um einen kleinen Fehler zu bereinigen. Dies empfinden Sie als sehr schmerzlich. Sie haben schon die Last des eigenen Urteils zu tragen, das häufig noch erheblich schärfer mit Ihnen ins Gericht geht als der äußere Kritiker.",
+      "Es kann passieren, dass Sie kritisiert werden, weil Sie das große Ganze zu viel verändern, nur um einen kleinen Fehler zu bereinigen. Dies empfinden Sie als sehr schmerzlich. Sie haben schon die Last des eigenen Urteils zu tragen, das häufig noch erheblich schärfer mit Ihnen ins Gericht geht als der äußere Kritiker.",
       "Sie selbst können sich manchmal nur sehr schwer von Ihrer Vision lösen. Dann bleiben Sie zu hartnäckig und können sich nur schwer von nicht praktikablen Ideen lösen.",
       "Sie werden emotional, wenn die Diskrepanz oder die innere Spannung zwischen dem, was Sie tun und Ihren Bedürfnissen zu groß wird. Sie sind kein guter Verlierer.",
       "Sie streben nach Disziplin. In kritischen Situationen können Sie jedoch emotional ausbrechen und wütend werden."
@@ -129,11 +133,13 @@
       "Sie übernehmen nicht so gern die Führung innerhalb des Teams, obwohl Sie ein dominantes Teammitglied sind. Das liegt daran, dass Sie sich nicht immer wieder mit den Problemen Ihrer Mitarbeiter auseinandersetzen möchten.",
       "Am liebsten würden Sie alles allein machen. Denn dann wissen Sie, dass es auch „richtig“ gemacht wird. Auch Entscheidungen treffen Sie gern allein.",
       "Das kann dazu führen, dass Sie wichtige Entscheidungen manchmal zu wenig mit anderen absprechen",
-      "Sie schätzen Konzeptionen und klaren • Zukunftsvisionen, die Sie durch die Darstellung einzelner Stufen konkretisieren können.",
-      "Sie loben wenig und sind sehr sachlich. • Mitunter neigen Sie dazu, zu wenig Anerkennung auszusprechen und stark zu kritisieren.",
+      "Sie schätzen Konzeptionen und klaren Zukunftsvisionen, die Sie durch die Darstellung einzelner Stufen konkretisieren können.",
+      "Sie loben wenig und sind sehr sachlich. Mitunter neigen Sie dazu, zu wenig Anerkennung auszusprechen und stark zu kritisieren.",
       "Sie setzen lieber auf Vertrauen als auf Furcht. Sie schätzen Werte, die sich mit Individualität und Eigenständigkeit verbinden. Sie suchen und setzen Maßstäbe, die inspirierend statt einschüchternd wirken.",
       "Wenn Sie entschlossen sind, Ihre Visionen in Ziele umzusetzen, räumen Sie alle Hindernisse aus dem Weg. Sie sind bereit hierfür Systeme von Grund auf zu reorganisieren.",
-      "In Führungspositionen führen Sie ausgesprochen zielorientiert und entschlossen. Für sich selbst setzen Sie hohe Maßstäbe und erwarten von anderen eine ebensolche Leistung. Sie streben nach Kontrolle, eindeutigen Entscheidungen und klaren Normen. Sie möchten, dass die Dinge nach Plan und ergebnisorientiert erledigt werden"
+      "In Führungspositionen führen Sie ausgesprochen zielorientiert und entschlossen.",
+      "Für sich selbst setzen Sie hohe Maßstäbe und erwarten von anderen eine ebensolche Leistung.",
+      "Sie streben nach Kontrolle, eindeutigen Entscheidungen und klaren Normen. Sie möchten, dass die Dinge nach Plan und ergebnisorientiert erledigt werden"
     ],
     "kommunikation_sollten": [
       "Menschen Ihres Typs sind in größeren Gruppenhäufig reserviert und wenig kontaktfreudig.",

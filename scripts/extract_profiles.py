@@ -134,11 +134,13 @@ def detect_gutter(lines: list[str]) -> int | None:
 
 
 def split_at_gutter(line: str, gutter: int | None) -> tuple[str, str]:
+    # Prefer an explicit second bullet as the column break.
+    first = line.find("•")
+    second = line.find("•", first + 1) if first >= 0 else -1
+    if second > 15:
+        return line[:second].rstrip(), line[second:].strip()
+
     if gutter is None or len(line) <= gutter:
-        # Fallback: dual bullet or wide gap
-        m = re.match(r"^(.*•\s*.+?)\s{2,}(•\s*.+)$", line)
-        if m:
-            return m.group(1).rstrip(), m.group(2).strip()
         m = re.match(r"^(.{20,}?)\s{3,}(.{8,})$", line)
         if m:
             return m.group(1).rstrip(), m.group(2).strip()
@@ -146,11 +148,18 @@ def split_at_gutter(line: str, gutter: int | None) -> tuple[str, str]:
 
     left = line[:gutter].rstrip()
     right = line[gutter:].strip()
-    # If right doesn't look like column content, keep whole line left
-    if right and not (right.startswith("•") or right[:1].isalnum() or right[:1] in "„\"'("):
-        # still accept German lowercase continuations
-        if not re.match(r"^[a-zäöü]", right):
-            return line.rstrip(), ""
+    # Safety: never keep a leaked second bullet in the left cell
+    leaked = left.find("•", 1)
+    if leaked > 15:
+        right = (left[leaked:] + " " + right).strip()
+        left = left[:leaked].rstrip()
+    if right and not (
+        right.startswith("•")
+        or right[:1].isalnum()
+        or right[:1] in "„\"'("
+        or re.match(r"^[a-zäöü]", right)
+    ):
+        return line.rstrip(), ""
     return left, right
 
 
@@ -159,6 +168,14 @@ def parse_column_stream(lines: list[str]) -> list[str]:
     buf = ""
     for raw in lines:
         s = re.sub(r"[ \t]+", " ", raw).strip()
+        # Drop stray mid-line bullets that leaked from the other column
+        if s.startswith("•"):
+            body = s[1:]
+            body = re.sub(r"\s*•\s*", " ", body)
+            s = "• " + body.strip()
+        else:
+            s = re.sub(r"\s*•\s*", " ", s).strip()
+        s = re.sub(r" {2,}", " ", s).strip()
         if not s or NOISE.match(s):
             continue
         if re.fullmatch(r"- .+ -", s):
@@ -168,7 +185,6 @@ def parse_column_stream(lines: list[str]) -> list[str]:
                 items.append(re.sub(r"\s+", " ", buf).strip())
             buf = s.lstrip("•").strip()
         else:
-            # Soft-hyphen / line-break hyphenation: "Entwicklungs-" + "möglichkeiten"
             if buf.endswith("-") and s and s[0].islower():
                 buf = buf[:-1] + s
             else:
@@ -178,10 +194,12 @@ def parse_column_stream(lines: list[str]) -> list[str]:
 
     cleaned: list[str] = []
     for item in items:
-        item = re.sub(r"\s+", " ", item).strip()
+        item = re.sub(r"\s+", " ", item).replace("•", " ").strip()
+        item = re.sub(r" {2,}", " ", item)
         item = item.replace("kön- nen", "können").replace("Hintergrün- digkeit", "Hintergründigkeit")
         item = item.replace("eben- so", "ebenso").replace("Not- wendigkeiten", "Notwendigkeiten")
         item = item.replace("Be- wegung", "Bewegung").replace("ver- folgen", "verfolgen")
+        item = item.replace("Entwicklungs- möglichkeiten", "Entwicklungsmöglichkeiten")
         if len(item) < 3:
             continue
         if item in SECTION_HEADERS:
@@ -262,11 +280,16 @@ def split_sections(body: str) -> dict[str, list[str]]:
             if idx >= 0:
                 chunk = chunk[:idx]
         key = SECTION_KEY[title]
+        # Keep the first rich occurrence of each section (later hits are often repeats).
+        if key in sections and len(sections[key]) >= 3:
+            continue
         bullets = clean_bullet_block(chunk)
         if not bullets:
             continue
         if key in sections:
-            sections[key].extend(bullets)
+            # Replace a thin first hit with a richer later one
+            if len(bullets) > len(sections[key]):
+                sections[key] = bullets
         else:
             sections[key] = bullets
     return sections
