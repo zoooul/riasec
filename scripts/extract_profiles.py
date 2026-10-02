@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Extract 16 VIST profiles from skillster PDF into structured JSON.
 
-Handles two-column bullet layouts from pdftotext -layout output.
+Improves two-column bullet layouts from `pdftotext -layout` by detecting a
+stable column gutter per section, then parsing left/right streams separately
+before merging complete bullets (avoids mid-sentence column mash).
 """
 
 from __future__ import annotations
 
 import json
 import re
+import statistics
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -81,6 +84,17 @@ NOISE = re.compile(
     re.I,
 )
 
+# Mid-bullet orphan fragments often left after bad merges
+ORPHAN = re.compile(
+    r"^(mit Ihren eigenen Regeln und Gesetzen\.?|"
+    r"erkennen\.?|"
+    r"belastbar\.?|"
+    r"Tempo Schritt zu halten\.?|"
+    r"von Kontrolle und Ordnung\.?|"
+    r"als Vorbild)$",
+    re.I,
+)
+
 
 def load_text() -> str:
     if CACHE.exists():
@@ -94,69 +108,136 @@ def load_text() -> str:
     return CACHE.read_text(encoding="utf-8", errors="replace")
 
 
-def split_two_columns(line: str) -> tuple[str, str]:
-    """Split a layout line into left/right column text."""
-    # Two bullets on one line
-    m = re.match(r"^(.*•\s*.+?)\s{2,}(•\s*.+)$", line)
-    if m:
-        return m.group(1).strip(), m.group(2).strip()
+def detect_gutter(lines: list[str]) -> int | None:
+    """Find a stable column split position from dual-bullet / wide-gap lines."""
+    gaps: list[int] = []
+    for line in lines:
+        # Two bullets on one line — strong signal
+        m = re.search(r"•", line)
+        if not m:
+            continue
+        # Find second bullet
+        second = line.find("•", m.start() + 1)
+        if second > 20:
+            gaps.append(second)
+            continue
+        # Wide whitespace run after some content
+        for gm in re.finditer(r"\S(\s{3,})\S", line):
+            pos = gm.start(1)
+            if 25 <= pos <= 70:
+                gaps.append(pos + 1)
+                break
+    if not gaps:
+        return None
+    # Prefer median of second-bullet positions when available
+    return int(statistics.median(gaps))
 
-    # Wide gap without second bullet (continuation of both columns)
-    m = re.match(r"^(.{20,}?)\s{2,}(.{8,})$", line)
-    if m:
-        left, right = m.group(1).rstrip(), m.group(2).strip()
-        # Avoid splitting short trait lists incorrectly when right looks like trait
-        if len(left) >= 12:
-            return left, right
 
-    return line.strip(), ""
+def split_at_gutter(line: str, gutter: int | None) -> tuple[str, str]:
+    if gutter is None or len(line) <= gutter:
+        # Fallback: dual bullet or wide gap
+        m = re.match(r"^(.*•\s*.+?)\s{2,}(•\s*.+)$", line)
+        if m:
+            return m.group(1).rstrip(), m.group(2).strip()
+        m = re.match(r"^(.{20,}?)\s{3,}(.{8,})$", line)
+        if m:
+            return m.group(1).rstrip(), m.group(2).strip()
+        return line.rstrip(), ""
+
+    left = line[:gutter].rstrip()
+    right = line[gutter:].strip()
+    # If right doesn't look like column content, keep whole line left
+    if right and not (right.startswith("•") or right[:1].isalnum() or right[:1] in "„\"'("):
+        # still accept German lowercase continuations
+        if not re.match(r"^[a-zäöü]", right):
+            return line.rstrip(), ""
+    return left, right
 
 
 def parse_column_stream(lines: list[str]) -> list[str]:
     items: list[str] = []
     buf = ""
     for raw in lines:
-        s = raw.strip()
+        s = re.sub(r"[ \t]+", " ", raw).strip()
         if not s or NOISE.match(s):
+            continue
+        if re.fullmatch(r"- .+ -", s):
             continue
         if s.startswith("•"):
             if buf:
                 items.append(re.sub(r"\s+", " ", buf).strip())
             buf = s.lstrip("•").strip()
         else:
-            if re.fullmatch(r"- .+ -", s):
-                continue
-            buf = f"{buf} {s}".strip() if buf else s
+            # Soft-hyphen / line-break hyphenation: "Entwicklungs-" + "möglichkeiten"
+            if buf.endswith("-") and s and s[0].islower():
+                buf = buf[:-1] + s
+            else:
+                buf = f"{buf} {s}".strip() if buf else s
     if buf:
         items.append(re.sub(r"\s+", " ", buf).strip())
-    return [i for i in items if len(i) >= 3 and i not in SECTION_HEADERS]
+
+    cleaned: list[str] = []
+    for item in items:
+        item = re.sub(r"\s+", " ", item).strip()
+        item = item.replace("kön- nen", "können").replace("Hintergrün- digkeit", "Hintergründigkeit")
+        item = item.replace("eben- so", "ebenso").replace("Not- wendigkeiten", "Notwendigkeiten")
+        item = item.replace("Be- wegung", "Bewegung").replace("ver- folgen", "verfolgen")
+        if len(item) < 3:
+            continue
+        if item in SECTION_HEADERS:
+            continue
+        if ORPHAN.fullmatch(item):
+            continue
+        cleaned.append(item)
+    return cleaned
+
+
+def stitch_orphans(items: list[str]) -> list[str]:
+    """Attach short trailing fragments to the previous bullet when obvious."""
+    if not items:
+        return items
+    out: list[str] = []
+    for item in items:
+        attach = False
+        if out and len(item) < 50:
+            if item[0].islower():
+                attach = True
+            elif item.startswith(("mit ", "zu ", "und ", "oder ", "als ", "von ", "Tempo ")):
+                attach = True
+            elif ORPHAN.fullmatch(item):
+                attach = True
+        if attach:
+            prev = out[-1].rstrip()
+            joined = f"{prev} {item}".strip()
+            if not joined.endswith((".", "!", "?")):
+                joined += "."
+            out[-1] = joined
+            continue
+        out.append(item)
+    return out
 
 
 def clean_bullet_block(raw: str) -> list[str]:
+    lines = [ln.rstrip("\n") for ln in raw.splitlines() if ln.strip()]
+    gutter = detect_gutter(lines)
+
     left_lines: list[str] = []
     right_lines: list[str] = []
-    for line in raw.splitlines():
-        if not line.strip():
-            continue
-        left, right = split_two_columns(line)
-        if left:
+    for line in lines:
+        left, right = split_at_gutter(line, gutter)
+        if left.strip():
             left_lines.append(left)
-        if right:
+        if right.strip():
             right_lines.append(right)
 
-    # Interleave left/right as visual reading order (L1,R1,L2,R2…) after full bullets
-    left_items = parse_column_stream(left_lines)
-    right_items = parse_column_stream(right_lines)
+    left_items = stitch_orphans(parse_column_stream(left_lines))
+    right_items = stitch_orphans(parse_column_stream(right_lines))
 
-    # Prefer paired reading: zip then leftovers
-    merged: list[str] = []
-    n = max(len(left_items), len(right_items))
-    for i in range(n):
-        if i < len(left_items):
-            merged.append(left_items[i])
-        if i < len(right_items):
-            merged.append(right_items[i])
-    return merged
+    # Reading order: complete left column, then complete right column.
+    # (Interleaving mid-bullet caused the classic column mash.)
+    if right_items:
+        return left_items + right_items
+    return left_items
 
 
 def split_sections(body: str) -> dict[str, list[str]]:
@@ -204,7 +285,6 @@ def truncate_body(part: str, code: str) -> str:
             return body[:idx]
         if 0 <= idx and code in {"ISTP", "INTP", "ENTP", "ENFP", "ISFP"}:
             return body[:idx]
-    # Soft cap to avoid theory/Kahneman tails
     return body[:45000]
 
 
@@ -249,6 +329,21 @@ def extract_profiles(text: str) -> list[dict]:
     return profiles
 
 
+def mash_score(bullets: list[str]) -> int:
+    """Heuristic: count likely column-mash artifacts."""
+    bad = 0
+    for b in bullets:
+        if re.search(r"\bzu [A-ZÄÖÜ]", b):
+            bad += 1
+        if re.search(r"\.\s+[a-zäöü]", b):
+            bad += 1
+        if "•" in b:
+            bad += 1
+        if re.search(r"[a-zäöü]\s+Sie [a-z]", b):
+            bad += 1
+    return bad
+
+
 def main() -> None:
     text = load_text()
     profiles = extract_profiles(text)
@@ -258,13 +353,15 @@ def main() -> None:
     for p in profiles:
         path = OUT_DIR / f"{p['code'].lower()}.json"
         path.write_text(json.dumps(p, ensure_ascii=False, indent=2), encoding="utf-8")
+        bullets = [b for secs in p["sections"].values() for b in secs]
         index.append(
             {
                 "code": p["code"],
                 "role": p["role"],
                 "file": path.name,
                 "sectionCount": len(p["sections"]),
-                "bulletCount": sum(len(v) for v in p["sections"].values()),
+                "bulletCount": len(bullets),
+                "mashScore": mash_score(bullets),
             }
         )
 
@@ -284,7 +381,8 @@ def main() -> None:
     for row in sorted(index, key=lambda x: x["code"]):
         print(
             f"  {row['code']:4} {row['role']:12} "
-            f"sections={row['sectionCount']:2} bullets={row['bulletCount']}"
+            f"sections={row['sectionCount']:2} bullets={row['bulletCount']:3} "
+            f"mash={row['mashScore']}"
         )
 
 

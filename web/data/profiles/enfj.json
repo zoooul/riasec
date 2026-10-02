@@ -16,169 +16,166 @@
   "sections": {
     "eigenschaften": [
       "Harmonie",
-      "Verständnis",
       "Idealismus",
-      "Überzeugungskraft",
       "Loyalität",
+      "Verständnis",
+      "Überzeugungskraft",
       "Aufgeschlossenheit"
     ],
     "staerken": [
-      "Sie sind verständnisvoll, tolerant und aufmerksam. Sie früh zu richtigen Einsichten.",
-      "Durch Ihr intuitives Gespür für Situationen und Möglichkeiten gelangen",
-      "Im Umgang mit anderen sind Sie verantwortungsbewusst, taktvoll und zuverlässig. Anwalt einer „besseren Welt“.",
-      "Sie sehen positive Chancen, Verbindungsmöglichkeiten und Zusammenhänge. Sie sind wie ein",
+      "Sie sind verständnisvoll, tolerant und aufmerksam.",
+      "Im Umgang mit anderen sind Sie verantwortungsbewusst, taktvoll und zuverlässig.",
       "Sie haben anerkennende Sensibilität für die Bedürfnisse anderer und das zwischenmenschliche Miteinander.",
-      "Sie wirken inspirierend auf andere und können Sinn stiften.",
       "Eine besondere Stärke von Ihnen ist es, Menschen zu überzeugen und zu integrieren",
-      "Sie können klare, oft sehr langfristige Zielvorstellungen entwickeln.",
       "In Ihrem Handeln sind Sie ausdauernd, gewissenhaft und auf Ordnung bedacht, aber nicht übergenau.",
-      "Ihr eigenes Tun und Lassen wird geprägt von Ihren Idealen und festen Wertvorstellungen.",
       "Sie besitzen eine schnelle Auffassungsgabe.",
+      "Ihre Offenheit und Neugierde zeichnet Sie aus.",
+      "Flexibilität und Risikobereitschaft sind bei Ihnen besonders ausgeprägt.",
+      "Sie sind belastbar und besitzen eine hohe Leistungsfähigkeit.",
+      "Durch Ihr intuitives Gespür für Situationen und Möglichkeiten gelangen Sie früh zu richtigen Einsichten.",
+      "Sie sehen positive Chancen, Verbindungsmöglichkeiten und Zusammenhänge. Sie sind wie ein Anwalt einer „besseren Welt“.",
+      "Sie wirken inspirierend auf andere und können Sinn stiften.",
+      "Sie können klare, oft sehr langfristige Zielvorstellungen entwickeln.",
+      "Ihr eigenes Tun und Lassen wird geprägt von Ihren Idealen und festen Wertvorstellungen.",
       "Sie mögen schnelle Entscheidungen.",
-      "Ihre Offenheit und Neugierde zeichnet Sie aus. nach Alternativen.",
-      "Sie sehen die Notwendigkeit für Veränderungen und suchen generell",
-      "Flexibilität und Risikobereitschaft sind bei Ihnen besonders ausgeprägt. Wesentliche.",
-      "Sie sind lösungsorientiert und konzentrieren sich ehrgeizig auf das",
-      "Sie sind belastbar und besitzen eine hohe Leistungsfähigkeit."
+      "Sie sehen die Notwendigkeit für Veränderungen und suchen generell nach Alternativen.",
+      "Sie sind lösungsorientiert und konzentrieren sich ehrgeizig auf das Wesentliche."
     ],
     "schwaechen": [
-      "Sie neigen zu Übereifer. Loyalität gefangen.",
-      "Manchmal sind Sie in Ihrer eigenen",
+      "Sie neigen zu Übereifer.",
       "Ihre intuitive Auffassungsgabe hilft Ihnen, schnell Zusammenhänge zu erkennen, verleitet jedoch auch dazu, Details zu übersehen.",
-      "Sie laufen dann Gefahr, Ihre eigenen Werte, um der Harmonie willen, zu vernachlässigen.",
       "Dabei laufen Sie Gefahr, aufgrund unzureichender Informationen falsche Schlüsse zu ziehen und Ihr Ziel aus den Augen zu verlieren.",
-      "Dabei fehlt Ihnen das Vertrauen in die eigenen Stärken, wie Empathie, Kooperationsfähigkeit, Selbstdarstellung und hohe Leistungsfähigkeit.",
       "Da Sie selbst von idealen und festen Wertvorstellungen geprägt sind, eigen Sie dazu, die Bedeutung und Umsetzung von Werten zu idealisieren.",
+      "Manchmal sind Sie in Ihrer eigenen Loyalität gefangen.",
+      "Sie laufen dann Gefahr, Ihre eigenen Werte, um der Harmonie willen, zu vernachlässigen.",
+      "Dabei fehlt Ihnen das Vertrauen in die eigenen Stärken, wie Empathie, Kooperationsfähigkeit, Selbstdarstellung und hohe Leistungsfähigkeit.",
       "Sie neigen dazu, Problemen umschiffen zu wollen und unangenehmes auszublenden."
     ],
     "motivation": [
       "Ihre Begeisterung und Motivation kommt häufig bereits aus der eigenen positiven Grundeinstellung.",
-      "Dabei probieren Sie auch gern mal eine „verrückte Idee“ aus.",
       "Sie lieben es, sich neuen Dingen, Situationen und Möglichkeiten zuzuwenden.",
-      "Sie interessieren sich für Theorien und philosophieren gern einmal über Visionen und das, was noch kommt.",
       "Inspirierende Anreize und erfolgsversprechende Aussichten beflügeln Sie.",
-      "Die Möglichkeit zur Selbstverwirklichung motiviert Sie.",
-      "Grundvoraussetzung ist dabei für Sie eine mit gegenseitigem Respekt verbundene Loyalität. Menschen.",
-      "Sie fühlen sich wohl in einer kooperativen, offenen Arbeitsumgebung mit interessanten",
+      "Grundvoraussetzung ist dabei für Sie eine mit gegenseitigem Respekt verbundene Loyalität.",
       "Sie schätzen Optimismus und positive Herausforderungen, die mit einem großen Ziel verbunden sind.",
-      "Sie mögen Dynamik, raschen Wechsel, Veränderbarkeit, Flexibilität und Spontaneität des Umfeldes.",
-      "Für Sie ist es wichtig, Spaß zu haben und dennoch das Geplante mit hoher Effizienz erledigt zu sehen."
+      "Für Sie ist es wichtig, Spaß zu haben und dennoch das Geplante mit hoher Effizienz erledigt zu sehen.",
+      "Dabei probieren Sie auch gern mal eine „verrückte Idee“ aus.",
+      "Sie interessieren sich für Theorien und philosophieren gern einmal über Visionen und das, was noch kommt.",
+      "Die Möglichkeit zur Selbstverwirklichung motiviert Sie.",
+      "Sie fühlen sich wohl in einer kooperativen, offenen Arbeitsumgebung mit interessanten Menschen.",
+      "Sie mögen Dynamik, raschen Wechsel, Veränderbarkeit, Flexibilität und Spontaneität des Umfeldes."
     ],
     "demotivation": [
       "Enge Vorschriften und Regeln schätzen Sie wenig.",
-      "Sie mögen keine Details und Langeweile.",
       "Zeigt man Ihnen Grenzen auf, reagieren Sie sensibel und sehr empfindlich.",
-      "Arbeiten, bei denen man sehr genau sein muss, bereiten Ihnen wenig Freude.",
       "Probleme und unangenehme Gedanken blenden Sie lieber aus.",
+      "Sie werden ungeduldig, wenn etwas zu lange dauert.",
+      "Sie mögen keine Details und Langeweile.",
+      "Arbeiten, bei denen man sehr genau sein muss, bereiten Ihnen wenig Freude.",
       "Chaotische Zustände verärgern Sie.",
-      "Sie werden ungeduldig, wenn etwas zu lange dauert. als demotivierend.",
-      "Auch Gleichgültigkeit und ein fehlendes Lob für Ihr Engagement empfinden Sie"
+      "Auch Gleichgültigkeit und ein fehlendes Lob für Ihr Engagement empfinden Sie als demotivierend."
     ],
     "konflikt_positiv": [
-      "Sie sind in kritischen Situationen sehr kreativ und finden schnelle Lösungen. Wertvorstellungen zu vereinen.",
-      "In Konfliktsituationen versuchen Sie, Ihr Handeln mit den eigenen Ihr Handeln in Notfällen ist schnell, unkonventionell und unbürokratisch.",
+      "Sie sind in kritischen Situationen sehr kreativ und finden schnelle Lösungen.",
       "Bei der Problemlösung gelingt es Ihnen, • komplexe Zusammenhänge zu erkennen und einfach darstellen zu können.",
-      "Sie fördern gewünschtes positives Verhalten, sehen die Chancen, statt",
-      "Sie können gut auf die Bedürfnisse anderer reagieren. Fehler direkt anzusprechen.",
-      "Sie besitzen eine Bereitschaft, über eigene Schwächen nachzudenken und an diesen zu arbeiten.",
-      "Sie sind sensibel und können Entwicklungen (z.B. Konflikte) schnell erkennen."
+      "Sie können gut auf die Bedürfnisse • anderer reagieren.",
+      "Sie sind sensibel und können Entwicklungen (z.B. Konflikte) schnell erkennen.",
+      "In Konfliktsituationen versuchen Sie, Ihr Handeln mit den eigenen Wertvorstellungen zu vereinen. Ihr Handeln in Notfällen ist schnell, unkonventionell und unbürokratisch. Sie fördern gewünschtes positives Verhalten, sehen die Chancen, statt Fehler direkt anzusprechen.",
+      "Sie besitzen eine Bereitschaft, über eigene Schwächen nachzudenken und an diesen zu arbeiten."
     ],
     "konflikt_negativ": [
-      "Wenn es Ihnen nicht gut geht, sind Sie unausgeglichen und haben eine „dünne Haut“. Unterordnung und Überanpassung.",
-      "In Konfliktsituationen neigen Sie zu empfindsamen Reaktionen, zu",
-      "Zeigt man Ihnen Grenzen auf, reagieren Sie sensibel. unkontrolliertem Handeln.",
-      "Dabei haben Sie mitunter eine Neigung zu emotionalem, impulsivem und"
+      "Wenn es Ihnen nicht gut geht, sind Sie unausgeglichen und haben eine „dünne Haut“.",
+      "Zeigt man Ihnen Grenzen auf, reagieren Sie sensibel.",
+      "In Konfliktsituationen neigen Sie zu empfindsamen Reaktionen, zu Unterordnung und Überanpassung.",
+      "Dabei haben Sie mitunter eine Neigung zu emotionalem, impulsivem und unkontrolliertem Handeln."
     ],
     "rolle_im_team": [
       "Sie führen und arbeiten gern im Team und agieren gern als Mentor.",
-      "Sie sind ein Optimist und Enthusiast.",
       "Sie verleihen einer Gemeinschaft oft Charme und Ausstrahlung.",
-      "Sie fördern sowohl die Entwicklung, als auch das Werteverständnis anderer.",
-      "Oft sind Menschen Ihres Typs Vertrauenspersonen; schenken Anerkennung, Aufmerksamkeit und Wertschätzung.",
-      "In der Arbeit im Team sind Sie ausdauernd, gewissenhaft und loyal und erwarten von anderen dasselbe.",
-      "Bestimmendes oder vereinnahmendes Verhalten kann dann ein Zeichen des Aufbegehrens sein, z.B. bei fehlendem Selbstvertrauen oder bei Entscheidungen, die durch andere gefällt werden.",
-      "Kritik nehmen Sie mitunter zu persönlich."
+      "Oft sind Menschen Ihres Typs • Vertrauenspersonen; schenken Anerkennung, Aufmerksamkeit und Wertschätzung.",
+      "Bestimmendes oder vereinnahmendes • Verhalten kann dann ein Zeichen des Aufbegehrens sein, z.B. bei fehlendem Selbstvertrauen oder bei Entscheidungen, die durch andere gefällt werden.",
+      "Sie sind ein Optimist und Enthusiast.",
+      "Sie fördern sowohl die Entwicklung, als auch das Werteverständnis anderer. In der Arbeit im Team sind Sie ausdauernd, gewissenhaft und loyal und erwarten von anderen dasselbe. Kritik nehmen Sie mitunter zu persönlich."
     ],
     "talente_organisation": [
       "Sie haben ein hohes Verantwortungsbewusstsein.",
-      "Sie streben nach Win-win-Situationen.",
       "Sie fördern Kooperation – Teamgeist ist für Sie elementar.",
-      "Sie wollen ganzheitliche Lösungen.",
       "Sie können unterschiedliche Charaktere zusammenzuführen und zwischen ihnen vermitteln.",
-      "Sie sehen die Notwendigkeit für Veränderungen und suchen generell nach Alternativen.",
       "Sie zeichnen neben Ihrer Menschenbezogenheit Ihre Kommunikationsstärke und Ihre planerischen Fähigkeiten aus.",
+      "Sie handeln lösungsorientiert.",
+      "Sie streben nach Win-win-Situationen.",
+      "Sie wollen ganzheitliche Lösungen.",
+      "Sie sehen die Notwendigkeit für Veränderungen und suchen generell nach Alternativen.",
       "Ihre Position beziehen Sie konsequent.",
-      "Sie handeln lösungsorientiert. ziehen diese durch.",
-      "Sie treffen gute Entscheidungen und"
+      "Sie treffen gute Entscheidungen und ziehen diese durch."
     ],
     "idealer_chef": [
       "Ihr idealer Chef liefert Ihnen stets neue Anreize.",
-      "Ihr idealer Chef unterstützt Sie bei der Priorisierung und Zielfokussierung.",
       "Er gibt Ihnen Freiheit, Freiraum und Selbstverantwortung.",
-      "Er gibt Ihnen Vertrauen, die richtige Methode ausgewählt zu haben.",
-      "Ihr idealer Chef sucht bei Ihnen das fachkundige und persönliche Gespräch auf Augenhöhe.",
-      "Gleichzeitig fördert er Ihre Intuition und Kreativität und lobt Sie für Ihr Engagement.",
-      "Authentisches Verhalten Ihres Vorgesetzten ist für Sie ein wichtiges Kriterium, um ihn als Führungsperson zu akzeptieren."
+      "Ihr idealer Chef sucht bei Ihnen das • fachkundige und persönliche Gespräch auf Augenhöhe.",
+      "Authentisches Verhalten Ihres Vorgesetzten ist für Sie ein wichtiges Kriterium, um ihn als Führungsperson zu akzeptieren.",
+      "Ihr idealer Chef unterstützt Sie bei der Priorisierung und Zielfokussierung.",
+      "Er gibt Ihnen Vertrauen, die richtige Methode ausgewählt zu haben. Gleichzeitig fördert er Ihre Intuition und Kreativität und lobt Sie für Ihr Engagement."
     ],
     "verhalten_als_chef": [
       "Als Chef agieren Sie ehrlich, direkt, gerecht, ehrgeizig und diszipliniert.",
-      "Dabei gehen Sie Konflikten lieber aus dem Weg.",
-      "Sie führen am liebsten durch persönlichen Enthusiasmus. Zielen haben.",
-      "Das sollte nicht davor täuschen, dass Sie feste Vorstellungen von Abläufen und",
-      "Sie ermutigen Ihre Mitarbeiter, das Beste zu geben. eingefahren reagieren.",
-      "Wollen Sie andere überzeugen, können Sie mitunter hartnäckig, stur und",
+      "Sie führen am liebsten durch persönlichen Enthusiasmus.",
+      "Sie ermutigen Ihre Mitarbeiter, das Beste zu geben.",
       "Ihren Mitarbeitern begegnen Sie auf Augenhöhe und mögen den partnerschaftlichen, kooperativen, selbstverantwortlichen, helfenden Führungsstil.",
+      "Dabei gehen Sie Konflikten lieber aus dem Weg.",
+      "Das sollte nicht davor täuschen, dass Sie feste Vorstellungen von Abläufen und Zielen haben.",
+      "Wollen Sie andere überzeugen, können Sie mitunter hartnäckig, stur und eingefahren reagieren.",
       "Sie besitzen und fordern Loyalität."
     ],
     "kommunikation_sollten": [
       "Sie benötigen wenig Details, um das Grundsätzliche zu verstehen, da Sie die intuitive Umsetzung mögen.",
-      "In wichtige Diskussionen und bei bedeutenden Entscheidungen möchten Sie mit eingebunden werden.",
       "Wenn Sie selber erzählen, neigen Sie jedoch dazu, Ihre Erlebnisse oder Ideen im Gespräch auszuschmücken.",
-      "Sie bevorzugen die direkte Auseinandersetzung in Rede oder Gespräch.",
       "Sie arbeiten gern mit Symbolen und Verallgemeinerungen, sprich mit abstrakten Orientierungen. Theorien liegen Ihnen mitunter mehr als die konkreten Details.",
-      "Ihr Gegenüber sollte Ihnen einen authentischen und verlässlichen Ausdruck von Wertschätzung entgegenbringen.",
       "Sie mögen die Auseinandersetzungen mit interessanten und kompetenten Gesprächspartnern. Darüber erfahren Sie mehr über sich selbst.",
-      "Am liebsten philosophieren Sie über Zukünftiges und Visionen.",
-      "Das Gespräch hilft Ihnen, auf gute Ideen zu kommen."
+      "Das Gespräch hilft Ihnen, auf gute Ideen zu kommen.",
+      "In wichtige Diskussionen und bei bedeutenden Entscheidungen möchten Sie mit eingebunden werden.",
+      "Sie bevorzugen die direkte Auseinandersetzung in Rede oder Gespräch.",
+      "Ihr Gegenüber sollte Ihnen einen authentischen und verlässlichen Ausdruck von Wertschätzung entgegenbringen.",
+      "Am liebsten philosophieren Sie über Zukünftiges und Visionen."
     ],
     "kommunikation_vermeiden": [
       "Ihr Gegenüber sollte im Gespräch nicht zu sehr ausschweifen; das macht Sie ungeduldig.",
-      "Sie reagieren sensibel auf Gleichgültigkeit.",
       "Zu viele Details langweilen Sie.",
-      "Harte, direkte Kritik schätzen Sie wenig.",
-      "Auch haben Sie wenig Freude daran, vergangene Fehler zu analysieren."
+      "Auch haben Sie wenig Freude daran, vergangene Fehler zu analysieren.",
+      "Sie reagieren sensibel auf Gleichgültigkeit.",
+      "Harte, direkte Kritik schätzen Sie wenig."
     ],
     "lernen": [
       "Um sich für ein Thema zu begeistern, brauchen Sie interessante, dynamische und wechselnde Präsentationen, die persönlich berühren und anregen, bevor der Lernstoff vertieft wird.",
-      "Am besten lernen Sie an Modellen Prototypen und Mustern, wo Sie das Gelernte möglichst kreativ und innovativ austesten können.",
       "Besonders motivierend ist für Sie ein emotionaler Bezug zum Thema oder zum Lehrer.",
-      "Sie lernen gern vieles gleichzeitig und haben verschiedene Lernoptionen. Hilfreich ist es für Sie, sich nicht zu viel vorzunehmen, sondern lieber kleinere",
-      "Sie beschäftigen sich gern mit Theorien • und lesen gern Lernpakete häufiger zu wiederholen."
+      "Sie beschäftigen sich gern mit Theorien und lesen gern",
+      "Am besten lernen Sie an Modellen Prototypen und Mustern, wo Sie das Gelernte möglichst kreativ und innovativ austesten können.",
+      "Sie lernen gern vieles gleichzeitig und haben verschiedene Lernoptionen.",
+      "Hilfreich ist es für Sie, sich nicht zu viel vorzunehmen, sondern lieber kleinere Lernpakete häufiger zu wiederholen."
     ],
     "stress": [
       "Sie neigen dazu, Probleme zu verdrängen und zu verschweigen. Sie reden nicht über sie, obwohl Sie es müssten.",
-      "Mitunter versuchen Sie, sich aus dem Problem “herauszudenken”. Dabei kann es aber passieren, dass Sie sich in logischen Fehlschlüssen verstricken.",
       "Fehler suchen Sie zuerst bei sich selbst und können dabei härter und selbstkritischer vorgehen, als es notwendig wäre.",
-      "Unter Stress neigen Sie dazu, sich schnell verletzt und wenig wertgeschätzt zu fühlen.",
-      "Ihr Verhalten anderen Gegenüber kann rigide werden."
+      "Ihr Verhalten anderen Gegenüber kann rigide werden.",
+      "Mitunter versuchen Sie, sich aus dem Problem “herauszudenken”. Dabei kann es aber passieren, dass Sie sich in logischen Fehlschlüssen verstricken.",
+      "Unter Stress neigen Sie dazu, sich schnell verletzt und wenig wertgeschätzt zu fühlen."
     ],
     "rollen_berufe": [
       "Für Menschen Ihres Typs eignen sich Funktionen, bei denen sich die Aufgaben mit Ihrem Interesse am Zwischenmenschlichen vereinen lassen.",
-      "Aufgrund Ihrer Kommunikationsstärke und Ihrer sozial-integrativen Art fördern Sie Kooperationen und sind oft ein guter Vermittler.",
-      "Sie mögen Tätigkeiten, bei denen Sie mit anderen Menschen zusammentreffen und Situationen, in denen es auf Zusammenarbeit ankommt. Coaching.",
-      "Sie schätzen Berufe, in denen Sie Ihre persönlichen Werte und kommuni- kativen Fähigkeiten einbringen können, wie zum Beispiel in der Lehre, Beratung, Werbung, im Verkauf, PR-Arbeit und im",
+      "Sie mögen Tätigkeiten, bei denen Sie mit anderen Menschen zusammentreffen und Situationen, in denen es auf Zusammenarbeit ankommt.",
       "Überhaupt mögen Sie Teamarbeit und legen Wert auf Kooperation mit anderen. Dann laufen Sie zur Hochform auf.",
-      "Inhaltlich liegen Ihnen kreative Herausforderungen und die Entwicklung neuer Konzepte.",
-      "Eine mögliche Perspektive ist für Sie eine Führungsrolle, wobei Ihnen Partizipation und die Teamentwicklung sehr wichtig sind. Sie haben auch unternehmerische Qualitäten, besonders, wenn Sie sich auf ein kompetentes Team verlassen können."
+      "Eine mögliche Perspektive ist für Sie eine Führungsrolle, wobei Ihnen Partizipation und die Teamentwicklung sehr wichtig sind. Sie haben auch unternehmerische Qualitäten, besonders, wenn Sie sich auf ein kompetentes Team verlassen können.",
+      "Aufgrund Ihrer Kommunikationsstärke und Ihrer sozial-integrativen Art fördern Sie Kooperationen und sind oft ein guter Vermittler.",
+      "Sie schätzen Berufe, in denen Sie Ihre persönlichen Werte und kommunikativen Fähigkeiten einbringen können, wie zum Beispiel in der Lehre, Beratung, Werbung, im Verkauf, PR-Arbeit und im Coaching.",
+      "Inhaltlich liegen Ihnen kreative Herausforderungen und die Entwicklung neuer Konzepte."
     ],
     "entwicklungspotential": [
       "Wenn Sie spüren, dass es z.B. eine bessere Methode geben könnte, gehen Sie Ihrer Intuition nach und versuchen Sie diese durch Informationen und objektive Beurteilungskriterien zu prüfen.",
+      "Es kann für Sie hilfreich sein, sich ein objektiveres Bild von Menschen und Situationen zu verschaffen und Ihr loyales Verhalten kritisch zu überprüfen.",
+      "Versuchen Sie, die positiven Aspekte von Konflikten zu erkennen und Konflikte produktiv zu bewältigen.",
+      "Glauben Sie an sich und Ihre Intuition. Seien Sie sich selber treu und versuchen Sie, es nicht Allen recht machen zu wollen. Wenn Sie gleichzeitig lernen, Feedback als hilfreiche Rückmeldung eines anderen zu akzeptieren, ohne sich sogleich zu rechtfertigen, können Sie die für Ihre Entwicklung wichtigen Aspekte darin wahrnehmen.",
       "Probieren Sie, an der Sache festzuhalten und sich durchzubeißen, um eine evtl. verlorene Freude an der Sache wiederzuerlangen.",
-      "Es kann für Sie hilfreich sein, sich ein objektiveres Bild von Menschen und Situationen zu verschaffen und Ihr loyales Verhalten kritisch zu überprüfen. nebeneinander zu verfolgen.",
-      "Nehmen Sie sich ein konkretes Projekt vor und bringen Sie dieses selbst zu Ende. Arbeiten Sie Ihre Ziele nacheinander ab, anstatt sie",
-      "Versuchen Sie, die positiven Aspekte von Konflikten zu erkennen und Konflikte produktiv zu bewältigen. Schlüsselwort.",
-      "Wenn Sie Ihre Zufriedenheit, Ihr Selbstwertgefühl und Wohlbefinden steigern wollen, ist Disziplin für Sie das",
-      "Glauben Sie an sich und Ihre Intuition. Seien Sie sich selber treu und versuchen Sie, es nicht Allen recht machen zu wollen. Wenn Sie gleichzeitig lernen, Feedback als hilfreiche Rückmeldung eines anderen zu akzeptieren, ohne sich sogleich zu rechtfertigen, können Sie die für Ihre Entwicklung wichtigen Aspekte darin wahrnehmen."
+      "Nehmen Sie sich ein konkretes Projekt vor und bringen Sie dieses selbst zu Ende. Arbeiten Sie Ihre Ziele nacheinander ab, anstatt sie nebeneinander zu verfolgen.",
+      "Wenn Sie Ihre Zufriedenheit, Ihr Selbstwertgefühl und Wohlbefinden steigern wollen, ist Disziplin für Sie das Schlüsselwort."
     ]
   }
 }

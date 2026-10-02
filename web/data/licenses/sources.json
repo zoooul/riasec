@@ -41,6 +41,16 @@
       "notes": "RIASEC profiles per occupation imported via scripts/import_occupations.py into web/data/occupations/occupations.json. Attribution required. O*NET® trademark rules apply."
     },
     {
+      "id": "onet-interest-profiler",
+      "name": "O*NET Interest Profiler",
+      "url": "https://www.onetcenter.org/IP.html",
+      "license": "CC BY-ND 4.0 or O*NET Tools Developer License",
+      "layer": "core",
+      "commercial": "yes",
+      "modules": ["interests"],
+      "notes": "Prefer API / unmodified Mini-IP for product path. Modified pictorial items are separate own constructions."
+    },
+    {
       "id": "esco",
       "name": "ESCO classification",
       "url": "https://esco.ec.europa.eu/de/use-esco/download",

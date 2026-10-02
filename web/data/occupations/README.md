@@ -4,26 +4,33 @@
 
 | File | Role |
 |---|---|
-| `occupations.json` | Primary matching set (~trimmed O*NET RIASEC + DE titles) |
-| `seed.json` | Small domain-bucket fallback / smoke set |
+| `occupations.json` | Primary matching set (seed DE + trimmed O\*NET RIASEC) |
+| `seed.json` | Small DE domain-bucket fallback |
 
 ## Refresh
 
 ```bash
-# From repo root — downloads O*NET Interests + Occupation Data into /tmp/skillster-occ
-python3 scripts/import_occupations.py --limit 350
+# From repo root — uses cached /tmp O*NET text DB or downloads db_31_0_text.zip
+python3 scripts/import_occupations.py
+python3 scripts/import_occupations.py --limit 200
 
-# Optional: enrich missing DE titles via ESCO API (rate-limited)
-python3 scripts/import_occupations.py --limit 350 --fetch-esco
+# --fetch-esco is reserved (prints a note); DE titles for O*NET rows
+# currently use English until ESCO merge is wired.
 ```
 
-Then rebuild:
+Or from `web/`:
 
 ```bash
-cd web && npm run build
+npm run import:occupations
+```
+
+Then:
+
+```bash
+cd web && npm test && npm run build
 ```
 
 ## Licenses
 
-- **O*NET® Database** — CC BY 4.0 (attribution required). O*NET® is a trademark of the U.S. Department of Labor.
-- **ESCO** — European Commission reuse decision 2011/833/EU. Attribution: This service uses the ESCO classification of the European Commission.
+- **O\*NET® Database** — CC BY 4.0 (attribution required). O\*NET® is a trademark of the U.S. Department of Labor.
+- **ESCO** — planned for DE titles; EU reuse decision 2011/833/EU.

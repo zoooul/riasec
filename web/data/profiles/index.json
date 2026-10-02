@@ -6,112 +6,128 @@
       "role": "Lehrer",
       "file": "enfj.json",
       "sectionCount": 17,
-      "bulletCount": 132
+      "bulletCount": 129,
+      "mashScore": 60
     },
     {
       "code": "ENFP",
       "role": "Visionär",
       "file": "enfp.json",
       "sectionCount": 16,
-      "bulletCount": 170
+      "bulletCount": 162,
+      "mashScore": 76
     },
     {
       "code": "ENTJ",
       "role": "General",
       "file": "entj.json",
       "sectionCount": 17,
-      "bulletCount": 140
+      "bulletCount": 134,
+      "mashScore": 82
     },
     {
       "code": "ENTP",
       "role": "Erfinder",
       "file": "entp.json",
       "sectionCount": 13,
-      "bulletCount": 132
+      "bulletCount": 124,
+      "mashScore": 82
     },
     {
       "code": "ESFJ",
       "role": "Gastgeber",
       "file": "esfj.json",
       "sectionCount": 16,
-      "bulletCount": 148
+      "bulletCount": 141,
+      "mashScore": 88
     },
     {
       "code": "ESFP",
       "role": "Entertainer",
       "file": "esfp.json",
       "sectionCount": 17,
-      "bulletCount": 141
+      "bulletCount": 137,
+      "mashScore": 93
     },
     {
       "code": "ESTJ",
       "role": "Direktor",
       "file": "estj.json",
       "sectionCount": 17,
-      "bulletCount": 160
+      "bulletCount": 152,
+      "mashScore": 89
     },
     {
       "code": "ESTP",
       "role": "Unternehmer",
       "file": "estp.json",
       "sectionCount": 15,
-      "bulletCount": 163
+      "bulletCount": 156,
+      "mashScore": 103
     },
     {
       "code": "INFJ",
       "role": "Psychologe",
       "file": "infj.json",
       "sectionCount": 15,
-      "bulletCount": 176
+      "bulletCount": 169,
+      "mashScore": 81
     },
     {
       "code": "INFP",
       "role": "Träumer",
       "file": "infp.json",
       "sectionCount": 17,
-      "bulletCount": 139
+      "bulletCount": 136,
+      "mashScore": 72
     },
     {
       "code": "INTJ",
       "role": "Forscher",
       "file": "intj.json",
       "sectionCount": 17,
-      "bulletCount": 150
+      "bulletCount": 147,
+      "mashScore": 82
     },
     {
       "code": "INTP",
       "role": "Philosoph",
       "file": "intp.json",
       "sectionCount": 17,
-      "bulletCount": 147
+      "bulletCount": 146,
+      "mashScore": 75
     },
     {
       "code": "ISFJ",
       "role": "Versorger",
       "file": "isfj.json",
       "sectionCount": 17,
-      "bulletCount": 148
+      "bulletCount": 142,
+      "mashScore": 67
     },
     {
       "code": "ISFP",
       "role": "Künstler",
       "file": "isfp.json",
       "sectionCount": 16,
-      "bulletCount": 173
+      "bulletCount": 166,
+      "mashScore": 105
     },
     {
       "code": "ISTJ",
       "role": "Inspektor",
       "file": "istj.json",
       "sectionCount": 16,
-      "bulletCount": 128
+      "bulletCount": 126,
+      "mashScore": 63
     },
     {
       "code": "ISTP",
       "role": "Mechaniker",
       "file": "istp.json",
       "sectionCount": 17,
-      "bulletCount": 168
+      "bulletCount": 162,
+      "mashScore": 90
     }
   ],
   "generatedBy": "scripts/extract_profiles.py"
