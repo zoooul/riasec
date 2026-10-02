@@ -104,6 +104,8 @@ describe("soft · AssessmentFlow smoke", () => {
     const html = renderToStaticMarkup(<AssessmentFlow items={items} />);
 
     expect(html).toContain("assessment-flow");
+    expect(html).toContain("assessment-rail");
+    expect(html).toContain("split-lg");
     expect(html).toContain("assessment-choice-grid");
     expect(html).toContain("assessment-choice");
     expect(html).toContain("grid-cols-2");

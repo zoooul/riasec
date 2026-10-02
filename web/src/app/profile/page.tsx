@@ -18,15 +18,17 @@ export default function ProfileIndexPage() {
         }
       />
 
-      <div className="mx-auto w-full max-w-4xl px-4 py-8 md:py-10">
-        <h1 className="mb-2 font-[family-name:var(--font-display)] text-3xl text-[var(--ink)] md:text-5xl">
-          16 Profile
-        </h1>
-        <p className="mb-8 max-w-2xl text-[var(--muted)]">
-          Ergebnisbausteine — später gemischt mit deinen Scores und Zwischenprofilen.
-        </p>
+      <div className="page-shell page-shell-wide stack-lg py-8 md:py-10">
+        <div className="stack-sm">
+          <h1 className="display-title text-3xl text-[var(--ink)] md:text-5xl">
+            16 Profile
+          </h1>
+          <p className="max-w-2xl text-[var(--muted)]">
+            Ergebnisbausteine — später gemischt mit deinen Scores und Zwischenprofilen.
+          </p>
+        </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {profiles.map((p) => (
             <Link
               key={p.code}
@@ -34,7 +36,7 @@ export default function ProfileIndexPage() {
               className="glass-panel glass-choice px-5 py-4"
             >
               <div className="text-sm text-[var(--neon-cyan)]">{p.code}</div>
-              <div className="font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
+              <div className="display-title text-2xl text-[var(--ink)]">
                 {p.role}
               </div>
             </Link>

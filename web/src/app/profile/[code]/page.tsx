@@ -32,9 +32,9 @@ export default async function ProfileDetailPage({ params }: Props) {
         }
       />
 
-      <div className="mx-auto w-full max-w-3xl px-4 py-8 md:py-10">
-        <div className="glass-panel glass-panel-strong glass-sheen mb-8 space-y-2 p-6 md:p-8">
-          <h1 className="font-[family-name:var(--font-display)] text-3xl text-[var(--ink)] md:text-5xl">
+      <div className="page-shell stack-lg py-8 md:py-10">
+        <div className="glass-panel glass-panel-strong space-y-2 p-5 md:p-7">
+          <h1 className="display-title text-3xl text-[var(--ink)] md:text-5xl">
             {profile.role}
           </h1>
           <p className="text-[var(--neon-cyan)]">
@@ -45,7 +45,7 @@ export default async function ProfileDetailPage({ params }: Props) {
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="stack">
           {Object.entries(profile.sections).map(([key, bullets]) => (
             <section key={key} className="glass-panel p-4 md:p-5">
               <h2 className="mb-3 text-lg font-semibold text-[var(--ink)]">

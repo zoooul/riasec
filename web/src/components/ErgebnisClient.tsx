@@ -96,7 +96,7 @@ export function ErgebnisClient({
     return (
       <main className="flex flex-1 flex-col">
         <SiteHeader />
-        <div className="mx-auto w-full max-w-3xl px-4 py-16 text-center text-[var(--muted)]">
+        <div className="page-shell py-16 text-center text-[var(--muted)]">
           Ergebnis wird geladen…
         </div>
       </main>
@@ -107,8 +107,8 @@ export function ErgebnisClient({
     return (
       <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
         <SiteHeader />
-        <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 text-center">
-          <h1 className="font-[family-name:var(--font-display)] text-2xl tracking-tight text-[var(--ink)]">
+        <div className="page-shell flex flex-1 flex-col items-center justify-center gap-4 text-center">
+          <h1 className="display-title text-2xl text-[var(--ink)]">
             Noch kein Ergebnis
           </h1>
           <p className="text-[var(--muted)]">
@@ -126,9 +126,9 @@ export function ErgebnisClient({
     return (
       <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
         <SiteHeader />
-        <div className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-4 px-4 text-center">
+        <div className="page-shell flex flex-1 flex-col items-center justify-center gap-4 text-center">
           <Chip className="text-[var(--neon-coral)]">Nur Orientierung</Chip>
-          <h1 className="font-[family-name:var(--font-display)] text-2xl tracking-tight text-[var(--ink)]">
+          <h1 className="display-title text-2xl text-[var(--ink)]">
             Noch nicht fertig
           </h1>
           <p className="text-[var(--muted)]">
@@ -151,13 +151,13 @@ export function ErgebnisClient({
             <Dialog.Portal>
               <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm" />
               <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 text-left outline-none">
-                <Dialog.Title className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">
+                <Dialog.Title className="display-title text-xl text-[var(--ink)]">
                   Antworten wirklich löschen?
                 </Dialog.Title>
                 <Dialog.Description className="text-sm text-[var(--muted)]">
                   Dein Zwischenspeicher wird geleert.
                 </Dialog.Description>
-                <div className="flex flex-wrap gap-2">
+                <div className="actions-row">
                   <Button
                     type="button"
                     size="sm"
@@ -180,7 +180,7 @@ export function ErgebnisClient({
           </Dialog.Root>
           {(result.exclusions?.length ?? 0) > 0 ? (
             <div className="glass-panel w-full space-y-2 p-4 text-left">
-              <h2 className="font-[family-name:var(--font-display)] text-base text-[var(--ink)]">
+              <h2 className="display-title text-base text-[var(--ink)]">
                 Was wir nicht messen
               </h2>
               <ul className="space-y-1 text-sm text-[var(--muted)]">
@@ -270,13 +270,13 @@ export function ErgebnisClient({
             <Dialog.Portal>
               <Dialog.Overlay className="fixed inset-0 z-40 bg-black/55 backdrop-blur-sm no-print" />
               <Dialog.Content className="glass-panel glass-panel-strong fixed left-1/2 top-1/2 z-50 w-[min(92vw,24rem)] -translate-x-1/2 -translate-y-1/2 space-y-4 p-5 outline-none no-print">
-                <Dialog.Title className="font-[family-name:var(--font-display)] text-xl text-[var(--ink)]">
+                <Dialog.Title className="display-title text-xl text-[var(--ink)]">
                   Test neu starten?
                 </Dialog.Title>
                 <Dialog.Description className="text-sm text-[var(--muted)]">
                   Dein aktuelles Ergebnis wird aus dem Zwischenspeicher gelöscht.
                 </Dialog.Description>
-                <div className="flex flex-wrap gap-2">
+                <div className="actions-row">
                   <Button asChild size="sm">
                     <Link href="/assessment" onClick={() => clearAnswers()}>
                       Ja, neu starten
@@ -295,14 +295,14 @@ export function ErgebnisClient({
       />
 
       <motion.div
-        className="print-root mx-auto w-full max-w-3xl space-y-4 px-4 py-6 md:space-y-5 md:py-10"
+        className="print-root page-shell stack-lg py-6 md:py-10"
         initial={reduceMotion ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
         <section
           id="zusammenfassung"
-          className="glass-panel glass-panel-strong glass-sheen space-y-4 p-6 md:p-8"
+          className="glass-panel glass-panel-strong space-y-4 p-5 md:p-7"
         >
           <Chip className={chip.className}>{chip.text}</Chip>
           <h1 className="display-title text-3xl text-[var(--ink)] md:text-[2.75rem]">
@@ -318,7 +318,7 @@ export function ErgebnisClient({
             <p className="text-sm text-[var(--muted)]">{confidenceNote}</p>
           ) : null}
 
-          <div className="flex flex-wrap gap-2 pt-1 no-print">
+          <div className="actions-row pt-1 no-print">
             <Button
               type="button"
               size="sm"
@@ -352,7 +352,7 @@ export function ErgebnisClient({
           ) : null}
         </section>
 
-        <section id="so-arbeitest-du" className="space-y-3 px-1 py-2 md:px-2">
+        <section id="so-arbeitest-du" className="stack-sm px-1 py-1 md:px-2">
           <h2 className="display-title text-xl text-[var(--ink)] md:text-2xl">
             1. So arbeitest du
           </h2>
@@ -365,7 +365,7 @@ export function ErgebnisClient({
           </ul>
         </section>
 
-        <section id="was-dich-anzieht" className="space-y-3 px-1 py-2 md:px-2">
+        <section id="was-dich-anzieht" className="stack-sm px-1 py-1 md:px-2">
           <h2 className="display-title text-xl text-[var(--ink)] md:text-2xl">
             2. Was dich anzieht
           </h2>
@@ -375,7 +375,7 @@ export function ErgebnisClient({
             ))}
           </ul>
           {jobFields.length ? (
-            <div className="space-y-2 pt-2">
+            <div className="stack-sm pt-2">
               <p className="meta-label normal-case tracking-[0.03em]">
                 {result.qualityLabel === "orientierung"
                   ? "Erste Berufsideen (nur Orientierung)"
@@ -395,7 +395,7 @@ export function ErgebnisClient({
           ) : null}
         </section>
 
-        <section id="tipps" className="space-y-3 px-1 py-2 md:px-2">
+        <section id="tipps" className="stack-sm px-1 py-1 md:px-2">
           <h2 className="display-title text-xl text-[var(--ink)] md:text-2xl">
             3. Worauf du achten kannst
           </h2>
@@ -415,11 +415,11 @@ export function ErgebnisClient({
           <Collapsible.Root
             open={howOpen}
             onOpenChange={setHowOpen}
-            className="space-y-3 no-print"
+            className="stack-sm no-print"
           >
             <div className="flex flex-wrap items-end justify-between gap-2">
               <div>
-                <h2 className="font-[family-name:var(--font-display)] text-xl tracking-tight text-[var(--ink)]">
+                <h2 className="display-title text-xl text-[var(--ink)]">
                   Mehr aus dem Profil
                 </h2>
                 <p className="mt-1 text-sm text-[var(--muted)]">
@@ -444,7 +444,7 @@ export function ErgebnisClient({
                 </Chip>
               </Collapsible.Trigger>
             </div>
-            <Collapsible.Content className="space-y-3 data-[state=open]:animate-rise">
+            <Collapsible.Content className="stack-sm data-[state=open]:animate-rise">
               {result.howBullets.map((block) => (
                 <div
                   key={block.title}
@@ -480,7 +480,7 @@ export function ErgebnisClient({
 
         {(result.exclusions?.length ?? 0) > 0 ? (
           <section className="glass-panel space-y-2 p-4 md:p-5">
-            <h2 className="font-[family-name:var(--font-display)] text-lg tracking-tight text-[var(--ink)]">
+            <h2 className="display-title text-lg text-[var(--ink)]">
               Was wir nicht messen
             </h2>
             <ul className="grid gap-1 text-sm text-[var(--muted)] sm:grid-cols-2">
@@ -500,7 +500,7 @@ export function ErgebnisClient({
           <Collapsible.Trigger asChild>
             <button
               type="button"
-              className="flex w-full min-h-11 items-center justify-between gap-3 text-left font-[family-name:var(--font-display)] text-lg tracking-tight text-[var(--ink)]"
+              className="flex w-full min-h-11 items-center justify-between gap-3 text-left display-title text-lg text-[var(--ink)]"
             >
               Details (Codes & Diagramme)
               <ChevronDown
