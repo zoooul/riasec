@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Outfit } from "next/font/google";
+import { Figtree, Fraunces } from "next/font/google";
 import { GlassShell } from "@/components/GlassShell";
 import "./globals.css";
 
 const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
+  axes: ["SOFT", "WONK", "opsz"],
 });
 
-const body = Outfit({
+const body = Figtree({
   variable: "--font-body",
   subsets: ["latin"],
 });
@@ -28,7 +29,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#07101f",
+  themeColor: "#07111c",
 };
 
 export default function RootLayout({
