@@ -19,8 +19,8 @@ export default function HomePage() {
       />
 
       <section className="hero min-h-0 flex-1 bg-transparent">
-        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-8 py-10 pb-8 lg:grid lg:min-h-[calc(100dvh-var(--header-h)-7rem)] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center lg:gap-14 lg:py-14">
-          <div className="stack max-w-xl min-w-0 text-center lg:text-left">
+        <div className="hero-content page-shell page-shell-wide w-full flex-col items-stretch gap-10 py-12 pb-10 lg:grid lg:min-h-[calc(100dvh-var(--header-h)-6rem)] lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:items-center lg:gap-16 lg:py-16 xl:gap-24">
+          <div className="stack min-w-0 text-center lg:max-w-3xl lg:text-left">
             <Chip className="mx-auto w-fit lg:mx-0">Coaching · Orientierung</Chip>
             <p
               className="animate-rise brand-mark text-base-content"
@@ -29,19 +29,19 @@ export default function HomePage() {
               Skill<span className="brand-accent">ster</span>
             </p>
             <h1
-              className="animate-rise max-w-md text-[1.35rem] font-medium leading-snug tracking-tight text-base-content/75 sm:text-2xl md:text-[1.7rem]"
+              className="animate-rise max-w-2xl text-2xl font-medium leading-snug tracking-tight text-base-content/75 sm:text-3xl lg:text-4xl xl:text-5xl"
               style={{ animationDelay: "120ms" }}
             >
               Dein Arbeitsmuster — in Bildern.
             </h1>
             <p
-              className="animate-rise max-w-sm text-base leading-relaxed text-base-content/58"
+              className="animate-rise max-w-xl text-base leading-relaxed text-base-content/58 sm:text-lg"
               style={{ animationDelay: "180ms" }}
             >
               Tippen. Erkennen. Klarheit für den Berufsweg.
             </p>
             <div
-              className="animate-rise mx-auto flex w-full max-w-sm flex-col gap-2 pt-2 lg:mx-0"
+              className="animate-rise mx-auto flex w-full max-w-md flex-col gap-2 pt-2 lg:mx-0"
               style={{ animationDelay: "240ms" }}
             >
               <Button
@@ -63,14 +63,14 @@ export default function HomePage() {
           </div>
 
           <div
-            className="animate-rise mx-auto hidden w-full max-w-md min-w-0 lg:block"
+            className="animate-rise mx-auto hidden w-full min-w-0 lg:block"
             style={{ animationDelay: "100ms" }}
             aria-hidden
           >
             <div className="card overflow-hidden border border-base-300 bg-base-100 shadow-md">
               <figure className="landing-hero-figure aspect-[5/4] bg-gradient-to-br from-primary/12 via-base-100 to-secondary/10">
-                <div className="grid h-full w-full place-items-center p-8">
-                  <div className="stack w-full max-w-[15rem] gap-3">
+                <div className="grid h-full w-full place-items-center p-8 lg:p-12">
+                  <div className="stack w-full max-w-md gap-4">
                     <div className="flex items-center justify-between gap-2">
                       <span className="badge badge-soft badge-primary badge-sm">
                         Station 1
@@ -99,7 +99,7 @@ export default function HomePage() {
 
       <section className="border-t border-base-300 bg-base-100">
         <div className="page-shell page-shell-wide py-12 md:py-16">
-          <div className="mb-8 max-w-xl text-center md:text-left">
+          <div className="mb-8 max-w-2xl text-center md:text-left">
             <h2 className="display-title text-2xl text-base-content md:text-3xl">
               So funktioniert’s
             </h2>

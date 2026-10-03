@@ -79,8 +79,11 @@
 
   --control-h: 2.75rem;
   --header-h: 2.75rem;
-  --page-max: 42rem;
-  --page-max-wide: 64rem;
+  --page-gutter: clamp(1rem, 2.2vw, 2.75rem);
+  /* Reading column for short messages; wide shell fills large monitors. */
+  --page-max: min(46rem, 100%);
+  --page-max-wide: min(96rem, 100%);
+  --page-max-stage: min(112rem, 100%);
 
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-top: env(safe-area-inset-top, 0px);
@@ -164,11 +167,15 @@ body:has(.assessment-viewport) {
   width: 100%;
   max-width: var(--page-max);
   margin-inline: auto;
-  padding-inline: var(--space-4);
+  padding-inline: var(--page-gutter);
 }
 
 .page-shell-wide {
   max-width: var(--page-max-wide);
+}
+
+.page-shell-stage {
+  max-width: var(--page-max-stage);
 }
 
 .stack {
@@ -296,32 +303,21 @@ body:has(.assessment-viewport) {
   gap: var(--space-2);
 }
 
-@media (min-width: 1024px) {
-  .assessment-flow {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space-5);
-  }
-}
-
 .assessment-rail {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-2);
   min-width: 0;
   min-height: 0;
-  /* Keep chrome compact so choice cards dominate the step */
-  max-height: min(38vh, 17rem);
-  overflow: hidden;
+  overflow: visible;
   flex-shrink: 0;
 }
 
 @media (min-width: 1024px) {
   .assessment-rail {
-    gap: var(--space-3);
-    max-height: none;
-    flex: 0 1 38%;
-    overflow: visible;
+    gap: var(--space-4);
+    width: auto;
+    max-width: none;
   }
 }
 
@@ -464,17 +460,20 @@ body:has(.assessment-viewport) {
 
 .assessment-choice-figure {
   margin: 0;
+  display: flex;
   width: 100%;
   min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
 }
 
 .assessment-choice-visual,
 .assessment-choice .visual-card {
   width: 100%;
-  height: auto;
-  /* Image is supporting; text block stays fully visible */
-  max-height: min(22vh, 9.5rem);
-  aspect-ratio: 5 / 3;
+  height: 100%;
+  min-height: 6.5rem;
+  max-height: none;
+  aspect-ratio: auto;
   border-radius: calc(var(--radius-box) - 2px);
   object-fit: contain;
 }
@@ -551,7 +550,9 @@ body:has(.assessment-viewport) {
 .site-header-inner.navbar {
   min-height: var(--header-h);
   height: auto;
+  width: 100%;
   padding-block: 0.35rem;
+  padding-inline: 0;
 }
 
 .site-header-inner .navbar-start,
@@ -561,8 +562,7 @@ body:has(.assessment-viewport) {
 
 @media (max-height: 740px) {
   .assessment-rail {
-    max-height: min(34vh, 15rem);
-    gap: 0.2rem;
+    gap: 0.35rem;
   }
 
   .assessment-meta-card .card-body {
@@ -572,7 +572,7 @@ body:has(.assessment-viewport) {
 
   .assessment-choice-visual,
   .assessment-choice .visual-card {
-    max-height: min(18vh, 7rem);
+    min-height: 4.75rem;
   }
 
   .assessment-help,
@@ -595,7 +595,7 @@ body:has(.assessment-viewport) {
   }
 
   .assessment-rail {
-    max-height: min(30vh, 13rem);
+    gap: 0.25rem;
   }
 
   .assessment-key-hint {
@@ -604,7 +604,7 @@ body:has(.assessment-viewport) {
 
   .assessment-choice-visual,
   .assessment-choice .visual-card {
-    max-height: min(15vh, 5.5rem);
+    min-height: 3.75rem;
   }
 
   .assessment-task-title {
@@ -619,24 +619,29 @@ body:has(.assessment-viewport) {
 
   .assessment-choice-visual,
   .assessment-choice .visual-card {
-    max-height: min(12vh, 4.5rem);
+    min-height: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .assessment-flow {
-    gap: var(--space-6);
+    display: grid;
+    grid-template-columns: minmax(20rem, 30rem) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    align-items: stretch;
+    gap: clamp(1.5rem, 2.5vw, 3rem);
   }
 
   .assessment-rail {
-    flex-shrink: 1;
     justify-content: flex-start;
-    gap: var(--space-3);
+    gap: var(--space-4);
+    max-height: 100%;
+    overflow: auto;
   }
 
   .assessment-meta-card .card-body {
-    gap: 0.55rem;
-    padding: 0.85rem 1.1rem;
+    gap: 0.7rem;
+    padding: 1rem 1.25rem;
   }
 
   .assessment-steps {
@@ -645,17 +650,16 @@ body:has(.assessment-viewport) {
 
   .assessment-choice-grid {
     height: 100%;
-    flex: 1 1 62%;
     min-height: 0;
   }
 
   .assessment-choice-visual,
   .assessment-choice .visual-card {
-    max-height: min(36vh, 14rem);
+    min-height: 10rem;
   }
 
   .assessment-choice-hint {
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
   }
 
   .assessment-help,
@@ -664,11 +668,18 @@ body:has(.assessment-viewport) {
   }
 }
 
-@media (min-width: 1024px) and (min-height: 820px) {
-  .assessment-choice-visual,
-  .assessment-choice .visual-card {
-    max-height: min(42vh, 16.5rem);
+@media (min-width: 1280px) {
+  .assessment-flow {
+    grid-template-columns: minmax(22rem, 34rem) minmax(0, 1fr);
   }
+}
+
+.hero-content.page-shell {
+  max-width: var(--page-max);
+}
+
+.hero-content.page-shell-wide {
+  max-width: var(--page-max-wide);
 }
 
 .touch-target {

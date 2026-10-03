@@ -40,14 +40,17 @@ describe("soft · DaisyUI skillster theme", () => {
     expect(pkg).not.toMatch(/@mantine\//);
   });
 
-  it("keeps classical layout: clamped stimuli, no hero text/media z-fight", () => {
+  it("keeps classical layout: stimuli under the label, no hero text/media z-fight", () => {
     const css = read("app/globals.css");
     const landing = read("app/page.tsx");
     const flow = read("components/AssessmentFlow.tsx");
     const visual = read("components/VisualCard.tsx");
 
     expect(css).toContain("assessment-choice-visual");
-    expect(css).toContain("max-height: min(22vh, 9.5rem)");
+    expect(css).toContain("--page-max-wide: min(96rem, 100%)");
+    expect(css).toContain("--page-max-stage");
+    expect(css).toContain("flex: 1 1 auto");
+    expect(css).toContain("flex: 0 0 auto");
     expect(css).toContain(".assessment-progress");
     expect(css).toContain(".assessment-steps");
     expect(css).toContain(".assessment-progress-row");

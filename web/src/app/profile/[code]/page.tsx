@@ -25,7 +25,7 @@ export default async function ProfileDetailPage({ params }: Props) {
     <main className="flex flex-1 flex-col pb-[max(1.5rem,var(--safe-bottom))]">
       <SiteHeader right={<Chip href="/profile">Alle Profile</Chip>} />
 
-      <div className="page-shell stack-lg py-8 md:py-10">
+      <div className="page-shell page-shell-wide stack-lg py-8 md:py-12">
         <div className="card bg-base-100 border border-base-300 shadow-sm">
           <div className="card-body gap-2 p-5 md:p-7">
             <h1 className="display-title text-3xl text-base-content md:text-5xl">
@@ -40,7 +40,7 @@ export default async function ProfileDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="stack">
+        <div className="grid gap-4 lg:grid-cols-2">
           {Object.entries(profile.sections).map(([key, bullets]) => (
             <section
               key={key}

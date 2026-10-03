@@ -174,7 +174,7 @@ export function AssessmentFlow({ items }: Props) {
   const currentModuleIdx = MODULE_ORDER.indexOf(item.module);
 
   return (
-    <div className="assessment-flow page-shell page-shell-wide mx-auto min-h-0 min-w-0 w-full flex-1 overflow-hidden px-3 pb-[max(0.35rem,var(--safe-bottom))] pt-1 sm:px-4 lg:flex lg:flex-row lg:gap-8 lg:px-6 lg:pt-2">
+    <div className="assessment-flow page-shell page-shell-stage min-h-0 min-w-0 w-full flex-1 overflow-hidden pb-[max(0.5rem,var(--safe-bottom))] pt-3 sm:pt-4">
       <ConfirmDialog
         open={confirmRestart}
         onClose={() => setConfirmRestart(false)}
@@ -335,7 +335,7 @@ export function AssessmentFlow({ items }: Props) {
                   {item.task.title}
                 </p>
               ) : null}
-              <h1 className="display-title text-[clamp(1.05rem,2.4vh,1.7rem)] text-base-content lg:text-[clamp(1.25rem,2.2vh,1.9rem)]">
+              <h1 className="display-title text-[clamp(1.2rem,2.2vw,2.15rem)] text-base-content">
                 {item.prompt}
               </h1>
               {item.helpText ? (
@@ -379,7 +379,7 @@ export function AssessmentFlow({ items }: Props) {
                 isSelected && "solution-card-picked",
               )}
             >
-              <figure className="assessment-choice-figure shrink-0 px-2 pt-2 sm:px-3 sm:pt-3">
+              <figure className="assessment-choice-figure min-h-0 px-3 pt-3 sm:px-4 sm:pt-4 lg:px-5 lg:pt-5">
                 <VisualCard
                   kind={choice.visual.kind}
                   motif={choice.visual.motif}
@@ -387,7 +387,7 @@ export function AssessmentFlow({ items }: Props) {
                   compact
                 />
               </figure>
-              <div className="card-body min-w-0 flex-none gap-1 p-2.5 pt-2 sm:gap-1.5 sm:p-3.5 sm:pt-2.5">
+              <div className="card-body min-w-0 flex-none gap-1.5 p-3 pt-2 sm:gap-2 sm:p-5 sm:pt-3">
                 <div className="flex items-center justify-between gap-1.5">
                   <span className="badge badge-ghost badge-sm solution-path-tag">
                     {pathLabel}
@@ -400,10 +400,10 @@ export function AssessmentFlow({ items }: Props) {
                     <kbd className="kbd kbd-xs">{keyHint.letter}</kbd>
                   </span>
                 </div>
-                <div className="text-[clamp(0.88rem,1.65vh,1.05rem)] font-semibold leading-snug tracking-tight text-base-content">
+                <div className="text-[clamp(1rem,1.3vw,1.45rem)] font-semibold leading-snug tracking-tight text-base-content">
                   {choice.label}
                 </div>
-                <p className="assessment-choice-hint text-[clamp(0.72rem,1.25vh,0.875rem)] leading-snug text-base-content/58">
+                <p className="assessment-choice-hint text-[clamp(0.82rem,1vw,1.05rem)] leading-snug text-base-content/58">
                   {choice.hint}
                 </p>
               </div>

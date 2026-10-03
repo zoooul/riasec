@@ -15,12 +15,12 @@ export function SiteHeader({ right, sticky = true, className }: Props) {
   return (
     <header
       className={cn(
-        "site-header z-20 shrink-0",
+        "site-header z-20 shrink-0 border-b border-base-300/80 bg-base-100/95 backdrop-blur-sm",
         sticky ? "sticky top-0" : "relative",
         className,
       )}
     >
-      <div className="site-header-inner navbar mx-auto w-full max-w-5xl bg-base-100 px-3 shadow-sm sm:px-4">
+      <div className="site-header-inner navbar page-shell page-shell-wide">
         <div className="navbar-start min-h-0">
           <Link
             href="/"
