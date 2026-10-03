@@ -262,7 +262,7 @@ export function ErgebnisClient({
       </ConfirmDialog>
 
       <motion.div
-        className="print-root page-shell stack-lg py-5 md:py-8"
+        className="print-root page-shell page-shell-wide stack-lg py-6 md:py-10"
         initial={reduceMotion ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
@@ -276,7 +276,7 @@ export function ErgebnisClient({
           <h1 className="card-title display-title text-3xl text-base-content md:text-[2.75rem]">
             {plain.roleLabel}
           </h1>
-          <p className="max-w-2xl text-base leading-relaxed text-base-content/80 md:text-lg">
+          <p className="max-w-3xl text-base leading-relaxed text-base-content/80 md:text-lg">
             {plain.oneLine}
           </p>
           <p className="meta-label normal-case tracking-[0.03em] text-base-content/60">
@@ -325,6 +325,7 @@ export function ErgebnisClient({
           </div>
         </section>
 
+        <div className="grid items-start gap-8 xl:grid-cols-2 xl:gap-12">
         <section id="so-arbeitest-du" className="stack-sm px-1 py-1 md:px-2">
           <h2 className="display-title flex items-center gap-2 text-xl text-base-content md:text-2xl">
             <span className="badge badge-primary badge-sm">1</span>
@@ -339,12 +340,30 @@ export function ErgebnisClient({
           </ul>
         </section>
 
+        <section id="tipps" className="stack-sm px-1 py-1 md:px-2">
+          <h2 className="display-title flex items-center gap-2 text-xl text-base-content md:text-2xl">
+            <span className="badge badge-primary badge-sm">3</span>
+            Worauf du achten kannst
+          </h2>
+          <ul className="space-y-2.5 text-sm leading-relaxed text-base-content/80 md:text-base">
+            {plain.tips.map((tip) => (
+              <li key={tip} className="border-l border-base-300 pl-3">
+                {tip}
+              </li>
+            ))}
+          </ul>
+          <p className="text-xs text-base-content/60">
+            Das ist eine Orientierung — keine Diagnose und kein Eignungstest.
+          </p>
+        </section>
+        </div>
+
         <section id="was-dich-anzieht" className="stack-sm px-1 py-1 md:px-2">
           <h2 className="display-title flex items-center gap-2 text-xl text-base-content md:text-2xl">
             <span className="badge badge-primary badge-sm">2</span>
             Was dich anzieht
           </h2>
-          <ul className="space-y-2 text-sm leading-relaxed text-base-content/80 md:text-base">
+          <ul className="grid gap-2 text-sm leading-relaxed text-base-content/80 sm:grid-cols-2 md:text-base">
             {plain.attractiveFields.map((field) => (
               <li key={field}>{field}</li>
             ))}
@@ -375,23 +394,6 @@ export function ErgebnisClient({
               </div>
             </div>
           ) : null}
-        </section>
-
-        <section id="tipps" className="stack-sm px-1 py-1 md:px-2">
-          <h2 className="display-title flex items-center gap-2 text-xl text-base-content md:text-2xl">
-            <span className="badge badge-primary badge-sm">3</span>
-            Worauf du achten kannst
-          </h2>
-          <ul className="space-y-2.5 text-sm leading-relaxed text-base-content/80 md:text-base">
-            {plain.tips.map((tip) => (
-              <li key={tip} className="border-l border-base-300 pl-3">
-                {tip}
-              </li>
-            ))}
-          </ul>
-          <p className="text-xs text-base-content/60">
-            Das ist eine Orientierung — keine Diagnose und kein Eignungstest.
-          </p>
         </section>
 
         {result.howBullets.length > 0 ? (
