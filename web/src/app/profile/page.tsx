@@ -28,7 +28,7 @@ export default function ProfileIndexPage() {
           </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {profiles.map((p) => (
             <Link
               key={p.code}
